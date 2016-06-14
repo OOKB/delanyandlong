@@ -7,7 +7,7 @@ export default {
     pricelist: {
       columns: {
         textile: [ 'id', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
-        trim: [ 'id', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        trim: [ 'id', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
         leather: [
           'id', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
@@ -16,12 +16,18 @@ export default {
       },
       colorColumnValues: [ 'id', 'color' ],
       defaultCategory: 'textile',
-      prefix: [ 'pricelist', 'category' ],
+      prefix: {
+        category: [ 'pricelist', 'category' ],
+        text: [ 'pricelist', 'text' ],
+      },
       printWhenColor: { id: 'colorNumber', color: 'color' },
     },
     schema: {
       id: {
         label: 'Item#',
+      },
+      approxWidth: {
+        label: 'Approx. Width',
       },
       color: {
         label: 'Color',
@@ -49,9 +55,6 @@ export default {
       },
       trim: {
         label: 'Passementerie',
-      },
-      width: {
-        label: 'Approx. Width',
       },
     },
   },

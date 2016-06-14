@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect'
 import { entitySelector } from 'redux-graph'
-import { selectFieldState } from 'redux-field'
+import { selectForm } from 'redux-field'
 import filter from 'lodash/filter'
+import get from 'lodash/get'
 import identity from 'lodash/identity'
 import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
@@ -11,7 +12,7 @@ import map from 'lodash/map'
 export function pricelistInfo(state) {
   return state.db.pricelist
 }
-export function categoryOptions(state) {
+export function getCategoryOptions(state) {
   return state.db.categoryOptions
 }
 export function getSchema(state) {
@@ -23,19 +24,46 @@ export function optionFill(opts, schema) {
     return { ...schema[opt], value: opt }
   })
 }
+export function getFilter(filterType) {
+  return (state) => {
+    const prefix = pricelistInfo(state).prefix[filterType]
+    return get(selectForm(state), prefix, {}).value
+  }
+}
+export const getFilterCategory = getFilter('category')
+export const getFilterText = getFilter('text')
+
+export const activeCategorySelector = createSelector(
+  pricelistInfo,
+  getFilterCategory,
+  (info, filterCategory) => filterCategory || info.defaultCategory
+)
+export const categoryOptionsSelector = createSelector(
+  getCategoryOptions,
+  getSchema,
+  (catOptions, schema) => optionFill(catOptions, schema)
+)
+export const columnsSelector = createSelector(
+  pricelistInfo,
+  getSchema,
+  activeCategorySelector,
+  (info, schema, activeCategory) => optionFill(info.columns[activeCategory], schema)
+)
 // Based on pricelist db info, select activeCategory based on form input. Use default if no value.
 export const pricelistInfoSelector = createSelector(
-  identity,
   pricelistInfo,
-  categoryOptions,
-  getSchema,
-  (state, info, catOptions, schema) => {
-    const activeCategory = selectFieldState(state, info.prefix).value || info.defaultCategory
+  activeCategorySelector,
+  categoryOptionsSelector,
+  columnsSelector,
+  getFilterText,
+  (info, activeCategory, categoryOptions, columns, searchText) => {
+    console.log('pricelistInfoSelector')
     return {
       ...info,
-      columns: optionFill(info.columns[activeCategory], schema),
       activeCategory,
-      categoryOptions: optionFill(catOptions, schema),
+      categoryOptions,
+      columns,
+      searchText,
     }
   }
 )
@@ -49,13 +77,17 @@ export const itemSelector = createSelector(
 
 export const categorySelector = createSelector(
   itemSelector,
-  pricelistInfoSelector,
-  (items, info) => filter(items, { category: info.activeCategory })
+  activeCategorySelector,
+  (items, category) => {
+    console.log(category)
+    return filter(items, { category })
+  }
 )
 
 export const patternColorSelector = createSelector(
   categorySelector,
   items => {
+    console.log('patternColorSelector', items.length)
     let currentPattern = null
     return map(items, item => {
       const isPattern = currentPattern !== item.patternNumber

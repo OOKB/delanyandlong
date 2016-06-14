@@ -1,5 +1,12 @@
 import React, { PropTypes } from 'react'
+import classnames from 'classnames'
 import map from 'lodash/map'
+
+export const cellStyles = {
+  id: {
+    textAlign: 'right',
+  },
+}
 
 function cellValue(item, key, printWhenColor) {
   if (item.isPattern) return item[key]
@@ -8,10 +15,16 @@ function cellValue(item, key, printWhenColor) {
 }
 
 function PricelistRowPattern({ columns, item, printWhenColor }) {
+  const className = classnames({
+    color: !item.isPattern,
+    pattern: item.isPattern,
+  })
   return (
-    <tr>
+    <tr className={className}>
       {map(columns, ({ value }) => (
-        <td key={value}>{cellValue(item, value, printWhenColor)}</td>
+        <td key={value} style={cellStyles[value]}>
+          {cellValue(item, value, printWhenColor)}
+        </td>
       ))}
     </tr>
   )

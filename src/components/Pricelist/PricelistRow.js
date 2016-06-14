@@ -2,11 +2,7 @@ import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 import map from 'lodash/map'
 
-export const cellStyles = {
-  id: {
-    textAlign: 'right',
-  },
-}
+import { cellStyles } from './styles'
 
 function cellValue(item, key, printWhenColor) {
   if (item.isPattern) return item[key]

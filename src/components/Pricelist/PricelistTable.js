@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import map from 'lodash/map'
-import shallowCompare from 'react-addons-shallow-compare'
 import Row from './PricelistRow'
+import Header from './PricelistHeader'
 
 const styles = {
   base: {
@@ -18,13 +18,7 @@ class PricelistTable extends Component {
     const { columns, items, printWhenColor } = this.props
     return (
       <table style={styles.base}>
-        <thead><tr>
-          {map(columns, ({ label, value }) => (
-            <td className={value} key={value}>
-              {label}
-            </td>
-          ))}
-        </tr></thead>
+        <Header columns={columns} />
         <tbody>
           {map(items, item => (
             <Row columns={columns} item={item} key={item.id} printWhenColor={printWhenColor} />

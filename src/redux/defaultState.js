@@ -3,9 +3,18 @@ import entity from './defaultStateEntity'
 
 export default {
   db: {
+    categoryOptions: [
+      { name: 'Textile', value: 'textile' },
+      { name: 'Passementerie', value: 'trim' },
+      { name: 'Leather', value: 'leather' },
+    ],
     pricelist: {
-      columns: [ 'id', 'color', 'price', 'content', 'width', 'repeat' ],
+      columns: [ 'id', 'color', 'price', 'contents', 'approxWidth', 'repeat' ],
+      defaultCategory: 'textile',
+      prefix: [ 'pricelist', 'category' ],
     },
   },
-  entity: keyBy(entity, 'id'),
+  graph: {
+    entity: keyBy(entity, 'id'),
+  },
 }

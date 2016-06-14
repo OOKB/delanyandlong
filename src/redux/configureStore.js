@@ -15,10 +15,10 @@ import {
 const historyCache = createHistoryCache()
 
 // Socket.io linking
-import io from 'socket.io-client'
-import { middleware as createSocketMiddleware } from 'cape-redux-socket'
-const location = process.env.SOCKET_LOC || ''
-const socket = createSocketMiddleware(io(location))
+// import io from 'socket.io-client'
+// import { middleware as createSocketMiddleware } from 'cape-redux-socket'
+// const location = process.env.SOCKET_LOC || ''
+// const socket = createSocketMiddleware(io(location))
 
 import createStore from './createStore'
 // Redux Reducers.
@@ -29,7 +29,7 @@ import defaultState from './defaultState'
 // Define the middeware we want to apply to the store.
 const middleware = [
   historyMiddleware(window.history, historyCache),
-  socket,
+  // socket,
   thunk,
 ]
 

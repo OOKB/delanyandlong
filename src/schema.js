@@ -8,13 +8,16 @@ export default {
   contents: {
     label: 'Content',
   },
-  repeat: {
-    label: ''
+  originCountry: {
+    label: 'Origin Country',
   },
   price: {
     label: 'Net Price',
   },
-  originCountry: {
-    label: 'Origin Country',
+  repeat: {
+    label: 'Approx. Repeat',
+  },
+  width: {
+    label: 'Approx. Width',
   },
 }

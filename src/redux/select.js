@@ -1,9 +1,10 @@
 import { createSelector } from 'reselect'
 import { entitySelector } from 'redux-graph'
 import { selectForm } from 'redux-field'
+import compact from 'lodash/compact'
+import every from 'lodash/every'
 import filter from 'lodash/filter'
 import get from 'lodash/get'
-import identity from 'lodash/identity'
 import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
@@ -56,16 +57,13 @@ export const pricelistInfoSelector = createSelector(
   categoryOptionsSelector,
   columnsSelector,
   getFilterText,
-  (info, activeCategory, categoryOptions, columns, searchText) => {
-    console.log('pricelistInfoSelector')
-    return {
-      ...info,
-      activeCategory,
-      categoryOptions,
-      columns,
-      searchText,
-    }
-  }
+  (info, activeCategory, categoryOptions, columns, searchText) => ({
+    ...info,
+    activeCategory,
+    categoryOptions,
+    columns,
+    searchText,
+  })
 )
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
@@ -78,16 +76,24 @@ export const itemSelector = createSelector(
 export const categorySelector = createSelector(
   itemSelector,
   activeCategorySelector,
-  (items, category) => {
-    console.log(category)
-    return filter(items, { category })
-  }
+  (items, category) => filter(items, { category })
 )
-
-export const patternColorSelector = createSelector(
+export function textSearch(searchValue) {
+  return (item) => {
+    const itemValue = item.color + item.contents
+    return every(compact(searchValue.split(' ')), searchTxt =>
+      itemValue && itemValue.toLowerCase().includes(searchTxt)
+    )
+  }
+}
+export const textSearchSelector = createSelector(
   categorySelector,
+  getFilterText,
+  (items, searchValue) => searchValue && filter(items, textSearch(searchValue)) || items
+)
+export const patternColorSelector = createSelector(
+  textSearchSelector,
   items => {
-    console.log('patternColorSelector', items.length)
     let currentPattern = null
     return map(items, item => {
       const isPattern = currentPattern !== item.patternNumber

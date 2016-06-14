@@ -5,11 +5,11 @@ import { connectField } from 'redux-field'
 function CategoryFilter({ activeCategory, formEvent, options }) {
   return (
     <div className="collection-menu">
-      {map(options, ({ value, name }) => {
+      {map(options, ({ value, label }) => {
         const className = activeCategory === value ? 'active' : ''
         return (
           <button className={className} onClick={formEvent.onChange} value={value} key={value}>
-            {name}
+            {label}
           </button>
         )
       })}

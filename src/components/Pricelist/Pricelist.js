@@ -7,11 +7,12 @@ import { pricelistSelector } from '../../redux/select'
 
 function Pricelist(props) {
   const { info, items } = props
+  const { activeCategory, columns, printWhenColor } = info
   return (
-    <div id="container-pricelist" className={info.activeCategory}>
+    <div id="container-pricelist" className={activeCategory}>
       <h1>pricelist</h1>
       <Search {...info} />
-      <Table columns={info.columns} items={items} />
+      <Table columns={columns} items={items} printWhenColor={printWhenColor} />
     </div>
   )
 }

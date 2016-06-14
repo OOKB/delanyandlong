@@ -1,9 +1,13 @@
 import React, { PropTypes } from 'react'
 
+import CategoryFilter from '../CategoryFilter'
+import Pager from '../Pager'
+
 function PricelistSearch() {
   return (
     <div id="pricelist-header">
-      <span>search</span>
+      <CategoryFilter />
+      <Pager />
     </div>
   )
 }

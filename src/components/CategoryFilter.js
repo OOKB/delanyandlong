@@ -7,7 +7,9 @@ function CategoryFilter({ activeCategory, categories, onClick }) {
       {map(categories, ({ value, name }) => {
         const className = activeCategory === value ? 'active' : ''
         return (
-          <button className={className} onClick={onClick} value={value}>{name}</button>
+          <button className={className} onClick={onClick} value={value} key={value}>
+            {name}
+          </button>
         )
       })}
     </div>

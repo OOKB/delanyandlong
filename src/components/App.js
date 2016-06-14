@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react'
+import Pricelist from './Pricelist/Pricelist'
 
 function App() {
   return (
     <div id="wrapper">
-      <h1>Pricelist</h1>
+      <h1>pricelist</h1>
+      <Pricelist />
     </div>
   )
 }

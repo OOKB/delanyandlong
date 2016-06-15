@@ -9,6 +9,10 @@ import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
 
+import { pageSizes, getPagerInfo } from '../helpers/pager'
+
+const pageSizeOptions = pageSizes()
+
 // Where is our custom pricelist information? Look in defaultState.js or the `db` tree of state.
 export function pricelistInfo(state) {
   return state.db.pricelist
@@ -63,6 +67,7 @@ export const pricelistInfoSelector = createSelector(
     categoryOptions,
     columns,
     searchText,
+    pageSizeOptions,
   })
 )
 export function isValidItem(entity) {

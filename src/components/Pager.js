@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
 import { connectField } from 'redux-field'
+import classnames from 'classnames'
+import Select from './InputSelect'
 
-function Pager({ formEvent, hasLess, hasMore, maxPage, pageIndex }) {
+function Pager(props) {
+  const { formEvent, hasLess, hasMore, maxPage, pageIndex, pageSizeOptions, pgSizePrefix } = props
   const { onChange } = formEvent
   const pageCount = `${pageIndex} / ${maxPage}`
   function prev() {
@@ -12,9 +15,14 @@ function Pager({ formEvent, hasLess, hasMore, maxPage, pageIndex }) {
   }
   return (
     <div id="pager">
-      <button onClick={prev}>Previous</button>
+      <button onClick={prev} className={classnames({ disabled: !hasLess })} disabled={!hasLess}>
+        Previous
+      </button>
+      <Select options={pageSizeOptions} prefix={pgSizePrefix} />
       <div className="pagecount">{pageCount}</div>
-      <button onClick={next}>Next</button>
+      <button onClick={next} className={classnames({ disabled: !hasMore })} disabled={!hasMore}>
+        Next
+      </button>
     </div>
   )
 }
@@ -25,6 +33,8 @@ Pager.propTypes = {
   hasMore: PropTypes.bool.isRequired,
   maxPage: PropTypes.number.isRequired,
   pageIndex: PropTypes.number.isRequired,
+  pageSizeOptions: PropTypes.array.isRequired,
+  pgSizePrefix: PropTypes.array.isRequired,
 }
 
 export default connectField()(Pager)

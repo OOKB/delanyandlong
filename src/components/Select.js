@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
+import isNumber from 'lodash/isNumber'
 import isString from 'lodash/isString'
 import map from 'lodash/map'
 
 function SelectOption({ value, label, active }) {
   return (
-    <option key={value} className={classnames({ active })} value={value}>
+    <option className={classnames({ active })} value={value}>
       {label}
     </option>
   )
@@ -17,7 +18,9 @@ SelectOption.propTypes = {
 }
 
 function opts(arg) {
-  return isString(arg) ? { value: arg, label: arg } : arg
+  if (isString(arg)) return { value: arg, label: arg }
+  if (isNumber(arg)) return { value: arg, label: arg.toString() }
+  return arg
 }
 
 function Select({ options, value, ...props }) {
@@ -26,9 +29,14 @@ function Select({ options, value, ...props }) {
       {...props}
       value={value}
     >
-      {map(options, opt =>
-        <SelectOption {...opts(opt)} active={value === opt.value} key={opt.value} />
-      )}
+      {map(options, opt => {
+        const optionDetails = opts(opt)
+        return (<SelectOption
+          {...optionDetails}
+          active={value === optionDetails.value}
+          key={optionDetails.value}
+        />)
+      })}
     </select>
   )
 }

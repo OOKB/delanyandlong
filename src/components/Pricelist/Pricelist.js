@@ -6,19 +6,20 @@ import Table from './PricelistTable'
 import { pricelistSelector } from '../../redux/select'
 
 function Pricelist(props) {
-  const { info, items } = props
+  const { info, pager } = props
+  const { items, ...pagerInfo } = pager
   const { activeCategory, columns, printWhenColor } = info
   return (
     <div id="container-pricelist" className={activeCategory}>
       <h1>pricelist</h1>
-      <Search {...info} />
+      <Search {...info} pagerInfo={pagerInfo} />
       <Table columns={columns} items={items} printWhenColor={printWhenColor} />
     </div>
   )
 }
 Pricelist.propTypes = {
   info: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
+  pager: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
 }

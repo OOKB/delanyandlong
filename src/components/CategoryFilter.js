@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import merge from 'lodash/merge'
-
 import { connectField } from 'redux-field'
+
 const styles = {
   button: {
     background: 'none',

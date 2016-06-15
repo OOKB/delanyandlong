@@ -9,7 +9,7 @@ import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
 
-import { pageSizes, getPagerInfo } from '../helpers/pager'
+import { defaultPageSize, pageSizes, getPagerInfo } from '../helpers/pager'
 
 const pageSizeOptions = pageSizes()
 
@@ -37,6 +37,8 @@ export function getFilter(filterType) {
 }
 export const getFilterCategory = getFilter('category')
 export const getFilterText = getFilter('text')
+export const getPageSize = getFilter('pgSize')
+export const getPageIndex = getFilter('pgIndex')
 
 export const activeCategorySelector = createSelector(
   pricelistInfo,
@@ -61,12 +63,16 @@ export const pricelistInfoSelector = createSelector(
   categoryOptionsSelector,
   columnsSelector,
   getFilterText,
-  (info, activeCategory, categoryOptions, columns, searchText) => ({
+  getPageIndex,
+  getPageSize,
+  (info, activeCategory, categoryOptions, columns, searchText, pgIndex, pgSize) => ({
     ...info,
     activeCategory,
     categoryOptions,
     columns,
     searchText,
+    pgIndex,
+    pgSize: pgSize || defaultPageSize,
     pageSizeOptions,
   })
 )
@@ -116,7 +122,7 @@ export const pricelistSelector = createSelector(
   patternColorSelector,
   pricelistInfoSelector,
   (items, info) => ({
+    pager: getPagerInfo(items, { page: info.pgIndex, perPage: info.pgSize }),
     info,
-    items,
   })
 )

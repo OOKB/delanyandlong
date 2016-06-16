@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import map from 'lodash/map'
 
 import { itemDetailSelector } from '../redux/select/item'
+import Info from './Info'
 
 function Detail({ item, colors }) {
   return (
     <div id="wrapper">
       <h2>Item Detail</h2>
-      {item.id}
+      <Info item={item} />
       <h3>colors</h3>
       {map(colors, color => <div>{color.id}</div>)}
     </div>

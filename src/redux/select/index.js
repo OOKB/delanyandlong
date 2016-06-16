@@ -79,9 +79,17 @@ export const pricelistInfoSelector = createSelector(
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
+function itemFill(item) {
+  return {
+    ...item,
+    colorNumber: item.id.replace(`${item.patternNumber}-`, ''),
+    link: `/detail/${item.id}`,
+    searchable: (item.color + item.contents).toLowerCase(),
+  }
+}
 export const itemSelector = createSelector(
   entitySelector,
-  entity => orderBy(filter(entity, isValidItem), 'id')
+  entity => map(orderBy(filter(entity, isValidItem), 'id'), itemFill)
 )
 
 export const categorySelector = createSelector(
@@ -90,12 +98,10 @@ export const categorySelector = createSelector(
   (items, category) => filter(items, { category })
 )
 export function textSearch(searchValue) {
-  return (item) => {
-    const itemValue = item.color + item.contents
-    return every(compact(searchValue.split(' ')), searchTxt =>
-      itemValue && itemValue.toLowerCase().includes(searchTxt)
+  return item =>
+    every(compact(searchValue.split(' ')), searchTxt =>
+      item.searchable.includes(searchTxt)
     )
-  }
 }
 export const textSearchSelector = createSelector(
   categorySelector,
@@ -111,7 +117,6 @@ export const patternColorSelector = createSelector(
       currentPattern = item.patternNumber
       return {
         ...item,
-        colorNumber: item.id.replace(`${item.patternNumber}-`, ''),
         isPattern,
       }
     })

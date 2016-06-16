@@ -7,8 +7,7 @@ import { cellStyles } from './styles'
 
 function itemLink(item, key, value) {
   if (key !== 'id') return value
-  const href = `/detail/${item.id}`
-  return <Link href={href}>{value}</Link>
+  return <Link href={item.link}>{value}</Link>
 }
 
 function cellValue(item, key, printWhenColor) {

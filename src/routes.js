@@ -4,6 +4,8 @@ import createRouter from 'location-info'
 
 const { addRoute, locationInfo } = createRouter()
 addRoute('home', '/')
+addRoute('about', '/about')
+addRoute('collection', '/collection')
 addRoute('detail', '/detail/*')
 addRoute('trade', '/trade')
 addRoute('pricelist', '/trade/pricelist(/*)')

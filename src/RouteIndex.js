@@ -1,3 +1,5 @@
+export about from './components/About'
+export collection from './components/Collection'
 export loading from './redux/Loading'
 export home from './components/Home'
 export detail from './components/Detail'

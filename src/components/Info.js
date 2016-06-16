@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-
 function Info({ item, fields }) {
   return (
     <div className="item-information">

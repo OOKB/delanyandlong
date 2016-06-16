@@ -24,6 +24,11 @@ export default {
       },
       printWhenColor: { id: 'colorNumber', color: 'color' },
     },
+    menu: [
+      { id: 'about', href: '/about', label: 'About Us' },
+      { id: 'collection', href: '/collection', label: 'Collection' },
+      { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist' },
+    ],
     schema: {
       id: {
         label: 'Item#',

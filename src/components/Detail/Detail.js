@@ -1,16 +1,9 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import map from 'lodash/map'
-import { Link } from 'redux-history-sync'
 
-import { itemDetailSelector } from '../redux/select/item'
-import Info from './Info'
-
-function colorLink(item, color) {
-  const text = color.id
-  if (item.id === color.id) return <span>{text}</span>
-  return <Link key={color.colorNumber} href={color.link}>{color.id}</Link>
-}
+import { itemDetailSelector } from '../../redux/select/item'
+import Info from '../Info'
+import Related from './Related'
 
 function Detail({ item, colors }) {
   return (
@@ -18,8 +11,7 @@ function Detail({ item, colors }) {
       <h2>Item Detail</h2>
       <Info item={item} />
       <img src={item.img} alt={item.id} />
-      <h3>colors</h3>
-      {map(colors, color => colorLink(item, color))}
+      <Related colors={colors} parent={item} />
     </div>
   )
 }

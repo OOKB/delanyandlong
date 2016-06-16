@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react'
-import Pricelist from './Pricelist/Pricelist'
 
 function App() {
   return (
     <div id="wrapper">
-      <Pricelist />
+      <h1>Not used at the moment?</h1>
     </div>
   )
 }

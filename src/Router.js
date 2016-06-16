@@ -32,7 +32,8 @@ function selectSessionId(state) {
   return state.socket.sessionId
 }
 function socketLoading(state) {
-  return !isString(selectSessionId(state))
+  return false
+  // return !isString(selectSessionId(state))
 }
 function mapStateToProps(state, ownProps) {
   const { route: { isLoading } } = ownProps

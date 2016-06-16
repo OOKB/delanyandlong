@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react'
 import Select from './Select'
 import { connectField } from 'redux-field'
 
-function InputSelect({ form, formEvent, options, schema }) {
+function InputSelect({ form, formEvent, options, schema, value }) {
   return (
     <div>
       <Select
-        value={form.value}
+        value={form.value || value}
         {...formEvent}
         options={options}
       />
@@ -22,6 +22,7 @@ InputSelect.propTypes = {
   formEvent: PropTypes.object.isRequired,
   options: PropTypes.array.isRequired,
   schema: PropTypes.object,
+  value: PropTypes.string,
 }
 InputSelect.defaultProps = {
   value: '', // Because react-select doesn't like the initial value of undefined.

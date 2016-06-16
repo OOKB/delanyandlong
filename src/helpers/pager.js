@@ -8,7 +8,7 @@ export function pageSizes(multiple = defaultPageSize) {
     multiple * 2,
     multiple * 3,
     multiple * 10,
-    { value: 10000, label: 'All' },
+    { value: '10000', label: 'All' },
   ]
 }
 

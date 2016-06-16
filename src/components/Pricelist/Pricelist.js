@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Search from './PricelistSearch'
 import Table from './PricelistTable'
-import { pricelistSelector } from '../../redux/select'
+import { pricelistSelector } from '../../redux/select/index'
 
 function Pricelist(props) {
   const { info, pager } = props

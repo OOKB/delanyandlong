@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import Select from './InputSelect'
 
 function Pager(props) {
-  const { formEvent, hasLess, hasMore, maxPage, pageIndex, pageSizeOptions, pgSizePrefix } = props
+  const { formEvent, hasLess, hasMore, maxPage, pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
+  } = props
   const { onChange } = formEvent
   const pageCount = `${pageIndex} / ${maxPage}`
   function prev() {
@@ -18,7 +19,7 @@ function Pager(props) {
       <button onClick={prev} className={classnames({ disabled: !hasLess })} disabled={!hasLess}>
         Previous
       </button>
-      <Select options={pageSizeOptions} prefix={pgSizePrefix} />
+      <Select options={pageSizeOptions} prefix={pgSizePrefix} value={pgSize.toString()} />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={classnames({ disabled: !hasMore })} disabled={!hasMore}>
         Next
@@ -34,6 +35,7 @@ Pager.propTypes = {
   maxPage: PropTypes.number.isRequired,
   pageIndex: PropTypes.number.isRequired,
   pageSizeOptions: PropTypes.array.isRequired,
+  pgSize: PropTypes.number.isRequired,
   pgSizePrefix: PropTypes.array.isRequired,
 }
 

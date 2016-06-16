@@ -9,7 +9,7 @@ import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
 
-import { defaultPageSize, pageSizes, getPagerInfo } from '../helpers/pager'
+import { defaultPageSize, pageSizes, getPagerInfo } from '../../helpers/pager'
 
 const pageSizeOptions = pageSizes()
 
@@ -72,7 +72,7 @@ export const pricelistInfoSelector = createSelector(
     columns,
     searchText,
     pgIndex,
-    pgSize: pgSize || defaultPageSize,
+    pgSize: pgSize && parseInt(pgSize, 10) || defaultPageSize,
     pageSizeOptions,
   })
 )

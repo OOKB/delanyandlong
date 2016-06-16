@@ -1,13 +1,20 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 import map from 'lodash/map'
+import { Link } from 'redux-history-sync'
 
 import { cellStyles } from './styles'
 
+function itemLink(item, key, value) {
+  if (key !== 'id') return value
+  const href = `/detail/${item.id}`
+  return <Link href={href}>{value}</Link>
+}
+
 function cellValue(item, key, printWhenColor) {
-  if (item.isPattern) return item[key]
+  if (item.isPattern) return itemLink(item, key, item[key])
   const colorKey = printWhenColor[key]
-  return colorKey && item[colorKey] || null
+  return colorKey && itemLink(item, key, item[colorKey]) || null
 }
 
 function PricelistRowPattern({ columns, item, printWhenColor }) {

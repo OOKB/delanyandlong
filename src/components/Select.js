@@ -19,7 +19,7 @@ SelectOption.propTypes = {
 
 function opts(arg) {
   if (isString(arg)) return { value: arg, label: arg }
-  if (isNumber(arg)) return { value: arg, label: arg.toString() }
+  if (isNumber(arg)) return { value: arg.toString(), label: arg.toString() }
   return arg
 }
 

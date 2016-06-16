@@ -5,14 +5,10 @@ import merge from 'lodash/merge'
 import thunk from 'redux-thunk'
 
 import {
-  createHistoryCache,
   getInitState,
   historyMiddleware,
   syncHistoryWithStore,
-  // makeHydratable,
 } from 'redux-history-sync'
-// Create an object with two methods. getKeyStore and saveKeyStore.
-const historyCache = createHistoryCache()
 
 // Socket.io linking
 // import io from 'socket.io-client'
@@ -28,7 +24,7 @@ import defaultState from './defaultState'
 
 // Define the middeware we want to apply to the store.
 const middleware = [
-  historyMiddleware(window.history, historyCache),
+  historyMiddleware(window.history),
   // socket,
   thunk,
 ]
@@ -48,6 +44,6 @@ export default function configureStore(initialState) {
     initState,
     applyMiddleware(...middleware)
   )
-  syncHistoryWithStore(store, window, historyCache)
+  syncHistoryWithStore(store, window)
   return store
 }

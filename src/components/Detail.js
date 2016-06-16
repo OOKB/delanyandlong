@@ -9,7 +9,7 @@ import Info from './Info'
 function colorLink(item, color) {
   const text = color.id
   if (item.id === color.id) return <span>{text}</span>
-  return <Link href={color.link}>{color.id}</Link>
+  return <Link key={color.colorNumber} href={color.link}>{color.id}</Link>
 }
 
 function Detail({ item, colors }) {
@@ -17,6 +17,7 @@ function Detail({ item, colors }) {
     <div id="wrapper">
       <h2>Item Detail</h2>
       <Info item={item} />
+      <img src={item.img} alt={item.id} />
       <h3>colors</h3>
       {map(colors, color => colorLink(item, color))}
     </div>

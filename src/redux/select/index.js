@@ -82,21 +82,24 @@ export const pricelistInfoSelector = createSelector(
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
-function itemFill(item) {
+export function itemFill(item) {
+  const { id, color, contents, patternNumber } = item
+  const colorNumber = id.replace(`${patternNumber}-`, '')
   return {
     ...item,
-    colorNumber: item.id.replace(`${item.patternNumber}-`, ''),
-    link: `/detail/${item.id}`,
-    searchable: (item.color + item.contents).toLowerCase(),
+    colorNumber,
+    link: `/detail/${id}`,
+    img: `http://www.delanyandlong.com/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
+    searchable: (color + contents).toLowerCase(),
   }
 }
-export const itemSelector = createSelector(
+export const itemsSelector = createSelector(
   entitySelector,
   entity => map(orderBy(filter(entity, isValidItem), 'id'), itemFill)
 )
 
 export const categorySelector = createSelector(
-  itemSelector,
+  itemsSelector,
   activeCategorySelector,
   (items, category) => filter(items, { category })
 )

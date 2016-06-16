@@ -7,6 +7,7 @@ addRoute('home', '/')
 addRoute('about', '/about')
 addRoute('collection', '/collection')
 addRoute('detail', '/detail/*')
+addRoute('favs', '/favs')
 addRoute('trade', '/trade')
 addRoute('pricelist', '/trade/pricelist(/*)')
 export default locationInfo

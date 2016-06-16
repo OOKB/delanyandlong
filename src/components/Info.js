@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-function Info({ item, fields }) {
+import FavButton from './FavButton'
+
+function Info({ item, favorited, favoriteItem, fields }) {
   return (
     <div className="item-information">
+      <FavButton favorited={favorited} item={item} onClick={favoriteItem} />
       <ul>
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
@@ -17,6 +20,8 @@ function Info({ item, fields }) {
 }
 
 Info.propTypes = {
+  favorited: PropTypes.bool.isRequired,
+  favoriteItem: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   fields: PropTypes.array.isRequired,
 }

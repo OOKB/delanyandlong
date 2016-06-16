@@ -1,6 +1,11 @@
 import keyBy from 'lodash/keyBy'
-import entity from './defaultStateEntity'
-
+import items from './defaultStateEntity'
+const entity = keyBy(items, 'id')
+entity.user0 = {
+  id: 'user0',
+  type: 'Person', // ???
+  name: 'Anonymous Person or User of the website',
+}
 export default {
   db: {
     about: `But there were still other and more vital practical influences at work. Not even at the
@@ -39,6 +44,7 @@ export default {
       { id: 'about', href: '/about', label: 'About Us' },
       { id: 'collection', href: '/collection', label: 'Collection' },
       { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist' },
+      { id: 'favs', href: '/favs', label: 'Favorites' },
     ],
     schema: {
       id: {
@@ -77,6 +83,6 @@ export default {
     },
   },
   graph: {
-    entity: keyBy(entity, 'id'),
+    entity,
   },
 }

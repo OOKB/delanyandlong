@@ -26,6 +26,9 @@ export function getSchema(state) {
 export function getMenu(state) {
   return state.db.menu
 }
+export function getUser(state) {
+  return state.graph.entity.user0
+}
 export function optionFill(opts, schema) {
   return map(opts, opt => {
     if (isObject(opt)) return opt

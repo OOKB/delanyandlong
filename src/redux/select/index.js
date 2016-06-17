@@ -86,13 +86,14 @@ export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
 export function itemFill(item) {
-  const { id, color, contents, patternNumber } = item
+  const { id, category, color, contents, patternNumber, price } = item
   const colorNumber = id.replace(`${patternNumber}-`, '')
   return {
     ...item,
     colorNumber,
     link: `/detail/${id}`,
     img: `http://www.delanyandlong.com/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
+    price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents).toLowerCase(),
   }
 }

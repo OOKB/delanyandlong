@@ -1,6 +1,6 @@
 import { entityPut, entityUpdate, triplePutAll } from 'redux-graph'
-import { getUser } from './select'
-import { getItemDetail } from './select/item'
+import { getUser } from '../select'
+import { getItemDetail } from '../select/item'
 
 export function newKey() {
   return Math.random().toString(36).substr(6)

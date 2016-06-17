@@ -3,25 +3,30 @@ import map from 'lodash/map'
 
 import { Link } from 'redux-history-sync'
 
-function Item({ item }) {
+function Item({ item, onError }) {
+  function handleImgError() {
+    if (onError) onError(item)
+    // console.log('img error', item.id, err.type)
+  }
   return (
     <li>
       <Link href={item.link}>
-        <img src={item.img} alt={item.id} title={item.id} />
+        <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
       </Link>
     </li>
   )
 }
 Item.propTypes = {
   item: PropTypes.object.isRequired,
+  onError: PropTypes.func,
 }
 
-function ItemGrid({ items }) {
+function ItemGrid({ items, missingImage }) {
   return (
     <div className="items">
       <ul>
         {map(items, item => (
-          <Item key={item.id} item={item} />
+          <Item key={item.id} item={item} onError={missingImage} />
         ))}
       </ul>
     </div>
@@ -30,6 +35,7 @@ function ItemGrid({ items }) {
 
 ItemGrid.propTypes = {
   items: PropTypes.array.isRequired,
+  missingImage: PropTypes.func,
 }
 
 export default ItemGrid

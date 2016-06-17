@@ -8,13 +8,13 @@ import sampleSize from 'lodash/sampleSize'
 
 import { itemsSelector, getMenu } from './'
 
-export const filterOutTrim = createSelector(
+export const filterOutMissingImages = createSelector(
   itemsSelector,
-  items => filter(items, item => (item.category !== 'trim'))
+  items => filter(items, item => (item.category !== 'trim' && !item.missingImg))
 )
 
 export const patternIndex = createSelector(
-  filterOutTrim,
+  filterOutMissingImages,
   items => groupBy(items, 'patternNumber')
 )
 export const homeItems = createSelector(

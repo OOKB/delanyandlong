@@ -9,7 +9,7 @@ import isObject from 'lodash/isObject'
 import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
 
-import { defaultPageSize, pageSizes, getPagerInfo } from '../../helpers/pager'
+import { defaultPageSize, pageSizes } from '../../helpers/pager'
 
 const pageSizeOptions = pageSizes()
 
@@ -130,13 +130,4 @@ export const patternColorSelector = createSelector(
       }
     })
   }
-)
-// Filter entities based on activeCategory.
-export const pricelistSelector = createSelector(
-  patternColorSelector,
-  pricelistInfoSelector,
-  (items, info) => ({
-    pager: getPagerInfo(items, { page: info.pgIndex, perPage: info.pgSize }),
-    info,
-  })
 )

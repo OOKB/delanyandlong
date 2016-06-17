@@ -6,7 +6,7 @@ import Related from './Related'
 import FavAlert from '../FavAlert'
 
 function Detail({ item, colors, confirmFavorite, endFavorite, favorite, favoriteItem }) {
-  const favorited = favorite && favorite.actionStatus !== 'ended'
+  const favorited = favorite && favorite.actionStatus !== 'ended' || false
   const favToggle = favorited ? partial(endFavorite, favorite) : partial(favoriteItem, item)
 
   return (

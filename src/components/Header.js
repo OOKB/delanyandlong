@@ -16,7 +16,7 @@ function Header({ links, logo }) {
     <header>
       <div className="three-x block one-y">
         <div className="flex-center text-center">
-          <Logo />
+          <Logo/>
         </div>
       </div>
       <nav className="two-x block one-y">

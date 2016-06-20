@@ -67,7 +67,8 @@ img { width: 100%; height: auto; }
   justify-content: center;
 }
 
-.flex-center flex-item {
+.flex-center .flex-item,
+header .flex-center .logo {
   flex: 1;
 }
 

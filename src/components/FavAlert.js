@@ -10,7 +10,7 @@ function FavAlert({ onClick, item }) {
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>
-        <Link href="/favs">View and share</Link>
+        <Link href="/favs" onClick={onClick}>View and share</Link>
       </div></div>
     </div>
   )

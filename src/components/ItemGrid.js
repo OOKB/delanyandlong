@@ -8,12 +8,17 @@ function Item({ item, onError }) {
     if (onError) onError(item)
     // console.log('img error', item.id, err.type)
   }
+
   return (
-    <li>
+    <div className="one-x block one-y">
       <Link href={item.link}>
         <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
+        <div className="description">
+          <h2>{item.color}</h2>
+          <p>{item.id}</p>
+        </div>
       </Link>
-    </li>
+    </div>
   )
 }
 Item.propTypes = {

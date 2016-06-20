@@ -18,11 +18,15 @@ body {
   background-color: rgba(242,239,229,1);
   color: rgba(132,133,94,1);
   font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
-  text-transform: uppercase;
-  letter-spacing: .075em;
 }
 
 img { width: 100%; height: auto; }
+
+.all-caps,
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: .075em;
+}
 
 .list-reset {
   margin: 0;

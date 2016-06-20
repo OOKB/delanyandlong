@@ -34,7 +34,7 @@ img { width: 100%; height: auto; }
   list-style: none;
 }
 
-/* some present margins... */
+/* some preset margins, padding, etc ... */
 .m0    { margin: 0;     }
 .m1    { margin: 1rem;  }
 .m2    { margin: 2rem;  }
@@ -53,3 +53,92 @@ img { width: 100%; height: auto; }
 .left-text     { text-align: left; }
 .text-right,
 .right-text    { text-align: right; }
+
+/**/
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-center.text-center {
+  justify-content: center;
+}
+
+.flex-center flex-item {
+  flex: 1;
+}
+
+.block {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.block img {
+  display: block;
+}
+
+.one-x {
+  width: 10%;
+}
+
+.two-x {
+  width: 20%;
+}
+
+.three-x {
+  width: 30%;
+}
+
+.four-x {
+  width: 40%;
+}
+
+.logo {
+  width: initial;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/******/
+
+.block .description {
+  position: absolute;
+  display: none;
+  font-size: 50%;
+  background-color: rgba(242,239,229,1);
+  padding: .5em;
+  left: .5em;
+  bottom: .5em;
+  width: calc(100% - 2em);
+}
+
+.block .description h2 {
+  font-size: 75%;
+}
+
+.items .block,
+.items .block .description {
+  transition: all 400ms;
+}
+
+.items .block:hover {
+  transform: scale(1.5,1.5);
+  z-index: 9;
+}
+
+.items .block:hover .description {
+  display: block;
+}
+
+.items .block:hover,
+.items .block:hover .description {
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+}
+
+.block .description * {
+  margin: 0;
+}

@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { homeSelector } from '../redux/select/home'
-import Menu from './Menu'
+import Header from './Header'
 import ItemGrid from './ItemGrid'
 
 function Home({ items, menu, missingImage }) {
   return (
     <div id="wrapper">
-      <Menu links={menu} />
+      <Header links={menu} />
       <ItemGrid items={items} missingImage={missingImage} />
     </div>
   )

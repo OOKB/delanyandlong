@@ -2,12 +2,20 @@ import React, { PropTypes } from 'react'
 
 import Menu from './Menu'
 
+const styles = {
+  logo: {
+    width: 'initial',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+}
+
 function Header({ links, logo }) {
   return (
     <header>
       <div className="three-x block one-y">
         <div className="flex-center text-center;">
-          <img className="logo" src={logo} alt="logo" />
+          <img className="logo" src={logo} alt="logo" style={styles.logo} />
         </div>
       </div>
       <nav className="two-x block one-y">

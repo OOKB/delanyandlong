@@ -1,0 +1,33 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:not(img), *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(242,239,229,1);
+  color: rgba(132,133,94,1);
+  font-family: "Adobe Caslon", AdobeCaslon, Georgia, Times, Serif;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+}
+
+img { width: 100%; height: auto; }
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p1 { padding: 1em; }
+
+.text-center { text-align: center; }

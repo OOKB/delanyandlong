@@ -4,7 +4,7 @@ import { Link } from 'redux-history-sync'
 
 function Menu({ links }) {
   return (
-    <ul className="menu">
+    <ul className="menu list-reset">
       {map(links, ({ id, href, label }) => (
         <li key={id} className={id}>
           <Link href={href}>{label}</Link>

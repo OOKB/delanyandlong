@@ -1,3 +1,5 @@
+/* charset UTF-8 */
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -15,7 +17,7 @@ body {
   padding: 0;
   background-color: rgba(242,239,229,1);
   color: rgba(132,133,94,1);
-  font-family: "Adobe Caslon", AdobeCaslon, Georgia, Times, Serif;
+  font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
   text-transform: uppercase;
   letter-spacing: .075em;
 }
@@ -28,6 +30,22 @@ img { width: 100%; height: auto; }
   list-style: none;
 }
 
-.p1 { padding: 1em; }
+/* some present margins... */
+.m0    { margin: 0;     }
+.m1    { margin: 1rem;  }
+.m2    { margin: 2rem;  }
+.m3    { margin: 3rem;  }
+.m4    { margin: 4rem;  }
 
-.text-center { text-align: center; }
+.p0    { padding: 0;    }
+.p1    { padding: 1rem; }
+.p2    { padding: 2rem; }
+.p3    { padding: 3rem; }
+.p4    { padding: 4rem; }
+
+.text-center,
+.center-text   { text-align: center; }
+.text-left,
+.left-text     { text-align: left; }
+.text-right,
+.right-text    { text-align: right; }

@@ -94,7 +94,7 @@ export function itemFill(item) {
     link: `/detail/${id}`,
     img: `http://www.delanyandlong.com/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
-    searchable: (color + contents).toLowerCase(),
+    searchable: (color + contents + id).toLowerCase(),
   }
 }
 export const itemsSelector = createSelector(

@@ -7,7 +7,7 @@ function Info({ item, favorited, favoriteItem, fields }) {
   return (
     <div className="item-information">
       <FavButton favorited={favorited} item={item} onClick={favoriteItem} />
-      <ul className="flex-center list-reset p1">
+      <ul className="flex-center list-reset p1 text-center">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
             <h3>{label}</h3>

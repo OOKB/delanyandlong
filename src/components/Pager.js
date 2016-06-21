@@ -15,7 +15,7 @@ function Pager(props) {
     if (hasMore) onChange(pageIndex + 1)
   }
   return (
-    <div id="pager">
+    <div id="pager" className="flex-center bt2 bb2 pt1 pb1 mt1 mb1">
       <button onClick={prev} className={classnames({ disabled: !hasLess })} disabled={!hasLess}>
         Previous
       </button>

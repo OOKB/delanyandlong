@@ -5,13 +5,15 @@ import { cellStyles } from './styles'
 
 function PricelistRowPattern({ columns }) {
   return (
-    <thead><tr>
-      {map(columns, ({ label, value }) => (
-        <td className={value} style={cellStyles[value]} key={value}>
-          {label}
-        </td>
-      ))}
-    </tr></thead>
+    <thead>
+      <tr>
+        {map(columns, ({ label, value }) => (
+          <td className={value} style={cellStyles[value]} key={value}>
+            {label}
+          </td>
+        ))}
+      </tr>
+    </thead>
   )
 }
 

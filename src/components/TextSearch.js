@@ -7,7 +7,7 @@ function TextSearch({ form, formEvent }) {
   const { value } = form
   const { onBlur, onChange, onFocus } = formEvent
   return (
-    <div className="text-search">
+    <div className="text-search text-center mb2">
       <input
         autoFocus
         onBlur={onBlur}

@@ -8,18 +8,21 @@ const styles = {
     background: 'none',
     border: 'none',
     cursor: 'pointer',
+    flex: 1,
   },
   buttonActive: {
     fontWeight: 'bold',
   },
 }
+
 function getButtonStyle(activeCategory, value) {
   if (activeCategory === value) return merge({}, styles.button, styles.buttonActive)
   return styles.button
 }
-function CategoryFilter({ activeCategory, formEvent, options }) {
+
+function CategoryFilter({ activeCategory, formEvent, options, classes }) {
   return (
-    <div className="collection-menu">
+    <div className="collection-menu flex-center ${classes}">
       {map(options, ({ value, label }) => {
         const style = getButtonStyle(activeCategory, value)
         return (
@@ -36,6 +39,7 @@ CategoryFilter.propTypes = {
   activeCategory: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   formEvent: PropTypes.object.isRequired,
+  classes: PropTypes.string,
 }
 CategoryFilter.defaultProps = {
 }

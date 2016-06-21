@@ -8,13 +8,18 @@ function TextSearch({ form, formEvent }) {
   const { onBlur, onChange, onFocus } = formEvent
   return (
     <div className="text-search text-center mb2">
-      <input
-        autoFocus
-        onBlur={onBlur}
-        onChange={onChange}
-        onFocus={onFocus}
-        value={value || ''}
-      />
+      <div className="search-wrapper">
+        <label>
+          <i className="fa fa-search"></i>
+        </label>
+        <input
+          autoFocus
+          onBlur={onBlur}
+          onChange={onChange}
+          onFocus={onFocus}
+          value={value || ''}
+        />
+      </div>
     </div>
   )
 }

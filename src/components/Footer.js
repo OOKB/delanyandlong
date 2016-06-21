@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-function Footer({  }) {
+function Footer() {
   return (
     <footer className="text-center mb4 mt1 p1">
       <p className="bt1 pt2">

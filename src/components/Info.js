@@ -10,8 +10,8 @@ function Info({ item, favorited, favoriteItem, fields }) {
       <ul className="flex-center list-reset p1 text-center">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
-            <h3>{label}</h3>
-            <p>{item[value]}</p>
+            <h3 className="m0">{label}</h3>
+            <p className="m0">{item[value]}</p>
           </li>
         ))}
       </ul>

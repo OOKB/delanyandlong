@@ -8,7 +8,7 @@ function Related({ colors, parent }) {
     <div id="related-colors">
       <h3>Related Colors</h3>
       <div className="colors-header">Pager</div>
-      <ul>
+      <ul className="list-reset flex-center">
         {map(colors, color => <Color key={color.colorNumber} parent={parent} color={color} />)}
       </ul>
     </div>

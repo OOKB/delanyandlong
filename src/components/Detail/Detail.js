@@ -11,7 +11,6 @@ function Detail({ item, colors, confirmFavorite, endFavorite, favorite, favorite
 
   return (
     <div id="wrapper">
-      <h2>Item Detail</h2>
       {favorite && favorite.actionStatus === 'created' &&
         <FavAlert item={item} favorite={favorite} onClick={partial(confirmFavorite, favorite)} />
       }

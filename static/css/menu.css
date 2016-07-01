@@ -31,6 +31,8 @@ header ul li a {
 
 header ul li a:hover {
   text-decoration: none;
+  background-color: rgba(132,133,94,1);
+  color: rgba(242,239,229,1);
 }
 
 header button.toggle {

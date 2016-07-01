@@ -268,24 +268,6 @@ header .flex-center .logo {
   text-align: center;
 }
 
-/***/
-#container-pricelist table {
-  min-width: 970px;
-  border-collapse: collapse;
-  border: 0;
-  margin-bottom: 20px;
-  table-layout: fixed;
-  font-size: .85rem;
-  border-bottom: 1px solid rgba(200,200,190,.25);
-}
-
-#container-pricelist table thead {
-  text-transform: uppercase;;
-  letter-spacing: 1px;
-  font-family: monospace;
-  color: rgba(100,100,90,.5);;
-}
-
 #container-pricelist table tr th,
 #container-pricelist table tr td {
   line-height: 1.5em;
@@ -340,9 +322,6 @@ td.contents {
     box-shadow: inset -6px -3px 8px 0 rgba(132,132,132,0.5);
   }
 }
-
-/***/
-
 
 /******************************************/
 /******************************************/

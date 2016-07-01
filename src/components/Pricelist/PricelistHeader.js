@@ -5,7 +5,7 @@ import { cellStyles } from './styles'
 
 function PricelistRowPattern({ columns }) {
   return (
-    <thead>
+    <thead style={cellStyles.theadBase}>
       <tr>
         {map(columns, ({ label, value }) => (
           <td className={value} style={cellStyles[value]} key={value}>

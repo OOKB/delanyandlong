@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import { Link } from 'redux-history-sync'
 
-function Menu({ links }) {
+function MenuHome({ links }) {
   return (
-    <ul className="menu list-reset flex-item">
+    <ul className="MenuHome list-reset flex-item">
       {map(links, ({ id, href, label }) => (
         <li key={id} className={id}>
           <Link href={href}>{label}</Link>
@@ -14,9 +14,9 @@ function Menu({ links }) {
   )
 }
 
-Menu.propTypes = {
+MenuHome.propTypes = {
   links: PropTypes.array.isRequired,
 }
-Menu.defaultProps = {
+MenuHome.defaultProps = {
 }
-export default Menu
+export default MenuHome

@@ -7,11 +7,13 @@ import Footer from './Footer'
 
 function About({ aboutText, menu }) {
   return (
-    <div id="wrapper">
+    <div>
       <Header links={menu} />
-      <main className="clear m1 mt4 pt4 clearfix">
-        <img src="https://images.unsplash.com/photo-1459128806329-1b61d19a0f93?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=800&h=400&fit=crop&s=d7eb9a7a335cbd55db5ecd2db7bf1afd" alt="About Page header..." className="mb1 mlrauto six-x displayBlock" />
-        <div className="about clear mlrauto six-x" dangerouslySetInnerHTML={{ __html: aboutText }} />
+      <main className="clear m1 mt4 pt4 container">
+        <div className="group">
+          <img src="https://images.unsplash.com/photo-1459128806329-1b61d19a0f93?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=800&h=400&fit=crop&s=d7eb9a7a335cbd55db5ecd2db7bf1afd" alt="About Page header..." className="eight columns mb1 mlrauto displayBlock" />
+          <div className="about clear mlrauto six-x" dangerouslySetInnerHTML={{ __html: aboutText }} />
+        </div>
       </main>
       <Footer />
     </div>

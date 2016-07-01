@@ -6,7 +6,7 @@ export function getContactText(state) {
   return state.db.contact
 }
 
-export const aboutSelector = createStructuredSelector({
+export const contactSelector = createStructuredSelector({
   menu: getMenu,
   contactText: getContactText,
 })

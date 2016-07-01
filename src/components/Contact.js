@@ -1,26 +1,24 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { homeSelector } from '../redux/select/home'
+import { contactSelector } from '../redux/select/contact'
 import Header from './Header'
 import Footer from './Footer'
-import ItemGrid from './ItemGrid'
 
-function Home({ items, menu, missingImage }) {
+function Contact({ contactText, menu }) {
   return (
     <div id="wrapper">
       <Header links={menu} />
-      <p>Contact Info TK</p>
+      <p>{contactText}</p>
       <Footer />
     </div>
   )
 }
 
-Home.propTypes = {
-  items: PropTypes.array.isRequired,
-  menu: PropTypes.array.isRequired,
-  missingImage: PropTypes.func.isRequired,
+Contact.propTypes = {
   route: PropTypes.object.isRequired,
+  contactText: PropTypes.string.isRequired,
+  menu: PropTypes.array.isRequired,
 }
 
-export default connect(homeSelector)(Home)
+export default connect(contactSelector)(Contact)

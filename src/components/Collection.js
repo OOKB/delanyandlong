@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { collectionSelector } from '../redux/select/collection'
 import Header from './Header'
+import Footer from './Footer'
 
 function Collection({ menu }) {
   return (
@@ -11,6 +12,7 @@ function Collection({ menu }) {
       <main className="clear m1 mt4 pt4 clearfix">
         <h1>Collection</h1>
       </main>
+      <Footer />
     </div>
   )
 }

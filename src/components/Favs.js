@@ -3,6 +3,7 @@ import map from 'lodash/map'
 import partial from 'lodash/partial'
 
 import Header from './Header'
+import Footer from './Footer'
 import FavButton from './FavButton'
 
 function FavItem({ item, onClick }) {
@@ -45,6 +46,7 @@ function Favs({ endFavorite, favorites, menu }) {
         {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
         {!hasFavorites && <p>No favorites...</p>}
       </main>
+      <Footer />
     </div>
   )
 }

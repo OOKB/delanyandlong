@@ -5,9 +5,14 @@ import { Link } from 'redux-history-sync'
 
 import { cellStyles } from './styles'
 
+function makeValue(key, alt, value) {
+  if (key !== 'img') return value
+  return <img src={value} alt={alt} />
+}
+
 function itemLink(item, key, value) {
-  if (key !== 'id' && key !== 'color') return value
-  return <Link href={item.link}>{value}</Link>
+  if (key !== 'id' && key !== 'color' && key !== 'img') return value
+  return <Link href={item.link}>{makeValue(key, item.id, value)}</Link>
 }
 
 function cellValue(item, key, printWhenColor) {

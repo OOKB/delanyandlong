@@ -15,7 +15,7 @@ export default {
     categoryOptions: [ 'textile', 'trim', 'leather' ],
     pricelist: {
       columns: {
-        textile: [ 'id', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        textile: [ 'id', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
         trim: [ 'id', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
         leather: [
           'id', 'color', 'price', 'contents',
@@ -31,7 +31,7 @@ export default {
         pgSize: [ 'pricelist', 'pgSize' ],
         text: [ 'pricelist', 'text' ],
       },
-      printWhenColor: { id: 'colorNumber', color: 'color' },
+      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
     menu: [
       { id: 'about', href: '/about', label: 'About Us' },
@@ -55,6 +55,9 @@ export default {
       },
       contents: {
         label: 'Content',
+      },
+      img: {
+        label: 'Image',
       },
       leather: {
         label: 'Leather',

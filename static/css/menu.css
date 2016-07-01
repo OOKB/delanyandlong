@@ -84,6 +84,12 @@ header button.toggle:active span {
     z-index: 100;
   }
 
+  header .logo {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   header nav,
   header ul {
     display: block;

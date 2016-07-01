@@ -16,8 +16,8 @@ function Pricelist(props) {
       <Header links={menu} />
       <main className="clear m1 mt4 pt4">
         <Search {...info} pagerInfo={pagerInfo} />
-        {lead}
         <Table columns={columns} items={items} printWhenColor={printWhenColor} />
+        <p className="text-center uppercase"><small>{lead}</small></p>
       </main>
       <Footer />
     </div>

@@ -141,6 +141,10 @@ header .flex-center .logo {
   display: block;
 }
 
+.displayBlock {
+  display: block;
+}
+
 .one-x {
   width: 10%;
 }
@@ -155,6 +159,14 @@ header .flex-center .logo {
 
 .four-x {
   width: 40%;
+}
+
+.five-x {
+  width: 50%;
+}
+
+.six-x {
+  width: 60%;
 }
 
 /******/

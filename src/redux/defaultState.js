@@ -8,17 +8,8 @@ entity.user0 = {
 }
 export default {
   db: {
-    about: `But there were still other and more vital practical influences at work. Not even at the
-      present day has the original prestige of the Sperm Whale, as fearfully distinguished from all
-      other species of the leviathan, died out of the minds of the whalemen as a body.
-      There are those this day among them, who, though intelligent and courageous enough in offering
-       battle to the Greenland or Right whale, would perhaps—either from professional inexperience,
-       or incompetency, or timidity, decline a contest with the Sperm Whale; at any rate, there are
-       plenty of whalemen, especially among those whaling nations not sailing under the American
-       flag, who have never hostilely encountered the Sperm Whale, but whose sole knowledge of the
-       leviathan is restricted to the ignoble monster primitively pursued in the North; seated on
-       their hatches, these men will hearken with a childish fireside interest and awe, to the wild,
-        strange tales of Southern whaling.`,
+    about: `<p>DeLany & Long Ltd. is a new company established by the creative team of John Flynn and Jamie Gould, founders of Rogers & Goffigon Ltd. The wholly independent company is dedicated to the design and marketing of distinctive textiles for outdoor applications. We bring to the outdoor fabric market the signature style and quality which make Rogers & Goffigon an important resource for fine interior fabrics.</p><p>DeLany & Long fabrics are marked by a singular approach to color, texture and construction and are developed and produced in collaboration with European specialty mills. The collection is integrated in its overall character and individual characteristics. Seventeen coordinated colorways include solids, stripes and textures in a subtle, muted palette. Our colors are derived from vegetable dyes, chosen because they reflect nature rather than compete with it. Our weaves have visual and tactile interest not found in outdoor fabrics currently in the marketplace. The quality of our construction reflects the long tradition of our mill partners in weaving fine fabrics.</p><p>DeLany & Long fabrics transition between inside and outside. They are ideal for use in the home garden, patio and poolside, at hotels and resorts, on beaches and boats. And they are also inspired solutions for playrooms, kitchens, sunrooms and other interior areas subject to hard wear.</p>`,
+    service: `DeLany & Long is a small, focused company, responsive to our customers and committed to quality service. Our combination of exceptional service and product availability makes us unique in the industry. Our Customer Service department is directed and staffed by experienced professionals. All of our fabrics are woven to order for us and we maintain a large inventory at our Greenwich, Connecticut location. Business is conducted on a pro forma basis and most fabrics can be shipped immediately.`,
     categoryOptions: [ 'textile', 'trim', 'leather' ],
     pricelist: {
       columns: {

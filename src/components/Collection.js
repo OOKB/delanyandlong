@@ -2,13 +2,15 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { collectionSelector } from '../redux/select/collection'
-import Menu from './Menu'
+import Header from './Header'
 
 function Collection({ menu }) {
   return (
     <div>
-      <Menu links={menu} />
-      <h1>Collection</h1>
+      <Header links={menu} />
+      <main className="clear m1 mt4 pt4 clearfix">
+        <h1>Collection</h1>
+      </main>
     </div>
   )
 }

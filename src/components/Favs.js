@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import partial from 'lodash/partial'
 
-import Menu from './Menu'
+import Header from './Header'
 import FavButton from './FavButton'
 
 function FavItem({ item, onClick }) {
@@ -39,10 +39,12 @@ function Favs({ endFavorite, favorites, menu }) {
   const hasFavorites = favorites && favorites.length > 0
   return (
     <div id="favorites">
-      <Menu links={menu} />
-      <h1>Favorites</h1>
-      {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
-      {!hasFavorites && <p>No favorites...</p>}
+      <Header links={menu} />
+      <main className="clear m1 mt4 pt4 clearfix">
+        <h1>Favorites</h1>
+        {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
+        {!hasFavorites && <p>No favorites...</p>}
+      </main>
     </div>
   )
 }

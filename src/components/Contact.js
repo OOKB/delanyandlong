@@ -9,7 +9,9 @@ function Contact({ contactText, menu }) {
   return (
     <div id="wrapper">
       <Header links={menu} />
-      <p>{contactText}</p>
+      <main className="clear m1 mt4 pt4 clearfix">
+        <p>{contactText}</p>
+      </main>
       <Footer />
     </div>
   )

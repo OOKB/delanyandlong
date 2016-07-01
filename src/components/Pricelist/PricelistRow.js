@@ -6,7 +6,7 @@ import { Link } from 'redux-history-sync'
 import { cellStyles } from './styles'
 
 function itemLink(item, key, value) {
-  if (key !== 'id' && key !== 'color') return value
+  if (key !== 'id' && key !== 'color' && key !== 'img') return value
   return <Link href={item.link}>{value}</Link>
 }
 

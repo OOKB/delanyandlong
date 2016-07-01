@@ -18,7 +18,7 @@ export default {
         textile: [ 'id', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
         trim: [ 'id', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
         leather: [
-          'id', 'color', 'price', 'contents',
+          'id', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
           'originCountry',
         ],
@@ -63,7 +63,7 @@ export default {
         label: 'Leather',
       },
       originCountry: {
-        label: 'Origin Country',
+        label: 'Origin',
       },
       price: {
         label: 'Net Price',

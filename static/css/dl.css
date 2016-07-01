@@ -292,8 +292,31 @@ tbody tr:nth-child(odd) {
 
 .pattern td {
   border-top: 1px solid rgba(200,200,190,.25);
+  position: relative;
 }
 
+.pattern td:first-child::before {
+  display: inline-block;
+  font-size: 1em;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: .5em;
+  border: 1px solid currentColor;
+  position: absolute;
+  left: 0;
+}
+.textile .pattern td:first-child::before {
+  content: 'T';
+}
+.trim .pattern td:first-child::before {
+  content: 'P';
+}
+.leather .pattern td:first-child::before {
+  content: 'L';
+}
 
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/
 /** It also provides a cool scrolling table feature **/

@@ -23,18 +23,22 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(242,239,229);
   background-color: rgba(242,239,229,1);
+  color: rgb(132,133,94);
   color: rgba(132,133,94,1);
   font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
 }
 
 header .dl-logo {
+  fill: rgb(132,133,94);
   fill: rgba(132,133,94,1);
 }
 
 /** general links styles (to start with) */
 a,
 a:link {
+  color: rgb(132,133,94);
   color: rgba(132,133,94,1);
   text-decoration: none;
 }
@@ -90,7 +94,7 @@ img { width: 100%; height: auto; }
 }
 
 .show-text {
-  text-indent: 0%;
+  text-indent: 0;
   white-space: normal;
   overflow: visible;
 }
@@ -134,7 +138,6 @@ img { width: 100%; height: auto; }
 
 /* some grid related stuff */
 /* columnar stuff */
-#wrapper,
 .wrapper,
 .container {
   margin: 0 auto;
@@ -179,7 +182,6 @@ img { width: 100%; height: auto; }
 /*everything goes full width on skinny viewports */
 
 @media (min-width: 30rem) {
-  #wrapper,
   .wrapper,
   .container {
     margin: 0 auto;
@@ -190,7 +192,6 @@ img { width: 100%; height: auto; }
 }
 
 @media (min-width: 50rem) {
-  #wrapper,
   .wrapper,
   .container {
     margin: 0 auto;
@@ -567,6 +568,7 @@ tbody tr:nth-child(odd) {
 
 .item-information {
   position: fixed;
+  background-color: rgb(242,239,229);
   background-color: rgba(242,239,229,1);
   left: 0;
   right: 0;

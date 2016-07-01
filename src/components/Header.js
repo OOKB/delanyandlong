@@ -13,7 +13,7 @@ const styles = {
 
 function Header({ links }) {
   return (
-    <header className="main-menu">
+    <header className="main-menu px1">
       <Logo />
       <nav>
         <Menu links={links} />

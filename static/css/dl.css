@@ -271,8 +271,6 @@ img { width: 100%; height: auto; }
   }
 }
 
-/**/
-
 /* some preset margins, padding, etc ... */
 /* margin modules */
 .m0      { margin: 0;     }
@@ -301,6 +299,12 @@ img { width: 100%; height: auto; }
 .p2      { padding: 2rem; }
 .p3      { padding: 3rem; }
 .p4      { padding: 4rem; }
+
+.px0     { padding-left: 0;    padding-right: 0;    }
+.px1     { padding-left: 1rem; padding-right: 1rem; }
+.px2     { padding-left: 2rem; padding-right: 2rem; }
+.px3     { padding-left: 3rem; padding-right: 3rem; }
+.px4     { padding-left: 4rem; padding-right: 4rem; }
 
 .pt0     { padding-top: 0;     }
 .pt1     { padding-top: 1rem;  }

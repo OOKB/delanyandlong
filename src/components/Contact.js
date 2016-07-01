@@ -7,10 +7,12 @@ import Footer from './Footer'
 
 function Contact({ contactText, menu }) {
   return (
-    <div id="wrapper">
+    <div>
       <Header links={menu} />
-      <main className="clear m1 mt4 pt4 clearfix">
-        <p>{contactText}</p>
+      <main className="clear pt4 container">
+        <div className="group">
+          <p>{contactText}</p>
+        </div>
       </main>
       <Footer />
     </div>

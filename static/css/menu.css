@@ -77,34 +77,33 @@ header button.toggle:active span {
   }
 
   header.fixed {
-      position: fixed;
-      top: 0;
-      left:0;
-      right:0;
-      z-index: 100;
+    position: fixed;
+    top: 0;
+    left:0;
+    right:0;
+    z-index: 100;
   }
 
   header nav,
   header ul {
-      display: block;
-      position: static;
+    display: block;
+    position: static;
   }
 
   header button.toggle { display: none; }
 
   header ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: none;
   }
 
   header nav ul li {
-      border: none;
+    border: none;
   }
 
   header ul li a {
     padding: 0;
   }
-
 }

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { homeSelector } from '../redux/select/home'
-import Header from './Header'
+import Header from './HeaderHome'
 import Footer from './Footer'
 import ItemGrid from './ItemGrid'
 

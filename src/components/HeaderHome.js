@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import Menu from './Menu'
+import Menu from './MenuHome'
 import Logo from './Logo'
 
 const styles = {
@@ -14,13 +14,13 @@ const styles = {
 function Header({ links }) {
   return (
     <header>
-      <div>
-        <div>
+      <div className="three-x block one-y">
+        <div className="flex-center text-center">
           <Logo />
         </div>
       </div>
-      <nav>
-        <div>
+      <nav className="two-x block one-y">
+        <div className="flex-center">
           <Menu links={links} />
         </div>
       </nav>

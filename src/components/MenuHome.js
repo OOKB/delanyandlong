@@ -4,7 +4,7 @@ import { Link } from 'redux-history-sync'
 
 function Menu({ links }) {
   return (
-    <ul className="menu list-reset list-inline">
+    <ul className="menu list-reset flex-item">
       {map(links, ({ id, href, label }) => (
         <li key={id} className={id}>
           <Link href={href}>{label}</Link>

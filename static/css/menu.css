@@ -1,0 +1,110 @@
+header {
+  background: transparent;
+}
+
+header nav {
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+  z-index: 100;
+}
+
+header ul {
+  display: none;
+  padding-bottom: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+header ul li {
+  border-bottom: 1px solid rgba(132,133,94,1);
+}
+
+header ul li a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  transition: all 400ms;
+}
+
+header ul li a:hover {
+  text-decoration: none;
+}
+
+header button.toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  /**/
+  display: block;
+  margin: 5px;
+  /**/
+  position: fixed;
+  bottom: .5em;
+  left: .5em;
+  z-index: 999;
+}
+
+header button.toggle i {
+  color: rgba(132,133,94,.5);
+  /*text-shadow: 0 .1em .1em rgba(132,133,94,.5);*/
+}
+
+header button.toggle:focus,
+header button.toggle:active {
+  outline: 0;
+}
+
+header button.toggle:active i {
+    color: rgba(132,133,94,1);
+}
+
+header button.toggle:active span {
+    background: rgba(242,239,229,1);
+}
+
+@media (min-width: 600px) {
+  .list-inline {
+    display:flex;
+    justify-content: center;
+  }
+
+  .list-inline li {
+    flex: 1;
+    text-align: center;
+  }
+
+  header.fixed {
+      position: fixed;
+      top: 0;
+      left:0;
+      right:0;
+      z-index: 100;
+  }
+
+  header nav,
+  header ul {
+      display: block;
+      position: static;
+  }
+
+  header button.toggle { display: none; }
+
+  header ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: none;
+  }
+
+  header nav ul li {
+      border: none;
+  }
+
+  header ul li a {
+    padding: 0;
+  }
+
+}

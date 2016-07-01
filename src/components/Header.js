@@ -13,16 +13,13 @@ const styles = {
 
 function Header({ links }) {
   return (
-    <header>
-      <div>
-        <div>
-          <Logo />
-        </div>
-      </div>
+    <header className="main-menu">
+      <Logo />
       <nav>
-        <div>
-          <Menu links={links} />
-        </div>
+        <Menu links={links} />
+        <button className="toggle">
+          <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true"></i>
+        </button>
       </nav>
     </header>
   )

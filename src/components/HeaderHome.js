@@ -23,6 +23,9 @@ function Header({ links }) {
         <div className="flex-center">
           <Menu links={links} />
         </div>
+        <button className="toggle">
+          <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true"></i>
+        </button>
       </nav>
     </header>
   )

@@ -14,7 +14,7 @@ function Pricelist(props) {
   return (
     <div id="container-pricelist" className={activeCategory}>
       <Header links={menu} />
-      <main className="clear m1 mt4 pt4">
+      <main className="clear m1 pt4">
         <Search {...info} pagerInfo={pagerInfo} />
         <div className="table-scroll">
           <Table columns={columns} items={items} printWhenColor={printWhenColor} />

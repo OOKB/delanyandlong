@@ -45,15 +45,6 @@ img { width: 100%; height: auto; }
   list-style: none;
 }
 
-.list-inline {
-  display:flex;
-  justify-content: center;
-}
-
-.list-inline li {
-  flex: 1;
-}
-
 .clear {
   clear:both;
   display: block;

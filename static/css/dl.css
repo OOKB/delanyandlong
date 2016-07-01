@@ -291,9 +291,8 @@ header .flex-center .logo {
   vertical-align: middle;
   border-collapse: collapse;
   border: 0;
-  height: 1.5em;
   font-weight: normal;
-  padding: .2em .75em;
+  padding: 1px .66em;
 }
 
 #container-pricelist tbody tr:hover {
@@ -305,6 +304,10 @@ tr:nth-child(odd) {
 
 #container-pricelist table .pattern td {
   border-top: 1px solid rgba(200,200,190,.25);
+}
+
+#container-pricelist td img {
+  vertical-align: middle;
 }
 
 td.price {

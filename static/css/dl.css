@@ -310,6 +310,9 @@ tr:nth-child(odd) {
 td.price {
   width: 100px;
 }
+td.img {
+  width: 50px;
+}
 td.contents {
   width: 33%;
 }

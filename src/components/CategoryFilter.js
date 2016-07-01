@@ -20,9 +20,10 @@ function getButtonStyle(activeCategory, value) {
   return styles.button
 }
 
-function CategoryFilter({ activeCategory, formEvent, options, classes }) {
+function CategoryFilter({ activeCategory, formEvent, options }) {
   return (
     <div className="collection-menu flex-center ${classes}">
+      <p>Select type:</p>
       {map(options, ({ value, label }) => {
         const style = getButtonStyle(activeCategory, value)
         return (
@@ -39,7 +40,6 @@ CategoryFilter.propTypes = {
   activeCategory: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   formEvent: PropTypes.object.isRequired,
-  classes: PropTypes.string,
 }
 CategoryFilter.defaultProps = {
 }

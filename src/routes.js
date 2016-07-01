@@ -5,6 +5,7 @@ import createRouter from 'location-info'
 const { addRoute, locationInfo } = createRouter()
 addRoute('home', '/')
 addRoute('about', '/about')
+addRoute('contact', '/contact')
 addRoute('collection', '/collection')
 addRoute('detail', '/detail/*')
 addRoute('favs', '/favs')

@@ -13,9 +13,9 @@ const styles = {
 
 function Header({ links }) {
   return (
-    <header className="main-menu px1">
+    <header className="main-menu">
       <Logo />
-      <nav>
+      <nav className="px1">
         <Menu links={links} />
         <button className="toggle">
           <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true"></i>

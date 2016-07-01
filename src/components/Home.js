@@ -8,7 +8,7 @@ import ItemGrid from './ItemGrid'
 
 function Home({ items, menu, missingImage }) {
   return (
-    <div id="wrapper">
+    <div id="home">
       <Header links={menu} />
       <ItemGrid items={items} missingImage={missingImage} />
       <Footer />

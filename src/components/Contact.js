@@ -5,13 +5,16 @@ import { contactSelector } from '../redux/select/contact'
 import Header from './Header'
 import Footer from './Footer'
 
-function Contact({ contactText, menu }) {
+function Contact({ contactText, serviceText, menu }) {
   return (
     <div>
       <Header links={menu} />
       <main className="clear pt4 container">
         <div className="group">
-          <p>{contactText}</p>
+          <div className="six columns offset-by-three text-center">
+            <p>{contactText}</p>
+            <p className="small">{serviceText}</p>
+          </div>
         </div>
       </main>
       <Footer />
@@ -22,6 +25,7 @@ function Contact({ contactText, menu }) {
 Contact.propTypes = {
   route: PropTypes.object.isRequired,
   contactText: PropTypes.string.isRequired,
+  serviceText: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
 }
 

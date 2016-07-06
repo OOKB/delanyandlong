@@ -22,16 +22,28 @@ header ul li {
   border-bottom: 1px solid rgba(132,133,94,1);
 }
 
-header ul li a {
+header ul li a,
+header ul li a:link {
   display: block;
   padding: 5px;
   text-decoration: none;
   transition: all 400ms;
 }
 
+header a,
+header a:link {
+  border: none;
+}
+#home header a,
+#home header a:link {
+  padding: 0;
+}
+
 header ul li a:hover {
   text-decoration: none;
+  background-color: rgb(132,133,94);
   background-color: rgba(132,133,94,1);
+  color: rgb(242,239,229);
   color: rgba(242,239,229,1);
 }
 

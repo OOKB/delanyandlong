@@ -8,7 +8,7 @@ import Footer from '../Footer'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
-  const { info, lead, menu, pager } = props
+  const { info, lead, disclaimer, menu, pager } = props
   const { items, ...pagerInfo } = pager
   const { activeCategory, columns, printWhenColor } = info
   return (
@@ -19,7 +19,10 @@ function Pricelist(props) {
         <div className="table-scroll">
           <Table columns={columns} items={items} printWhenColor={printWhenColor} />
         </div>
-        <p className="text-center uppercase"><small>{lead}</small></p>
+        <div className="text-center small">
+          <p className="uppercase">{lead}</p>
+          <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
+        </div>
       </main>
       <Footer />
     </div>
@@ -28,10 +31,12 @@ function Pricelist(props) {
 Pricelist.propTypes = {
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
+  disclaimer: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
   pager: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
+  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.'
 }
 export default connect(pricelistSelector)(Pricelist)

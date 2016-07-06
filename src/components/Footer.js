@@ -1,8 +1,15 @@
 import React, { PropTypes } from 'react'
 
+const styles = {
+  base: {
+    color: 'rgba(132,133,94,.4)',
+    fontSize: '.8rem',
+  },
+}
+
 function Footer({ currentYear }) {
   return (
-    <footer className="text-center mb4 mt1 p1 clear">
+    <footer className="text-center mb4 mt1 p1 clear" style={styles.base}>
       <p className="bt1 pt2 uppercase">
         &copy; {currentYear} Delany &amp; Long LTD.
       </p>

@@ -1,10 +1,17 @@
 .item-grid {
   width: 100%;
+  margin-left:  -2px;
+  margin-right: -2px;
 }
 
 .item-grid li {
   width: 50%;
-  float:left;
+  float: left;
+  padding: 2px;
+}
+
+.item-grid li img {
+  display: block;
 }
 
 @media (min-width: 501px) {

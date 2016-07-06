@@ -10,10 +10,10 @@ const styles = {
 function Footer({ currentYear }) {
   return (
     <footer className="text-center mb4 mt1 p1 clear" style={styles.base}>
-      <p className="bt1 pt2 uppercase">
+      <p className="pt2 uppercase">
         &copy; {currentYear} Delany &amp; Long LTD.
       </p>
-      <p className="small">site by OOKB/powered by CAPE</p>
+      <p className="m0 p0 small">site by OOKB/powered by CAPE</p>
     </footer>
   )
 }

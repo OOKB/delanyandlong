@@ -1,0 +1,19 @@
+.btn-block {
+  border: none;
+  border: 1px solid;
+  border-color: rgb(33,33,24);
+  border-color: rgba(33,33,24,1);
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
+  transition: all 400ms;
+}
+
+.btn-block:hover {
+  border-color: rgb(132,133,94);
+  border-color: rgba(132,133,94,1);
+  background-color: rgb(132,133,94);
+  background-color: rgba(132,133,94,1);
+  color: rgb(242,239,229);
+  color: rgba(242,239,229,1);
+  box-shadow: 0 0 .5em 0 rgba(33,33,24,.33);
+}

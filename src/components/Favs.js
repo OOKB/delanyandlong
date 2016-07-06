@@ -8,7 +8,7 @@ import FavButton from './FavButton'
 
 function FavItem({ item, onClick }) {
   return (
-    <li>
+    <li className="relative">
       <FavButton favorited item={item} onClick={onClick} />
       <img src={item.img} alt={item.id} title={item.id} />
     </li>
@@ -22,8 +22,7 @@ FavItem.propTypes = {
 function FavsList({ endFavorite, favorites }) {
   return (
     <div>
-      <h2>items</h2>
-      <ul>
+      <ul className="item-grid list-reset clearfix">
         {map(favorites, (fav) => (
           <FavItem key={fav.id} onClick={partial(endFavorite, fav)} item={fav.item} />
         ))}

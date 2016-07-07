@@ -1,11 +1,16 @@
 import keyBy from 'lodash/keyBy'
+import merge from 'lodash/merge'
+
 import items from './defaultStateEntity'
-const entity = keyBy(items, 'id')
+import showrooms from './showrooms'
+const entity = merge(keyBy(items, 'id'), keyBy(showrooms, 'id'))
+
 entity.user0 = {
   id: 'user0',
   type: 'Person', // ???
   name: 'Anonymous Person or User of the website',
 }
+
 export default {
   db: {
     aboutImgSrc: 'https://images.unsplash.com/photo-1459128806329-1b61d19a0f93?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=800&h=600&fit=crop&s=d7eb9a7a335cbd55db5ecd2db7bf1afd',

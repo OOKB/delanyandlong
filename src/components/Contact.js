@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import { contactSelector } from '../redux/select/contact'
 import Header from './Header'
 import Footer from './Footer'
+import Offices from './Offices'
 
-function Contact({ contactText, serviceText, menu }) {
+function Contact({ contactText, serviceText, menu, offices }) {
   return (
     <div>
       <Header links={menu} />
@@ -16,6 +17,14 @@ function Contact({ contactText, serviceText, menu }) {
             <p className="small">{serviceText}</p>
           </div>
         </div>
+        <section>
+          <h2>Showrooms & Representatives</h2>
+          <div>
+            <Offices items={offices.main} />
+            <Offices items={offices.us} />
+            <Offices items={offices.world} />
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
@@ -25,6 +34,7 @@ function Contact({ contactText, serviceText, menu }) {
 Contact.propTypes = {
   route: PropTypes.object.isRequired,
   contactText: PropTypes.string.isRequired,
+  offices: PropTypes.object.isRequired,
   serviceText: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
 }

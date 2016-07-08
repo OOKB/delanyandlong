@@ -16,7 +16,25 @@ export function selectIds(entity, ids) {
 }
 const offices = {
   main: [ 'dlheadquarters' ],
-  us: [ 'NYCshowroom', 'ariz', 'bostonNE', 'chicago', 'mountainStates', 'connecticutEtc' ],
+  us: [
+    'NYCshowroom',
+    'ariz',
+    'bostonNE',
+    'chicago',
+    'mountainStates',
+    'connecticutEtc',
+    'dallas',
+    'washingtonDC',
+    'florida',
+    'houston',
+    'midwest',
+    'laWestCoast',
+    'newjersey',
+    'midatlantic',
+    'sanfranWestCoast',
+    'southeast',
+    'northwest',
+  ],
   world: [ 'pacificrim', 'europe', 'canada' ],
 }
 export function officeListSelector() {

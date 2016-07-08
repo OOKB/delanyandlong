@@ -10,9 +10,9 @@ import { pricelistSelector } from '../../redux/select/pricelist'
 function Pricelist(props) {
   const { info, lead, disclaimer, menu, pager } = props
   const { items, ...pagerInfo } = pager
-  const { activeCategory, columns, printWhenColor } = info
+  const { category, columns, printWhenColor } = info
   return (
-    <div id="container-pricelist" className={activeCategory}>
+    <div id="container-pricelist" className={category.activeCategory}>
       <Header links={menu} />
       <main className="clear m1 mt3">
         <Search {...info} pagerInfo={pagerInfo} />

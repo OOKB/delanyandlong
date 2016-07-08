@@ -11,21 +11,15 @@ import map from 'lodash/map'
 
 import { defaultPageSize, pageSizes } from '../../helpers/pager'
 
-const pageSizeOptions = pageSizes()
-
+export const pageSizeOptions = pageSizes()
+export function getDb(path) {
+  return (state) => get(state.db, path)
+}
 // Where is our custom pricelist information? Look in defaultState.js or the `db` tree of state.
-export function pricelistInfo(state) {
-  return state.db.pricelist
-}
-export function getCategoryOptions(state) {
-  return state.db.categoryOptions
-}
-export function getSchema(state) {
-  return state.db.schema
-}
-export function getMenu(state) {
-  return state.db.menu
-}
+export const pricelistInfo = getDb('pricelist')
+export const getCategoryOptions = getDb('categoryOptions')
+export const getSchema = getDb('schema')
+export const getMenu = getDb('menu')
 export function getUser(state) {
   return state.graph.entity.user0
 }
@@ -43,7 +37,10 @@ export function getFilter(filterType) {
 }
 export const getFilterCategory = getFilter('category')
 export const getFilterText = getFilter('text')
-export const getPageSize = getFilter('pgSize')
+export const getPageSize = state => {
+  const pgSize = getFilter('pgSize')(state)
+  return pgSize && parseInt(pgSize, 10) || defaultPageSize
+}
 export const getPageIndex = getFilter('pgIndex')
 
 export const activeCategorySelector = createSelector(
@@ -62,26 +59,7 @@ export const columnsSelector = createSelector(
   activeCategorySelector,
   (info, schema, activeCategory) => optionFill(info.columns[activeCategory], schema)
 )
-// Based on pricelist db info, select activeCategory based on form input. Use default if no value.
-export const pricelistInfoSelector = createSelector(
-  pricelistInfo,
-  activeCategorySelector,
-  categoryOptionsSelector,
-  columnsSelector,
-  getFilterText,
-  getPageIndex,
-  getPageSize,
-  (info, activeCategory, categoryOptions, columns, searchText, pgIndex, pgSize) => ({
-    ...info,
-    activeCategory,
-    categoryOptions,
-    columns,
-    searchText,
-    pgIndex,
-    pgSize: pgSize && parseInt(pgSize, 10) || defaultPageSize,
-    pageSizeOptions,
-  })
-)
+
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }

@@ -7,7 +7,7 @@ function Office({ address, email, name, tel, title }) {
     window.location.href = `mailto:${email}`
   }
   return (
-    <li>
+    <li className="office showroom four columns">
       <h3>{title}</h3>
       {name && <p>{name}</p>}
       <address>
@@ -26,16 +26,16 @@ Office.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-function About({ items }) {
+function Offices({ items }) {
   return (
-    <ul>
+    <ul className="list-reset group">
       {map(items, item => <Office key={item.id} {...item} />)}
     </ul>
   )
 }
 
-About.propTypes = {
+Offices.propTypes = {
   items: PropTypes.array.isRequired,
 }
 
-export default About
+export default Offices

@@ -35,6 +35,7 @@ export default {
         pgIndex: [ 'pricelist', 'pgIndex' ],
         pgSize: [ 'pricelist', 'pgSize' ],
         text: [ 'pricelist', 'text' ],
+        display: [ 'pricelist', 'display' ],
       },
       printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
@@ -83,6 +84,11 @@ export default {
         label: 'Passementerie',
       },
     },
+    styles: [
+      { id: 'list', label: 'List' },
+      { id: 'grid', label: 'Grid' },
+      { id: 'film', label: 'Vertical' },
+    ],
   },
   graph: {
     entity,

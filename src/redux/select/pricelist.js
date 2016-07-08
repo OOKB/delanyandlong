@@ -3,17 +3,18 @@ import { createSelector, createStructuredSelector } from 'reselect'
 import { getPagerInfo } from '../../helpers/pager'
 
 import {
-  patternColorSelector, pricelistInfo, activeCategorySelector,
+  patternColorSelector, pricelistInfo, activeCategorySelector, formPrefix,
   getFilter, getDb, getFilterText, getMenu, getPageIndex, getPageSize,
   categoryOptionsSelector, columnsSelector,
   pageSizeOptions,
 } from './'
 
 export const getStyles = getDb('styles')
-export const getDisplayStyle = getFilter('display')
+export const getDisplayStyle = state => getFilter('display', state) || 'list'
 const displayStyle = createStructuredSelector({
   active: getDisplayStyle,
   options: getStyles,
+  prefix: formPrefix('display'),
 })
 
 const category = createStructuredSelector({

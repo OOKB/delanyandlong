@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import { entitySelector } from 'redux-graph'
 import { selectForm } from 'redux-field'
 import compact from 'lodash/compact'
+import curry from 'lodash/curry'
 import every from 'lodash/every'
 import filter from 'lodash/filter'
 import get from 'lodash/get'
@@ -12,9 +13,7 @@ import map from 'lodash/map'
 import { defaultPageSize, pageSizes } from '../../helpers/pager'
 
 export const pageSizeOptions = pageSizes()
-export function getDb(path) {
-  return (state) => get(state.db, path)
-}
+export const getDb = curry((path, state) => get(state.db, path))
 // Where is our custom pricelist information? Look in defaultState.js or the `db` tree of state.
 export const pricelistInfo = getDb('pricelist')
 export const getCategoryOptions = getDb('categoryOptions')
@@ -29,12 +28,12 @@ export function optionFill(opts, schema) {
     return { ...schema[opt], value: opt }
   })
 }
-export function getFilter(filterType) {
-  return (state) => {
-    const prefix = pricelistInfo(state).prefix[filterType]
-    return get(selectForm(state), prefix, {}).value
-  }
-}
+// Get the form prefix used for form state path.
+export const formPrefix = curry((filterType, state) => pricelistInfo(state).prefix[filterType])
+// Get the active filter value from the form state.
+export const getFilter = curry((filterType, state) =>
+  get(selectForm(state), formPrefix(filterType, state), {}).value
+)
 export const getFilterCategory = getFilter('category')
 export const getFilterText = getFilter('text')
 export const getPageSize = state => {

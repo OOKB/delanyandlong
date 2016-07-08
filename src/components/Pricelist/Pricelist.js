@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Search from './PricelistSearch'
 import Table from './PricelistTable'
+import Grid from '../ItemGrid'
 import Header from '../Header'
 import Footer from '../Footer'
 import { pricelistSelector } from '../../redux/select/pricelist'
@@ -10,14 +11,18 @@ import { pricelistSelector } from '../../redux/select/pricelist'
 function Pricelist(props) {
   const { info, lead, disclaimer, menu, pager } = props
   const { items, ...pagerInfo } = pager
-  const { category, columns, printWhenColor } = info
+  const { category, columns, displayStyle, printWhenColor } = info
+  const display = (id) => displayStyle.active === id
+  const list = display('list')
+  const grid = display('grid')
   return (
     <div id="container-pricelist" className={category.activeCategory}>
       <Header links={menu} />
       <main className="clear m1 mt3">
         <Search {...info} pagerInfo={pagerInfo} />
         <div className="table-scroll">
-          <Table columns={columns} items={items} printWhenColor={printWhenColor} />
+          {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
+          {grid && <Grid items={items} />}
         </div>
         <div className="text-center small">
           <p className="uppercase">{lead}</p>

@@ -85,9 +85,9 @@ export default {
       },
     },
     styles: [
-      { id: 'list', label: 'List' },
-      { id: 'grid', label: 'Grid' },
-      { id: 'film', label: 'Vertical' },
+      { value: 'list', label: 'List' },
+      { value: 'grid', label: 'Grid' },
+      { value: 'film', label: 'Vertical' },
     ],
   },
   graph: {

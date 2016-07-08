@@ -2,17 +2,22 @@ import React, { PropTypes } from 'react'
 import Select from './Select'
 import { connectField } from 'redux-field'
 
-function InputSelect({ form, formEvent, options, schema, value }) {
+const style = {
+  label: {
+    fontSize: '.7em',
+    paddingRight: 5,
+  },
+}
+
+function InputSelect({ form, formEvent, label, options, value }) {
   return (
     <div>
+      {label && <span style={style.label}>{label}</span>}
       <Select
         value={form.value || value}
         {...formEvent}
         options={options}
       />
-      {form.value && schema && schema[form.value] &&
-        <p dangerouslySetInnerHTML={{ __html: schema[form.value].description }} />
-      }
     </div>
   )
 }
@@ -20,8 +25,8 @@ function InputSelect({ form, formEvent, options, schema, value }) {
 InputSelect.propTypes = {
   form: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,
+  label: PropTypes.string,
   options: PropTypes.array.isRequired,
-  schema: PropTypes.object,
   value: PropTypes.string,
 }
 InputSelect.defaultProps = {

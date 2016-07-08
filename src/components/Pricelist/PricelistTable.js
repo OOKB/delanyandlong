@@ -7,7 +7,7 @@ const styles = {
   base: {
     borderBottom: '1px solid rgba(200,200,190,.25)',
     borderCollapse: 'collapse',
-    border: '0',
+    border: 0,
     fontSize: '0.85rem',
     marginBottom: '20px',
     tableLayout: 'fixed',

@@ -15,8 +15,8 @@ export function selectIds(entity, ids) {
   return ids.map(id => entity[id])
 }
 const offices = {
-  main: [ 'NYCshowroom', 'dlheadquarters' ],
-  us: [ 'rgheadquarters', 'ariz', 'bostonNE', 'chicago', 'mountainStates', 'connecticutEtc' ],
+  main: [ 'dlheadquarters' ],
+  us: [ 'NYCshowroom', 'ariz', 'bostonNE', 'chicago', 'mountainStates', 'connecticutEtc' ],
   world: [ 'pacificrim', 'europe', 'canada' ],
 }
 export function officeListSelector() {

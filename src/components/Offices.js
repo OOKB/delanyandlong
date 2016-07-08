@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-function Office({ address, email, name, tel, title }) {
+function Office({ address, email, name, tel, fax, title }) {
   const onClick = event => {
     event.preventDefault()
     window.location.href = `mailto:${email}`
@@ -13,8 +13,11 @@ function Office({ address, email, name, tel, title }) {
       <address>
         {map(address, (line, index) => <span key={index}>{line}<br /></span>)}
       </address>
-      {email && <button onClick={onClick}>{email}</button>}
-      {tel && <phone>{tel}</phone>}
+      <ul className="list-reset connect">
+        <li>{email && <button onClick={onClick}>{email}</button>}</li>
+        <li>{tel && <phone>{tel}</phone>}</li>
+        <li>{fax && <phone>fax: {fax}</phone>}</li>
+      </ul>
     </li>
   )
 }
@@ -23,6 +26,7 @@ Office.propTypes = {
   email: PropTypes.string,
   name: PropTypes.string,
   tel: PropTypes.string,
+  fax: PropTypes.string,
   title: PropTypes.string.isRequired,
 }
 

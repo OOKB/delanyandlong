@@ -173,6 +173,15 @@ img { width: 100%; height: auto; }
   margin: 0 0 2rem 0;
 }
 
+.clearfix::after,
+.clear-fix::after,
+.cf::after,
+.group::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .column,
 .columns {
   margin: 0 0 2rem 0;

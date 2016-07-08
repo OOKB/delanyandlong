@@ -11,13 +11,10 @@ function Contact({ contactText, serviceText, menu, offices }) {
     <div>
       <Header links={menu} />
       <main className="clear pt4 container">
-        <div className="group">
-          <div className="six columns offset-by-three text-center">
-            <p>{contactText}</p>
-            <p className="small">{serviceText}</p>
-          </div>
+        <div className="six offset-by-three text-center">
+          <p>{contactText}</p>
         </div>
-        <section>
+        <section className="clear">
           <h2>Showrooms & Representatives</h2>
           <div>
             <Offices items={offices.main} />
@@ -25,6 +22,9 @@ function Contact({ contactText, serviceText, menu, offices }) {
             <Offices items={offices.world} />
           </div>
         </section>
+        <div className="six offset-by-three text-center">
+          <p className="small">{serviceText}</p>
+        </div>
       </main>
       <Footer />
     </div>

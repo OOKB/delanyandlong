@@ -28,6 +28,7 @@ body {
   color: rgb(132,133,94);
   color: rgba(132,133,94,1);
   font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
+  line-height: 1.3;
 }
 
 header .dl-logo {

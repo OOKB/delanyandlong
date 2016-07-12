@@ -15,7 +15,6 @@ function Contact({ contactText, serviceText, menu, offices }) {
           <p>{contactText}</p>
         </div>
         <section className="clear">
-          <h2>Showrooms & Representatives</h2>
           <div>
             <Offices items={offices.main} />
             <Offices items={offices.us} />

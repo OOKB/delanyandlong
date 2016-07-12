@@ -7,9 +7,9 @@ function Office({ address, email, name, tel, fax, title }) {
     window.location.href = `mailto:${email}`
   }
   return (
-    <li className="office showroom four columns">
+    <li className="office four columns">
       <h3>{title}</h3>
-      {name && <p>{name}</p>}
+      {name && <h4>{name}</h4>}
       <address>
         {map(address, (line, index) => <span key={index}>{line}<br /></span>)}
       </address>

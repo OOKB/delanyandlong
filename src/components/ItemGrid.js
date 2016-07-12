@@ -10,7 +10,7 @@ function Item({ item, onError }) {
   }
 
   return (
-    <div className="one-x block one-y">
+    <li>
       <Link href={item.link}>
         <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description">
@@ -18,7 +18,7 @@ function Item({ item, onError }) {
           <p>{item.id}</p>
         </div>
       </Link>
-    </div>
+    </li>
   )
 }
 Item.propTypes = {
@@ -29,7 +29,7 @@ Item.propTypes = {
 function ItemGrid({ items, missingImage }) {
   return (
     <div className="items">
-      <ul className="list-reset">
+      <ul className="list-reset item-grid">
         {map(items, item => (
           <Item key={item.id} item={item} onError={missingImage} />
         ))}

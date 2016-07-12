@@ -383,90 +383,9 @@ small,
 }
 
 .flex-center > *,
-.flex-center .flex-item,
-header .flex-center .logo {
+.flex-center .flex-item {
   flex: 1;
 }
-
-.block {
-  float: left;
-  position: relative;
-  overflow: hidden;
-}
-
-.block img {
-  display: block;
-}
-
-.displayBlock {
-  display: block;
-}
-
-.one-x {
-  width: 10%;
-}
-
-.two-x {
-  width: 20%;
-}
-
-.three-x {
-  width: 30%;
-}
-
-.four-x {
-  width: 40%;
-}
-
-.five-x {
-  width: 50%;
-}
-
-.six-x {
-  width: 60%;
-}
-
-/******/
-
-.block .description {
-  position: absolute;
-  display: none;
-  font-size: 50%;
-  background-color: rgba(242,239,229,1);
-  padding: .5em;
-  left: .5em;
-  bottom: .5em;
-  width: calc(100% - 2em);
-}
-
-.block .description h2 {
-  font-size: 75%;
-}
-
-.items .block,
-.items .block .description {
-  transition: all 400ms;
-}
-
-.items .block:hover {
-  transform: scale(1.5,1.5);
-  z-index: 9;
-}
-
-.items .block:hover .description {
-  display: block;
-}
-
-.items .block:hover,
-.items .block:hover .description {
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
-}
-
-.block .description * {
-  margin: 0;
-}
-
-
 
 
 /******************************************/

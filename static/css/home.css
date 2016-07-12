@@ -1,0 +1,57 @@
+#home header .flex-center .logo {
+  flex: 1;
+}
+
+#home li {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+#home li img {
+  display: block;
+}
+
+#home .displayBlock {
+  display: block;
+}
+
+/******/
+
+#home li .description {
+  position: absolute;
+  display: none;
+  font-size: 50%;
+  background-color: rgba(242,239,229,1);
+  padding: .5em;
+  left: .5em;
+  bottom: .5em;
+  width: calc(100% - 2em);
+}
+
+#home li .description h2 {
+  font-size: 75%;
+}
+
+#home .item-grid > li,
+#home .item-grid > li .description {
+  transition: all 400ms;
+}
+
+#home .item-grid > li:hover {
+  transform: scale(1.5,1.5);
+  z-index: 9;
+}
+
+#home .item-grid > li:hover .description {
+  display: block;
+}
+
+#home .item-grid > li:hover,
+#home .item-grid > li:hover .description {
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+}
+
+#home .description * {
+  margin: 0;
+}

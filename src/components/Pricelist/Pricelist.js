@@ -20,10 +20,8 @@ function Pricelist(props) {
       <Header links={menu} />
       <main className="clear m1 mt3">
         <Search {...info} pagerInfo={pagerInfo} />
-        <div className="table-scroll">
-          {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
-          {grid && <Grid items={items} />}
-        </div>
+        {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
+        {grid && <Grid items={items} />}
         <div className="text-center small">
           <p className="uppercase">{lead}</p>
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />

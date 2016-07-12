@@ -24,14 +24,16 @@ class PricelistTable extends Component {
   render() {
     const { columns, items, printWhenColor } = this.props
     return (
-      <table style={styles.base}>
-        <Header columns={columns} />
-        <tbody>
-          {map(items, item => (
-            <Row columns={columns} item={item} key={item.id} printWhenColor={printWhenColor} />
-          ))}
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table style={styles.base}>
+          <Header columns={columns} />
+          <tbody>
+            {map(items, item => (
+              <Row columns={columns} item={item} key={item.id} printWhenColor={printWhenColor} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

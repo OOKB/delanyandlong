@@ -3,7 +3,6 @@
 }
 
 #home li {
-  float: left;
   position: relative;
   overflow: hidden;
 }
@@ -12,13 +11,7 @@
   display: block;
 }
 
-#home .displayBlock {
-  display: block;
-}
-
-/******/
-
-#home li .description {
+#home .description {
   position: absolute;
   display: none;
   font-size: 50%;
@@ -29,8 +22,12 @@
   width: calc(100% - 2em);
 }
 
-#home li .description h2 {
+#home .description h2 {
   font-size: 75%;
+}
+
+#home .item-grid > li {
+  padding: 0;
 }
 
 #home .item-grid > li,

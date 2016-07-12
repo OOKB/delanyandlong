@@ -8,6 +8,8 @@ header nav {
   left:0;
   right:0;
   z-index: 100;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 header ul {
@@ -22,8 +24,8 @@ header ul li {
   border-bottom: 1px solid rgba(132,133,94,1);
 }
 
-header ul li a,
-header ul li a:link {
+header nav a,
+header nav a:link {
   display: block;
   padding: 5px;
   text-decoration: none;
@@ -39,7 +41,7 @@ header a:link {
   padding: 0;
 }
 
-header ul li a:hover {
+header nav a:hover {
   text-decoration: none;
   background-color: rgb(132,133,94);
   background-color: rgba(132,133,94,1);
@@ -79,7 +81,7 @@ header button.toggle:active span {
     background: rgba(242,239,229,1);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .list-inline {
     display:flex;
     justify-content: center;
@@ -119,11 +121,20 @@ header button.toggle:active span {
     border: none;
   }
 
-  header nav ul li {
+  header ul li {
     border: none;
   }
 
-  header ul li a {
+  header nav a,
+  header nav a:link,
+  header nav a:hover {
+    background-color: transparent;
+    color: rgb(132,133,94);
+    color: rgba(132,133,94,1);
     padding: 0;
+  }
+  header nav a:hover {
+    color: rgb(66,67,47);
+    color: rgba(66,67,47,1);
   }
 }

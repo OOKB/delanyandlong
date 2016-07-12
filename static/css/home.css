@@ -52,3 +52,67 @@
 #home .description * {
   margin: 0;
 }
+
+@media (min-width: 701px) {
+  #home header .logo {
+    max-width: 90%;
+  }
+}
+/**** home edits to item grid? ****/
+#home header .three-x {
+  width: 100%;
+}
+
+@media (min-width: 701px) {
+  #home header .two-x {
+    width: calc(100% / 5 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 5 * 3);
+  }
+}
+
+@media (min-width: 901px) {
+  #home header .two-x {
+    width: calc(100% / 6 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 6 * 3);
+  }
+}
+
+@media (min-width: 1101px) {
+  #home header .two-x {
+    width: calc(100% / 8 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 8 * 3);
+  }
+}
+
+@media (min-width: 1351px) {
+  #home header .two-x {
+    width: calc(100% / 10 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 10 * 3);
+  }
+}
+
+@media (min-width: 1701px) {
+  #home header .two-x {
+    width: calc(100% / 12 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 12 * 3);
+  }
+}
+
+@media (min-width: 1901px) {
+  #home header .two-x {
+    width: calc(100% / 15 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 15 * 3);
+  }
+}

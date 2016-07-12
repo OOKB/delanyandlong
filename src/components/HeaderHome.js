@@ -14,12 +14,12 @@ const styles = {
 function Header({ links }) {
   return (
     <header>
-      <div className="three-x block one-y">
+      <div className="left three-x">
         <div className="flex-center text-center">
           <Logo />
         </div>
       </div>
-      <nav className="two-x block one-y">
+      <nav className="left two-x">
         <div className="flex-center">
           <Menu links={links} />
         </div>

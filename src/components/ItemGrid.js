@@ -29,7 +29,7 @@ Item.propTypes = {
 function ItemGrid({ items, missingImage }) {
   return (
     <div className="items">
-      <ul className="list-reset item-grid">
+      <ul className="list-reset item-grid clearfix">
         {map(items, item => (
           <Item key={item.id} item={item} onError={missingImage} />
         ))}

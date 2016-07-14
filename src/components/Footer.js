@@ -25,7 +25,7 @@ Footer.propTypes = {
 }
 Footer.defaultProps = {
   capeLink: 'http://www.cape.io',
-  currentYear: new Date().getFullYear()
+  currentYear: new Date().getFullYear(),
   ookbLink: 'http://www.ookb.co',
 }
 

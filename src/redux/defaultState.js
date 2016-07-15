@@ -20,10 +20,10 @@ export default {
     categoryOptions: [ 'textile', 'trim', 'leather' ],
     pricelist: {
       columns: {
-        textile: [ 'id', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
-        trim: [ 'id', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
+        textile: [ 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        trim: [ 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
         leather: [
-          'id', 'img', 'color', 'price', 'contents',
+          'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
           'originCountry',
         ],
@@ -37,7 +37,7 @@ export default {
         text: [ 'pricelist', 'text' ],
         display: [ 'pricelist', 'display' ],
       },
-      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
+      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img', name: 'name' },
     },
     menu: [
       { id: 'about', href: '/about', label: 'About Us' },
@@ -67,6 +67,9 @@ export default {
       },
       leather: {
         label: 'Leather',
+      },
+      name: {
+        label: 'Name',
       },
       originCountry: {
         label: 'Origin',

@@ -1,0 +1,7 @@
+
+.about p:first-child {
+  font-size: 1.25em;
+  font-weight: 300;
+  color: rgb(132, 133, 94);
+  color: rgba(132, 133, 94, 0.4);
+}

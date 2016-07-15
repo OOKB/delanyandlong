@@ -7,7 +7,7 @@ import Footer from './Footer'
 
 function About({ aboutText, serviceText, menu }) {
   return (
-    <div>
+    <div id="container-about">
       <Header links={menu} />
       <main className="clear pt4 container">
         <div className="group">

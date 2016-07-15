@@ -7,7 +7,7 @@ import Footer from './Footer'
 
 function Collection({ menu }) {
   return (
-    <div>
+    <div id="container-collection">
       <Header links={menu} />
       <main className="clear m1 mt4 pt4 clearfix">
         <h1>Collection</h1>

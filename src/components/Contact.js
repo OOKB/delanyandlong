@@ -8,7 +8,7 @@ import Offices from './Offices'
 
 function Contact({ contactText, serviceText, menu, offices }) {
   return (
-    <div>
+    <div id="container-contact">
       <Header links={menu} />
       <main className="clear pt4 container">
         <div className="six offset-by-three text-center">

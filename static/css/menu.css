@@ -92,14 +92,6 @@ header button.toggle:active span {
     text-align: center;
   }
 
-  header.fixed {
-    position: fixed;
-    top: 0;
-    left:0;
-    right:0;
-    z-index: 100;
-  }
-
   header .logo {
     max-width: 400px;
     margin-left: auto;
@@ -110,6 +102,12 @@ header button.toggle:active span {
   header ul {
     display: block;
     position: static;
+  }
+
+  header nav {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   header button.toggle { display: none; }
@@ -136,5 +134,39 @@ header button.toggle:active span {
   header nav a:hover {
     color: rgb(66,67,47);
     color: rgba(66,67,47,1);
+  }
+
+  /** temporary active ID **/
+  /** replace w/ just an active class? **/
+  #container-about nav .about,
+  #container-contact nav .contact,
+  #container-collection nav .collection,
+  #container-pricelist nav .pricelist {
+    position: relative;
+    font-weight: bold;
+  }
+  #container-about nav .about::before,
+  #container-contact nav .contact::before,
+  #container-collection nav .collection::before,
+  #container-pricelist nav .pricelist::before {
+    display: inline-block;
+    font: normal normal normal 14px/2px FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f0d7";
+
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: -.5em;
+
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid;
   }
 }

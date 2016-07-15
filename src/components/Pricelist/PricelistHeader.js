@@ -12,6 +12,7 @@ function PricelistRowPattern({ columns }) {
             {label}
           </td>
         ))}
+        <td className="favButton"></td>
       </tr>
     </thead>
   )

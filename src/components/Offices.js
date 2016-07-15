@@ -32,7 +32,7 @@ Office.propTypes = {
 
 function Offices({ items }) {
   return (
-    <ul className="list-reset group">
+    <ul className="list-reset group bt1 pt2">
       {map(items, item => <Office key={item.id} {...item} />)}
     </ul>
   )

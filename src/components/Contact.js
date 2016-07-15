@@ -10,20 +10,20 @@ function Contact({ contactText, serviceText, menu, offices }) {
   return (
     <div id="container-contact">
       <Header links={menu} />
-      <main className="clear pt4 container">
-        <div className="six offset-by-three text-center">
-          <p>{contactText}</p>
-        </div>
-        <section className="clear">
+      <main className="clear pt4 container clearfix">
+        <section className="showroomsAndReps">
           <div>
+            <div className="six right">
+              <p className="pt2">{serviceText}</p>
+            </div>
             <Offices items={offices.main} />
+            <div className="six offset-by-three text-center mb2">
+              <p>{contactText}</p>
+            </div>
             <Offices items={offices.us} />
             <Offices items={offices.world} />
           </div>
         </section>
-        <div className="six offset-by-three text-center">
-          <p className="small">{serviceText}</p>
-        </div>
       </main>
       <Footer />
     </div>

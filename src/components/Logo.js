@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react'
 function Logo({ logoSvg }) {
   return (
     <a href="/">
-      <div className="logo m1" dangerouslySetInnerHTML={{ __html: logoSvg }} />
+      <div className="logo m2" dangerouslySetInnerHTML={{ __html: logoSvg }} />
     </a>
 
   )

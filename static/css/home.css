@@ -53,6 +53,10 @@
   margin: 0;
 }
 
+#home .logo.m2 {
+  margin-bottom: 1rem;
+}
+
 @media (min-width: 701px) {
   #home header .logo {
     max-width: 90%;

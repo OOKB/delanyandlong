@@ -53,6 +53,8 @@
   text-transform: uppercase;
   font-size: .75rem;
   letter-spacing: .1em;
+  color: rgb(66,67,47);
+  color: rgba(66,67,47,1);
 }
 
 .office h4,

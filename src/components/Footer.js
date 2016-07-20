@@ -7,13 +7,15 @@ const styles = {
   },
 }
 
-function Footer({ currentYear }) {
+function Footer({ capeLink, currentYear, ookbLink }) {
   return (
     <footer className="text-center mb4 mt1 p1 clear" style={styles.base}>
       <p className="pt2 uppercase">
         &copy; {currentYear} Delany &amp; Long LTD.
       </p>
-      <p className="m0 p0 small">site by OOKB/powered by CAPE</p>
+      <p className="m0 p0 small">
+        site by <a href={ookbLink}>OOKB</a>/powered by <a href={capeLink}>CAPE</a>
+      </p>
     </footer>
   )
 }

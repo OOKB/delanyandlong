@@ -91,9 +91,11 @@ img { width: 100%; height: auto; }
 /* Visibility Classes */
 .show {
   display: block !important;
+  visibility: visible;
 }
 .hidden {
   display: none !important;
+  visibility: hidden;
 }
 .invisible {
   visibility: hidden;

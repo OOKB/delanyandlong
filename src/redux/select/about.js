@@ -11,9 +11,14 @@ export function getAboutImg(state) {
 export function getServiceText(state) {
   return state.db.service
 }
+export function getDistributedText(state) {
+  return state.db.distributed
+}
+
 export const aboutSelector = createStructuredSelector({
   menu: getMenu,
   aboutText: getAboutText,
   aboutImgSrc: getAboutImg,
   serviceText: getServiceText,
+  distributedText: getDistributedText,
 })

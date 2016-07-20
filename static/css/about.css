@@ -2,6 +2,14 @@
 .about p:first-child {
   font-size: 1.25em;
   font-weight: 300;
-  color: rgb(132, 133, 94);
-  color: rgba(132, 133, 94, 0.4);
+}
+
+.about p {
+  color: rgb(66,67,47);
+  color: rgba(66,67,47,1);
+}
+
+#container-about .small.bt1 {
+  border-color: rgb(132, 133, 94);
+  border-color: rgba(132, 133, 94, 0.4);
 }

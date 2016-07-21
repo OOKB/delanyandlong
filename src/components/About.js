@@ -30,7 +30,6 @@ About.propTypes = {
   aboutText: PropTypes.string.isRequired,
   serviceText: PropTypes.string.isRequired,
   distributedText: PropTypes.string.isRequired,
-  aboutImgSrc: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
 }
 

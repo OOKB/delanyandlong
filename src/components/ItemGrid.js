@@ -2,8 +2,12 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
 import { Link } from 'redux-history-sync'
+import FavButton from './FavButton'
 
-function Item({ item, onError }) {
+function Item({ item, onError, confirmFavorite, endFavorite, favorite, favoriteItem }) {
+  const favorited = favorite && favorite.actionStatus !== 'ended' || false
+  const favoriteItem = favorited ? partial(endFavorite, favorite) : partial(favoriteItem, item)
+
   function handleImgError() {
     if (onError) onError(item)
     // console.log('img error', item.id, err.type)
@@ -17,6 +21,7 @@ function Item({ item, onError }) {
           <h2>{item.color}</h2>
           <p>{item.id}</p>
         </div>
+        <FavButton favorited={favorited} item={item} onClick={favoriteItem} />
       </Link>
     </li>
   )
@@ -39,6 +44,10 @@ function ItemGrid({ items, missingImage }) {
 }
 
 ItemGrid.propTypes = {
+  confirmFavorite: PropTypes.func.isRequired,
+  endFavorite: PropTypes.func.isRequired,
+  favorite: PropTypes.object,
+  favoriteItem: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   missingImage: PropTypes.func,
 }

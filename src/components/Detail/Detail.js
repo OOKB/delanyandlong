@@ -4,8 +4,9 @@ import partial from 'lodash/partial'
 import Info from '../Info'
 import Related from './Related'
 import FavAlert from '../FavAlert'
+import Close from '../CloseButton'
 
-function Detail({ item, colors, confirmFavorite, endFavorite, favorite, favoriteItem }) {
+function Detail({ onClick, item, colors, confirmFavorite, endFavorite, favorite, favoriteItem }) {
   const favorited = favorite && favorite.actionStatus !== 'ended' || false
   const favToggle = favorited ? partial(endFavorite, favorite) : partial(favoriteItem, item)
 
@@ -21,6 +22,7 @@ function Detail({ item, colors, confirmFavorite, endFavorite, favorite, favorite
       />
       <img src={item.img} alt={item.id} />
       <Related colors={colors} parent={item} />
+      <Close onClick={onClick} />
     </div>
   )
 }
@@ -32,6 +34,7 @@ Detail.propTypes = {
   favoriteItem: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   colors: PropTypes.array.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Detail

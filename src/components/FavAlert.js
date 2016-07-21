@@ -6,11 +6,11 @@ import Close from './CloseButton'
 function FavAlert({ onClick, item }) {
   const message = `${item.id} has been added to your favorites!`
   return (
-    <div className="favorite popup">
+    <div className="favorite popup p2 text-center">
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>
-        <Link href="/favs" onClick={onClick}>View and share</Link>
+        <Link className="small uppercase" href="/favs" onClick={onClick}>View and share</Link>
       </div></div>
     </div>
   )

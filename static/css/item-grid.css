@@ -13,10 +13,40 @@
   width: 50%;
   float: left;
   padding: 2px;
+  position: relative;
+  overflow: hidden;
 }
 
 .item-grid li img {
   display: block;
+}
+
+/** inside the items... **/
+.item-grid .description {
+  position: absolute;
+  display: block;
+  font-size: 50%;
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
+  padding: .5em;
+  left: .5em;
+  bottom: .5em;
+  width: calc(100% - 2em);
+  transition: all 400ms;
+  opacity: 0;
+}
+
+.item-grid > li:hover .description {
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+  opacity: 1;
+}
+
+.item-grid .description h2 {
+  font-size: 75%;
+}
+
+.item-grid .description * {
+  margin: 0;
 }
 
 @media (min-width: 501px) {

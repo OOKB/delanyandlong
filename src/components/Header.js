@@ -15,10 +15,10 @@ function Header({ links }) {
   return (
     <header className="main-menu">
       <Logo />
-      <nav className="px1">
+      <nav className="bt1 light-gray-border mt05 pt05">
         <Menu links={links} />
         <button className="toggle">
-          <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true"></i>
+          <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true">Menu</i>
         </button>
       </nav>
     </header>

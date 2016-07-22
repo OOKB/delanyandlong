@@ -22,6 +22,10 @@
 }
 
 @media (min-width: 701px) {
+  #home header a,
+  #home header a:link {
+    padding: 0;
+  }
   #home header .logo {
     max-width: 90%;
   }

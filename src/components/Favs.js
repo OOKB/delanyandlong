@@ -6,11 +6,19 @@ import Header from './Header'
 import Footer from './Footer'
 import FavButton from './FavButton'
 
+import { Link } from 'redux-history-sync'
+
 function FavItem({ item, onClick }) {
   return (
     <li className="relative">
       <FavButton favorited item={item} onClick={onClick} />
-      <img src={item.img} alt={item.id} title={item.id} />
+      <Link href={item.link}>
+        <img src={item.img} alt={item.id} title={item.id} />
+        <div className="description">
+          <h2>{item.color}</h2>
+          <p>{item.id}</p>
+        </div>
+      </Link>
     </li>
   )
 }

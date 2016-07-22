@@ -17,8 +17,8 @@ export default {
     service: `DeLany & Long is a small, focused company, responsive to our customers and committed to quality service. Our combination of exceptional service and product availability makes us unique in the industry. Our Customer Service department is directed and staffed by experienced professionals. All of our fabrics are woven to order for us and we maintain a large inventory at our Greenwich, Connecticut location. Business is conducted on a pro forma basis and most fabrics can be shipped immediately.`,
     distributed: `DeLany & Long fabrics are distributed through Rogers & Goffigon sales representatives and a growing group of allied business distributors.`,
     samples: `6 x 6 inch memo samples are available for all fabrics. <a href="/contact">Please contact your local showroom or sales representative</a> to order them.`,
-    orders: 'For fabric pricing and ordering <a href="/contact">please contact your local showroom or sales representative</a>.',
-    questions: `Please check our <a href="/contact">distributors page to find the closest showroom</a>. If you have any questions about who to call please contact our headquarters office in Greenwich, Connecticut.`
+    orders: `For fabric pricing and ordering <a href="/contact">please contact your local showroom or sales representative</a>.`,
+    questions: `Please check our <a href="/contact">distributors page to find the closest showroom</a>. If you have any questions about who to call please contact our headquarters office in Greenwich, Connecticut.`,
     categoryOptions: [ 'textile', 'trim', 'leather' ],
     pricelist: {
       columns: {

@@ -49,8 +49,8 @@
   margin: 0;
 }
 
-.item-grid .description a,
-.item-grid .description a:hover {
+.item-grid li > a,
+.item-grid li > a:hover {
   color: rgb(132,133,94);
   color: rgba(132,133,94,1);
 }

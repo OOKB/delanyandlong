@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react'
 
 import Logo from '../Logo'
-import Close from '../CloseButton'
 
-function DetailHeader({ onClick }) {
+function DetailHeader() {
   return (
     <header className="detailHeader">
       <Logo />
-      <Close onClick={onClick} />
     </header>
   )
 }

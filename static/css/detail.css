@@ -18,7 +18,8 @@
   margin: 0;
 }
 
-.detailHeader .close {
+#detailWrapper .close {
+  position: fixed;
   right: 0;
   top: 0;
   height: 25px;
@@ -119,19 +120,49 @@
 
 #related-colors {
   font-size: .9rem;
+
   position: absolute;
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
   right: 1em;
   top: calc(1.3em + 25px);
   z-index: 11;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
   box-shadow: 0 0 1em 0 rgba(132,133,94,.75);
   border: 1px solid rgb(242,239,229);
-  width: calc(150px + .2em);
-  padding-top: 1.9em;
+  width: calc(10em);
+  padding-top: 2em;
+
+  max-height: calc(100% - 25px - 1.3em - 1.3em);
 }
 
 #related-colors > ul {
   width: 100%;
+}
+
+#related-colors button.colors-header {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+
+  display: block;
+  background: transparent;
+  border: 1px solid black;
+  font-size: .9em;
+  line-height: 1.5em;
+  height: 2em;
+  width: 100%;
+}
+
+#related-colors > ul li {
+  width: 100%;
+  height: 7vh;
+  overflow: hidden;
+}
+
+#related-colors > ul li + li {
+  border-top: 2px solid rgb(242,239,229);
 }

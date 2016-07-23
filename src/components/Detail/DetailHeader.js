@@ -1,19 +1,20 @@
 import React, { PropTypes } from 'react'
 
 import Logo from '../Logo'
+import Close from '../CloseButton'
 
-function DetailHeader() {
+function DetailHeader({ onClick }) {
   return (
     <header className="detailHeader">
       <Logo />
+      <Close onClick={onClick} />
     </header>
   )
 }
 
 DetailHeader.propTypes = {
-  logo: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 DetailHeader.defaultProps = {
-  logo: 'http://rogersandgoffigon.imgix.net/logos/dl-logo-cropped.gif',
 }
 export default DetailHeader

@@ -6,8 +6,9 @@ import Color from './RelatedColor'
 function Related({ colors, parent }) {
   return (
     <div id="related-colors">
-      <h3>Related Colors</h3>
-      <div className="colors-header">Pager</div>
+      <button className="colors-header">
+        <i className="fa fa-caret-down" aria-hidden="true"></i> Additional Colors
+      </button>
       <ul className="list-reset">
         {map(colors, color => <Color key={color.colorNumber} parent={parent} color={color} />)}
       </ul>

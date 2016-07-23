@@ -130,7 +130,7 @@
 
   background-color: rgb(242,239,229);
   background-color: rgba(242,239,229,1);
-  box-shadow: 0 0 1em 0 rgba(132,133,94,.75);
+  box-shadow: 0 .25em .75em 0 rgba(65,65,45,.75);
   border: 1px solid rgb(242,239,229);
   width: calc(10em);
   padding-top: 2em;

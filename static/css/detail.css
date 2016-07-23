@@ -62,6 +62,7 @@
 
 }
 
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Pseudo-BNF */
 @media (min-aspect-ratio: 1/1) {
   #detailWrapper > img {
     width: 100%;

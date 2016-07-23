@@ -4,18 +4,133 @@
 /******************************************/
 /******************************************/
 
+#detailWrapper {
+}
+
+@media (min-width: 48rem) {
+  #detailWrapper {
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    overflow: hidden;
+  }
+  #detailWrapper > img {
+    position: absolute;
+    left:50%;
+    top:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 1;
+  }
+}
+
+@media (min-aspect-ratio: 1/1) {
+  #detailWrapper > img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  #detailWrapper > img {
+    height: 100%;
+    width: auto;
+  }
+}
+
 .item-information {
   position: fixed;
   background-color: rgb(242,239,229);
   background-color: rgba(242,239,229,1);
   left: 0;
   right: 0;
+  top:0;
   box-shadow: 0 0 1em 0 rgba(132,133,94,.5);
   font-size: .9rem;
+  z-index: 9;
 }
 
 .item-information h3 {
   font-size: 1em;
   color: rgb(33,33,24);
   color: rgba(33,33,24,1);
+}
+
+.item-information button.favorite {
+  font-size: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 0;
+  left: .5em;
+  top: .9em;
+}
+
+@media (min-width: 48rem) {
+  .item-information ul.flex-center {
+    padding-left: 3em;
+    padding-right: 15em;
+  }
+}
+
+/******************************************/
+/******************************************/
+/** Additional Colors **/
+/******************************************/
+/******************************************/
+#related-colors * {
+  transition: all 400ms;
+}
+
+#related-colors {
+  font-size: .9rem;
+  position: absolute;
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
+  right: 1em;
+  top:1.3em;
+  z-index: 11;
+  overflow: hidden;
+  box-shadow: 0 0 1em 0 rgba(132,133,94,.75);
+  border: 1px solid rgb(242,239,229);
+  width: calc(150px + .2em);
+  padding-top: 1.9em;
+}
+
+#related-colors button.additionalColors {
+  right: 1.1em;
+  top: 1.4em;
+  font-size: 1em;
+  cursor: pointer;
+  width: 150px;
+}
+
+#related-colors h3 {
+  font-size: 1em;
+  color: rgb(33,33,24);
+  color: rgba(33,33,24,1);
+
+  margin: .5em;
+}
+
+#related-colors > ul {
+  width: 100%;
+  height: 0;
+}
+
+#related-colors > ul.fullHeight {
+  height: 250px;
+}
+
+#related-colors > ul li,
+#related-colors > ul li span {
+  height: 50px;
+  overflow: hidden;
+}
+
+#related-colors > ul li span {
+  display: block;
 }

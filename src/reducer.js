@@ -1,5 +1,4 @@
 export db from './redux/db'
-export entity from './redux/entity'
 export errorMessage from './redux/errMsg'
 export { fieldReducer as form } from 'redux-field'
 export graph from 'redux-graph'

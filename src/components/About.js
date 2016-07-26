@@ -11,8 +11,8 @@ function About({ aboutText, serviceText, distributedText, menu }) {
       <Header links={menu} />
       <main className="clear pt4 container">
         <div className="group">
-          <div className="six columns offset-by-three">
-            <div className="about" dangerouslySetInnerHTML={{ __html: aboutText }} />
+          <div className="about six columns offset-by-three">
+            {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
             <div className="small mt3 bt1 pt2">
               <p>{serviceText}</p>
               <p><a href="/contact">{distributedText}</a></p>
@@ -27,7 +27,7 @@ function About({ aboutText, serviceText, distributedText, menu }) {
 
 About.propTypes = {
   route: PropTypes.object.isRequired,
-  aboutText: PropTypes.string.isRequired,
+  aboutText: PropTypes.array.isRequired,
   serviceText: PropTypes.string.isRequired,
   distributedText: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,

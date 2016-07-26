@@ -1,10 +1,10 @@
 
-.about p:first-child {
+.about > p:first-of-type {
   font-size: 1.25em;
   font-weight: 300;
 }
 
-.about p {
+.about > p {
   color: rgb(66,67,47);
   color: rgba(66,67,47,1);
 }

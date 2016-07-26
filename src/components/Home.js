@@ -11,6 +11,10 @@ function Home({ items, menu, missingImage }) {
     <div id="home">
       <Header links={menu} />
       <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
       <Footer />
     </div>
   )

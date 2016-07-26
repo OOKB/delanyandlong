@@ -17,10 +17,12 @@ export const patternIndex = createSelector(
   filterOutMissingImages,
   items => groupBy(items, 'patternNumber')
 )
+
 export const homeItems = createSelector(
   patternIndex,
-  patterns => map(sampleSize(patterns, 48), sample)
+  patterns => map(sampleSize(patterns, 16), sample)
 )
+
 export const homeSelector = createStructuredSelector({
   items: homeItems,
   menu: getMenu,

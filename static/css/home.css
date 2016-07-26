@@ -88,3 +88,10 @@
     width: calc(100% / 15 * 3);
   }
 }
+
+
+/***** hmmm *****/
+#home .item-grid.clearfix::after {
+  display: none;
+  clear: none;
+}

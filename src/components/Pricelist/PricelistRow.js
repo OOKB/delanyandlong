@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import map from 'lodash/map'
 import { Link } from 'redux-history-sync'
 
-import FavButton from '../FavButton'
+import ItemFav from '../../containers/ItemFav'
 
 import { cellStyles } from './styles'
 
@@ -23,7 +23,7 @@ function cellValue(item, key, printWhenColor) {
   return colorKey && itemLink(item, key, item[colorKey]) || null
 }
 
-function PricelistRowPattern({ columns, item, favorited, favoriteItem, printWhenColor }) {
+function PricelistRowPattern({ columns, item, printWhenColor }) {
   const className = classnames({
     color: !item.isPattern,
     pattern: item.isPattern,
@@ -36,7 +36,7 @@ function PricelistRowPattern({ columns, item, favorited, favoriteItem, printWhen
         </td>
       ))}
       <td className="favButton">
-        <FavButton favorited={favorited} item={item} onClick={favoriteItem} />
+        <ItemFav item={item} />
       </td>
     </tr>
   )
@@ -46,8 +46,6 @@ PricelistRowPattern.propTypes = {
   columns: PropTypes.array.isRequired,
   item: PropTypes.object.isRequired,
   printWhenColor: PropTypes.object.isRequired,
-  favorited: PropTypes.bool.isRequired,
-  favoriteItem: PropTypes.func.isRequired,
 }
 
 export default PricelistRowPattern

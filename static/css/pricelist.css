@@ -140,13 +140,8 @@ td.favButton button.absolute {
   position: static;
 }
 
-
-
-
-
-
-
-
+/***** favorites customization for pricelist *****/
+td.favButton { position: relative; }
 td.favButton .favorite-container .popup {
   right: 2rem;
   top: 0;

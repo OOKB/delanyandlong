@@ -17,7 +17,6 @@ function FavAlert({ onClick, item }) {
 }
 
 FavAlert.propTypes = {
-  favorite: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   item: PropTypes.object,
 }

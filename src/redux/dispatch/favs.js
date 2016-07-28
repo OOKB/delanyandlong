@@ -35,7 +35,7 @@ export function favoriteItem(item) {
     dispatch(triplePutAll(triples))
   }
 }
-export function confirmFavorite({ id }) {
+export function confirmFavorite(id) {
   return entityUpdate({ id, actionStatus: 'confirmed', dateUpdated: new Date() })
 }
 export function endFavorite({ id }) {

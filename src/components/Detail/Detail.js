@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import noop from 'lodash/noop'
 
 import DetailHeader from './DetailHeader'
 import Info from '../Info'
@@ -26,5 +27,7 @@ Detail.propTypes = {
   colors: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
 }
-
+Detail.defaultProps = {
+  onClick: noop,
+}
 export default Detail

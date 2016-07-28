@@ -34,6 +34,7 @@ function ItemGrid({ items, missingImage }) {
           <Item key={item.id} item={item} onError={missingImage} />
         ))}
       </ul>
+      {!items || !items.length && <p>No Items</p>}
     </div>
   )
 }

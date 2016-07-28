@@ -38,6 +38,6 @@ export function favoriteItem(item) {
 export function confirmFavorite(id) {
   return entityUpdate({ id, actionStatus: 'confirmed', dateUpdated: new Date() })
 }
-export function endFavorite({ id }) {
+export function endFavorite(id) {
   return entityUpdate({ id, actionStatus: 'ended', endTime: new Date() })
 }

@@ -11,7 +11,7 @@ function DetailHeader() {
 }
 
 DetailHeader.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  // onClick: PropTypes.func.isRequired,
 }
 DetailHeader.defaultProps = {
 }

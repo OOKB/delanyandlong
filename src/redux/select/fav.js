@@ -42,7 +42,7 @@ export const userFavItems = createSelector(
   entitySelector,
   (favs, entities) => map(favs, (fav, id) => ({ ...fav, item: itemFill(entities[id]) }))
 )
-export const favoriteSelector = createStructuredSelector({
+export const favoritesSelector = createStructuredSelector({
   favorites: userFavItems,
   menu: getMenu,
 })

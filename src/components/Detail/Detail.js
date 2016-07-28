@@ -1,27 +1,15 @@
 import React, { PropTypes } from 'react'
-import partial from 'lodash/partial'
 
 import DetailHeader from './DetailHeader'
 import Info from '../Info'
 import Related from './Related'
-import FavAlert from '../FavAlert'
 import Close from '../CloseButton'
 
-function Detail({ onClick, item, colors, confirmFavorite, endFavorite, favorite, favoriteItem }) {
-  const favorited = favorite && favorite.actionStatus !== 'ended' || false
-  const favToggle = favorited ? partial(endFavorite, favorite) : partial(favoriteItem, item)
-
+function Detail({ onClick, item, colors }) {
   return (
     <div id="detailWrapper">
       <DetailHeader />
-      {favorite && favorite.actionStatus === 'created' &&
-        <FavAlert item={item} favorite={favorite} onClick={partial(confirmFavorite, favorite)} />
-      }
-      <Info
-        item={item}
-        favorited={favorited}
-        favoriteItem={favToggle}
-      />
+      <Info item={item} />
       <img src={item.img} alt={item.id} />
       <Related colors={colors} parent={item} />
       <Close onClick={onClick} />

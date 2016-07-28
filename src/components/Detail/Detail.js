@@ -8,10 +8,10 @@ import Close from '../CloseButton'
 
 function Detail({ onClick, item, colors }) {
   return (
-    <div id="detailWrapper">
+    <div id="detailWrapper" className="fixed">
       <DetailHeader />
       <Info item={item} />
-      <img src={item.img} alt={item.id} />
+      <img className="absolute" src={item.img} alt={item.id} />
       <Related colors={colors} parent={item} />
       <Close onClick={onClick} />
     </div>

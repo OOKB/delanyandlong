@@ -6,7 +6,7 @@ import Close from './CloseButton'
 function FavAlert({ onClick, item }) {
   const message = `${item.id} has been added to your favorites!`
   return (
-    <div className="favorite popup p2 text-center">
+    <div className="favorite popup absolute p1">
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>

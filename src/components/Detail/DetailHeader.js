@@ -4,7 +4,7 @@ import Logo from '../Logo'
 
 function DetailHeader() {
   return (
-    <header className="detailHeader">
+    <header className="detailHeader fixed">
       <Logo />
     </header>
   )

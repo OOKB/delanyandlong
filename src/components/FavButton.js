@@ -7,7 +7,7 @@ function FavButton({ favorited, onClick }) {
         className="absolute favorite btn-block"
         onClick={onClick}
         title="Remove this item from favorites"
-      >-</button>
+      ><i className="fa fa-minus" aria-hidden="true"></i></button>
     )
   }
   return (
@@ -15,7 +15,7 @@ function FavButton({ favorited, onClick }) {
       className="absolute favorite btn-block"
       onClick={onClick}
       title="Favorite this item"
-    >+</button>
+    ><i className="fa fa-plus" aria-hidden="true"></i></button>
   )
 }
 

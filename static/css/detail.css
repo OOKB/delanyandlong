@@ -167,7 +167,7 @@
   margin-bottom: 1px;
 }
 
-.favorite-container .popup {
+#detailWrapper .favorite-container .popup {
   left: .75rem;
   top: 4em;
 }

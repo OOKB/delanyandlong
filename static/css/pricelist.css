@@ -139,3 +139,16 @@ td.favButton {
 td.favButton button.absolute {
   position: static;
 }
+
+
+
+
+
+
+
+
+td.favButton .favorite-container .popup {
+  right: 2rem;
+  top: 0;
+  width: 250px;
+}

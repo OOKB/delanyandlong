@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-import FavButton from './FavButton'
+import Fav from './Fav'
 
-function Info({ item, favorited, favoriteItem, fields }) {
+function Info({ item, fields }) {
   return (
     <div className="item-information">
-      <FavButton favorited={favorited} item={item} onClick={favoriteItem} />
+      <Fav item={item} />
       <ul className="flex-center list-reset p1 text-center">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>

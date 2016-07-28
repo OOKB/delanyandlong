@@ -3,11 +3,19 @@ import React, { PropTypes } from 'react'
 function FavButton({ favorited, onClick }) {
   if (favorited) {
     return (
-      <button className="absolute favorite btn-block" onClick={onClick} title="Remove this item from favorites">-</button>
+      <button
+        className="absolute favorite btn-block"
+        onClick={onClick}
+        title="Remove this item from favorites"
+      >-</button>
     )
   }
   return (
-    <button className="absolute favorite btn-block" onClick={onClick} title="Favorite this item">+</button>
+    <button
+      className="absolute favorite btn-block"
+      onClick={onClick}
+      title="Favorite this item"
+    >+</button>
   )
 }
 

@@ -21,7 +21,7 @@ function Footer({ capeLink, currentYear, ookbLink }) {
 }
 
 Footer.propTypes = {
-  currentYear: PropTypes.string.isRequired,
+  currentYear: PropTypes.number.isRequired,
   ookbLink: PropTypes.string.isRequired,
   capeLink: PropTypes.string.isRequired,
 }

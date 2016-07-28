@@ -77,6 +77,14 @@ header button.toggle:active span {
     background: rgba(242,239,229,1);
 }
 
+header .logo {
+  max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: -.5rem;
+}
+
 @media (min-width: 768px) {
   .list-inline {
     display:flex;
@@ -89,7 +97,6 @@ header button.toggle:active span {
   }
 
   header .logo {
-    max-width: 22rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3rem;

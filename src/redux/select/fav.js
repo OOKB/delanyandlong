@@ -46,3 +46,8 @@ export const favoritesSelector = createStructuredSelector({
   favorites: userFavItems,
   menu: getMenu,
 })
+export const itemFavSelector = createSelector(
+  userFavs,
+  (state, props) => props.item,
+  (favs, item) => favs && favs[item.id] || {}
+)

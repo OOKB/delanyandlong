@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { favoriteSelector as mapStateToProps } from '../redux/select/item'
+import { itemFavSelector as mapStateToProps } from '../redux/select/fav'
 
 import { confirmFavorite, endFavorite, favoriteItem } from '../redux/dispatch/favs'
 const mapDispatchToProps = { confirmFavorite, endFavorite, favoriteItem }

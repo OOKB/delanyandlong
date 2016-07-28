@@ -17,7 +17,7 @@ export const itemSelector = createSelector(
 export const colorsSelector = createSelector(
   itemsSelector,
   getItemDetail,
-  (items, item) => filter(items, { patternNumber: item.patternNumber })
+  (items, item) => filter(items, { patternNumber: item && item.patternNumber })
 )
 export const favoriteSelector = createSelector(
   itemSelector,

@@ -63,6 +63,7 @@ export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
 export function itemFill(item) {
+  if (!item || !item.id) return item
   const { id, category, color, contents, patternNumber, price } = item
   const colorNumber = id.replace(`${patternNumber}-`, '')
   return {

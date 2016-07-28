@@ -6,8 +6,7 @@ import FavButton from './FavButton'
 
 function Fav({ actionStatus, confirmFavorite, endFavorite, favoriteItem, id, item }) {
   const favorited = actionStatus && actionStatus !== 'ended' || false
-  // const favToggle = favorited ? partial(endFavorite, favorite) : partial(favoriteItem, item)
-  const favToggle = partial(favoriteItem, item)
+  const favToggle = favorited ? partial(endFavorite, id) : partial(favoriteItem, item)
   return (
     <div className="favorite-container">
       {actionStatus === 'created' &&

@@ -20,8 +20,6 @@ function Info({ item, fields }) {
 }
 
 Info.propTypes = {
-  favorited: PropTypes.bool.isRequired,
-  favoriteItem: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   fields: PropTypes.array.isRequired,
 }

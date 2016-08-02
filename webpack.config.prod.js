@@ -18,6 +18,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
         APP_VERSION: JSON.stringify(pkgInfo.version),
+        SOCKET_LOC: JSON.stringify('http://socket.cape.io/'),
       },
     }),
     new webpack.optimize.UglifyJsPlugin({

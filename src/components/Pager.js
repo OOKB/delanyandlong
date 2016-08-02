@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connectField } from 'redux-field'
 import classnames from 'classnames'
-import Select from './InputSelect'
+import Select from './Editable/InputSelect'
 
 function Pager(props) {
   const { displayStyle, formEvent, hasLess, hasMore, maxPage,

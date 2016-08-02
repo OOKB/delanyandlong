@@ -86,24 +86,32 @@
 }
 
 .item-information h3 {
-  font-size: 1em;
+  font-size: .9em;
   color: rgb(33,33,24);
   color: rgba(33,33,24,1);
 }
 
 .item-information button.favorite {
-  font-size: 1.5em;
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 0;
-  left: .5em;
-  top: .9em;
+  font-size: 2em;
+  width: 2em;
+  height: 1.8em;
+  left: 0;
+  top: 0;
+  border-left: 0px;
 }
 
 @media (min-width: 48rem) {
   .item-information ul.flex-center {
-    padding-left: 3em;
-    padding-right: 15em;
+    padding-left: 4em;
+    padding-right: 10em;
+  }
+  .item-information ul.flex-center li {
+    padding: .6em;
+  }
+  .item-information ul.flex-center li + li {
+    border-left: 1px solid;
+    border-color: rgb(33,33,24);
+    border-color: rgba(33,33,24,1);
   }
 }
 

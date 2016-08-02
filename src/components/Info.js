@@ -7,10 +7,10 @@ function Info({ item, fields }) {
   return (
     <div className="item-information fixed">
       <ItemFav item={item} />
-      <ul className="flex-center list-reset p1 text-center">
+      <ul className="flex-center list-reset text-left bb1 black-border">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
-            <h3 className="m0">{label}</h3>
+            <h3 className="m0 uppercase small">{label}</h3>
             <p className="m0">{item[value]}</p>
           </li>
         ))}
@@ -26,9 +26,11 @@ Info.propTypes = {
 Info.defaultProps = {
   fields: [
     { value: 'id', label: 'Fabric' },
+    { value: 'name', label: 'Pattern' },
     { value: 'color', label: 'Color' },
     { value: 'contents', label: 'Content' },
     { value: 'approxWidth', label: 'Approx Width' },
+    { value: 'price', label: 'Price' },
   ],
 }
 export default Info

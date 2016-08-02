@@ -95,7 +95,10 @@ export default {
     styles: [
       { value: 'list', label: 'List' },
       { value: 'grid', label: 'Grid' },
-      { value: 'film', label: 'Vertical' },
+      { value: 'film', label: 'Horizontal' },
+      { value: 'specs', label: 'Specifications' },
+      { value: 'homepage', label: 'Homepage?' },
+      { value: 'other', label: 'What other views?' },
     ],
   },
   graph: {

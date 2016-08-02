@@ -17,9 +17,11 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run build:webpack",
-    "dev": "SOCKET_LOC=/ node server.js",
+    "build:lib": "babel ./prodServer.js -d lib",
+    "build": "npm run build:webpack && npm run build:lib",
+    "dev": "SOCKET_LOC=http://dl.l.cape.io:8083/ node server.js",
     "postinstall": "mkdir -p lib && NODE_ENV=production babel ./src -d lib && npm run build",
+    "prod": "NODE_ENV=production node lib/prodServer.js",
     "start": "node server.js",
     "lint": "eslint src"
   },
@@ -92,6 +94,9 @@
     "eslint-plugin-import": "^1.9.0",
     "eslint-plugin-react": "^5.1.1",
     "express": "^4.13.4",
+    "hapi": "^14.1.0",
+    "hapi-auth-basic": "^4.2.0",
+    "inert": "^4.0.1",
     "js-yaml": "^3.6.1",
     "node-libs-browser": "^1.0.0",
     "react-transform-catch-errors": "^1.0.2",

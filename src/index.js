@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 // Add the latest es2016+ stuff that we love.
-import 'babel-polyfill'
+// import 'babel-polyfill'
 
 import configureStore from './redux/configureStore'
 // Root React component.

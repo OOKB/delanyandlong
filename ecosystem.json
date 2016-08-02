@@ -1,0 +1,25 @@
+{
+
+  "apps" : [
+    {
+      "name"      : "delanyandlong",
+      "script"    : "lib/prodServer.js",
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
+    }
+
+  ],
+
+  "deploy" : {
+    "production" : {
+      "user" : "nodeus",
+      "host" : "dong.cape.io",
+      "port" : "60022",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/OOKB/delanyandlong.git",
+      "path" : "/srv/node/delanyandlong",
+      "post-deploy" : "npm update && npm i && npm run build && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}

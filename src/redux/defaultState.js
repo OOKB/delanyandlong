@@ -1,9 +1,8 @@
 import keyBy from 'lodash/keyBy'
 import merge from 'lodash/merge'
 
-import items from './defaultStateEntity'
 import showrooms from './showrooms'
-const entity = merge(keyBy(items, 'id'), keyBy(showrooms, 'id'))
+const entity = keyBy(showrooms, 'id')
 
 entity.user0 = {
   id: 'user0',

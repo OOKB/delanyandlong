@@ -25,10 +25,10 @@ export default {
     categoryOptions: [ 'textile', 'trim', 'leather' ],
     pricelist: {
       columns: {
-        textile: [ 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
-        trim: [ 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
+        textile: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        trim: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
         leather: [
-          'id', 'name', 'img', 'color', 'price', 'contents',
+          'category', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
           'originCountry',
         ],
@@ -42,7 +42,7 @@ export default {
         text: [ 'pricelist', 'text' ],
         display: [ 'pricelist', 'display' ],
       },
-      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img', name: 'name' },
+      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
     menu: [
       { id: 'about', href: '/about', label: 'About Us' },
@@ -57,6 +57,9 @@ export default {
       },
       approxWidth: {
         label: 'Approx. Width',
+      },
+      category: {
+        label: '',
       },
       color: {
         label: 'Color',
@@ -95,7 +98,12 @@ export default {
     styles: [
       { value: 'list', label: 'List' },
       { value: 'grid', label: 'Grid' },
-      { value: 'film', label: 'Vertical' },
+      { value: 'film', label: 'Horizontal' },
+      { value: 'specs', label: 'Specifications' },
+      { value: 'homepage', label: 'Homepage?' },
+      { value: 'favorites', label: 'Favorites?' },
+      { value: 'projects', label: 'Projects?' },
+      { value: 'other', label: 'What other views?' },
     ],
   },
   graph: {

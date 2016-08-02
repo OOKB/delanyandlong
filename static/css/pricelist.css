@@ -87,6 +87,7 @@ tbody tr:nth-child(odd) {
   position: relative;
 }
 
+/** little icon for each kind of thing... **/
 .pattern td:first-child::before {
   display: inline-block;
   font-size: 1em;
@@ -109,6 +110,12 @@ tbody tr:nth-child(odd) {
 }
 .leather .pattern td:first-child::before {
   content: 'L';
+}
+td.category {
+  width: 30px;
+  height: 31px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/

@@ -14,7 +14,7 @@ function Item({ item, onError }) {
       <Link href={item.link}>
         <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description">
-          <h2>{item.color}</h2>
+          <h2>{item.name}: {item.color}</h2>
           <p>{item.id}</p>
         </div>
       </Link>

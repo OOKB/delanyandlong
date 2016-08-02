@@ -1,16 +1,12 @@
 import React, { PropTypes } from 'react'
+import ButtonEl from './Button'
 
-function CloseButton({ onClick }) {
-  return (
-    <button className="close btn-small btn-block absolute" onClick={onClick}>
-      <i className="fa fa-times" aria-hidden="true"></i>
-    </button>
-  )
+function CloseButton(props) {
+  return <ButtonEl className="close btn-small" icon="times" {...props} />
 }
 
 CloseButton.propTypes = {
   onClick: PropTypes.func.isRequired,
-  item: PropTypes.object,
 }
 
 export default CloseButton

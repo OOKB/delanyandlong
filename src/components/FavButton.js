@@ -1,21 +1,24 @@
 import React, { PropTypes } from 'react'
+import ButtonEl from './Button'
 
 function FavButton({ favorited, onClick }) {
   if (favorited) {
     return (
-      <button
-        className="absolute favorite btn-block"
+      <ButtonEl
+        className="favorite"
+        icon="minus"
         onClick={onClick}
         title="Remove this item from favorites"
-      ><i className="fa fa-minus" aria-hidden="true"></i></button>
+      />
     )
   }
   return (
-    <button
-      className="absolute favorite btn-block"
+    <ButtonEl
+      className="favorite"
+      icon="plus"
       onClick={onClick}
       title="Favorite this item"
-    ><i className="fa fa-plus" aria-hidden="true"></i></button>
+    />
   )
 }
 

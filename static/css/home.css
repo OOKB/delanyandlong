@@ -10,10 +10,14 @@
 #home .item-grid > li:hover {
   transform: scale(1.5,1.5);
   z-index: 9;
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
 }
 
-#home .item-grid > li:hover {
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+#home .item-grid > li:hover:nth-child(10n+5) {
+  transform-origin: 100% 50%;
+}
+#home .item-grid > li:hover:nth-child(10n+6) {
+  transform-origin: 0 50%;
 }
 
 #home .logo {

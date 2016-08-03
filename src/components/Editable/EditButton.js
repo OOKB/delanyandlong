@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react'
+import { connectField } from 'redux-field'
 
 import ButtonEl from '../Button'
 
-function EditButton({ onClick }) {
+function EditButton({ formEvent, item }) {
+  function onClick() {
+    formEvent.onChange(item.id)
+  }
   return (
     <ButtonEl
       className="edit"
@@ -14,8 +18,8 @@ function EditButton({ onClick }) {
 }
 
 EditButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  item: PropTypes.object,
+  formEvent: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 }
 
-export default EditButton
+export default connectField({ prefix: 'edit.button' })(EditButton)

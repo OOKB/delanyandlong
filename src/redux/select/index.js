@@ -64,7 +64,7 @@ export function isValidItem(entity) {
 }
 export function itemFill(item) {
   if (!item || !item.id) return item
-  const { id, category, color, contents, patternNumber, price } = item
+  const { id, category, color, contents, name, patternNumber, price } = item
   const colorNumber = id.replace(`${patternNumber}-`, '')
   return {
     ...item,
@@ -72,7 +72,7 @@ export function itemFill(item) {
     link: `/detail/${id}`,
     img: `http://www.delanyandlong.com/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
-    searchable: (color + contents + id).toLowerCase(),
+    searchable: (color + contents + name + id).toLowerCase(),
   }
 }
 export const itemsSelector = createSelector(

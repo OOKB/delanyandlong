@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 
 import { connectField } from 'redux-field'
 
-
 function TextSearch({ form, formEvent }) {
   const { value } = form
   const { onBlur, onChange, onFocus } = formEvent

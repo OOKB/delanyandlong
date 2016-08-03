@@ -1,13 +1,16 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-function Office({ address, email, name, tel, fax, title }) {
+import EditButton from './Editable/EditButton'
+
+function Office({ address, email, id, name, tel, fax, title }) {
   const onClick = event => {
     event.preventDefault()
     window.location.href = `mailto:${email}`
   }
   return (
     <li className="office four columns">
+      <EditButton item={{ id }} />
       <h3>{title}</h3>
       {name && <h4>{name}</h4>}
       <address>
@@ -24,6 +27,7 @@ function Office({ address, email, name, tel, fax, title }) {
 Office.propTypes = {
   address: PropTypes.array.isRequired,
   email: PropTypes.string,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string,
   tel: PropTypes.string,
   fax: PropTypes.string,

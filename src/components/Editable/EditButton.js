@@ -10,7 +10,7 @@ function EditButton({ formEvent, item }) {
   return (
     <ButtonEl
       className="edit"
-      icon="pencil-square-o"
+      icon="pencil"
       onClick={onClick}
       title="Edit this item"
     />

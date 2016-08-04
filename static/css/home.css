@@ -10,10 +10,14 @@
 #home .item-grid > li:hover {
   transform: scale(1.5,1.5);
   z-index: 9;
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
 }
 
-#home .item-grid > li:hover {
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+#home .item-grid > li:hover:nth-child(10n+5) {
+  transform-origin: 100% 50%;
+}
+#home .item-grid > li:hover:nth-child(10n+6) {
+  transform-origin: 0 50%;
 }
 
 #home .logo {
@@ -22,6 +26,17 @@
 }
 
 @media (min-width: 701px) {
+  #home {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
   #home header a,
   #home header a:link {
     padding: 0;
@@ -88,7 +103,6 @@
     width: calc(100% / 15 * 3);
   }
 }
-
 
 /***** hmmm *****/
 #home .item-grid.clearfix::after {

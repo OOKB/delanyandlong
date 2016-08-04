@@ -2,14 +2,7 @@ import React, { PropTypes } from 'react'
 
 import Menu from './Menu'
 import Logo from './Logo'
-
-const styles = {
-  logo: {
-    width: 'initial',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-}
+import MenuButton from './MenuButton'
 
 function Header({ links }) {
   return (
@@ -17,9 +10,7 @@ function Header({ links }) {
       <Logo />
       <nav className="bt1 light-gray-border mt05 pt05">
         <Menu links={links} />
-        <button className="toggle">
-          <i className="fa fa-chevron-circle-up fa-5x" aria-hidden="true">Menu</i>
-        </button>
+        <MenuButton />
       </nav>
     </header>
   )
@@ -27,9 +18,7 @@ function Header({ links }) {
 
 Header.propTypes = {
   links: PropTypes.array.isRequired,
-  logo: PropTypes.string.isRequired,
 }
 Header.defaultProps = {
-  logo: 'http://rogersandgoffigon.imgix.net/logos/dl-logo-cropped.gif',
 }
 export default Header

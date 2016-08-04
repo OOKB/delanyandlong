@@ -1,11 +1,10 @@
 -
   id: "rgheadquarters"
   contactType: "Corporate Headquarters"
-  address:
-    streetAddress: 41 Chestnut Street
-    addressLocality: Greenwich
-    addressRegion: CT
-    postalCode: '06830'
+  streetAddress: 41 Chestnut Street
+  addressLocality: Greenwich
+  addressRegion: CT
+  postalCode: '06830'
   telephone: "203.532.8068"
   faxNumber: "203.532.9514"
 -
@@ -178,12 +177,11 @@
   id: "canada"
   contactType: "Toronto Showroom"
   name: "Primavera Interior Furnishings, Ltd."
-  address:
-    streetAddress: 160 Pears Avenue
-    postOfficeBoxNumber: Suite 110
-    addressLocality: Toronto
-    addressRegion: ON
-    postalCode: M5R 3P8
-    addressCountry: Canada
+  streetAddress: 160 Pears Avenue
+  postOfficeBoxNumber: Suite 110
+  addressLocality: Toronto
+  addressRegion: ON
+  postalCode: M5R 3P8
+  addressCountry: Canada
   email: "diego@primavera.ca"
   telephone: "416.921.3334"

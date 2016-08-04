@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react'
 
 // Supports editing a single field value.
-function Editable({ editing }) {
+function Editable({ entity }) {
+  const msg = entity && `Editing id: ${entity.id}`
   return (
     <div className="editable">
-      {editing && <p>editing</p>}
+      {msg && <p>{msg}</p>}
     </div>
   )
 }
 
 Editable.propTypes = {
-  editing: PropTypes.bool.isRequired,
+  classId: PropTypes.string.isRequired,
+  entity: PropTypes.object,
 }
 Editable.defaultProps = {
-  editing: false,
 }
 export default Editable

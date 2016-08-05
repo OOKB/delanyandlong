@@ -6,6 +6,7 @@ function Editable({ entity }) {
   return (
     <div className="editable">
       {msg && <p>{msg}</p>}
+      <p>Where to position this??? as a modal on top of everything else? relative to what you're editing?</p>
     </div>
   )
 }

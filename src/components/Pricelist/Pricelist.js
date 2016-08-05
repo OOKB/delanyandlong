@@ -24,7 +24,7 @@ function Pricelist(props) {
         {grid && <Grid items={items} />}
         <div className="text-center small">
           <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
-            {categoryKey.map((pText, index) => <li className="item" key={index}>{pText}</li>)}
+            {categoryKey.map((pText, index) => <li className={pText} key={index}>{pText}</li>)}
           </ul>
           <p className="uppercase">{lead}</p>
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
@@ -45,6 +45,6 @@ Pricelist.propTypes = {
 Pricelist.defaultProps = {
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
   disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
-  categoryKey: [ 'U: Upholstery', 'W: Window Treatmet', 'P: Passementerie', 'L: Leather', 'SS: Summer Sale' ],
+  categoryKey: [ 'L: Leather', 'P: Passementerie', 'SS: Summer Sale', 'U: Upholstery', 'W: Window Treatment' ],
 }
 export default connect(pricelistSelector)(Pricelist)

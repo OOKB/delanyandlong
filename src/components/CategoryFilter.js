@@ -41,9 +41,6 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
       <div className="four columns mb0">
         <p>Add summer sale as a filter?</p>
       </div>
-      <div className="four columns mb0">
-        <p>Add window dressing as a filter? (still trying to work this out)</p>
-      </div>
     </div>
   )
 }

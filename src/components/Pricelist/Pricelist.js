@@ -9,7 +9,7 @@ import Footer from '../Footer'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
-  const { info, lead, disclaimer, menu, pager } = props
+  const { info, lead, disclaimer, menu, pager, categoryKey } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, printWhenColor } = info
   const display = (id) => displayStyle.active === id
@@ -23,6 +23,9 @@ function Pricelist(props) {
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
         {grid && <Grid items={items} />}
         <div className="text-center small">
+          <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
+            {categoryKey.map((pText, index) => <li className="item" key={index}>{pText}</li>)}
+          </ul>
           <p className="uppercase">{lead}</p>
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
         </div>
@@ -37,9 +40,11 @@ Pricelist.propTypes = {
   disclaimer: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
   pager: PropTypes.object.isRequired,
+  categoryKey: PropTypes.array.isRequired,
 }
 Pricelist.defaultProps = {
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
-  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.'
+  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
+  categoryKey: [ 'U: Upholstery', 'W: Window Treatmet', 'P: Passementerie', 'L: Leather', 'SS: Summer Sale' ],
 }
 export default connect(pricelistSelector)(Pricelist)

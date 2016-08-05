@@ -22,7 +22,7 @@ export default {
     samples: `6 x 6 inch memo samples are available for all fabrics. <a href="/contact">Please contact your local showroom or sales representative</a> to order them.`,
     orders: `For fabric pricing and ordering <a href="/contact">please contact your local showroom or sales representative</a>.`,
     questions: `Please check our <a href="/contact">distributors page to find the closest showroom</a>. If you have any questions about who to call please contact our headquarters office in Greenwich, Connecticut.`,
-    categoryOptions: [ 'textile', 'trim', 'leather' ],
+    categoryOptions: [ 'textile', 'trim', 'leather', 'drapery' ],
     pricelist: {
       columns: {
         textile: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
@@ -48,8 +48,9 @@ export default {
       { id: 'about', href: '/about', label: 'About Us' },
       { id: 'collection', href: '/collection', label: 'Collection' },
       { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist' },
-      { id: 'favs', href: '/favs', label: 'Favorites' },
       { id: 'contact', href: '/contact', label: 'Contact Us' },
+      { id: 'favs', href: '/favs', label: 'Favorites' },
+      { id: 'trade', href: '/trade', label: 'Trade Login' },
     ],
     schema: {
       id: {
@@ -69,6 +70,9 @@ export default {
       },
       contents: {
         label: 'Content',
+      },
+      drapery: {
+        label: 'Window Treatment',
       },
       img: {
         label: 'Image',

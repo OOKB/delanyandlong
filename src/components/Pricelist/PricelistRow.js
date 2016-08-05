@@ -27,6 +27,7 @@ function PricelistRowPattern({ columns, item, printWhenColor }) {
   const className = classnames({
     color: !item.isPattern,
     pattern: item.isPattern,
+    category: item.category,
   })
   return (
     <tr className={className}>

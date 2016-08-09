@@ -1,6 +1,8 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-import { entitySelector } from 'redux-graph'
 import filter from 'lodash/filter'
+import get from 'lodash/get'
+
+import { entitySelector } from 'redux-graph'
 
 import { itemFill, itemsSelector } from './'
 import { userFavs } from './fav'
@@ -16,7 +18,7 @@ export const itemSelector = createSelector(
 )
 export const colorsSelector = createSelector(
   itemsSelector,
-  getItemDetail,
+  (state, props) => props.parent,
   (items, item) => filter(items, { patternNumber: item && item.patternNumber })
 )
 export const favoriteSelector = createSelector(
@@ -26,6 +28,10 @@ export const favoriteSelector = createSelector(
 )
 export const itemDetailSelector = createStructuredSelector({
   item: itemSelector,
-  colors: colorsSelector,
   favorite: favoriteSelector,
+})
+export const colorsOpen = state => get(state, 'form.detail.related.focus', false)
+export const relatedSelector = createStructuredSelector({
+  colors: colorsSelector,
+  isOpen: colorsOpen,
 })

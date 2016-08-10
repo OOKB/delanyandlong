@@ -46,9 +46,11 @@ export function uploadFile(props, fileBuffer, meta) {
   xhr.send(fileBuffer)
 }
 
+// Load or create document based contentSha1 and meta.
 export function loadSha(props, file, meta) {
   const { fieldEvent, predicate, subject } = props
   const reader = new FileReader()
+  // Link it to subject. Predicate is usually `image`.
   reader.onloadend = () => sha1Hash(reader.result, contentSha1 => {
     const newMeta = { ...meta, contentSha1 }
     fetch(`/api/upload/get-insert/${predicate}/${subject.id}`, {
@@ -67,6 +69,7 @@ export function loadSha(props, file, meta) {
   })
   reader.readAsArrayBuffer(file)
 }
+// Build image document.
 export function fileMeta(file) {
   return {
     contentSize: file.size,
@@ -90,7 +93,7 @@ export function loadImageUrl(props, file) {
       const meta = fileMeta(file)
       meta.height = { unitCode: 'E37', value: img.height, unitText: 'pixel' }
       meta.width = { unitCode: 'E37', value: img.width, unitText: 'pixel' }
-      // Include fileData base64 thing.
+      // Include fileData base64 string as URL?
       const url = file.size < 4100069 ? reader.result : null
       fieldEvent.meta({ [file.name]: { ...meta, url } }, { sendSocket: false })
       loadSha(props, file, meta)

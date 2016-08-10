@@ -4,11 +4,11 @@ import classnames from 'classnames'
 
 import DetailHeader from './DetailHeader'
 import Info from '../Info'
-import Related from './Related'
+import Related from '../../containers/Related'
 import Close from '../CloseButton'
 import Images from '../Editable/ImageUpload/Images'
 
-function Detail({ onClick, item, colors, route }) {
+function Detail({ item, onClick, route }) {
   const editing = route.id === 'itemEdit'
   if (!item) return <p>No image data</p>
   return (
@@ -17,7 +17,7 @@ function Detail({ onClick, item, colors, route }) {
       <Info item={item} />
       <img className="absolute" src={item.img} alt={item.id} style={{ zIndex: -1 }} />
       {editing && <Images subject={item} style={{ marginTop: 100 }} />}
-      <Related colors={colors} parent={item} />
+      <Related parent={item} />
       <Close onClick={onClick} />
     </div>
   )

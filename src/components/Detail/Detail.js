@@ -8,7 +8,7 @@ import Related from '../../containers/Related'
 import Close from '../CloseButton'
 import Images from '../Editable/ImageUpload/Images'
 
-function Detail({ item, onClick, route }) {
+function Detail({ detailClose, item, route }) {
   const editing = route.id === 'itemEdit'
   if (!item) return <p>No image data</p>
   return (
@@ -18,7 +18,7 @@ function Detail({ item, onClick, route }) {
       <img className="absolute" src={item.img} alt={item.id} style={{ zIndex: -1 }} />
       {editing && <Images subject={item} style={{ marginTop: 100 }} />}
       <Related parent={item} />
-      <Close onClick={onClick} />
+      <Close onClick={detailClose} />
     </div>
   )
 }
@@ -30,10 +30,10 @@ Detail.propTypes = {
   favorite: PropTypes.object,
   favoriteItem: PropTypes.func.isRequired,
   item: PropTypes.object,
-  onClick: PropTypes.func.isRequired,
+  detailClose: PropTypes.func.isRequired,
   route: PropTypes.object.isRequired,
 }
 Detail.defaultProps = {
-  onClick: noop,
+  detailClose: noop,
 }
 export default Detail

@@ -62,7 +62,8 @@ export const columnsSelector = createSelector(
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
-const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
+// const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
+const CDN = 'http://65.110.85.163'
 export function itemFill(item) {
   if (!item || !item.id) return item
   const { id, category, color, contents, name, patternNumber, price } = item

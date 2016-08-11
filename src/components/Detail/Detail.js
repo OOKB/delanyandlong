@@ -24,7 +24,6 @@ function Detail({ detailClose, item, route }) {
 }
 
 Detail.propTypes = {
-  colors: PropTypes.array.isRequired,
   confirmFavorite: PropTypes.func.isRequired,
   endFavorite: PropTypes.func.isRequired,
   favorite: PropTypes.object,

@@ -36,7 +36,7 @@ export default function configureStore(initialState) {
     db: {
       currentYear: new Date().getFullYear(),
     },
-    history: getInitState(window.location, window.document.title),
+    history: getInitState(window.location, window.document.title, window.history),
   }
   const initState = merge(initialState, calculatedState, defaultState)
   const store = createStore(

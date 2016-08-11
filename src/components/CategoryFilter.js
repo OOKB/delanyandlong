@@ -39,10 +39,10 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
         </div>
       </div>
       <div className="four columns mb0">
-        <p>Add summer sale as a filter?</p>
+        <p>Add summer sale as a filter? Instead of treating it as its own section... can just be part of pricelist.</p>
       </div>
       <div className="four columns mb0">
-        <p>Add window dressing as a filter? (still trying to work this out)</p>
+        <p>View "projects" here as well if you are a logged in trade account person?</p>
       </div>
     </div>
   )

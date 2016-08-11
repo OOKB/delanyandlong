@@ -49,8 +49,9 @@ export default {
       { id: 'about', href: '/about', label: 'About Us' },
       { id: 'collection', href: '/collection', label: 'Collection' },
       { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist' },
-      { id: 'favs', href: '/favs', label: 'Favorites' },
       { id: 'contact', href: '/contact', label: 'Contact Us' },
+      { id: 'favs', href: '/favs', label: 'Favorites' },
+      { id: 'trade', href: '/trade', label: 'Trade Login' },
     ],
     schema: {
       id: {
@@ -72,7 +73,7 @@ export default {
         label: 'Content',
       },
       drapery: {
-        label: 'Window cover',
+        label: 'Window Treatment',
       },
       img: {
         label: 'Image',

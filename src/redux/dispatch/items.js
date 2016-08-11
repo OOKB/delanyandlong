@@ -10,7 +10,6 @@ export function detailClose() {
   return (dispatch, getState) => {
     const state = getState()
     const action = closeDetail(state)
-    console.log(action)
     dispatch(action)
   }
 }

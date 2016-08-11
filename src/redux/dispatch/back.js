@@ -24,7 +24,7 @@ export function findNonDetail(state) {
 export const collectionLocation = parseUrl('/collection')
 export function closeDetail(state) {
   const previous = findNonDetail(state)
-  console.log(previous)
-  if (previous) return restoreHistory(previous.key, false)
+  // console.log(previous)
+  if (previous) return restoreHistory(previous.id, false)
   return createHistory(collectionLocation)
 }

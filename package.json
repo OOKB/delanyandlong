@@ -67,7 +67,7 @@
     "react-json-inspector": "^7.0.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "redux-field": "^3.2.0",
+    "redux-field": "^3.3.0",
     "redux-graph": "^1.1.0",
     "redux-history-sync": "^2.1.1",
     "redux-localstorage": "^1.0.0-rc4",

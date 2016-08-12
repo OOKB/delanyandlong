@@ -9,7 +9,7 @@ import Footer from '../Footer'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
-  const { info, lead, disclaimer, menu, pager, categoryKey } = props
+  const { categoryKey, info, lead, disclaimer, menu, pager, route } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, printWhenColor } = info
   const display = (id) => displayStyle.active === id
@@ -17,7 +17,7 @@ function Pricelist(props) {
   const grid = display('grid')
   return (
     <div id="container-pricelist" className={category.activeCategory}>
-      <Header links={menu} />
+      <Header activeId={route.id} links={menu} />
       <main className="clear m1 mt3">
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
@@ -35,15 +35,16 @@ function Pricelist(props) {
   )
 }
 Pricelist.propTypes = {
+  categoryKey: PropTypes.array.isRequired,
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
   disclaimer: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
   pager: PropTypes.object.isRequired,
-  categoryKey: PropTypes.array.isRequired,
+  route: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
-  lead: 'All fabrics are Water, Mildew and Stain Resistant',
   disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
+  lead: 'All fabrics are Water, Mildew and Stain Resistant',
 }
 export default connect(pricelistSelector)(Pricelist)

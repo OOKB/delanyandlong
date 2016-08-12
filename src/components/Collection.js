@@ -5,10 +5,10 @@ import { collectionSelector } from '../redux/select/collection'
 import Header from './Header'
 import Footer from './Footer'
 
-function Collection({ menu }) {
+function Collection({ menu, route }) {
   return (
     <div id="container-collection">
-      <Header links={menu} />
+      <Header activeId={route.id} links={menu} />
       <main className="clear m1 mt4 pt4 clearfix">
         <h1>Collection</h1>
       </main>

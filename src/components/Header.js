@@ -4,12 +4,12 @@ import Menu from './Menu'
 import Logo from './Logo'
 import MenuButton from './MenuButton'
 
-function Header({ links }) {
+function Header({ activeId, links }) {
   return (
     <header className="main-menu">
       <Logo />
       <nav className="bt1 light-gray-border mt05 pt05">
-        <Menu links={links} />
+        <Menu activeId={activeId} links={links} />
         <MenuButton />
       </nav>
     </header>
@@ -17,6 +17,7 @@ function Header({ links }) {
 }
 
 Header.propTypes = {
+  activeId: PropTypes.string.isRequired,
   links: PropTypes.array.isRequired,
 }
 Header.defaultProps = {

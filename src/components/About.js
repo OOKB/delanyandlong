@@ -5,10 +5,10 @@ import { aboutSelector } from '../redux/select/about'
 import Header from './Header'
 import Footer from './Footer'
 
-function About({ aboutText, serviceText, distributedText, menu }) {
+function About({ aboutText, distributedText, serviceText, menu, route }) {
   return (
     <div id="container-about">
-      <Header links={menu} />
+      <Header activeId={route.id} links={menu} />
       <main className="clear pt4 container">
         <div className="group">
           <div className="about six columns offset-by-three">

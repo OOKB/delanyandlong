@@ -43,11 +43,11 @@ FavsList.propTypes = {
   favorites: PropTypes.array.isRequired,
 }
 
-function Favs({ endFavorite, favorites, menu }) {
+function Favs({ endFavorite, favorites, menu, route }) {
   const hasFavorites = favorites && favorites.length > 0
   return (
     <div id="favorites">
-      <Header links={menu} />
+      <Header activeId={route.id} links={menu} />
       <main className="clear m1 mt4 pt4 clearfix">
         <h1>Favorites</h1>
         {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
@@ -62,6 +62,7 @@ Favs.propTypes = {
   endFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,
   menu: PropTypes.array.isRequired,
+  route: PropTypes.object.isRequired,
 }
 
 export default Favs

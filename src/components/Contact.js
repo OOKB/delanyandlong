@@ -7,10 +7,10 @@ import Header from './Header'
 import Footer from './Footer'
 import Offices from './Offices'
 
-function Contact({ contactText, serviceText, menu, offices }) {
+function Contact({ contactText, menu, offices, route, serviceText }) {
   return (
     <div id="container-contact">
-      <Header links={menu} />
+      <Header activeId={route.id} links={menu} />
       <Editor classId="Organization" />
       <main className="clear pt4 container clearfix">
         <section className="showroomsAndReps">

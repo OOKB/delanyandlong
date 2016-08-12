@@ -25,11 +25,11 @@ export default {
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
     pricelist: {
       columns: {
-        textile: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
-        trim: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
-        drapery: [ 'category', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        trim: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
+        drapery: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
         leather: [
-          'category', 'id', 'name', 'img', 'color', 'price', 'contents',
+          'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
           'originCountry',
         ],

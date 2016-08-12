@@ -1,33 +1,31 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-import filter from 'lodash/filter'
 import get from 'lodash/get'
 
-import { entitySelector } from 'redux-graph'
-
-import { itemFill, itemsSelector } from './'
+import { filterSort, itemsFilled } from './items'
 import { userFavs } from './fav'
 
-export function getItemDetail(state, props) {
-  const id = props.route.params._
-  return entitySelector(state)[id]
+// Get the id from the URL.
+export function getItemId(state, props) {
+  return props.route.params._
 }
-// Grab an item from the entity index and fill out its props.
-export const itemSelector = createSelector(
-  getItemDetail,
-  itemFill
+// Grab item at index.
+export const getItemDetail = createSelector(
+  getItemId,
+  itemsFilled,
+  (id, items) => items[id]
 )
 export const colorsSelector = createSelector(
-  itemsSelector,
+  itemsFilled,
   (state, props) => props.parent,
-  (items, item) => filter(items, { patternNumber: item && item.patternNumber })
+  (items, item) => filterSort({ patternNumber: item && item.patternNumber }, items)
 )
 export const favoriteSelector = createSelector(
-  itemSelector,
+  getItemDetail,
   userFavs,
   (item, favs) => favs && favs[item.id] || null
 )
 export const itemDetailSelector = createStructuredSelector({
-  item: itemSelector,
+  item: getItemDetail,
   favorite: favoriteSelector,
 })
 export const colorsOpen = state => get(state, 'form.detail.related.focus', false)

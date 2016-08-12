@@ -20,9 +20,11 @@
     "build:lib": "babel ./prodServer.js -d lib",
     "build": "npm run build:webpack && npm run build:lib",
     "dev": "SOCKET_LOC=http://dl.l.cape.io:8083/ node server.js",
+    "lint": "eslint src test",
     "prod": "NODE_ENV=production node lib/prodServer.js",
     "start": "node server.js",
-    "lint": "eslint src"
+    "test": "npm run lint && npm run test:node",
+    "test:node": "babel-tape-runner test/**/*spec.js"
   },
   "browser": "src/index.js",
   "main": "lib/node.js",
@@ -88,6 +90,7 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
+    "babel-tape-runner": "^2.0.1",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-babel": "^3.2.0",
@@ -108,6 +111,7 @@
     "redux-devtools-log-monitor": "^1.0.11",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.2",
+    "tape": "^4.6.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"

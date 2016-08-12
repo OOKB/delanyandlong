@@ -1,13 +1,8 @@
 import { createSelector } from 'reselect'
-import { entitySelector } from 'redux-graph'
 import { selectForm } from 'redux-field'
-import compact from 'lodash/compact'
 import curry from 'lodash/curry'
-import every from 'lodash/every'
-import filter from 'lodash/filter'
 import get from 'lodash/get'
 import isObject from 'lodash/isObject'
-import orderBy from 'lodash/orderBy'
 import map from 'lodash/map'
 
 import { defaultPageSize, pageSizes } from '../../helpers/pager'
@@ -57,58 +52,4 @@ export const columnsSelector = createSelector(
   getSchema,
   activeCategorySelector,
   (info, schema, activeCategory) => optionFill(info.columns[activeCategory], schema)
-)
-
-export function isValidItem(entity) {
-  return entity.id.startsWith('DL')
-}
-// const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
-const CDN = 'http://65.110.85.163'
-export function itemFill(item) {
-  if (!item || !item.id) return item
-  const { id, category, color, contents, name, patternNumber, price } = item
-  const colorNumber = id.replace(`${patternNumber}-`, '')
-  return {
-    ...item,
-    colorNumber,
-    link: `/detail/${id}`,
-    img: `${CDN}/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
-    price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
-    searchable: (color + contents + name + id).toLowerCase(),
-  }
-}
-export const itemsSelector = createSelector(
-  entitySelector,
-  entity => map(orderBy(filter(entity, isValidItem), 'id'), itemFill)
-)
-
-export const categorySelector = createSelector(
-  itemsSelector,
-  activeCategorySelector,
-  (items, category) => filter(items, { category })
-)
-export function textSearch(searchValue) {
-  return item =>
-    every(compact(searchValue.split(' ')), searchTxt =>
-      item.searchable.includes(searchTxt)
-    )
-}
-export const textSearchSelector = createSelector(
-  categorySelector,
-  getFilterText,
-  (items, searchValue) => searchValue && filter(items, textSearch(searchValue)) || items
-)
-export const patternColorSelector = createSelector(
-  textSearchSelector,
-  items => {
-    let currentPattern = null
-    return map(items, item => {
-      const isPattern = currentPattern !== item.patternNumber
-      currentPattern = item.patternNumber
-      return {
-        ...item,
-        isPattern,
-      }
-    })
-  }
 )

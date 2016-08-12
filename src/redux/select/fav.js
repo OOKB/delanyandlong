@@ -5,7 +5,9 @@ import get from 'lodash/get'
 import map from 'lodash/map'
 import keys from 'lodash/keys'
 
-import { itemFill, getMenu, getUser } from './'
+import { getMenu, getUser } from './'
+import { itemsFilled } from './items'
+
 export function getSPO(state) {
   return tripleSelector(state).spo
 }
@@ -39,8 +41,8 @@ export const userFavs = createSelector(
 )
 export const userFavItems = createSelector(
   userFavs,
-  entitySelector,
-  (favs, entities) => map(favs, (fav, id) => ({ ...fav, item: itemFill(entities[id]) }))
+  itemsFilled,
+  (favs, items) => map(favs, (fav, id) => ({ ...fav, item: items[id] }))
 )
 export const favoritesSelector = createStructuredSelector({
   favorites: userFavItems,

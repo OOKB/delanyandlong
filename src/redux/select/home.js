@@ -6,10 +6,11 @@ import map from 'lodash/map'
 import sample from 'lodash/sample'
 import sampleSize from 'lodash/sampleSize'
 
-import { itemsSelector, getMenu } from './'
+import { getMenu } from './'
+import { itemsFilled } from './items'
 
 export const filterOutMissingImages = createSelector(
-  itemsSelector,
+  itemsFilled,
   items => filter(items, item => (item.category !== 'trim' && !item.missingImg))
 )
 

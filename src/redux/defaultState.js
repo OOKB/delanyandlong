@@ -73,12 +73,14 @@ export default {
         label: 'Content',
       },
       drapery: {
+        code: 'W',
         label: 'Window Treatment',
       },
       img: {
         label: 'Image',
       },
       leather: {
+        code: 'L',
         label: 'Leather',
       },
       name: {
@@ -94,9 +96,11 @@ export default {
         label: 'Approx. Repeat',
       },
       textile: {
+        code: 'T',
         label: 'Textile',
       },
       trim: {
+        code: 'P',
         label: 'Passementerie',
       },
     },

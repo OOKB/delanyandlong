@@ -9,7 +9,7 @@ import {
   pageSizeOptions,
 } from './'
 import { patternColorSelector } from './items'
-import { categoryCodeIndex } from './category'
+import { getCategoryKey } from './category'
 
 export const getStyles = getDb('styles')
 export const getDisplayStyle = state => getFilter('display', state) || 'list'
@@ -48,9 +48,9 @@ export const pricelistSelector = createSelector(
   patternColorSelector,
   pricelistInfoSelector,
   getMenu,
-  categoryCodeIndex,
-  (items, info, menu, catCodes) => ({
-    catCodes,
+  getCategoryKey,
+  (items, info, menu, categoryKey) => ({
+    categoryKey,
     pager: getPagerInfo(items, { page: info.pgIndex, perPage: info.pgSize }),
     info,
     menu,

@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import map from 'lodash/map'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
@@ -11,4 +12,8 @@ function addCodeIndex(result, { code, value }) {
 export const categoryCodeIndex = createSelector(
   categoryOptionsSelector,
   opts => reduce(opts, addCodeIndex, {})
+)
+export const getCategoryKey = createSelector(
+  categoryOptionsSelector,
+  opts => map(opts, ({ code, label }) => `${code}: ${label}`)
 )

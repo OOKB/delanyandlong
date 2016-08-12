@@ -45,6 +45,5 @@ Pricelist.propTypes = {
 Pricelist.defaultProps = {
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
   disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
-  categoryKey: [ 'L: Leather', 'P: Passementerie', 'SS: Summer Sale', 'U: Upholstery', 'W: Window Treatment' ],
 }
 export default connect(pricelistSelector)(Pricelist)

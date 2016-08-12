@@ -53,7 +53,7 @@ export const itemsSorted = createSelector(
 export const categorySelector = createSelector(
   itemsFilled,
   activeCategorySelector,
-  (items, category) => filterSort({ category }, items)
+  (items, category) => category && filterSort({ category }, items) || orderItems(items)
 )
 export function textSearch(searchValue) {
   return item =>

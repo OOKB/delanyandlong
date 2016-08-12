@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
 import { Link } from 'redux-history-sync'
+import ItemFav from '../containers/ItemFav'
 
 function Item({ item, onError }) {
   function handleImgError() {
@@ -11,6 +12,7 @@ function Item({ item, onError }) {
 
   return (
     <li>
+      <ItemFav item={item} />
       <Link href={item.link}>
         <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description">

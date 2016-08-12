@@ -51,5 +51,5 @@ export const columnsSelector = createSelector(
   pricelistInfo,
   getSchema,
   activeCategorySelector,
-  (info, schema, activeCategory) => optionFill(info.columns[activeCategory], schema)
+  (info, schema, activeCategory) => optionFill(info.columns[activeCategory || 'textile'], schema)
 )

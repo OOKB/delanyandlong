@@ -35,7 +35,7 @@ export default {
         ],
       },
       colorColumnValues: [ 'id', 'color' ],
-      defaultCategory: 'textile',
+      // defaultCategory: 'textile',
       prefix: {
         category: [ 'pricelist', 'category' ],
         pgIndex: [ 'pricelist', 'pgIndex' ],

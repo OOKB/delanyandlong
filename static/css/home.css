@@ -57,6 +57,37 @@
   #home header .three-x {
     width: calc(100% / 5 * 3);
   }
+
+  /***** css hack the logo and menu to be vetically centered for now *****/
+  /***** css hack the logo and menu to be vetically centered for now *****/
+  /***** css hack the logo and menu to be vetically centered for now *****/
+  /***** css hack the logo and menu to be vetically centered for now *****/
+  /***** css hack the logo and menu to be vetically centered for now *****/
+  .tile {
+    width: 100%;
+    height: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tile.eight-by-three {
+    padding-bottom: calc(100% * 3 / 8);
+  }
+
+  .tile.twelve-by-three {
+    padding-bottom: calc(100% * 3 / 12);
+  }
+
+  .tile .inner {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+  }
+
 }
 
 @media (min-width: 901px) {
@@ -112,34 +143,4 @@
 
 #home .favorite-container {
   display: none;
-}
-
-/***** css hack the logo and menu to be vetically centered for now *****/
-/***** css hack the logo and menu to be vetically centered for now *****/
-/***** css hack the logo and menu to be vetically centered for now *****/
-/***** css hack the logo and menu to be vetically centered for now *****/
-/***** css hack the logo and menu to be vetically centered for now *****/
-.tile {
-  width: 100%;
-  height: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.tile.eight-by-three {
-  padding-bottom: calc(100% * 3 / 8);
-}
-
-.tile.twelve-by-three {
-  padding-bottom: calc(100% * 3 / 12);
-}
-
-.tile .inner {
-  position: absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  width: 100%;
-  height: 100%;
 }

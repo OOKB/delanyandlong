@@ -57,7 +57,9 @@
   #home header .three-x {
     width: calc(100% / 5 * 3);
   }
+}
 
+@media (min-width: 50em) {
   /***** css hack the logo and menu to be vetically centered for now *****/
   /***** css hack the logo and menu to be vetically centered for now *****/
   /***** css hack the logo and menu to be vetically centered for now *****/
@@ -87,7 +89,6 @@
     width: 100%;
     height: 100%;
   }
-
 }
 
 @media (min-width: 901px) {

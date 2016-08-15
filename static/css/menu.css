@@ -180,22 +180,13 @@ header .logo {
 
   /** temporary active ID **/
   /** replace w/ just an active class? **/
-  #container-about nav .about,
-  #container-contact nav .contact,
-  #container-collection nav .collection,
-  #container-pricelist nav .pricelist {
+  nav .active {
     position: relative;
   }
-  #container-about nav .about a,
-  #container-contact nav .contact a,
-  #container-collection nav .collection a,
-  #container-pricelist nav .pricelist a {
+  nav .active a {
     color: rgba(132, 133, 94, 0.4);
   }
-  #container-about nav .about::before,
-  #container-contact nav .contact::before,
-  #container-collection nav .collection::before,
-  #container-pricelist nav .pricelist::before {
+  nav .active::before {
     display: inline-block;
     font: normal normal normal 14px/2px FontAwesome;
     font-size: inherit;

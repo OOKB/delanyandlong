@@ -8,13 +8,21 @@ function Header({ links }) {
   return (
     <header>
       <div className="left three-x">
-        <div className="flex-center text-center">
-          <Logo />
+        <div className="outer tile twelve-by-three">
+          <div className="inner">
+            <div className="flex-center text-center">
+              <Logo />
+            </div>
+          </div>
         </div>
       </div>
       <nav className="left two-x">
-        <div className="flex-center">
-          <Menu links={links} />
+        <div className="outer tile eight-by-three">
+          <div className="inner">
+            <div className="flex-center">
+              <Menu links={links} />
+            </div>
+          </div>
         </div>
         <MenuButton />
       </nav>

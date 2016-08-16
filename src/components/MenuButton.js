@@ -2,14 +2,12 @@ import React, { PropTypes } from 'react'
 
 import ButtonEl from './Button'
 
-function MenuButton() {
-  function onClick() {
-  }
+function MenuButton(toggle) {
   return (
     <ButtonEl
       className="toggle"
       icon="chevron-circle-up"
-      onClick={onClick}
+      onClick={toggle}
       title="Open/Close Menu"
     />
   )

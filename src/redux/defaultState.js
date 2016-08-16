@@ -107,7 +107,7 @@ export default {
     styles: [
       { value: 'list', label: 'List' },
       { value: 'grid', label: 'Grid' },
-      { value: 'film', label: 'Horizontal' },
+      { value: 'film', label: 'Horizontal (Trio)' },
       { value: 'specs', label: 'Specifications' },
       { value: 'homepage', label: 'Homepage?' },
       { value: 'favorites', label: 'Favorites?' },

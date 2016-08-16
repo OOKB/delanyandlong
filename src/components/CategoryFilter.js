@@ -42,7 +42,7 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
         <p>Add summer sale as a filter? Instead of treating it as its own section... can just be part of pricelist.</p>
       </div>
       <div className="four columns mb0">
-        <p>View "projects" here as well if you are a logged in trade account person?</p>
+        <p>View "projects" here as well if you are a logged in trade account person? Can we add another dropdown menu like "display style"?</p>
       </div>
     </div>
   )

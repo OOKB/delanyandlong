@@ -5,7 +5,7 @@ import CategoryFilter from '../CategoryFilter'
 import Pager from '../Pager'
 
 function PricelistSearch(props) {
-  const { category, displayStyle, pageSizeOptions, pagerInfo, pgSize, prefix, classes } = props
+  const { category, displayStyle, pageSizeOptions, pagerInfo, pgSize, prefix } = props
   return (
     <div id="pricelist-header">
       <Search prefix={prefix.text} />
@@ -13,7 +13,6 @@ function PricelistSearch(props) {
         activeCategory={category.active}
         options={category.options}
         prefix={prefix.category}
-        classes={classes}
       />
       <Pager
         {...pagerInfo}
@@ -33,10 +32,8 @@ PricelistSearch.propTypes = {
   pagerInfo: PropTypes.object.isRequired,
   prefix: PropTypes.object.isRequired,
   pgSize: PropTypes.number.isRequired,
-  classes: PropTypes.string,
 }
 PricelistSearch.defaultProps = {
-  classes: 'bt1 bb1 mt1 mb1 pt1 pb1',
 }
 
 export default PricelistSearch

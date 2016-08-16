@@ -7,8 +7,8 @@ const styles = {
     height: '100%',
     width: '100%',
     overflow: 'hidden',
-    boxShadow: 'inset 0 0 10px rgba(66,67,47,.5)',
-    border: '2px solid rgba(66,67,47,.5)',
+    boxShadow: 'inset 0 0 12px rgba(66,67,47,.5)',
+    border: '3px solid rgba(66,67,47,1)',
   },
 }
 

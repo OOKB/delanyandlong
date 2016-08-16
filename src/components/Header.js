@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 
 import Menu from './Menu'
 import Logo from './Logo'
-import MenuButton from './MenuButton'
 
 function Header({ activeId, links }) {
   return (
@@ -10,7 +9,6 @@ function Header({ activeId, links }) {
       <Logo />
       <nav className="mt05 pt05">
         <Menu activeId={activeId} links={links} />
-        <MenuButton />
       </nav>
     </header>
   )

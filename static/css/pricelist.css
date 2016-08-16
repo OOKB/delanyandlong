@@ -52,6 +52,7 @@
   background-color: white;
 }
 
+/** design the pager <> a bit better **/
 #pager > button.control {
   flex: 1;
   height: 3rem;
@@ -68,7 +69,6 @@
 #pager > div {
   text-align: center;
 }
-
 
 /** Pricelist table related **/
 th,
@@ -90,11 +90,11 @@ tbody tr:hover {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: rgba(200,200,190,.15);
+  background-color: rgba(205,206,191,.15);
 }
 
 .pattern td {
-  border-top: 1px solid rgba(200,200,190,.25);
+  border-top: 1px solid rgba(205,206,191,.25);
   position: relative;
 }
 
@@ -164,4 +164,40 @@ td.favButton .favorite-container .popup {
   right: 2rem;
   top: 0;
   width: 250px;
+}
+
+/***********************************************************/
+/***********************************************************/
+/*** trying to figure out how to style pricelist filters ***/
+/***********************************************************/
+/***********************************************************/
+.select-type {
+  max-width: 1000px;
+}
+.select-type button {
+  -webkit-appearance: none;
+  appearance: none;
+  transition-duration: .2s;
+  transition-timing-function: ease;
+  transition-property: color, box-shadow , background-color;
+}
+.select-type button:focus,
+.select-type button:hover {
+  color: #0cf;
+  border-color: #0cf;
+  outline: none;
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(0,204,255,0.5);
+  z-index: 2;
+}
+
+.button-group button + button {
+  margin-left: -1px;
+}
+.button-group button:first-of-type {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.button-group button:last-of-type {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }

@@ -54,13 +54,13 @@ a:link {
 
 p a,
 p a:link {
-  border-bottom: 1px solid rgb(132,133,94);
-  border-bottom: 1px solid rgba(132,133,94,.4);
+  border-bottom: 1px solid rgb(205,206,191);
+  border-bottom: 1px solid rgba(205,206,191,1);
 }
 
 a:hover {
-  color: rgb(132,133,94);
-  color: rgba(132,133,94,.4);
+  color: rgb(205,206,191);
+  color: rgba(205,206,191,1);
 }
 
 p a:hover {
@@ -428,7 +428,8 @@ img { width: 100%; height: auto; }
 .bb4     { border-bottom: 4px solid currentColor;  }
 
 .light-gray-border {
-  border-color: rgba(132, 133, 94, 0.4);
+  border-color: rgb(205,206,191);
+  border-color: rgba(205,206,191,1);
 }
 .black-border {
   border-color: rgb(33,33,24);

@@ -174,20 +174,30 @@ td.favButton .favorite-container .popup {
 .select-type {
   max-width: 1000px;
 }
+
 .select-type button {
   -webkit-appearance: none;
   appearance: none;
-  transition-duration: .2s;
-  transition-timing-function: ease;
-  transition-property: color, box-shadow , background-color;
+  transition: all .2s ease;
 }
+
 .select-type button:focus,
 .select-type button:hover {
   color: #0cf;
   border-color: #0cf;
   outline: none;
-  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(0,204,255,0.5);
+  -webkit-box-shadow: 0 0 0 2px rgba(242,239,229,1),0 0 1px 4px rgba(114,136,119,1);
+  -moz-box-shadow: 0 0 0 2px rgba(242,239,229,1),0 0 1px 4px rgba(114,136,119,1);
+  -ms-box-shadow: 0 0 0 2px rgba(242,239,229,1),0 0 1px 4px rgba(114,136,119,1);
+  -o-box-shadow: 0 0 0 2px rgba(242,239,229,1),0 0 1px 4px rgba(114,136,119,1);
+  box-shadow: 0 0 0 2px rgba(242,239,229,1),0 0 1px 4px rgba(114,136,119,1);
+}
+
+.select-type button:focus {
   z-index: 2;
+}
+.select-type button:hover {
+  z-index: 4;
 }
 
 .button-group button + button {

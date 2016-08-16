@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 
 import Menu from './MenuHome'
 import Logo from './Logo'
-import MenuButton from './MenuButton'
 
 function Header({ links }) {
   return (
@@ -24,7 +23,6 @@ function Header({ links }) {
             </div>
           </div>
         </div>
-        <MenuButton />
       </nav>
     </header>
   )

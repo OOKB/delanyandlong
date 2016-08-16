@@ -24,8 +24,8 @@ function getButtonStyle(activeCategory, value) {
 function CategoryFilter({ activeCategory, formEvent, options }) {
   return (
     <div className="collection-menu group mb0">
-      <h2 className="twelve columns mb0">Filters</h2>
-      <div className="four columns mb0">
+      <h2 className="twelve columns mb0 uppercase">Filters</h2>
+      <div className="select-type">
         <p>Select type:</p>
         <div className="button-group">
           {map(options, ({ value, label }) => {
@@ -37,12 +37,6 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
             )
           })}
         </div>
-      </div>
-      <div className="four columns mb0">
-        <p>Add summer sale as a filter? Instead of treating it as its own section... can just be part of pricelist.</p>
-      </div>
-      <div className="four columns mb0">
-        <p>View "projects" here as well if you are a logged in trade account person? Can we add another dropdown menu like "display style"?</p>
       </div>
     </div>
   )

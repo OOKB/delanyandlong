@@ -8,7 +8,7 @@ function Header({ activeId, links }) {
   return (
     <header className="main-menu">
       <Logo />
-      <nav className="bt1 light-gray-border mt05 pt05">
+      <nav className="mt05 pt05">
         <Menu activeId={activeId} links={links} />
         <MenuButton />
       </nav>

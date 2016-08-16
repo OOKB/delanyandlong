@@ -53,11 +53,23 @@
   background-color: white;
 }
 
-#pager > button,
-#pager > div {
+#pager > button.control {
   flex: 1;
+  height: 3rem;
+
+  background: transparent;
+  border: none;
+  line-height: 3rem;
+  font-size: 2rem;
+}
+#pager > div {
+  flex: 2;
+}
+#pager > button.control,
+#pager > div {
   text-align: center;
 }
+
 
 /** Pricelist table related **/
 th,

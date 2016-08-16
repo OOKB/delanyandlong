@@ -16,9 +16,9 @@ function Pager(props) {
     if (hasMore) onChange(pageIndex + 1)
   }
   return (
-    <div id="pager" className="flex-center bt2 bb2 pt1 pb1 mt1 mb1">
-      <button onClick={prev} className={classnames({ disabled: !hasLess })} disabled={!hasLess}>
-        Previous
+    <div id="pager" className="flex-center bt2 bb2 mt1 mb1">
+      <button onClick={prev} className={classnames('prev control', { disabled: !hasLess })} disabled={!hasLess}>
+        <i className="fa fa-chevron-left" aria-hidden="true"></i>
       </button>
       <Select
         label="Display Style"
@@ -33,8 +33,8 @@ function Pager(props) {
         value={pgSize.toString()}
       />
       <div className="pagecount">{pageCount}</div>
-      <button onClick={next} className={classnames({ disabled: !hasMore })} disabled={!hasMore}>
-        Next
+      <button onClick={next} className={classnames('next control', { disabled: !hasMore })} disabled={!hasMore}>
+        <i className="fa fa-chevron-right" aria-hidden="true"></i>
       </button>
     </div>
   )

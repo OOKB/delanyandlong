@@ -5,11 +5,19 @@ export const cellStyles = {
     fontFamily: 'monospace',
     color: 'rgba(100,100,90,.5)',
   },
+  categoryCode: {
+    width: '2em',
+    fontFamily: 'monospace',
+    textAlign: 'center',
+  },
   id: {
     textAlign: 'right',
     paddingRight: '1em',
-    width: '120px',
+    width: '100px',
     fontFamily: 'monospace',
+  },
+  name: {
+    width: '111px',
   },
   pattern: {
     paddingTop: '0.5em',

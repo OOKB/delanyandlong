@@ -82,6 +82,16 @@ img { width: 100%; height: auto; }
   list-style: none;
 }
 
+.list-inline {
+  display:flex;
+  justify-content: center;
+}
+
+.list-inline li {
+  flex: 1;
+  text-align: center;
+}
+
 .clear {
   clear:both;
   display: block;

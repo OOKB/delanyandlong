@@ -2,10 +2,7 @@
 
 header .logo {
   max-width: 22rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1.5rem;
-  margin-bottom: -.5rem;
+  margin: 2rem auto -.6rem;
 }
 
 header nav {
@@ -43,6 +40,34 @@ header nav a:hover {
   color: rgba(242,239,229,1);
 }
 
+nav .active {
+  position: relative;
+}
+
+nav .active a {
+  background-color: rgb(205,206,191);
+  background-color: rgba(205,206,191,1);
+}
+
+nav .active::before {
+  color: rgb(205,206,191);
+  color: rgba(205,206,191,1);
+  display: inline-block;
+  font: normal normal normal 14px/2px FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f0d7";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: -3px;
+  transition: all 400ms;
+}
+
 @media (max-width: 50em) {
   nav ul.list-inline {
     border-top: 1px solid;
@@ -55,12 +80,14 @@ header nav a:hover {
     height: 2em;
     line-height: 2em;
   }
+  nav .active:hover::before {
+    color: rgb(132,133,94);
+    color: rgba(132,133,94,1);
+  }
 }
 
 @media (min-width: 50em) {
   header .logo {
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 3rem;
     margin-bottom: -.35rem;
   }
@@ -83,33 +110,14 @@ header nav a:hover {
     color: rgba(66,67,47,1);
   }
 
-  nav .active {
-    position: relative;
-  }
   nav .active a {
     color: rgba(205,206,191,1);
   }
   nav .active::before {
-    display: inline-block;
-    font: normal normal normal 14px/2px FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f0d7";
-
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    border-top: 1px solid;
     bottom: -.5em;
-
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid;
-
-    color: rgba(205,206,191,1);
   }
 }

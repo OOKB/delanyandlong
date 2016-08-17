@@ -16,7 +16,7 @@ function Pager(props) {
     if (hasMore) onChange(pageIndex + 1)
   }
   return (
-    <div id="pager" className="flex-center bt2 bb2">
+    <div id="pager" className="flex-center bt2 bb1">
       <button onClick={prev} className={classnames('prev control', { disabled: !hasLess })} disabled={!hasLess}>
         <i className="fa fa-chevron-left" aria-hidden="true"></i>
       </button>

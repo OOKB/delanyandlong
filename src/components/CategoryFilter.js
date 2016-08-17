@@ -7,7 +7,6 @@ const styles = {
   button: {
     background: 'none',
     backgroundColor: 'rgb(242,239,229)',
-    backgroundColor: 'rgba(242,239,229,1)',
     cursor: 'pointer',
     display: 'block',
     textTransform: 'uppercase',
@@ -15,16 +14,12 @@ const styles = {
     fontFamily: 'inherit',
     whiteSpace: 'nowrap',
     color: 'rgb(121,120,115)',
-    color: 'rgba(121,120,115,1)',
     border: '1px solid rgb(121,120,115)',
-    border: '1px solid rgba(121,120,115,1)',
   },
   buttonActive: {
     fontWeight: 'bold',
     color: 'rgb(066,067,047)',
-    color: 'rgba(066,067,047,1)',
     backgroundColor: 'rgb(205,206,191)',
-    backgroundColor: 'rgba(205,206,191,1)',
   },
 }
 

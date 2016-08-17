@@ -69,13 +69,16 @@ nav .active::before {
 }
 
 @media (max-width: 50em) {
+  nav ul.MenuHome,
   nav ul.list-inline {
     border-top: 1px solid;
     border-bottom: 1px solid;
   }
+  nav ul.MenuHome li + li,
   nav ul.list-inline li + li {
     border-left: 1px solid;
   }
+  nav ul.MenuHome li a i.fa,
   nav ul.list-inline li a i.fa {
     height: 2em;
     line-height: 2em;

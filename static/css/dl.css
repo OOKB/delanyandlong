@@ -112,17 +112,24 @@ img { width: 100%; height: auto; }
 }
 .hidden {
   display: none !important;
-  visibility: hidden;
+  visibility: hidden !important;
 }
 .invisible {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 .visible-lg,
 .hidden-sm {
-  display: none;
-  visibility: hidden;
+  display: none !important;
+  visibility: hidden !important;
 }
+
+.visible-sm,
+.hidden-lg {
+  display: initial !important;
+  visibility: visible !important;
+}
+
 
 .hide-text {
   text-indent: 200%;
@@ -312,14 +319,15 @@ img { width: 100%; height: auto; }
   .offset-by-eleven      { margin-left: calc(100% / 12 * 11); }
   .offset-by-twelve      { margin-left: calc(100% / 12 * 12); }
 
-  .visible-lg {
-    display: block;
-    visibility: visible;
+  .visible-lg,
+  .hidden-sm {
+    display: block !important;
+    visibility: visible !important;
   }
   .visible-sm,
   .hidden-lg {
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
   }
 }
 

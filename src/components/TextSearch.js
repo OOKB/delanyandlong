@@ -6,7 +6,7 @@ function TextSearch({ form, formEvent }) {
   const { value } = form
   const { onBlur, onChange, onFocus } = formEvent
   return (
-    <div className="text-search text-center mb2">
+    <div className="text-search text-center mb1">
       <div className="search-wrapper">
         <label>
           <i className="fa fa-search"></i>

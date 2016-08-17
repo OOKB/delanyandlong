@@ -18,7 +18,7 @@ function Pricelist(props) {
   return (
     <div id="container-pricelist" className={category.activeCategory}>
       <Header activeId={route.id} links={menu} />
-      <main className="clear m1 mt3">
+      <main className="clear m1 mt2">
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
         {grid && <Grid items={items} />}

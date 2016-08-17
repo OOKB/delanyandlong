@@ -12,10 +12,14 @@
   max-width: 800px;
 }
 
-.search-wrapper label,
+.search-wrapper label {
+  color: rgb(121,120,115);
+  color: rgba(121,120,115,.8);
+}
+
 .search-wrapper input {
-  color: rgb(114,136,122);
-  color: rgba(114,136,122,1);
+  color: rgb(033,033,024);
+  color: rgba(033,033,024,1);
 }
 
 .search-wrapper label {
@@ -33,10 +37,9 @@
   line-height: 3rem;
   display: block;
   width: 100%;
-  background-color: transparent;
+  background-color: transparent;;
   background-image: none;
-  border: 1px solid rgb(114,136,122);
-  border: 1px solid rgba(114,136,122,1);
+  border: 1px solid rgb(066,067,047);
   /**/
   outline: 0;
   -moz-user-select: none;
@@ -50,9 +53,21 @@
 .search-wrapper input:focus,
 .search-wrapper input:active {
   background-color: white;
+  color: rgb(066,067,047);
+  color: rgba(066,067,047,1);
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
 }
 
 /** design the pager <> a bit better **/
+#pager {
+  margin-top: -1px;
+}
+
 #pager > button.control {
   flex: 1;
   height: 3rem;
@@ -61,6 +76,14 @@
   border: none;
   line-height: 3rem;
   font-size: 2rem;
+
+  color:rgba(132,133,094,1);
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+#pager > button.control:hover {
+  color:rgba(242,239,229,1);
+  background-color: rgba(132,133,094,1);
 }
 #pager > div {
   flex: 2;
@@ -69,6 +92,15 @@
 #pager > div {
   text-align: center;
 }
+
+#pager > button.control.disabled,
+#pager > button.control.disabled:hover {
+  color: rgba(205,206,191,1);
+  cursor: not-allowed;
+  background: transparent;
+  visibility: hidden;
+}
+
 
 /** Pricelist table related **/
 th,
@@ -176,7 +208,7 @@ td.favButton .favorite-container .popup {
 }
 
 .select-type button {
-  line-height: 3rem;
+  line-height: 2rem;
   height: auto;
   min-height: 2rem;
   padding: 0 1rem;
@@ -189,7 +221,6 @@ td.favButton .favorite-container .popup {
 .select-type button:hover {
   color: rgb(066,067,047);
   color: rgba(066,067,047,1);
-  border-color: #0cf;
   outline: none;
   -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
   -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
@@ -210,31 +241,19 @@ td.favButton .favorite-container .popup {
   margin-top: -1px;
 }
 
-@media (max-width: 50em) {
-  .button-group button:first-of-type {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-  }
-
-  .button-group button:last-of-type {
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-  }
-}
-
 @media (min-width: 50em) {
   .button-group button + button {
     margin-left: -1px;
   }
 
   .button-group button:first-of-type {
-    border-top-left-radius: 3em;
-    border-bottom-left-radius: 3em;
+    border-top-left-radius: 1rem;
+    border-bottom: 0;
   }
 
   .button-group button:last-of-type {
-    border-top-right-radius: 3em;
-    border-bottom-right-radius: 3em;
+    border-top-right-radius: 1rem;
+    border-bottom: 0;
   }
 }
 
@@ -243,6 +262,10 @@ td.favButton .favorite-container .popup {
 }
 
 @media (max-width: 50em) {
+  .button-group button:first-of-type {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
   .select-type .flex-center {
     flex-direction: column;
   }
@@ -252,5 +275,4 @@ td.favButton .favorite-container .popup {
     padding: 0.25rem .5rem;
     width: 100%
   }
-
 }

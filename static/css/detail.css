@@ -104,6 +104,7 @@
   .item-information ul.flex-center {
     padding-left: 4em;
     padding-right: 10em;
+    align-items: stretch;
   }
   .item-information ul.flex-center li {
     padding: .6em;

@@ -200,13 +200,16 @@ td.favButton .favorite-container .popup {
   z-index: 4;
 }
 
+/** cutely group the buttons together **/
 .button-group button + button {
   margin-left: -1px;
 }
+
 .button-group button:first-of-type {
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
 }
+
 .button-group button:last-of-type {
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;

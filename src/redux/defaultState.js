@@ -46,12 +46,12 @@ export default {
       printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
     menu: [
-      { id: 'about', href: '/about', label: 'About Us' },
-      { id: 'collection', href: '/collection', label: 'Collection' },
-      { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist' },
-      { id: 'contact', href: '/contact', label: 'Contact Us' },
-      { id: 'favs', href: '/favs', label: 'Favorites' },
-      { id: 'trade', href: '/trade', label: 'Trade Login' },
+      { id: 'about', href: '/about', label: 'About Us', icon: 'info' },
+      { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
+      { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist', icon: 'file-text-o' },
+      { id: 'contact', href: '/contact', label: 'Contact Us', icon: 'envelope-o' },
+      { id: 'favs', href: '/favs', label: 'Favorites', icon: 'heart-o' },
+      { id: 'trade', href: '/trade', label: 'Trade Login', icon: 'sign-in' },
     ],
     schema: {
       id: {

@@ -176,6 +176,10 @@ td.favButton .favorite-container .popup {
 }
 
 .select-type button {
+  line-height: 2rem;
+  height: auto;
+  min-height: 2rem;
+  padding: 0.5rem 1rem;
   -webkit-appearance: none;
   appearance: none;
   transition: all .2s ease;
@@ -183,6 +187,7 @@ td.favButton .favorite-container .popup {
 
 .select-type button:focus,
 .select-type button:hover {
+  color: rgb(066,067,047);
   color: rgba(066,067,047,1);
   border-color: #0cf;
   outline: none;
@@ -202,15 +207,48 @@ td.favButton .favorite-container .popup {
 
 /** cutely group the buttons together **/
 .button-group button + button {
-  margin-left: -1px;
+  margin-top: -1px;
 }
 
 .button-group button:first-of-type {
   border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
 
 .button-group button:last-of-type {
-  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+}
+
+@media (min-width: 50em) {
+  .button-group button + button {
+    margin-left: -1px;
+  }
+
+  .button-group button:first-of-type {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+  }
+
+  .button-group button:last-of-type {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+}
+
+.select-type .flex-center {
+  flex-direction: row;
+}
+
+@media (max-width: 50em) {
+  .select-type .flex-center {
+    flex-direction: column;
+  }
+  .select-type button {
+    line-height: 1.5rem;
+    min-height: 1.5rem;
+    padding: 0.25rem .5rem;
+    width: 100%
+  }
+
 }

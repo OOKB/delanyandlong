@@ -124,7 +124,7 @@ header .logo {
     position: relative;
   }
   nav .active a {
-    color: rgba(132, 133, 94, 0.4);
+    color: rgba(205,206,191,1);
   }
   nav .active::before {
     display: inline-block;
@@ -147,6 +147,6 @@ header .logo {
     margin-right: auto;
     border-top: 1px solid;
 
-    color: rgba(132, 133, 94, 0.4);
+    color: rgba(205,206,191,1);
   }
 }

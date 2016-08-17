@@ -89,9 +89,9 @@
 }
 
 .showroomsAndReps .bt1 {
-  border-color: rgba(132, 133, 94, 0.4);
+  border-color: rgba(205,206,191,1);
 }
 
 .showroomsAndReps .bt1:last-child {
-  border-bottom: 1px solid rgba(132, 133, 94, 0.4);
+  border-bottom: 1px solid rgba(205,206,191,1);
 }

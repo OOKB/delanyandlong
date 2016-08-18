@@ -3,29 +3,33 @@ import { entitySelector } from 'redux-graph'
 import compact from 'lodash/compact'
 import curry from 'lodash/curry'
 import every from 'lodash/every'
+import flatten from 'lodash/flatten'
 import filter from 'lodash/filter'
+import includes from 'lodash/includes'
 import map from 'lodash/map'
 import mapValues from 'lodash/mapValues'
 import orderBy from 'lodash/orderBy'
 import pickBy from 'lodash/pickBy'
 import uniq from 'lodash/uniq'
 
-import { activeCategorySelector, getFilterText } from './'
+import { activeCategorySelector, getFilter, getFilterText } from './'
 import { categoryCodeIndex } from './category'
 
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
-
+export const activeColor = getFilter('color')
 // const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
 const CDN = 'http://65.110.85.163'
 export function itemFill(item, catCodeIndex) {
   if (!item || !item.id) return item
-  const { id, category, color, contents, name, patternNumber, price } = item
+  const { id, category, colors, contents, name, patternNumber, price } = item
   const colorNumber = id.replace(`${patternNumber}-`, '')
+  const color = colors.join('/')
   return {
     ...item,
     categoryCode: catCodeIndex[category],
+    color,
     colorNumber,
     link: `/detail/${id}`,
     img: `${CDN}/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
@@ -56,6 +60,14 @@ export const categorySelector = createSelector(
   activeCategorySelector,
   (items, category) => category && filterSort({ category }, items) || orderItems(items)
 )
+export function colorSearch(searchValue) {
+  return item => item.colors && includes(item.colors, searchValue)
+}
+export const colorFilterSelector = createSelector(
+  categorySelector,
+  activeColor,
+  (items, color) => color && filter(items, colorSearch(color)) || items
+)
 export function textSearch(searchValue) {
   return item =>
     every(compact(searchValue.split(' ')), searchTxt =>
@@ -63,7 +75,7 @@ export function textSearch(searchValue) {
     )
 }
 export const textSearchSelector = createSelector(
-  categorySelector,
+  colorFilterSelector,
   getFilterText,
   (items, searchValue) => searchValue && filter(items, textSearch(searchValue)) || items
 )
@@ -83,5 +95,5 @@ export const patternColorSelector = createSelector(
 )
 export const colorSelector = createSelector(
   itemsFilled,
-  items => uniq(map(items, 'color'))
+  items => uniq(flatten(map(items, 'colors'))).sort()
 )

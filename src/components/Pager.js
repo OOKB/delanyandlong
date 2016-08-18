@@ -1,10 +1,14 @@
 import React, { PropTypes } from 'react'
 import { connectField } from 'redux-field'
 import classnames from 'classnames'
-import Select from './Editable/InputSelect'
 
+import SelectEl from './Editable/InputSelect'
+
+function pgBtnClass(name, disabled) {
+  return classnames('control', name, { disabled })
+}
 function Pager(props) {
-  const { displayStyle, formEvent, hasLess, hasMore, maxPage,
+  const { colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
     pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
   } = props
   const { onChange } = formEvent
@@ -17,23 +21,28 @@ function Pager(props) {
   }
   return (
     <div id="pager" className="flex-center bt2 bb1">
-      <button onClick={prev} className={classnames('prev control', { disabled: !hasLess })} disabled={!hasLess}>
+      <button onClick={prev} className={pgBtnClass('prev', !hasLess)} disabled={!hasLess}>
         <i className="fa fa-chevron-left" aria-hidden="true"></i>
       </button>
-      <Select
+      <SelectEl
         label="Display Style"
         options={displayStyle.options}
         prefix={displayStyle.prefix}
         value={displayStyle.active}
       />
-      <Select
+      <SelectEl
+        label="Color"
+        options={colors}
+        prefix={[ 'pricelist', 'color' ]}
+      />
+      <SelectEl
         label="View Qty"
         options={pageSizeOptions}
         prefix={pgSizePrefix}
         value={pgSize.toString()}
       />
       <div className="pagecount">{pageCount}</div>
-      <button onClick={next} className={classnames('next control', { disabled: !hasMore })} disabled={!hasMore}>
+      <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
         <i className="fa fa-chevron-right" aria-hidden="true"></i>
       </button>
     </div>
@@ -41,6 +50,7 @@ function Pager(props) {
 }
 
 Pager.propTypes = {
+  colors: PropTypes.array.isRequired,
   displayStyle: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,
   hasLess: PropTypes.bool.isRequired,

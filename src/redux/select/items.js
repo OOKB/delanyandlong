@@ -8,6 +8,7 @@ import map from 'lodash/map'
 import mapValues from 'lodash/mapValues'
 import orderBy from 'lodash/orderBy'
 import pickBy from 'lodash/pickBy'
+import uniq from 'lodash/uniq'
 
 import { activeCategorySelector, getFilterText } from './'
 import { categoryCodeIndex } from './category'
@@ -79,4 +80,8 @@ export const patternColorSelector = createSelector(
       }
     })
   }
+)
+export const colorSelector = createSelector(
+  itemsFilled,
+  items => uniq(map(items, 'color'))
 )

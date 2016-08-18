@@ -8,7 +8,7 @@ import {
   categoryOptionsSelector, columnsSelector,
   pageSizeOptions,
 } from './'
-import { patternColorSelector } from './items'
+import { colorSelector, patternColorSelector } from './items'
 import { getCategoryKey } from './category'
 
 export const getStyles = getDb('styles')
@@ -43,9 +43,11 @@ const pricelistProps = createStructuredSelector({
 export const pricelistInfoSelector = createSelector(
   pricelistInfo,
   pricelistProps,
-  (info, props) => ({
+  colorSelector,
+  (info, props, colors) => ({
     ...info,
     ...props,
+    colors,
     pageSizeOptions,
   })
 )

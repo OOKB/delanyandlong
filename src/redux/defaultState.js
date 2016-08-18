@@ -38,6 +38,7 @@ export default {
       // defaultCategory: 'textile',
       prefix: {
         category: [ 'pricelist', 'category' ],
+        color: [ 'pricelist', 'color' ],
         pgIndex: [ 'pricelist', 'pgIndex' ],
         pgSize: [ 'pricelist', 'pgSize' ],
         text: [ 'pricelist', 'text' ],

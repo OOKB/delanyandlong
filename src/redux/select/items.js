@@ -93,7 +93,8 @@ export const patternColorSelector = createSelector(
     })
   }
 )
+export const noColor = [ { label: '- Select Color -', value: '' } ]
 export const colorSelector = createSelector(
   itemsFilled,
-  items => uniq(flatten(map(items, 'colors'))).sort()
+  items => noColor.concat(uniq(flatten(map(items, 'colors'))).sort())
 )

@@ -15,7 +15,7 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 798px) {
+@media (min-width: 50em) {
   .office:nth-child(3n+4),
   .showroom:nth-child(3n+4) {
     clear:left;
@@ -25,20 +25,16 @@
 .office .connect button,
 .showroom .connect button {
   background: transparent;
-
   border-top:0;
   border-left:0;
   border-right:0;
   border-bottom: 1px solid rgb(132,133,94);
   border-bottom: 1px solid rgba(132,133,94,.4);
-
   color: rgb(132,133,94);
   color: rgba(132,133,94,.9);
-
   font-size: inherit;
   font-family: inherit;
   text-align: left;
-
   padding: 0;
   text-decoration: none;
   transition: all 400ms;

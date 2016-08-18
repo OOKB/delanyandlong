@@ -69,6 +69,14 @@ nav .active::before {
 }
 
 @media (max-width: 50em) {
+  nav ul.MenuHome {
+    display: flex;
+    text-align: center;
+  }
+
+  nav ul.MenuHome li {
+    flex: 1;
+  }
   nav ul.MenuHome,
   nav ul.list-inline {
     border-top: 1px solid;

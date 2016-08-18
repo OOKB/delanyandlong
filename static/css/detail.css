@@ -27,37 +27,34 @@
   z-index: 99;
 }
 
-@media (min-width: 48rem) {
-  #detailWrapper,
-  .detailHeader {
-    top:0;
-    right:0;
-    left:0;
-  }
-  #detailWrapper {
-    bottom:0;
-    overflow: hidden;
-  }
-  #detailWrapper > img {
-    position: absolute;
-    left:50%;
-    top:50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 1;
-  }
+#detailWrapper,
+.detailHeader {
+  top:0;
+  right:0;
+  left:0;
+}
+#detailWrapper {
+  bottom:0;
+  overflow: hidden;
+}
+#detailWrapper > img {
+  position: absolute;
+  left:50%;
+  top:50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: 1;
+}
 
-  .detailHeader {
-    z-index: 10;
-    height: 25px;
-    background-color: rgb(242,239,229);
-    background-color: rgba(242,239,229,1);
-    border-bottom: 1px solid black;
-  }
-
+.detailHeader {
+  z-index: 10;
+  height: 25px;
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
+  border-bottom: 1px solid black;
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Pseudo-BNF */

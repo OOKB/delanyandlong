@@ -1,3 +1,4 @@
+import defaults from 'lodash/defaults'
 import isEmpty from 'lodash/isEmpty'
 
 export const defaultPageSize = 48
@@ -11,24 +12,31 @@ export function pageSizes(multiple = defaultPageSize) {
     { value: '10000', label: 'All' },
   ]
 }
-
+const defaultOpts = {
+  resultKey: 'items',
+  page: 1,
+  perPage: defaultPageSize,
+}
+export function getOpts(opts) {
+  return defaults({
+    ...opts,
+    page: (opts.page && parseInt(opts.page, 10)) || defaultOpts.page,
+  }, defaultOpts)
+}
+export function emptyRes(items, perPage, resultKey) {
+  return {
+    hasLess: false,
+    hasMore: false,
+    [resultKey]: items,
+    pageIndex: 1,
+    perPage,
+    totalItems: 0,
+  }
+}
 export function getPagerInfo(items, opts) {
-  if (isEmpty(items)) {
-    return {
-      hasLess: false,
-      hasMore: false,
-      totalItems: 0,
-    }
-  }
-  const defaultOpts = {
-    resultKey: 'items',
-    page: 1,
-    perPage: defaultPageSize,
-  }
-  const page = parseInt(opts.page, 10) || defaultOpts.page
-  const perPage = opts.perPage || defaultOpts.perPage
-  const resultKey = opts.resultKey || defaultOpts.resultKey
+  const { page, resultKey, perPage } = getOpts(opts)
   const totalItems = items.length
+  if (isEmpty(items)) return emptyRes(items, perPage, resultKey)
   const maxPage = Math.ceil(totalItems / perPage)
   const pageIndex = page < maxPage ? (page || 1) : maxPage
   const itemsStart = (pageIndex - 1) * perPage

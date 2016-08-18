@@ -1,3 +1,8 @@
+.filmStrip {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
 .filmStrip li:first-child,
 .filmStrip li:last-child {
 	width: 10%;
@@ -30,6 +35,31 @@
 
 .filmStrip li:nth-child(2) a img {
 	width: 100% !important; /*TEMPORARY!!!*/
+}
+
+/** inside the items... **/
+.filmStrip .description {
+  position: absolute;
+  display: block;
+  background-color: rgb(242,239,229);
+  background-color: rgba(242,239,229,1);
+  padding: .5em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  transition: all 400ms;
+  opacity: 0;
+}
+
+.filmStrip > li:hover .description {
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+  opacity: 1;
+}
+
+.filmStrip li:first-child .description,
+.filmStrip li:last-child .description {
+	display:none;
 }
 
 @media (min-width: 31em) {

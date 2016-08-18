@@ -18,6 +18,7 @@ function Item({ item, onError }) {
         <div className="description">
           <h2>{item.name}: {item.color}</h2>
           <p>{item.id}</p>
+          <p>Other info for these?</p>
         </div>
       </Link>
     </li>

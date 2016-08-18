@@ -83,3 +83,17 @@
   	height: 450px;
   }
 }
+
+@media (min-width: 90em) {
+  .item-grid li:nth-last-child(-n+3):first-child,
+  .item-grid li:nth-last-child(-n+3):first-child ~ li {
+  	height: 500px;
+  }
+}
+
+@media (min-width: 105em) {
+  .item-grid li:nth-last-child(-n+3):first-child,
+  .item-grid li:nth-last-child(-n+3):first-child ~ li {
+  	height: 600px;
+  }
+}

@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import isObject from 'lodash/isObject'
 import map from 'lodash/map'
 
-import { defaultPageSize, pageSizes } from '../../helpers/pager'
+import { pageSizes } from '../../helpers/pager'
 
 export const pageSizeOptions = pageSizes()
 export const getDb = curry((path, state) => get(state.db, path))
@@ -31,10 +31,8 @@ export const getFilter = curry((filterType, state) =>
 )
 export const getFilterCategory = getFilter('category')
 export const getFilterText = getFilter('text')
-export const getPageSize = state => {
-  const pgSize = getFilter('pgSize')(state)
-  return pgSize && parseInt(pgSize, 10) || defaultPageSize
-}
+
+// Page number.
 export const getPageIndex = getFilter('pgIndex')
 
 export const activeCategorySelector = createSelector(

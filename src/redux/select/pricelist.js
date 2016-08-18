@@ -1,10 +1,10 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 
-import { getPagerInfo } from '../../helpers/pager'
+import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
 
 import {
   pricelistInfo, activeCategorySelector, formPrefix,
-  getFilter, getDb, getFilterText, getMenu, getPageIndex, getPageSize,
+  getFilter, getDb, getFilterText, getMenu, getPageIndex,
   categoryOptionsSelector, columnsSelector,
   pageSizeOptions,
 } from './'
@@ -12,12 +12,19 @@ import { patternColorSelector } from './items'
 import { getCategoryKey } from './category'
 
 export const getStyles = getDb('styles')
+// Get active display. (list, grid, film)
 export const getDisplayStyle = state => getFilter('display', state) || 'list'
 const displayStyle = createStructuredSelector({
   active: getDisplayStyle,
   options: getStyles,
   prefix: formPrefix('display'),
 })
+// How many items to include on a page.
+export const getPageSize = state => {
+  const pgSize = getFilter('pgSize')(state)
+  if (getDisplayStyle(state) === 'film') return 3
+  return pgSize && parseInt(pgSize, 10) || defaultPageSize
+}
 
 const category = createStructuredSelector({
   active: activeCategorySelector,

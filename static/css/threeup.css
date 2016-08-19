@@ -34,7 +34,7 @@
 }
 
 .filmStrip li:nth-child(2) a img {
-	width: 100% !important; /*TEMPORARY!!!*/
+	width: 100% !important; /* TEMPORARY!!! */
 }
 
 /** inside the items... **/
@@ -47,7 +47,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  min-width: 300px;
   width: 60%;
+  max-width: 800px;
   transition: all 400ms;
   opacity: 0;
 }
@@ -117,6 +119,7 @@
 }
 
 /** some tweaks for those w/ only 1 or two **/
+/** http://alistapart.com/article/quantity-queries-for-css **/
 .filmStrip li:only-of-type {
 	width: 100%;
 }
@@ -129,5 +132,17 @@
 .filmStrip li:only-of-type a img,
 .filmStrip li:nth-last-child(2):first-child a img,
 .filmStrip li:nth-last-child(2):first-child ~ li a img {
-	width: 100% !important; /*TEMPORARY!!!*/
+  width: 100% !important; /* TEMPORARY!!! */
+}
+
+.filmStrip li:only-of-type .description,
+.filmStrip li:nth-last-child(2):first-child .description,
+.filmStrip li:nth-last-child(2):first-child ~ li .description {
+	display:block;
+}
+.filmStrip li:only-of-type:hover .description,
+.filmStrip li:nth-last-child(2):first-child:hover .description,
+.filmStrip li:nth-last-child(2):first-child ~ li:hover .description {
+  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+  opacity: 1;
 }

@@ -109,11 +109,7 @@ export default {
       { value: 'list', label: 'List' },
       { value: 'grid', label: 'Grid' },
       { value: 'film', label: 'Horizontal (Trio)' },
-      { value: 'specs', label: 'Specifications' },
-      { value: 'homepage', label: 'Homepage?' },
-      { value: 'favorites', label: 'Favorites?' },
-      { value: 'projects', label: 'Projects?' },
-      { value: 'other', label: 'What other views?' },
+      { value: 'specs', label: 'Specifications?' },
     ],
   },
   graph: {

@@ -154,7 +154,7 @@ export default [
     "title": "Northern New Jersey Representative",
     "name": "Blake Haase",
     "email": "blake@rogersandgoffigon.com",
-    "tel": "917.250.2693"
+    "tel": "845.863.9671"
   },
   {
     "id": "midatlantic",

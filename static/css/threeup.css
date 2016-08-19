@@ -115,3 +115,19 @@
   	height: 600px;
   }
 }
+
+/** some tweaks for those w/ only 1 or two **/
+.filmStrip li:only-of-type {
+	width: 100%;
+}
+
+.filmStrip li:nth-last-child(2):first-child,
+.filmStrip li:nth-last-child(2):first-child ~ li {
+	width: 50%;
+}
+
+.filmStrip li:only-of-type a img,
+.filmStrip li:nth-last-child(2):first-child a img,
+.filmStrip li:nth-last-child(2):first-child ~ li a img {
+	width: 100% !important; /*TEMPORARY!!!*/
+}

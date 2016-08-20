@@ -48,11 +48,11 @@ export default {
     },
     menu: [
       { id: 'about', href: '/about', label: 'About Us', icon: 'info' },
-      { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
-      { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist', icon: 'file-text-o' },
       { id: 'contact', href: '/contact', label: 'Contact Us', icon: 'envelope-o' },
-      { id: 'favs', href: '/favs', label: 'Favorites', icon: 'heart-o' },
+      // { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
+      { id: 'pricelist', href: '/trade/pricelist', label: 'The Collection / Pricelist', icon: 'file-text-o' },
       { id: 'trade', href: '/trade', label: 'Trade Login', icon: 'sign-in' },
+      { id: 'favs', href: '/favs', label: 'Favorites / Projects', icon: 'heart-o' },
     ],
     schema: {
       id: {

@@ -1,3 +1,5 @@
+import { createTriple } from 'redux-graph'
+
 export function nextId() {
   return Math.random().toString(36).substr(6)
   .substring(1, 9)
@@ -7,6 +9,17 @@ export function insertFields(data) {
     ...data,
     dateCreated: new Date(),
     id: nextId(),
+  }
+}
+export function createCollectionList(creator, title = 'Favorites') {
+  const mainEntity = { id: 'pBlf', type: 'DataFeed' }
+  return {
+    additionalType: 'ProjectDelanyLong',
+    creator, // User that created the thing.
+    itemListOrder: 'Ascending',
+    mainEntity, // List of what.
+    title,
+    type: 'CollectionList',
   }
 }
 
@@ -25,16 +38,6 @@ export function createCollectionItemTriple(list, item, position) {
   const object = createCollectionItem(item, position)
   // The item is attached to the list by adding an itemListElement predicate triple.
   return { subject: list, predicate: 'itemListElement', object }
-}
-export function createCollectionList(creator) {
-  const mainEntity = { id: 'pBlf', type: 'DataFeed' }
-  return {
-    additionalType: 'ProjectDelanyLong',
-    creator, // User that created the thing.
-    itemListOrder: 'Ascending',
-    mainEntity, // List of what.
-    type: 'CollectionList',
-  }
 }
 
 export function favoriteItem(item, listId) {

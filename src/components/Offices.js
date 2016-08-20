@@ -9,7 +9,7 @@ function Office({ address, email, id, name, tel, fax, title }) {
     window.location.href = `mailto:${email}`
   }
   return (
-    <li className="office four columns">
+    <li className="office">
       <EditButton item={{ id }} />
       <h3>{title}</h3>
       {name && <h4>{name}</h4>}
@@ -36,7 +36,7 @@ Office.propTypes = {
 
 function Offices({ items }) {
   return (
-    <ul className="list-reset group bt1 pt2 pb2">
+    <ul className="list-reset group">
       {map(items, item => <Office key={item.id} {...item} />)}
     </ul>
   )

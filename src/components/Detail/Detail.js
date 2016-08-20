@@ -16,7 +16,9 @@ function Detail({ detailClose, item, route }) {
       <DetailHeader />
       <Info item={item} />
       <img className="absolute" src={item.img} alt={item.id} style={{ zIndex: -1 }} />
-      {editing && <Images subject={item} style={{ marginTop: 100 }} />}
+      {editing &&
+        <Images subject={item} style={{ marginTop: 100 }} />
+      }
       <Related parent={item} />
       <Close onClick={detailClose} />
     </div>

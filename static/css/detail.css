@@ -124,30 +124,24 @@
 
 #related-colors {
   font-size: .9rem;
-
   position: absolute;
-  right: 1em;
-  top: calc(1.3em + 25px);
+  right: 0;
+  top: 24px;
   z-index: 11;
-
   background-color: rgb(242,239,229);
   background-color: rgba(242,239,229,1);
   box-shadow: 0 .25em .75em 0 rgba(65,65,45,.75);
-  width: 10em;
-  padding: 1px;
-
+  width: 10%;
   height: calc(100% - 25px - 1.3em - 1.3em);
-  overflow:hidden;
+  transition: all 400ms ease;
 }
 
 #related-colors > ul {
   width: 100%;
   height: calc(100% - 2em + 1px);
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
   overflow:hidden;
 }
 
@@ -166,11 +160,32 @@
   display: block;
   background: transparent;
   border: 1px solid black;
-  font-size: .9em;
-  line-height: 1.5em;
-  height: 2em;
+  line-height: 3rem;
+  height: calc(3rem + 4px);
   width: 100%;
-  margin-bottom: 1px;
+  z-index: 999;
+
+  /** from pricelist filter buttons **/
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  color: rgb(66, 67, 47);
+  padding: 0 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all .2s ease;
+}
+
+#related-colors button.colors-header:focus,
+#related-colors button.colors-header:hover {
+  color: rgb(066,067,047);
+  color: rgba(066,067,047,1);
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
 }
 
 #detailWrapper .favorite-container .popup {

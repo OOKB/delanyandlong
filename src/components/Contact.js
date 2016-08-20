@@ -12,17 +12,23 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
     <div id="container-contact">
       <Header activeId={route.id} links={menu} />
       <Editor classId="Organization" />
-      <main className="clear pt4 container clearfix">
+      <main className="pt2 container clearfix">
         <section className="showroomsAndReps">
-          <div>
-            <div className="six right">
-              <p className="pt2">{serviceText}</p>
+          <div className="top bb1 pb4 pt2 mb4 clearfix">
+            <div className="headquarters mb2">
+              <Offices items={offices.main} />
             </div>
-            <Offices items={offices.main} />
-            <div className="six offset-by-three text-center mb2">
-              <p>{contactText}</p>
+            <div className="blurb">
+              <p>{serviceText}</p>
             </div>
+          </div>
+          <div className="blurb mb4">
+            <p>{contactText}</p>
+          </div>
+          <div className="us canada americas bt1 pt4 pb2">
             <Offices items={offices.us} />
+          </div>
+          <div className="europe pacific bt1 pt4 pb2">
             <Offices items={offices.world} />
           </div>
         </section>

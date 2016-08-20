@@ -16,8 +16,11 @@ function Item({ item, onError }) {
       <Link href={item.link}>
         <img src={item.img} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description">
+          <p><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
           <h2>{item.name}: {item.color}</h2>
-          <p>{item.id}</p>
+          <p>{item.contents}</p>
+          <p>{item.approxWidth}</p>
+          <p>Other info for these?</p>
         </div>
       </Link>
     </li>
@@ -31,7 +34,7 @@ Item.propTypes = {
 function ItemGrid({ items, missingImage }) {
   return (
     <div className="items">
-      <ul className="list-reset item-grid clearfix">
+      <ul className="list-reset clearfix filmStrip">
         {map(items, item => (
           <Item key={item.id} item={item} onError={missingImage} />
         ))}

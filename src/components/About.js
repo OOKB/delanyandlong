@@ -9,14 +9,12 @@ function About({ aboutText, distributedText, serviceText, menu, route }) {
   return (
     <div id="container-about">
       <Header activeId={route.id} links={menu} />
-      <main className="clear pt4 container">
-        <div className="group">
-          <div className="about six columns offset-by-three">
-            {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
-            <div className="small mt3 bt1 pt2">
-              <p>{serviceText}</p>
-              <p><a href="/contact">{distributedText}</a></p>
-            </div>
+      <main className="clear mlrauto">
+        <div className="about">
+          {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
+          <div className="small mt3 bt1 pt2">
+            <p>{serviceText}</p>
+            <p><a href="/contact">{distributedText}</a></p>
           </div>
         </div>
       </main>

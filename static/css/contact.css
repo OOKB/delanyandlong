@@ -15,11 +15,59 @@
   margin-bottom: 0;
 }
 
+@media (min-width: 45rem) {
+  .office,
+  .showroom {
+    float: left;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 45rem) and (max-width: 70rem) {
+  .office,
+  .showroom {
+    width: calc(100% / 2);
+  }
+  .office:nth-child(2n+3),
+  .showroom:nth-child(2n+3) {
+    clear:left;
+  }
+}
+
 @media (min-width: 50em) {
+  .showroomsAndReps .blurb {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 70rem) {
+  .office,
+  .showroom {
+    width: calc(100% / 3);
+  }
+
   .office:nth-child(3n+4),
   .showroom:nth-child(3n+4) {
     clear:left;
   }
+
+  .showroomsAndReps .blurb {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .headquarters,
+  .top .blurb {
+    width: 50%;
+    float:left;
+  }
+
+  .headquarters .office {
+    float:none;
+    width: 100%;
+  }
+
 }
 
 .office .connect button,
@@ -84,7 +132,8 @@
   font-weight: normal;
 }
 
-.showroomsAndReps .bt1 {
+.showroomsAndReps .bt1,
+.showroomsAndReps .bb1 {
   border-color: rgba(205,206,191,1);
 }
 

@@ -1,16 +1,13 @@
 import keyBy from 'lodash/keyBy'
-// import merge from 'lodash/merge'
+import { insertFields } from 'redux-graph'
 
 import showrooms from './showrooms'
 const entity = keyBy(showrooms, 'id')
 
-entity.user0 = {
-  id: 'user0',
-  type: 'Person', // ???
-  name: 'Anonymous Person or User of the website',
-}
+entity.user0 = insertFields({ id: 'user0', type: 'Person', name: 'Anonymous' })
+entity.pBlf = insertFields({ id: 'pBlf', type: 'DataFeed', title: 'DL Order Track Data' })
 
-export default {
+const state = {
   db: {
     about: [
       `DeLany & Long Ltd. was established by the creative team of John Flynn and Jamie Gould, founders of Rogers & Goffigon Ltd. The wholly independent company is dedicated to the design and marketing of distinctive textiles for outdoor applications. We bring to the outdoor fabric market the signature style and quality which make Rogers & Goffigon an important resource for fine interior fabrics.`,
@@ -116,3 +113,5 @@ export default {
     entity,
   },
 }
+
+export default state

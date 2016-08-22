@@ -1,18 +1,14 @@
 import { createSelector } from 'reselect'
-import { entitySelector, tripleSelector } from 'redux-graph'
-import { concat, flatten, get, groupBy, keyBy, keys, map } from 'lodash'
+import { entitySelector, entityTypeSelector, tripleSelector } from 'redux-graph'
+import { concat, flatten, get, keyBy, keys, map } from 'lodash'
 
 import { propertyInfo } from './schemaInfo'
 
-// Entity keyed by type.
-export const getTypeIndex = createSelector(
-  entitySelector,
-  entities => groupBy(entities, 'type')
-)
+export const classEntitySelector = entityTypeSelector('Class')
 // Class type keyed by altName.
 export const getClassIndex = createSelector(
-  getTypeIndex,
-  typeIndex => keyBy(typeIndex.Class, 'alternateName')
+  classEntitySelector,
+  classEntities => keyBy(classEntities, 'alternateName')
 )
 function selectByKey(collection) {
   return (nil, id) => collection[id]

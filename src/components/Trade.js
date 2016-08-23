@@ -30,13 +30,28 @@ function Trade({ menu, route }) {
             <button className="btn-outline" type="submit">Log In</button>
           </div>
         </div>
-        <div className="help-text mt4 pt2 bt1 light-gray-border">
+        <div className="help-text">
           <ul className="list-reset">
-            <li><p>You must have a Trade Account to see prices and utilize other special features.</p></li>
             <li>
-            <p><strong className="sans uppercase dark-gold">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase bg-light-gray px025">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase bg-light-gray px025">ZIP Code</code> field.</p></li>
-            <li><p><strong className="dark-gold sans uppercase">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.</p></li>
-            <li className="mt4 small"><p>Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.</p></li>
+              <p className="mb2">
+                You must have a Trade Account to view prices and utilize the other special features.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong className="sans uppercase gray">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase bg-gray white px025">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase bg-gray white px025">ZIP Code</code> field.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong className="sans uppercase gray">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.
+              </p>
+            </li>
+            <li>
+              <p className="small">
+                Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.
+              </p>
+            </li>
           </ul>
         </div>
       </main>

@@ -136,32 +136,20 @@ thead td {
 }
 
 /** little icon for each kind of thing... **/
-.pattern td:first-child::before {
-  display: inline-block;
-  font-size: 1em;
+.pattern td.categoryCode::before {
+  display: block;
+  background: transparent;
+  border: 1px solid currentColor;
   height: 1em;
   width: 1em;
-  line-height: 1em;
-  text-align: center;
-  text-transform: uppercase;
-  color: #BDAA9C;
-  border-radius: .5em;
-  border: 1px solid currentColor;
+  content: '';
+  border-radius: 100%;
   position: absolute;
-  left: 2px;
 }
-.textile .pattern td:first-child::before {
-  content: 'T';
-}
-.trim .pattern td:first-child::before {
-  content: 'P';
-}
-.leather .pattern td:first-child::before {
-  content: 'L';
-}
+
 td.category {
-  width: 30px;
-  height: 31px;
+  width: 2em;
+  height: 2rem;
   overflow: hidden;
   white-space: nowrap;
 }

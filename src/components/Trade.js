@@ -13,13 +13,13 @@ function Trade({ menu, route }) {
         <div className="login-wrapper">
           <div className="input-group accountNumber">
             <label>
-              <i className="fa fa-hashtag" aria-hidden="true"></i>
+              <i className="fa fa-hashtag light-gray" aria-hidden="true"></i>
             </label>
             <input placeholder="D&L Account Number" />
           </div>
           <div className="input-group zipCode">
             <label>
-              <i className="fa fa-hashtag" aria-hidden="true"></i>
+              <i className="fa fa-hashtag light-gray" aria-hidden="true"></i>
             </label>
             <input placeholder="ZIP Code" />
           </div>
@@ -29,12 +29,13 @@ function Trade({ menu, route }) {
             </label>
             <button className="btn-outline" type="submit">Log In</button>
           </div>
-          <p className="small text-center">You must login to see prices and other special features</p>
         </div>
         <div className="help-text mt4 pt2 bt1 light-gray-border">
           <ul className="list-reset">
-            <li><p><strong className="medium-gray sans uppercase">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase dark-yellow">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-yellow">ZIP Code</code> field.</p></li>
-            <li><p><strong className="medium-gray sans uppercase">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.</p></li>
+            <li><p>You must have a Trade Account to see prices and utilize other special features.</p></li>
+            <li>
+            <p><strong className="sans uppercase dark-gold">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase bg-light-gray px025">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase bg-light-gray px025">ZIP Code</code> field.</p></li>
+            <li><p><strong className="dark-gold sans uppercase">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.</p></li>
             <li className="mt4 small"><p>Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.</p></li>
           </ul>
         </div>

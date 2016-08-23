@@ -20,12 +20,12 @@ strong.sans.uppercase {
   margin-bottom: .25em;
 }
 
+.help-text {   max-width: 30rem; }
+.login-wrapper {  max-width: 22rem; margin-top:2em; }
+
 .help-text code {
   border-bottom: 1px solid rgba(205,206,191,1);
 }
-
-.help-text {   max-width: 30rem; }
-.login-wrapper {  max-width: 22rem; margin-top:2em; }
 
 .login-wrapper label {
   position: absolute;
@@ -64,7 +64,6 @@ strong.sans.uppercase {
 }
 
 .login-wrapper button {
-  border-radius: .25rem;
   margin-top: .5rem;
   text-align: left;
   line-height: 2rem;

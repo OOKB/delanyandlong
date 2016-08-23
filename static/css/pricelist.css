@@ -168,7 +168,7 @@ td.category {
 
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/
 /** It also provides a cool scrolling table feature **/
-@media (max-width: 767px) {
+@media (max-width: 50em) {
   .table-scroll {
     display: block;
     overflow: auto;

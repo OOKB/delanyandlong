@@ -383,11 +383,12 @@ code.uppercase {
 .p3      { padding: 3rem; }
 .p4      { padding: 4rem; }
 
-.px0     { padding-left: 0;    padding-right: 0;    }
-.px1     { padding-left: 1rem; padding-right: 1rem; }
-.px2     { padding-left: 2rem; padding-right: 2rem; }
-.px3     { padding-left: 3rem; padding-right: 3rem; }
-.px4     { padding-left: 4rem; padding-right: 4rem; }
+.px0     { padding-left: 0;       padding-right: 0;    }
+.px025   { padding-left: 0.25rem; padding-right: 0.25rem;    }
+.px1     { padding-left: 1rem;    padding-right: 1rem; }
+.px2     { padding-left: 2rem;    padding-right: 2rem; }
+.px3     { padding-left: 3rem;    padding-right: 3rem; }
+.px4     { padding-left: 4rem;    padding-right: 4rem; }
 
 .py0     { padding-top: 0;    padding-bottom: 0;    }
 .py1     { padding-top: 1rem; padding-bottom: 1rem; }

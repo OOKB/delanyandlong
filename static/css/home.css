@@ -25,7 +25,8 @@
   margin-top: 0;
 }
 
-@media (min-width: 701px) {
+/**** home edits to item grid? ****/
+@media (min-width: 40em) {
   #home {
     position: absolute;
     height: 100%;
@@ -45,22 +46,15 @@
     max-width: 90%;
   }
 }
-/**** home edits to item grid? ****/
-#home header .three-x {
-  width: 100%;
-}
 
-@media (min-width: 701px) {
+@media (min-width: 50rem) {
   #home header .two-x {
     width: calc(100% / 5 * 2);
   }
   #home header .three-x {
     width: calc(100% / 5 * 3);
   }
-}
-
-@media (min-width: 50em) {
-  /***** css hack the logo and menu to be vetically centered for now *****/
+    /***** css hack the logo and menu to be vetically centered for now *****/
   .tile {
     width: 100%;
     height: 0;

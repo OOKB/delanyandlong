@@ -68,7 +68,7 @@ nav .active::before {
   transition: all 400ms;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 50rem) {
   nav ul.MenuHome {
     display: flex;
     text-align: center;
@@ -97,7 +97,7 @@ nav .active::before {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 50rem) {
   header .logo {
     margin-top: 3rem;
     margin-bottom: -.35rem;

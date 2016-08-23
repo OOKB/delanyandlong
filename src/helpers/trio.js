@@ -2,18 +2,21 @@ import defaults from 'lodash/defaults'
 const defaultOpts = {
   index: 0,
 }
-function maxIndex(items) {
+export function maxIndex(items) {
   return items.length - 1
 }
-function getNextIndex(items, index) {
-  if (maxIndex(items) === index) return 0
+export function getNextIndex(items, index) {
+  if (maxIndex(items) <= index) return 0
+  if (index <= 0) return 1
   return index + 1
 }
-function getPrevIndex(items, index) {
-  if (index === 0) return maxIndex(items)
+export function getPrevIndex(items, index) {
+  const lastIndex = maxIndex(items)
+  if (index <= 0) return lastIndex
+  if (lastIndex < index) return lastIndex - 1
   return index - 1
 }
-function createItemIndex(item, index) {
+export function createItemIndex(item, index) {
   return { item, index }
 }
 export default function trio(items, opts) {

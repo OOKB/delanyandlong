@@ -1,0 +1,109 @@
+
+.login-wrapper * {
+  transition: all 400ms ease;
+}
+
+.help-text,
+.login-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sans.uppercase {
+  font-size: .7em;
+  letter-spacing: 1px;
+}
+
+strong.sans.uppercase {
+  display: inline-block;
+  margin-bottom: .25em;
+}
+
+.help-text code {
+  border-bottom: 1px solid rgba(205,206,191,1);
+}
+
+.help-text {   max-width: 30rem; }
+.login-wrapper {  max-width: 22rem; margin-top:2em; }
+
+.login-wrapper label {
+  position: absolute;
+  left: .5rem;
+  font-size: 1.5rem;
+  display: inline-block;
+  line-height: 3rem;
+}
+
+.login-wrapper input,
+.login-wrapper button  {
+  display:block;
+  font-size: 1rem;
+  height: 3rem;
+  line-height: 3rem;
+  padding: .5rem 2.5rem;
+  width: 100%;
+}
+
+.login-wrapper input {
+  color: rgb(033,033,024);
+  color: rgba(033,033,024,1);
+  background-color: transparent;;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid rgba(205,206,191,1);
+  /**/
+  outline: 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  /**/
+  transition: all 400ms;
+}
+
+.login-wrapper button {
+  border-radius: .25rem;
+  margin-top: .5rem;
+  text-align: left;
+  line-height: 2rem;
+  color: rgba(242,239,229,1);
+  background-color: rgba(132,133,094,1);
+  border: 1px solid currentColor;
+}
+
+.login-wrapper input:focus,
+.login-wrapper input:active,
+.login-wrapper button:focus,
+.login-wrapper button:active {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+}
+
+.login-wrapper input:focus,
+.login-wrapper input:active {
+  background-color: white;
+  color: rgb(066,067,047);
+  color: rgba(066,067,047,1);
+  border-bottom: 1px solid rgba(205,206,191,0);
+}
+
+.login-wrapper button:focus,
+.login-wrapper button:active {
+  background-color: rgba(066,067,047,1);
+}
+
+.input-group ~ div {
+  margin-top: .5rem;
+}
+
+@media (min-width: 50em) {
+  .login-wrapper {
+    margin-top: 6rem;
+  }
+}

@@ -11,25 +11,31 @@ function Trade({ menu, route }) {
       <Header activeId={route.id} links={menu} />
       <main className="container">
         <div className="login-wrapper">
-          <div className="input-group">
+          <div className="input-group accountNumber">
             <label>
-              D&L Account Number
+              <i className="fa fa-hashtag" aria-hidden="true"></i>
             </label>
-            <input />
+            <input placeholder="D&L Account Number" />
           </div>
-          <div className="input-group">
+          <div className="input-group zipCode">
             <label>
-              Zip Code
+              <i className="fa fa-hashtag" aria-hidden="true"></i>
             </label>
-            <input />
+            <input placeholder="ZIP Code" />
           </div>
-          <button className="btn-outline" type="submit">Log In</button>
+          <div className="icon-group">
+            <label>
+              <i className="fa fa-sign-in white" aria-hidden="true"></i>
+            </label>
+            <button className="btn-outline" type="submit">Log In</button>
+          </div>
+          <p className="small text-center">You must login to see prices and other special features</p>
         </div>
-        <div className="help-text small mt4 bt1">
+        <div className="help-text mt4 pt2 bt1 light-gray-border">
           <ul className="list-reset">
-            <li><p><strong>Have an existing account with us but don't know your login information?</strong><br />Use your full account number as your user name and ZIP code as your password.</p></li>
-            <li><p><strong>If you are a trades person and do not have an existing account...</strong><br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.</p></li>
-            <li><p>Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.</p></li>
+            <li><p><strong className="medium-gray sans uppercase">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase dark-yellow">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-yellow">ZIP Code</code> field.</p></li>
+            <li><p><strong className="medium-gray sans uppercase">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.</p></li>
+            <li className="mt4 small"><p>Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.</p></li>
           </ul>
         </div>
       </main>

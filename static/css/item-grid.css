@@ -65,9 +65,6 @@
   .item-grid li {
     width: calc(100% / 4);
   }
-  #home .item-grid li {
-    width: calc(100% / 5);
-  }
 }
 
 @media (min-width: 44rem) {
@@ -84,7 +81,7 @@
     width: calc(100% / 6);
   }
   #home .item-grid li {
-    width: calc(100% / 8);
+    width: calc(100% / 6);
   }
 }
 
@@ -93,7 +90,7 @@
     width: calc(100% / 7);
   }
   #home .item-grid li {
-    width: calc(100% / 10);
+    width: calc(100% / 8);
   }
 }
 

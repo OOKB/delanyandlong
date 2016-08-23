@@ -493,6 +493,11 @@ code.uppercase {
 .bg-dark-blue      { background-color: rgba(079,083,083,1); }
 .bg-dark-purple    { background-color: rgba(083,079,070,1); }
 
+.lead {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
 small,
 .small {
   font-size: .8em;

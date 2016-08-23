@@ -20,12 +20,12 @@ strong.sans.uppercase {
   margin-bottom: .25em;
 }
 
-.help-text {  max-width: 50rem; margin-top: 4em;}
+.help-text { margin-top: 4em;}
 .login-wrapper { margin-top:2em; }
 
-.help-text code {
+/*.help-text code {
   border-bottom: 1px solid rgba(205,206,191,1);
-}
+}*/
 
 .login-wrapper label {
   position: absolute;
@@ -113,4 +113,24 @@ strong.sans.uppercase {
   .help-text {
     margin-top: 8rem;
   }
+
+  .help-text .group li {
+    float:left;
+    width: 33%;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .help-text .group li:last-child {
+    float:none;
+    clear:both;
+    width: 50%;
+    max-width: 30rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
 }

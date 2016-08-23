@@ -31,20 +31,20 @@ function Trade({ menu, route }) {
           </div>
         </div>
         <div className="help-text">
-          <ul className="list-reset">
-            <li>
-              <p className="mb2">
+          <ul className="list-reset group">
+            <li className="mb2">
+              <p>
                 You must have a Trade Account to view prices and utilize the other special features.
               </p>
             </li>
-            <li>
+            <li className="mb2">
               <p>
-                <strong className="sans uppercase gray">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase bg-gray white px025">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase bg-gray white px025">ZIP Code</code> field.
+                <strong className="sans uppercase gray">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase dark-gold">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-gold">ZIP Code</code> field.
               </p>
             </li>
             <li>
               <p>
-                <strong className="sans uppercase gray">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice@delanyandlong.com</a>.
+                <strong className="sans uppercase gray">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice @ delanyandlong.com</a>.
               </p>
             </li>
             <li>

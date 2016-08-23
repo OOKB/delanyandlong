@@ -25,7 +25,7 @@ export function itemFill(item, catCodeIndex) {
   if (!item || !item.id) return item
   const { id, category, colors, contents, name, patternNumber, price } = item
   const colorNumber = id.replace(`${patternNumber}-`, '')
-  const color = colors.join('/')
+  const color = colors && colors.join('/')
   return {
     ...item,
     categoryCode: catCodeIndex[category],

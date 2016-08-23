@@ -1,7 +1,7 @@
 import test from 'tape'
 
-import defaultState from '../src/redux/defaultState'
-import { categoryCodeIndex } from '../src/redux/select/category'
+import defaultState from '../../src/redux/defaultState'
+import { categoryCodeIndex } from '../../src/redux/select/category'
 
 test('categoryCodeIndex()', t => {
   const res = categoryCodeIndex(defaultState)

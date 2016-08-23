@@ -38,7 +38,13 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
           {map(options, ({ value, label }) => {
             const style = getButtonStyle(activeCategory, value)
             return (
-              <button className="flex-item" style={style} onClick={formEvent.onChange} value={value} key={value}>
+              <button
+                className="flex-item"
+                style={style}
+                onClick={formEvent.onChange}
+                value={value}
+                key={value}
+              >
                 {label}
               </button>
             )
@@ -50,7 +56,7 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
 }
 
 CategoryFilter.propTypes = {
-  activeCategory: PropTypes.string.isRequired,
+  activeCategory: PropTypes.string,
   options: PropTypes.array.isRequired,
   formEvent: PropTypes.object.isRequired,
 }

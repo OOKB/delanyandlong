@@ -1,13 +1,14 @@
-import { createIfNew, createTriple, entityTypeSelector, entityUpdate } from 'redux-graph'
+import {
+  createIfNew, createTriple, entityHasType, entityTypeSelector, entityUpdate,
+} from 'redux-graph'
 import { getUser } from '../select'
 
 const collectionType = 'CollectionList'
-const favTitle = 'Favorites'
+export const favTitle = 'Favorites'
 // This will select all collection lists from the database.
 const collectionListSelector = entityTypeSelector(collectionType)
-
+export const mainEntity = { id: 'pBlf', type: 'DataFeed' }
 export function createCollectionList(creator, title = favTitle) {
-  const mainEntity = { id: 'pBlf', type: 'DataFeed' }
   return {
     additionalType: 'ProjectDelanyLong',
     creator, // User that created the thing.
@@ -17,17 +18,16 @@ export function createCollectionList(creator, title = favTitle) {
     type: collectionType,
   }
 }
+export const isValidCollection = entityHasType(collectionType)
+
 export function findFavList(listEntities) {
-  return find(listEntities, { title: favTitle })
+  return listEntities && find(listEntities, { title: favTitle })
 }
-function getCollection(collectionList, listEntities, creator) {
+export function getCollection(collectionList, listEntities, creator) {
   // Collection is known. Use that.
-  if (collectionList && collectionList.type === collectionType) return createIfNew(collectionList)
-  const favList = findFavList(listEntities)
-  // Find and return user favs list.
-  if (favList) return favList
-  // Create a new Favs list for the user.
-  return createIfNew(createCollectionList(creator))
+  if (collectionList && collectionList.type === collectionType) return collectionList
+  // Find and return user favs list or create a new Favs list for the user.
+  return findFavList(listEntities) || createCollectionList(creator)
 }
 export function createCollectionItem(item, agent, position = 100) {
   return {
@@ -59,7 +59,7 @@ export function favoriteItem(item, collectionList) {
     const listEntities = collectionListSelector(state)
     const list = getCollection(collectionList, listEntities, creator)
     const triple = createCollectionItemTriple(list, item, creator)
-    createTriple(triple)
+    createTriple(dispatch, triple)
   }
 }
 export function confirmFavorite(id) {

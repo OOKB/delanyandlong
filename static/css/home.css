@@ -25,7 +25,8 @@
   margin-top: 0;
 }
 
-@media (min-width: 701px) {
+/**** home edits to item grid? ****/
+@media (min-width: 40em) {
   #home {
     position: absolute;
     height: 100%;
@@ -45,22 +46,15 @@
     max-width: 90%;
   }
 }
-/**** home edits to item grid? ****/
-#home header .three-x {
-  width: 100%;
-}
 
-@media (min-width: 701px) {
+@media (min-width: 50rem) {
   #home header .two-x {
     width: calc(100% / 5 * 2);
   }
   #home header .three-x {
     width: calc(100% / 5 * 3);
   }
-}
-
-@media (min-width: 50em) {
-  /***** css hack the logo and menu to be vetically centered for now *****/
+    /***** css hack the logo and menu to be vetically centered for now *****/
   .tile {
     width: 100%;
     height: 0;
@@ -73,7 +67,7 @@
   }
 
   .twelve-by-three {
-    padding-bottom: calc(100% * 3 / 12);
+    padding-bottom: calc(100% * 3 / 12 - 1px);
   }
 
   .tile .inner {
@@ -87,7 +81,7 @@
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 60rem) {
   #home header .two-x {
     width: calc(100% / 6 * 2);
   }
@@ -96,7 +90,7 @@
   }
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 69rem) {
   #home header .two-x {
     width: calc(100% / 8 * 2);
   }
@@ -105,16 +99,16 @@
   }
 }
 
-@media (min-width: 1351px) {
+@media (min-width: 93rem) {
   #home header .two-x {
-    width: calc(100% / 10 * 2);
+    width: calc(100% / 10 * 2 - 1px);
   }
   #home header .three-x {
     width: calc(100% / 10 * 3);
   }
 }
 
-@media (min-width: 1701px) {
+@media (min-width: 106rem) {
   #home header .two-x {
     width: calc(100% / 12 * 2);
   }
@@ -123,12 +117,21 @@
   }
 }
 
-@media (min-width: 1901px) {
+@media (min-width: 118rem) {
   #home header .two-x {
-    width: calc(100% / 15 * 2);
+    width: calc(100% / 14 * 2);
   }
   #home header .three-x {
-    width: calc(100% / 15 * 3);
+    width: calc(100% / 14 * 3);
+  }
+}
+
+@media (min-width: 125rem) {
+  #home header .two-x {
+    width: calc(100% / 16 * 2);
+  }
+  #home header .three-x {
+    width: calc(100% / 16 * 3);
   }
 }
 
@@ -149,5 +152,36 @@
 @media (min-width: 50em) {
   #home .textLink {
     display: initial;
+  }
+}
+
+/*** special home footer? ***/
+#home footer {
+  background-color:rgba(242,239,229,1);
+  position: fixed;
+  right:0;
+  bottom:0;
+  left:0;
+  margin:0;
+  padding: 1rem;
+}
+
+#home footer * {
+  margin:0;
+  padding:0;
+}
+
+@media (min-width: 50rem) {
+  #home footer p.pt2.uppercase {
+    margin: 0;
+    padding: 0;
+    float:left;
+  }
+  #home footer p.m0.p0.small {
+    margin: 0;
+    padding: 0;
+    float:right;
+    text-align: right;
+    width: 33%;
   }
 }

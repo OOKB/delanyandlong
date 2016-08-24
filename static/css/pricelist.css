@@ -4,65 +4,6 @@
 /******************************************/
 /******************************************/
 
-.search-wrapper {
-  position: relative;
-  font-size: 1.5rem;
-  line-height: 3rem;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.search-wrapper label {
-  color: rgb(121,120,115);
-  color: rgba(121,120,115,.8);
-}
-
-.search-wrapper input {
-  color: rgb(033,033,024);
-  color: rgba(033,033,024,1);
-}
-
-.search-wrapper label {
-  position: absolute;
-  left: 1rem;
-  display: inline-block;
-  line-height: 3rem;
-}
-
-.search-wrapper input {
-  padding: .5rem 3rem;
-  border-radius: 1.5rem;
-  height: 3rem;
-  font-size: 1.25rem;
-  line-height: 3rem;
-  display: block;
-  width: 100%;
-  background-color: transparent;;
-  background-image: none;
-  border: 1px solid rgb(066,067,047);
-  /**/
-  outline: 0;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  /**/
-  transition: all 400ms;
-}
-.search-wrapper input:focus,
-.search-wrapper input:active {
-  background-color: white;
-  color: rgb(066,067,047);
-  color: rgba(066,067,047,1);
-  outline: none;
-  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-}
-
 /** design the pager <> a bit better **/
 #pager {
   margin-top: -1px;

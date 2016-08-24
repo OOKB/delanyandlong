@@ -11,7 +11,7 @@ const style = {
 
 function InputSelect({ form, formEvent, label, options, value }) {
   return (
-    <div>
+    <div className="inputSelect">
       {label && <span style={style.label}>{label}</span>}
       <Select
         value={form.value || value}

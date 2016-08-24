@@ -29,17 +29,20 @@ function Pager(props) {
         options={displayStyle.options}
         prefix={displayStyle.prefix}
         value={displayStyle.active}
+        className={[ 'displayStyle', 'small-stack' ]}
       />
       <SelectEl
         label="Color"
         options={colors}
         prefix={[ 'pricelist', 'color' ]}
+        className={[ 'color', 'small-stack' ]}
       />
       <SelectEl
         label="View Qty"
         options={pageSizeOptions}
         prefix={pgSizePrefix}
         value={pgSize.toString()}
+        className={[ 'Qty', 'small-stack' ]}
       />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>

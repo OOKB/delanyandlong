@@ -12,7 +12,7 @@ import { pricelistSelector } from '../../redux/select/pricelist'
 function Pricelist(props) {
   const { categoryKey, info, lead, disclaimer, menu, pager, route } = props
   const { items, ...pagerInfo } = pager
-  const { category, columns, displayStyle, printWhenColor } = info
+  const { category, columns, displayStyle, prefix, printWhenColor } = info
   const display = (id) => displayStyle.active === id
   const list = display('list')
   return (
@@ -22,7 +22,7 @@ function Pricelist(props) {
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
         {display('grid') && <Grid items={items} />}
-        {display('film') && <Film items={items} />}
+        {display('film') && <Film {...pagerInfo} prefix={prefix.pgIndex} />}
         <div className="text-center small">
           <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
             {categoryKey.map((pText, index) => <li className={pText} key={index}>{pText}</li>)}

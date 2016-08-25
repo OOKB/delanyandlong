@@ -1,11 +1,21 @@
 import test from 'tape'
 
-import { createItemIndex, getNextIndex, getPrevIndex, maxIndex } from '../../src/helpers/trio'
+import {
+  createItemIndex, getIndex, getNextIndex, getPrevIndex, getMaxIndex,
+} from '../../src/helpers/trio'
 
 const items = [ 'a', 'b', 'c', 'd' ]
-
-test('maxIndex()', t => {
-  t.equal(maxIndex(items), 3)
+test('getIndex', t => {
+  const max = items.length
+  t.equal(getIndex(10, max), 0)
+  t.equal(getIndex(-1, max), 0)
+  t.equal(getIndex(2, max), 2)
+  t.equal(getIndex(3, max), 3)
+  t.equal(getIndex(5, max), 0)
+  t.end()
+})
+test('getMaxIndex()', t => {
+  t.equal(getMaxIndex(items), 3)
   t.end()
 })
 test('getNextIndex()', t => {

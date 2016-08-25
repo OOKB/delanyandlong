@@ -33,12 +33,16 @@ export function emptyRes(items, perPage, resultKey) {
     totalItems: 0,
   }
 }
+export function getPageIndex(page, maxPage) {
+  if (page < maxPage) return page || 1
+  return maxPage
+}
 export function getPagerInfo(items, opts) {
   const { page, resultKey, perPage } = getOpts(opts)
   const totalItems = items.length
   if (isEmpty(items)) return emptyRes(items, perPage, resultKey)
   const maxPage = Math.ceil(totalItems / perPage)
-  const pageIndex = page < maxPage ? (page || 1) : maxPage
+  const pageIndex = getPageIndex(page, maxPage)
   const itemsStart = (pageIndex - 1) * perPage
   const itemsEnd = itemsStart + perPage
   const result = items.slice(itemsStart, itemsEnd)

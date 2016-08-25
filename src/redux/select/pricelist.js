@@ -1,6 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 
 import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
+import trio from '../../helpers/trio'
 
 import {
   pricelistInfo, activeCategorySelector, formPrefix,
@@ -51,7 +52,10 @@ export const pricelistInfoSelector = createSelector(
     pageSizeOptions,
   })
 )
-
+export function getPager(items, pgIndex, pgSize) {
+  if (pgSize === 3) return trio(items, pgIndex)
+  return getPagerInfo(items, { page: pgIndex, perPage: pgSize })
+}
 // Filter entities based on activeCategory.
 export const pricelistSelector = createSelector(
   patternColorSelector,
@@ -60,7 +64,7 @@ export const pricelistSelector = createSelector(
   getCategoryKey,
   (items, info, menu, categoryKey) => ({
     categoryKey,
-    pager: getPagerInfo(items, { page: info.pgIndex, perPage: info.pgSize }),
+    pager: getPager(items, info.pgIndex, info.pgSize),
     info,
     menu,
   })

@@ -61,5 +61,8 @@ Pager.propTypes = {
   pgSize: PropTypes.number.isRequired,
   pgSizePrefix: PropTypes.array.isRequired,
 }
-
+Pager.defaultProps = {
+  hasLess: false,
+  hasMore: false,
+}
 export default connectField()(Pager)

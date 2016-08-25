@@ -7,8 +7,10 @@ import ItemImg from './ItemImg'
 
 function NavItem({ onClick, ...props }) {
   return (
-    <li onClick={onClick} role="button">
-      <ItemImg {...props} />
+    <li onClick={onClick} role="button" className="button">
+      <div className="wrap">
+        <ItemImg {...props} />
+      </div>
     </li>
   )
 }
@@ -20,7 +22,7 @@ function Item({ item }) {
   return (
     <li>
       <ItemFav item={item} />
-      <Link href={item.link}>
+      <Link href={item.link} className="wrap">
         <ItemImg {...item} />
         <div className="description">
           <p><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>

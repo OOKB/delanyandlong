@@ -12,7 +12,7 @@ const styles = {
     marginBottom: '20px',
     tableLayout: 'fixed',
     width: '100%',
-    minWidth: '50em',
+    minWidth: '65em',
   },
 }
 

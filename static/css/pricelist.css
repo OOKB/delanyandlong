@@ -4,68 +4,10 @@
 /******************************************/
 /******************************************/
 
-.search-wrapper {
-  position: relative;
-  font-size: 1.5rem;
-  line-height: 3rem;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.search-wrapper label {
-  color: rgb(121,120,115);
-  color: rgba(121,120,115,.8);
-}
-
-.search-wrapper input {
-  color: rgb(033,033,024);
-  color: rgba(033,033,024,1);
-}
-
-.search-wrapper label {
-  position: absolute;
-  left: 1rem;
-  display: inline-block;
-  line-height: 3rem;
-}
-
-.search-wrapper input {
-  padding: .5rem 3rem;
-  border-radius: 1.5rem;
-  height: 3rem;
-  font-size: 1.25rem;
-  line-height: 3rem;
-  display: block;
-  width: 100%;
-  background-color: transparent;;
-  background-image: none;
-  border: 1px solid rgb(066,067,047);
-  /**/
-  outline: 0;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  /**/
-  transition: all 400ms;
-}
-.search-wrapper input:focus,
-.search-wrapper input:active {
-  background-color: white;
-  color: rgb(066,067,047);
-  color: rgba(066,067,047,1);
-  outline: none;
-  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-}
-
 /** design the pager <> a bit better **/
 #pager {
   margin-top: -1px;
+  position: relative;
 }
 
 #pager > button.control {
@@ -154,9 +96,25 @@ td.category {
   white-space: nowrap;
 }
 
+td.favButton {
+  width:30px;
+}
+
+td.favButton button.absolute {
+  position: static;
+}
+
+/***** favorites customization for pricelist *****/
+td.favButton { position: relative; }
+td.favButton .favorite-container .popup {
+  right: 2rem;
+  top: 0;
+  width: 250px;
+}
+
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/
 /** It also provides a cool scrolling table feature **/
-@media (max-width: 50em) {
+@media (max-width: 65em) {
   .table-scroll {
     display: block;
     overflow: auto;
@@ -173,22 +131,6 @@ td.category {
     -o-box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
     box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
   }
-}
-
-td.favButton {
-  width:30px;
-}
-
-td.favButton button.absolute {
-  position: static;
-}
-
-/***** favorites customization for pricelist *****/
-td.favButton { position: relative; }
-td.favButton .favorite-container .popup {
-  right: 2rem;
-  top: 0;
-  width: 250px;
 }
 
 /***********************************************************/
@@ -234,7 +176,27 @@ td.favButton .favorite-container .popup {
   margin-top: -1px;
 }
 
+@media (max-width: 50em) {
+  .button-group button:first-of-type {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+  .select-type .flex-center {
+    flex-direction: column;
+  }
+  .select-type button {
+    line-height: 1.5rem;
+    min-height: 1.5rem;
+    padding: 0.25rem .5rem;
+    width: 100%
+  }
+}
+
 @media (min-width: 50em) {
+  .select-type .flex-center {
+    flex-direction: row;
+  }
+
   .button-group button + button {
     margin-left: -1px;
   }
@@ -250,22 +212,49 @@ td.favButton .favorite-container .popup {
   }
 }
 
-.select-type .flex-center {
-  flex-direction: row;
+/**** TRYING TO FIGURE OUT FILTERS ON MOBILE? ****/
+@media (max-width: 1000px) {
+  #pager > div:first-of-type {
+    flex: 3;
+  }
 }
 
-@media (max-width: 50em) {
-  .button-group button:first-of-type {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+@media (max-width: 800px) {
+  #pager {
+    margin-top: calc(1.5rem + 2px);
   }
-  .select-type .flex-center {
-    flex-direction: column;
+  #pager > div.inputSelect {
+    flex: 2;
   }
-  .select-type button {
+  #pager > div.inputSelect:nth-child(4) {
+    flex: 1;
+  }
+  #pager > div.inputSelect select {
+    width: calc(100% - 1em);
+  }
+  #pager button.control,
+  #pager .pagecount {
+    height: calc(1.5rem + 2px);
     line-height: 1.5rem;
-    min-height: 1.5rem;
-    padding: 0.25rem .5rem;
-    width: 100%
+    font-size: 1rem;
+    position: absolute;
+    top: calc(-1.5rem - 4px);
+    width: calc(100% / 3);
+  }
+  #pager button.control.next {
+    right:0;
+  }
+  #pager button.control.prev {
+    left:0;
+  }
+  #pager .pagecount {
+    left: calc(100% / 3);
+  }
+  #pager .inputSelect {
+    height: 3rem;
+    padding-top: .25rem;
+  }
+  #pager .inputSelect span {
+    display: block;
   }
 }

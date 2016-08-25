@@ -38,6 +38,25 @@ body {
   line-height: 1.3;
 }
 
+
+.lead {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+small,
+.small {
+  font-size: .8em;
+}
+
+.sans {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.serif {
+  font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
+}
+
 header .dl-logo {
   fill: rgb(132,133,94);
   fill: rgba(132,133,94,1);
@@ -133,7 +152,6 @@ code.uppercase {
   display: initial !important;
   visibility: visible !important;
 }
-
 
 .hide-text {
   text-indent: 200%;
@@ -492,20 +510,6 @@ code.uppercase {
 .bg-dark-green     { background-color: rgba(062,076,049,1); }
 .bg-dark-blue      { background-color: rgba(079,083,083,1); }
 .bg-dark-purple    { background-color: rgba(083,079,070,1); }
-
-.lead {
-  font-size: 1.25em;
-  font-weight: 300;
-}
-
-small,
-.small {
-  font-size: .8em;
-}
-
-.sans {
-  font-family: Helvetica, Arial, sans-serif;
-}
 
 /**/
 .flex-center {

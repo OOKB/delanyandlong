@@ -3,12 +3,15 @@ export const cellStyles = {
     textTransform: 'uppercase',
     letterSpacing: '1px',
     fontFamily: 'monospace',
-    color: 'rgba(100,100,90,.5)',
+    color: 'rgba(205,206,191,1)',
   },
   categoryCode: {
     width: '2em',
     fontFamily: 'monospace',
     textAlign: 'center',
+  },
+  color: {
+    maxWidth: '150px',
   },
   id: {
     textAlign: 'right',
@@ -17,7 +20,7 @@ export const cellStyles = {
     fontFamily: 'monospace',
   },
   name: {
-    width: '111px',
+    minWidth: '125px',
   },
   pattern: {
     paddingTop: '0.5em',
@@ -29,6 +32,7 @@ export const cellStyles = {
     width: '50px',
   },
   contents: {
-    width: '33%',
+    width: '25%',
+    maxWidth: '430px',
   },
 }

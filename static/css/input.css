@@ -120,3 +120,5 @@
   background-color: rgba(066,067,047,1);
   color:rgba(242,239,229,1);
 }
+.login-wrapper button:active {
+}

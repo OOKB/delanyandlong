@@ -117,8 +117,18 @@
 
 .login-wrapper button:focus,
 .login-wrapper button:active {
-  background-color: rgba(066,067,047,1);
+  background-color: rgba(132,133,094,1);
   color:rgba(242,239,229,1);
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 0 0 0 rgba(066,067,047,0);
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 0 0 0 rgba(066,067,047,0);
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 0 0 0 rgba(066,067,047,0);
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 0 0 0 rgba(066,067,047,0);
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 0 0 0 rgba(066,067,047,0);
 }
 .login-wrapper button:active {
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
 }

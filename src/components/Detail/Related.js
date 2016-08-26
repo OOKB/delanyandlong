@@ -2,10 +2,19 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
 import Color from './RelatedColor'
-
+const style = {
+  closed: {
+    boxShadow: '0 0 0 0 rgba(65,65,45,0)',
+    height: 'calc(3rem + 4px)',
+  },
+  open: {
+    boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',
+    height: 'calc(100% - 25px - 1.3em - 1.3em)',
+  },
+}
 function getStyle(isOpen) {
-  if (isOpen) return { height: 'calc(100% - 25px - 1.3em - 1.3em)', boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)' }
-  return { height: 'calc(3rem + 4px)', boxShadow: '0 0 0 0 rgba(65,65,45,0)' }
+  if (isOpen) return style.closed
+  return style.open
 }
 
 function Related({ close, colors, isOpen, open, parent }) {

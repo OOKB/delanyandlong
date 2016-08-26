@@ -1,5 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 import get from 'lodash/get'
+import reduce from 'lodash/reduce'
+import set from 'lodash/set'
 
 import { filterSort, itemsFilled } from './items'
 import { userFavs } from './fav'
@@ -14,11 +16,17 @@ export const getItemDetail = createSelector(
   itemsFilled,
   (id, items) => items[id]
 )
-export const colorsSelector = createSelector(
+export function colorReducer(res, value) {
+  if (!value || !value.patternNumber) return res
+  return set(res, [ value.patternNumber, value.id ], value)
+}
+export const patternColorIndex = createSelector(
   itemsFilled,
-  (state, props) => props.parent,
-  (items, item) => filterSort({ patternNumber: item && item.patternNumber }, items)
+  items => reduce(items, colorReducer, {})
 )
+export function colorsSelector(state, props) {
+  return patternColorIndex(state)[props.parent.patternNumber]
+}
 export const favoriteSelector = createSelector(
   getItemDetail,
   userFavs,

@@ -28,7 +28,7 @@ function Related({ close, colors, isOpen, open, parent }) {
 
 Related.propTypes = {
   close: PropTypes.func.isRequired,
-  colors: PropTypes.array.isRequired,
+  colors: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
   open: PropTypes.func.isRequired,
   parent: PropTypes.object.isRequired,

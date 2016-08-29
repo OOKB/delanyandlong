@@ -4,6 +4,7 @@ import { connectField } from 'redux-field'
 import { Link } from 'redux-history-sync'
 import ItemFav from '../containers/ItemFav'
 import ItemImg from './ItemImg'
+import Related from '../containers/Related'
 
 function NavItem({ onClick, ...props }) {
   return (
@@ -22,6 +23,7 @@ function Item({ item }) {
   return (
     <li>
       <ItemFav item={item} />
+      <Related parent={item} />
       <Link href={item.link} className="wrap">
         <ItemImg {...item} />
         <div className="description">
@@ -43,7 +45,6 @@ Item.propTypes = {
 function FilmStrip({ active, formEvent: { onChange }, next, previous }) {
   function clickPrev() { onChange(previous.index) }
   function clickNext() { onChange(next.index) }
-  console.log(active)
   return (
     <div className="items">
       <ul className="list-reset clearfix filmStrip">

@@ -49,7 +49,7 @@ const state = {
       // { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
       // { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist', icon: 'file-text-o' },
       { id: 'pricelist', href: '/trade/pricelist', label: 'The Collection', icon: 'object-ungroup' },
-      { id: 'trade', href: '/trade', label: 'Trade Login', icon: 'sign-in' },
+      { id: 'trade', href: '/trade', label: 'Trade Login', icon: 'user' },
       { id: 'favs', href: '/favs', label: 'Favorites', icon: 'heart-o' },
     ],
     schema: {

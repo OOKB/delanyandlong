@@ -21,14 +21,24 @@
   padding: 2px;
 }
 
-.filmStrip li a {
+.filmStrip li.button {
+  cursor: pointer;
+}
+.filmStrip li.button:nth-child(1) {
+  cursor: w-resize;
+}
+.filmStrip li.button:nth-child(3) {
+  cursor: e-resize;
+}
+
+.filmStrip li .wrap {
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
 }
 
-.filmStrip li a img {
+.filmStrip li .wrap img {
 	height: 100%;
 	width: auto;
 }

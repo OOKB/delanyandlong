@@ -1,17 +1,15 @@
-import { entityTypeSelector, rebuildEntitySelector, selectTypeIndex } from 'redux-graph'
+import { entityTypeSelector, rebuildEntitySelector } from 'redux-graph'
 import { createSelector } from 'reselect'
-import get from 'lodash/get'
 import find from 'lodash/find'
+
+import { select, selectBool } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
 import { collectionType, favTitle, fixListItems, listItemIndex, orderListItems } from './helpers'
 
 // This will select all collection lists from the database.
-// export const collectionListSelector = entityTypeSelector(collectionType)
-export function collectionListSelector(state) {
-  return selectTypeIndex(state)[collectionType]
-}
+export const collectionListSelector = entityTypeSelector(collectionType)
 export function isFavList(list) {
   return list.title === favTitle
 }
@@ -26,15 +24,14 @@ export const favsListSelector = createSelector(
   collectionListSelector,
   findFavList,
 )
-export function favsListId(state) {
-  return get(favsListSelector(state), 'id')
-}
+export const favsListId = select('id', favsListSelector)
 export const listSelector = rebuildEntitySelector(favsListId)
 export const listItems = createSelector(
   listSelector,
   itemsFilled,
   (list, items) => list && fixListItems(list.itemListElement, items)
 )
+export const hasFavorites = selectBool('length', listItems)
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
 

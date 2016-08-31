@@ -2,7 +2,7 @@ import { entityTypeSelector, rebuildEntitySelector } from 'redux-graph'
 import { createSelector } from 'reselect'
 import find from 'lodash/find'
 
-import { select, selectBool } from '../utils'
+import { select } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
@@ -31,7 +31,8 @@ export const listItems = createSelector(
   itemsFilled,
   (list, items) => list && fixListItems(list.itemListElement, items)
 )
-export const hasFavorites = selectBool('length', listItems)
+export const favsLength = select('length', listItems)
+export function hasFavorites(state) { return !!favsLength(state) }
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
 

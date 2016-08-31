@@ -1,17 +1,6 @@
-import { createStructuredSelector } from 'reselect'
-import { getIndexPath, tripleTypeIndexSelector } from 'redux-graph'
+import { entitySelector } from 'redux-graph'
 
-import { isAnonymous, isAuthenticated } from '../auth/select'
+import { select } from '../utils'
 
-export const getUser = state => state.graph.entity.user0
-
-export function buildUserPredicateSelector(predicate) {
-  return state => getIndexPath.pos([ predicate, getUser(state).id ], state)
-}
-export const userAgentTypeIndex = tripleTypeIndexSelector(buildUserPredicateSelector('agent'))
-export const userCreatorTypeIndex = tripleTypeIndexSelector(buildUserPredicateSelector('creator'))
-
-export const permission = createStructuredSelector({
-  isAnonymous,
-  isAuthenticated,
-})
+export const getUser = select('user0', entitySelector)
+export const getUserId = select('id', getUser)

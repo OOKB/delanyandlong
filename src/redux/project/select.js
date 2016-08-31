@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import find from 'lodash/find'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
+import { itemsFilled } from '../select/items'
 import { collectionType, favTitle, fixListItems, listItemIndex, orderListItems } from './helpers'
 
 // This will select all collection lists from the database.
@@ -31,7 +32,8 @@ export function favsListId(state) {
 export const listSelector = rebuildEntitySelector(favsListId)
 export const listItems = createSelector(
   listSelector,
-  list => list && fixListItems(list.itemListElement)
+  itemsFilled,
+  (list, items) => list && fixListItems(list.itemListElement, items)
 )
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)

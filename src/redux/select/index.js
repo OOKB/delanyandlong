@@ -1,22 +1,25 @@
 import { createSelector } from 'reselect'
 import { selectForm } from 'redux-field'
+import { entitySelector } from 'redux-graph'
 import curry from 'lodash/curry'
 import get from 'lodash/get'
 import isObject from 'lodash/isObject'
 import map from 'lodash/map'
+import partialRight from 'lodash/partialRight'
 
+import { select } from '../utils'
 import { pageSizes } from '../../helpers/pager'
 
 export const pageSizeOptions = pageSizes()
-export const getDb = curry((path, state) => get(state.db, path))
+export const selectDb = select('db')
+export const getDb = partialRight(select, selectDb)
 // Where is our custom pricelist information? Look in defaultState.js or the `db` tree of state.
 export const pricelistInfo = getDb('pricelist')
 export const getCategoryOptions = getDb('categoryOptions')
 export const getSchema = getDb('schema')
-export const getMenu = getDb('menu')
 
-export const getDataFeed = state => state.graph.entity.pBlf
-export const getWebApp = state => state.graph.entity.delanyLongWebApp
+export const getDataFeed = select('pBlf', entitySelector)
+export const getWebApp = select('delanyLongWebApp', entitySelector)
 
 export function optionFill(opts, schema) {
   return map(opts, opt => {

@@ -1,55 +1,19 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-import { entitySelector, tripleSelector } from 'redux-graph'
-import forEach from 'lodash/forEach'
 import get from 'lodash/get'
-import map from 'lodash/map'
-import keys from 'lodash/keys'
 
-import { getMenu, getUser } from './'
-import { itemsFilled } from './items'
+import { getMenu } from './'
+import { listItems, favsItemIndex, listItemsSorted } from '../project/select'
 
-export function getSPO(state) {
-  return tripleSelector(state).spo
+export function userFavs(state) {
+  return get(listItems(state), 'itemListElement')
 }
-export function getPOS(state) {
-  return tripleSelector(state).pos
-}
-export function getPOSpath(state, path) {
-  return get(getPOS(state), path)
-}
-export function getUserAsAgent(state) {
-  const userId = getUser(state).id
-  return getPOSpath(state, [ 'agent', userId ])
-}
-export const userFavs = createSelector(
-  getUser,
-  getUserAsAgent,
-  getSPO,
-  entitySelector,
-  (user, agents, spo, entities) => {
-    if (!agents || agents.length === 0) return null
-    const favs = {}
-    forEach(agents, (nil, id) => {
-      const { actionStatus, dateCreated, type, position } = entities[id]
-      if (type === 'LikeAction' && actionStatus !== 'ended') {
-        const itemId = keys(get(spo, [ id, 'object' ]))[0]
-        favs[itemId] = { actionStatus, id, dateCreated, position, itemId }
-      }
-    })
-    return favs
-  }
-)
-export const userFavItems = createSelector(
-  userFavs,
-  itemsFilled,
-  (favs, items) => map(favs, (fav, id) => ({ ...fav, item: items[id] }))
-)
+// Used in component.
 export const favoritesSelector = createStructuredSelector({
-  favorites: userFavItems,
+  favorites: listItemsSorted,
   menu: getMenu,
 })
 export const itemFavSelector = createSelector(
-  userFavs,
+  favsItemIndex,
   (state, props) => props.item,
   (favs, item) => favs && favs[item.id] || {}
 )

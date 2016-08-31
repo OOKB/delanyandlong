@@ -7,6 +7,7 @@ export default [
       "Greenwich CT 06830"
     ],
     "tel": "203-532-8068",
+    type: 'Showroom',
     "fax": "203-532-9514"
   },
   {
@@ -19,6 +20,7 @@ export default [
       "New York NY 10022"
     ],
     "email": "nycshowroom@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "212-888-3242"
   },
   {
@@ -30,6 +32,7 @@ export default [
     ],
     "email": "customerservice@delanyandlong.com",
     "tel": "203.532.0010",
+    type: 'Showroom',
     "fax": "203.532.0032"
   },
   {
@@ -42,6 +45,7 @@ export default [
     ],
     "email": "infoAZ@townstudio.com",
     "tel": "480.214.4792",
+    type: 'Showroom',
     "fax": "602.297.6821"
   },
   {
@@ -49,6 +53,7 @@ export default [
     "title": "Boston and Northeast US",
     "name": "Karen Walls",
     "email": "karen@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "617.480.2135"
   },
   {
@@ -60,6 +65,7 @@ export default [
       "Chicago, IL 60654"
     ],
     "email": "nancy_cordin@cowtan.com",
+    type: 'Showroom',
     "tel": "312.644.0717"
   },
   {
@@ -72,6 +78,7 @@ export default [
       "Denver CO 80209"
     ],
     "email": "jeremy@townstudio.com",
+    type: 'Showroom',
     "tel": "303.282.8696"
   },
   {
@@ -79,6 +86,7 @@ export default [
     "title": "Connecticut, Rhode Island, Long Island & Westchester Representative",
     "name": "Sarah Conduit",
     "email": "sarah@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "203.247.6514"
   },
   {
@@ -91,6 +99,7 @@ export default [
       "Dallas TX 75207"
     ],
     "email": "noelm@gcnash.com",
+    type: 'Showroom',
     "tel": "214.744.1544"
   },
   {
@@ -103,6 +112,7 @@ export default [
       "Washington, DC 20005"
     ],
     "email": "carol_reilly@cowtan.com",
+    type: 'Showroom',
     "tel": "202.863.8490"
   },
   {
@@ -116,6 +126,7 @@ export default [
       "Dania FL 33004"
     ],
     "email": "noelle_collins@cowtan.com",
+    type: 'Showroom',
     "tel": "954.681.4550"
   },
   {
@@ -128,6 +139,7 @@ export default [
       "Houston TX 77056"
     ],
     "email": "cynthiaw@gcnash.com",
+    type: 'Showroom',
     "tel": "713.892.5710"
   },
   {
@@ -135,6 +147,7 @@ export default [
     "title": "Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota Representative",
     "name": "blakeConcepts LLC",
     "email": "leah@blakeConcepts.com",
+    type: 'Showroom',
     "tel": "312.505.5249"
   },
   {
@@ -147,6 +160,7 @@ export default [
       "Los Angeles CA 90069"
     ],
     "email": "gina_marra@cowtan.com",
+    type: 'Showroom',
     "tel": "310.659.1423"
   },
   {
@@ -154,6 +168,7 @@ export default [
     "title": "Northern New Jersey Representative",
     "name": "Blake Haase",
     "email": "blake@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "845.863.9671"
   },
   {
@@ -166,6 +181,7 @@ export default [
       "Philadelphia PA 19103"
     ],
     "email": "sharrington@shaenharringtoninc.com",
+    type: 'Showroom',
     "tel": "215.567.2181"
   },
   {
@@ -178,6 +194,7 @@ export default [
       "San Francisco CA 94103"
     ],
     "email": "sanfranciscoinfo@kneedlerfauchere.com",
+    type: 'Showroom',
     "tel": "415.487.6180"
   },
   {
@@ -185,6 +202,7 @@ export default [
     "title": "Southeastern US, Ohio, Kentucky, Indiana Representative",
     "name": "Luane Goldstone",
     "email": "luane@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "843.513.2208"
   },
   {
@@ -192,6 +210,7 @@ export default [
     "title": "Northwest (US & Canada) Representative",
     "name": "Peg Winship",
     "email": "peg@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "206.618.4145"
   },
   {
@@ -199,12 +218,14 @@ export default [
     "title": "Australia, New Zealand, Singapore Representative",
     "name": "Caterina Ferrari",
     "email": "caterina@rogersandgoffigon.com",
+    type: 'Showroom',
     "tel": "+61 (0)4 2213 0584"
   },
   {
     "id": "europe",
     "title": "European Representative",
     "name": "Please call our main customer service number",
+    type: 'Showroom',
     "tel": "001.203.532.0010"
   },
   {
@@ -217,6 +238,7 @@ export default [
       "Toronto ON M5R 3P8 Canada"
     ],
     "email": "diego@primavera.ca",
+    type: 'Showroom',
     "tel": "416.921.3334"
   }
 ]

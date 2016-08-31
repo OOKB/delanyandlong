@@ -14,9 +14,10 @@ export const pricelistInfo = getDb('pricelist')
 export const getCategoryOptions = getDb('categoryOptions')
 export const getSchema = getDb('schema')
 export const getMenu = getDb('menu')
-export function getUser(state) {
-  return state.graph.entity.user0
-}
+
+export const getDataFeed = state => state.graph.entity.pBlf
+export const getWebApp = state => state.graph.entity.delanyLongWebApp
+
 export function optionFill(opts, schema) {
   return map(opts, opt => {
     if (isObject(opt)) return opt

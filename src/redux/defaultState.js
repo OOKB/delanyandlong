@@ -4,8 +4,13 @@ import { insertFields } from 'redux-graph'
 import showrooms from './showrooms'
 const entity = keyBy(showrooms, 'id')
 
-entity.user0 = insertFields({ id: 'user0', type: 'Person', name: 'Anonymous' })
-entity.pBlf = insertFields({ id: 'pBlf', type: 'DataFeed', title: 'DL Order Track Data' })
+export const defaultUser = { id: 'user0', type: 'Person', name: 'Anonymous' }
+export const dataFeed = { id: 'pBlf', type: 'DataFeed', title: 'DL Order Track Data' }
+export const webAppEntity = { id: 'delanyLongWebApp', type: 'WebApplication' }
+
+entity.user0 = insertFields(defaultUser)
+entity.pBlf = insertFields(dataFeed)
+entity.delanyLongWebApp = insertFields(webAppEntity)
 
 const state = {
   db: {

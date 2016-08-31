@@ -6,7 +6,6 @@ import map from 'lodash/map'
 import sample from 'lodash/sample'
 import sampleSize from 'lodash/sampleSize'
 
-import { getMenu } from './'
 import { itemsFilled } from './items'
 
 export const filterOutMissingImages = createSelector(
@@ -26,5 +25,4 @@ export const homeItems = createSelector(
 
 export const homeSelector = createStructuredSelector({
   items: homeItems,
-  menu: getMenu,
 })

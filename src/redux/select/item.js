@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
-import { filterSort, itemsFilled } from './items'
+import { itemsFilled } from './items'
 import { userFavs } from './fav'
 
 // Get the id from the URL.

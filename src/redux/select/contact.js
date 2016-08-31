@@ -2,8 +2,6 @@ import mapValues from 'lodash/mapValues'
 import { createSelector, createStructuredSelector } from 'reselect'
 import { entitySelector } from 'redux-graph'
 
-import { getMenu } from './'
-
 export function getContactText(state) {
   return state.db.distributed
 }
@@ -46,7 +44,6 @@ export const officeSelector = createSelector(
   (entity, officeLists) => mapValues(officeLists, ids => selectIds(entity, ids))
 )
 export const contactSelector = createStructuredSelector({
-  menu: getMenu,
   contactText: getContactText,
   offices: officeSelector,
   serviceText: getServiceText,

@@ -1,7 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 import get from 'lodash/get'
 
-import { getMenu } from './'
 import { listItems, favsItemIndex, listItemsSorted } from '../project/select'
 
 export function userFavs(state) {
@@ -10,7 +9,6 @@ export function userFavs(state) {
 // Used in component.
 export const favoritesSelector = createStructuredSelector({
   favorites: listItemsSorted,
-  menu: getMenu,
 })
 export const itemFavSelector = createSelector(
   favsItemIndex,

@@ -5,7 +5,7 @@ import trio from '../../helpers/trio'
 
 import {
   pricelistInfo, activeCategorySelector, formPrefix,
-  getFilter, getDb, getFilterText, getMenu, getPageIndex,
+  getFilter, getDb, getFilterText, getPageIndex,
   categoryOptionsSelector, columnsSelector,
   pageSizeOptions,
 } from './'
@@ -60,7 +60,6 @@ export function getPager(items, pgIndex, pgSize) {
 export const pricelistSelector = createSelector(
   patternColorSelector,
   pricelistInfoSelector,
-  getMenu,
   getCategoryKey,
   (items, info, menu, categoryKey) => ({
     categoryKey,

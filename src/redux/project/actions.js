@@ -1,6 +1,4 @@
-import {
-  createTriple, entityHasType, entityTypeSelector, entityUpdate,
-} from 'redux-graph'
+import { createTriple, entityUpdate } from 'redux-graph'
 import { getUser } from '../select/user'
 
 import { getCollection, createCollectionItemTriple } from './helpers'

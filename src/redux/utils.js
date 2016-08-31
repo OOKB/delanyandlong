@@ -1,10 +1,18 @@
+import get from 'lodash/get'
 import identity from 'lodash/identity'
 import isError from 'lodash/isError'
 import isFunction from 'lodash/isFunction'
 import isString from 'lodash/isString'
 import isUndefined from 'lodash/isUndefined'
 import isObject from 'lodash/isObject'
+import negate from 'lodash/negate'
 import pickBy from 'lodash/pickBy'
+
+export function select(path, selector = identity) {
+  return state => get(selector(state), path)
+}
+export function selectBool(path, selector) { return !!select(path, selector) }
+export const selectNot = negate(select)
 
 export function createAction(type, payloadCreator) {
   const getPayload = isFunction(payloadCreator) ? payloadCreator : identity

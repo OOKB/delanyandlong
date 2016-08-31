@@ -1,3 +1,4 @@
+export auth from './redux/auth'
 export db from './redux/db'
 export errorMessage from './redux/errMsg'
 export { fieldReducer as form } from 'redux-field'

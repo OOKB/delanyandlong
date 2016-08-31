@@ -53,9 +53,40 @@ const state = {
       { id: 'contact', href: '/contact', label: 'Contact Us', icon: 'envelope-o' },
       // { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
       // { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist', icon: 'file-text-o' },
-      { id: 'pricelist', href: '/trade/pricelist', label: 'The Collection', icon: 'object-ungroup' },
-      { id: 'trade', href: '/trade', label: 'Trade Login', icon: 'user' },
-      { id: 'favs', href: '/favs', label: 'Favorites', icon: 'heart-o' },
+      {
+        id: 'pricelist',
+        href: '/trade/pricelist',
+        icon: 'object-ungroup',
+        label: 'The Collection',
+      },
+      {
+        id: 'tradeLogin',
+        href: '/trade',
+        icon: 'user',
+        label: 'Trade Login',
+        validators: [ 'isAnonymous' ],
+      },
+      {
+        id: 'trade',
+        href: '/trade',
+        icon: 'user',
+        label: 'Trade',
+        validators: [ 'isAuthenticated' ],
+      },
+      {
+        id: 'favs',
+        href: '/favs',
+        icon: 'heart-o',
+        label: 'Favorites',
+        validators: [ 'isAnonymous', 'hasFavorites' ],
+      },
+      {
+        id: 'projects',
+        href: '/favs',
+        icon: 'heart-o',
+        label: 'Projects',
+        validators: [ 'isAuthenticated', 'hasFavorites' ],
+      },
     ],
     schema: {
       id: {

@@ -1,8 +1,9 @@
 import { create, entityHasType } from 'redux-graph'
 import keyBy from 'lodash/keyBy'
-import map from 'lodash/map'
 import orderBy from 'lodash/orderBy'
 import keys from 'lodash/keys'
+import reduce from 'lodash/reduce'
+import set from 'lodash/set'
 
 import { createCollectionList, favsListSelector } from './select'
 
@@ -40,11 +41,18 @@ export function createCollectionItemTriple(list, item, agent, position) {
   // The item is attached to the list by adding an itemListElement predicate triple.
   return triple
 }
+export function validListItem(listItem) { return listItem.actionStatus !== 'ended' }
 export function getFirstVal(obj, items) { return items[keys(obj)[0]] }
-export function fixListItem(items) {
-  return listItem => listItem.set('item', getFirstVal(listItem.item, items))
+export function setItem(res, listItem, items) {
+  return set(res, listItem.set('item', getFirstVal(listItem.item, items)))
 }
-export function fixListItems(listItems, items) { return map(listItems, fixListItem(items)) }
+export function fixListItem(items) {
+  return (res, listItem) =>
+    validListItem(listItem) && setItem(res, listItem, items) || res
+}
+export function fixListItems(listItems, items) {
+  return reduce(listItems, fixListItem(items), {})
+}
 export function listItemIndex(listItems) { return keyBy(listItems, 'item.id') }
 export function orderListItems(listItems) {
   return orderBy(listItems, [ 'position', 'id' ])

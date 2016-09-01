@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import classnames from 'classnames'
 import { Link } from 'redux-history-sync'
+import { connect } from 'react-redux'
+
+import { menuSelector } from '../redux/select/menu'
 
 function Menu({ activeId, links }) {
   function isActive(id) { return activeId === id }
@@ -23,9 +26,8 @@ function Menu({ activeId, links }) {
 
 Menu.propTypes = {
   activeId: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
   links: PropTypes.array.isRequired,
 }
 Menu.defaultProps = {
 }
-export default Menu
+export default connect(menuSelector)(Menu)

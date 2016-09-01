@@ -1,8 +1,11 @@
 import { selectActiveKeyDefault } from 'redux-history-sync'
 import { createSelector } from 'reselect'
+
 import locationInfo from '../routes'
+import { select } from './utils'
+
 // We are using the redux-history-sync to put location into state.
-function routeSelector(history) {
+function routeInfoSelector(history) {
   if (!history) return history
   return {
     history,
@@ -12,4 +15,7 @@ function routeSelector(history) {
 }
 // Pass in the state object and return some info about a "route".
 // selectActiveKeyDefault() is a helper function to grab the current location info.
-export default createSelector(selectActiveKeyDefault, routeSelector)
+const routingSelector = createSelector(selectActiveKeyDefault, routeInfoSelector)
+export const getRoute = select('route', routingSelector)
+export const getRouteId = select('id', getRoute)
+export default routingSelector

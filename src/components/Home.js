@@ -6,10 +6,10 @@ import Header from './Header'
 import Footer from './Footer'
 import ItemGrid from './ItemGrid'
 
-function Home({ items, menu, missingImage }) {
+function Home({ items, missingImage }) {
   return (
     <div id="home">
-      <Header links={menu} />
+      <Header />
       <ItemGrid items={items} missingImage={missingImage} />
       <ItemGrid items={items} missingImage={missingImage} />
       <ItemGrid items={items} missingImage={missingImage} />
@@ -23,7 +23,6 @@ function Home({ items, menu, missingImage }) {
 
 Home.propTypes = {
   items: PropTypes.array.isRequired,
-  menu: PropTypes.array.isRequired,
   missingImage: PropTypes.func.isRequired,
   route: PropTypes.object.isRequired,
 }

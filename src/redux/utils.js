@@ -8,7 +8,6 @@ import isObject from 'lodash/isObject'
 import pickBy from 'lodash/pickBy'
 
 export function select(path, selector = identity) {
-  console.log(path)
   return state => get(selector(state), path)
 }
 

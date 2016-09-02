@@ -1,4 +1,3 @@
-import { createSelector } from 'reselect'
 import { selectForm } from 'redux-field'
 import { entitySelector } from 'redux-graph'
 import curry from 'lodash/curry'
@@ -15,7 +14,6 @@ export const selectDb = select('db')
 export const getDb = partialRight(select, selectDb)
 // Where is our custom pricelist information? Look in defaultState.js or the `db` tree of state.
 export const pricelistInfo = getDb('pricelist')
-export const getCategoryOptions = getDb('categoryOptions')
 export const getSchema = getDb('schema')
 
 export const getDataFeed = select('pBlf', entitySelector)
@@ -33,25 +31,7 @@ export const formPrefix = curry((filterType, state) => pricelistInfo(state).pref
 export const getFilter = curry((filterType, state) =>
   get(selectForm(state), formPrefix(filterType, state), {}).value
 )
-export const getFilterCategory = getFilter('category')
 export const getFilterText = getFilter('text')
 
 // Page number.
 export const getPageIndex = getFilter('pgIndex')
-
-export const activeCategorySelector = createSelector(
-  pricelistInfo,
-  getFilterCategory,
-  (info, filterCategory) => filterCategory || info.defaultCategory
-)
-export const categoryOptionsSelector = createSelector(
-  getCategoryOptions,
-  getSchema,
-  (catOptions, schema) => optionFill(catOptions, schema)
-)
-export const columnsSelector = createSelector(
-  pricelistInfo,
-  getSchema,
-  activeCategorySelector,
-  (info, schema, activeCategory) => optionFill(info.columns[activeCategory || 'textile'], schema)
-)

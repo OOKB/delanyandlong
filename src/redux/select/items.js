@@ -12,8 +12,8 @@ import orderBy from 'lodash/orderBy'
 import pickBy from 'lodash/pickBy'
 import uniq from 'lodash/uniq'
 
-import { activeCategorySelector, getFilter, getFilterText } from './'
-import { categoryCodeIndex } from './category'
+import { getFilter, getFilterText } from './'
+import { activeCategorySelector, categoryCodeIndex } from './category'
 
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')

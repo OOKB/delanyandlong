@@ -35,3 +35,6 @@ export function createAction(type, payloadCreator) {
     return action
   }
 }
+export function firstValArg(arg1, arg2, arg3) {
+  return arg1 || arg2 || arg3 || null
+}

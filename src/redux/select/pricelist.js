@@ -2,15 +2,13 @@ import { createSelector, createStructuredSelector } from 'reselect'
 
 import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
 import trio from '../../helpers/trio'
-
+import { select } from '../utils'
 import {
-  pricelistInfo, activeCategorySelector, formPrefix,
-  getFilter, getDb, getFilterText, getPageIndex,
-  categoryOptionsSelector, columnsSelector,
-  pageSizeOptions,
+  pricelistInfo, formPrefix, getFilter, getDb, getFilterText, getPageIndex,
+  getSchema, optionFill, pageSizeOptions,
 } from './'
 import { colorSelector, patternColorSelector } from './items'
-import { getCategoryKey } from './category'
+import { activeCategorySelector, category, getCategoryKey } from './category'
 
 export const getStyles = getDb('styles')
 // Get active display. (list, grid, film)
@@ -20,6 +18,14 @@ const displayStyle = createStructuredSelector({
   options: getStyles,
   prefix: formPrefix('display'),
 })
+
+export const columnsSelector = createSelector(
+  pricelistInfo,
+  getSchema,
+  activeCategorySelector,
+  (info, schema, activeCategory) => optionFill(info.columns[activeCategory || 'textile'], schema)
+)
+
 // How many items to include on a page.
 export const getPageSize = state => {
   const pgSize = getFilter('pgSize')(state)
@@ -27,10 +33,6 @@ export const getPageSize = state => {
   return pgSize && parseInt(pgSize, 10) || defaultPageSize
 }
 
-const category = createStructuredSelector({
-  active: activeCategorySelector,
-  options: categoryOptionsSelector,
-})
 const pricelistProps = createStructuredSelector({
   category,
   columns: columnsSelector,
@@ -56,15 +58,17 @@ export function getPager(items, pgIndex, pgSize) {
   if (pgSize === 3) return trio(items, pgIndex)
   return getPagerInfo(items, { page: pgIndex, perPage: pgSize })
 }
-// Filter entities based on activeCategory.
-export const pricelistSelector = createSelector(
+const pgIndex = select('pgIndex', pricelistInfoSelector)
+const pgSize = select('pgSize', pricelistInfoSelector)
+export const pagerSelector = createSelector(
   patternColorSelector,
-  pricelistInfoSelector,
-  getCategoryKey,
-  (items, info, menu, categoryKey) => ({
-    categoryKey,
-    pager: getPager(items, info.pgIndex, info.pgSize),
-    info,
-    menu,
-  })
+  pgIndex,
+  pgSize,
+  getPager,
 )
+// Filter entities based on activeCategory.
+export const pricelistSelector = createStructuredSelector({
+  categoryKey: getCategoryKey,
+  info: pricelistInfoSelector,
+  pager: pagerSelector,
+})

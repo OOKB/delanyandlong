@@ -51,8 +51,6 @@ const state = {
     menu: [
       { id: 'about', href: '/about', label: 'About Us', icon: 'info' },
       { id: 'contact', href: '/contact', label: 'Contact Us', icon: 'envelope-o' },
-      // { id: 'collection', href: '/collection', label: 'Collection', icon: 'object-ungroup' },
-      // { id: 'pricelist', href: '/trade/pricelist', label: 'Pricelist', icon: 'file-text-o' },
       {
         id: 'pricelist',
         href: '/trade/pricelist',

@@ -24,6 +24,7 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
           </div>
           <div className="blurb mb4">
             <p>{contactText}</p>
+            <p><i className="fa fa-chevron-down"></i></p>
           </div>
           <div className="us canada americas bt1 pt4 pb2">
             <Offices items={offices.us} />

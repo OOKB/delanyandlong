@@ -1,6 +1,13 @@
 import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 
-import { itemFavSelector as mapStateToProps } from '../redux/select/fav'
+import { favsItemIndex } from '../redux/project/select'
+
+export const mapStateToProps = createSelector(
+  favsItemIndex,
+  (state, props) => props.item,
+  (favs, item) => favs && favs[item.id] || {}
+)
 
 import { confirmFavorite, endFavorite, favoriteItem } from '../redux/project/actions'
 const mapDispatchToProps = { confirmFavorite, endFavorite, favoriteItem }

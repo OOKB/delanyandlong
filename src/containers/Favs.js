@@ -1,6 +1,11 @@
+import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
 
-import { favoritesSelector as mapStateToProps } from '../redux/select/fav'
+import { listItemsSorted } from '../redux/project/select'
+
+export const mapStateToProps = createStructuredSelector({
+  favorites: listItemsSorted,
+})
 
 import { endFavorite } from '../redux/project/actions'
 const mapDispatchToProps = { endFavorite }

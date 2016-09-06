@@ -7,6 +7,16 @@ import isUndefined from 'lodash/isUndefined'
 import isObject from 'lodash/isObject'
 import pickBy from 'lodash/pickBy'
 
+// Returns the collection property at key as determined by idSelector.
+export function getSelect(collectionSelector, idSelector) {
+  const selector = (state, props, ...args) => {
+    const collection = collectionSelector(state, props, ...args)
+    const id = idSelector(state, props, ...args)
+    return get(collection, id)
+  }
+  return selector
+}
+
 export function select(path, selector = identity) {
   return state => get(selector(state), path)
 }

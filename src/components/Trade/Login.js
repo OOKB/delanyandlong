@@ -3,10 +3,10 @@ import React, { PropTypes } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 
-function Trade({ actQ, menu, onClick, route, small }) {
+function Trade({ actQ, onClick, small }) {
   return (
     <div id="trade">
-      <Header activeId={route.id} links={menu} />
+      <Header />
       <main className="container">
         <div className="login-wrapper">
           <div className="input-group accountNumber">
@@ -62,6 +62,7 @@ Trade.propTypes = {
   items: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
   route: PropTypes.object.isRequired,
+  small: PropTypes.string.isRequired,
 }
 Trade.defaultProps = {}
 export default Trade

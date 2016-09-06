@@ -143,6 +143,10 @@ const state = {
       { value: 'film', label: 'Horizontal (Trio)' },
       { value: 'specs', label: 'Specifications?' },
     ],
+    trade: {
+      actQ: "Do you have an existing account with us but don't know your login information?",
+      small: 'Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.',
+    }
   },
   graph: {
     entity,

@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
 
-import { homeSelector } from '../redux/select/home'
-import Header from './Header'
-import Footer from './Footer'
+import Header from '../Header'
+import Footer from '../Footer'
 
-function Trade({ menu, route }) {
+function Trade({ actQ, menu, onClick, route, small }) {
   return (
     <div id="trade">
       <Header activeId={route.id} links={menu} />
@@ -27,7 +25,7 @@ function Trade({ menu, route }) {
             <label>
               <i className="fa fa-sign-in white" aria-hidden="true"></i>
             </label>
-            <button className="btn-outline" type="submit">Log In</button>
+            <button className="btn-outline" type="submit" onClick={onClick}>Log In</button>
           </div>
         </div>
         <div className="help-text">
@@ -39,7 +37,8 @@ function Trade({ menu, route }) {
             </li>
             <li className="mb2">
               <p>
-                <strong className="sans uppercase gray">Do you have an existing account with us but don't know your login information?</strong> <br />Use your full Delany and Long account number in the <code className="uppercase dark-gold">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-gold">ZIP Code</code> field.
+                <strong className="sans uppercase gray">{actQ}</strong><br />
+                Use your full Delany and Long account number in the <code className="uppercase dark-gold">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-gold">ZIP Code</code> field.
               </p>
             </li>
             <li>
@@ -48,9 +47,7 @@ function Trade({ menu, route }) {
               </p>
             </li>
             <li>
-              <p className="small">
-                Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.
-              </p>
+              <p className="small">{small}</p>
             </li>
           </ul>
         </div>
@@ -61,10 +58,10 @@ function Trade({ menu, route }) {
 }
 
 Trade.propTypes = {
+  actQ: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  menu: PropTypes.array.isRequired,
-  missingImage: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   route: PropTypes.object.isRequired,
 }
-
-export default connect(homeSelector)(Trade)
+Trade.defaultProps = {}
+export default Trade

@@ -62,3 +62,4 @@ export const createCollectionList = createSelector(
   (state, props) => getTitle(props, favTitle),
   buildCollectionList
 )
+// Need to know if we should display a confirm window or a projectEdit window.

@@ -1,16 +1,22 @@
-import { createTriple, entityUpdate } from 'redux-graph'
+import { create, createTriple, entityUpdate } from 'redux-graph'
 import { getUser } from '../select/user'
 
-import { getCollection, createCollectionItemTriple } from './helpers'
-
+import { getCollection, createCollectionItem, createCollectionItemTriple } from './helpers'
+import { isAnonymous } from '../auth/select'
 // Action to dispatch when a user clicks the (+) favorite button.
 export function favoriteItem(item, collectionList) {
   return (dispatch, getState) => {
     const state = getState()
-    const list = getCollection(state, collectionList, dispatch)
     const creator = getUser(state)
-    const triple = createCollectionItemTriple(list, item, creator)
-    createTriple(dispatch, triple)
+    // Need to decide if we add to favs or display option to create project.
+    if (isAnonymous) {
+      const list = getCollection(state, collectionList, dispatch)
+      const triple = createCollectionItemTriple(list, item, creator)
+      createTriple(dispatch, triple)
+    } else {
+      const listItem = createCollectionItem(item, creator)
+      create(dispatch, listItem)
+    }
   }
 }
 export function confirmFavorite(id) {

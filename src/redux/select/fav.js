@@ -1,7 +1,4 @@
-import get from 'lodash/get'
-
+import { select } from '../utils'
 import { listItems } from '../project/select'
 
-export function userFavs(state) {
-  return get(listItems(state), 'itemListElement')
-}
+export const userFavs = select('itemListElement', listItems)

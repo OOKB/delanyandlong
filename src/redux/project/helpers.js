@@ -13,7 +13,6 @@ export const collectionType = 'CollectionList'
 export const favTitle = 'Favorites'
 export const isValidCollection = entityHasType(collectionType)
 
-
 // We need to know what collection we are adding this item to.
 export function getCollection(state, collectionList, dispatch) {
   // Collection is known. Use that.

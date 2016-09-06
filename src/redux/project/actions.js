@@ -20,7 +20,7 @@ export function favoriteItem(item, collectionList) {
     // Confirm previously created list items.
     confirmActive(state, dispatch)
     // Need to decide if we add to favs or display option to create project.
-    if (isAnonymous) {
+    if (isAnonymous(state)) {
       const list = getCollection(state, collectionList, dispatch)
       const triple = createCollectionItemTriple(list, item, creator)
       createTriple(dispatch, triple)

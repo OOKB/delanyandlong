@@ -41,14 +41,17 @@ export function createCollectionItemTriple(list, item, agent, position) {
   return triple
 }
 export function validListItem(listItem) { return listItem.actionStatus !== 'ended' }
+// Use first object key to get filled entity.
 export function getFirstVal(obj, items) { return items[keys(obj)[0]] }
-export function setItem(res, listItem, items) {
-  return set(res, listItem.set('item', getFirstVal(listItem.item, items)))
-}
+// Reducer to replace the items with filled versions. Filters out the invalids.
 export function fixListItem(items) {
-  return (res, listItem) =>
-    validListItem(listItem) && setItem(res, listItem, items) || res
+  return (res, listItem, key) => {
+    if (!validListItem(listItem)) return res
+    const item = getFirstVal(listItem.item, items)
+    return set(res, key, listItem.set('item', item))
+  }
 }
+// listItems is an object.
 export function fixListItems(listItems, items) {
   return reduce(listItems, fixListItem(items), {})
 }

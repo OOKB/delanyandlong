@@ -37,8 +37,10 @@ export const activeListItem = createSelector(
   listElements,
   findActive,
 )
-export const favsLength = select('length', listItems)
-export function hasFavorites(state) { return !!favsLength(state) }
+export const hasFavorites = createSelector(
+  listElements,
+  (els) => !! els
+)
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
 

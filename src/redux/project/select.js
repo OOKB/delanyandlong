@@ -6,7 +6,9 @@ import { select } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
-import { collectionType, favTitle, fixListItems, listItemIndex, orderListItems } from './helpers'
+import {
+  collectionType, favTitle, findActive, fixListItems, listItemIndex, orderListItems,
+} from './helpers'
 
 // This will select all collection lists from the database.
 export const collectionListSelector = entityTypeSelector(collectionType)
@@ -15,8 +17,7 @@ export function isFavList(list) {
 }
 // Find user favs project from list entities.
 export function findFavList(listEntities) {
-  const found = find(listEntities, isFavList)
-  return found
+  return find(listEntities, isFavList)
 }
 
 // Grab all collectionList entities and return user favorites project.
@@ -26,10 +27,15 @@ export const favsListSelector = createSelector(
 )
 export const favsListId = select('id', favsListSelector)
 export const listSelector = rebuildEntitySelector(favsListId)
+export const listElements = select('itemListElement', listSelector)
 export const listItems = createSelector(
-  listSelector,
+  listElements,
   itemsFilled,
-  (list, items) => list && fixListItems(list.itemListElement, items)
+  fixListItems
+)
+export const activeListItem = createSelector(
+  listElements,
+  findActive,
 )
 export const favsLength = select('length', listItems)
 export function hasFavorites(state) { return !!favsLength(state) }

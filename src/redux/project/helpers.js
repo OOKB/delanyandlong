@@ -1,9 +1,11 @@
 import { create, entityHasType } from 'redux-graph'
+import find from 'lodash/find'
 import keyBy from 'lodash/keyBy'
 import orderBy from 'lodash/orderBy'
 import keys from 'lodash/keys'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
+import values from 'lodash/values'
 
 import { createCollectionList, favsListSelector } from './select'
 
@@ -41,8 +43,9 @@ export function createCollectionItemTriple(list, item, agent, position) {
   return triple
 }
 export function validListItem(listItem) { return listItem.actionStatus !== 'ended' }
+export function key0(obj) { return keys(obj)[0] }
 // Use first object key to get filled entity.
-export function getFirstVal(obj, items) { return items[keys(obj)[0]] }
+export function getFirstVal(obj, items) { return items[key0(obj)] }
 // Reducer to replace the items with filled versions. Filters out the invalids.
 export function fixListItem(items) {
   return (res, listItem, key) => {
@@ -53,9 +56,13 @@ export function fixListItem(items) {
 }
 // listItems is an object.
 export function fixListItems(listItems, items) {
+  if (!listItems) return listItems
   return reduce(listItems, fixListItem(items), {})
 }
 export function listItemIndex(listItems) { return keyBy(listItems, 'item.id') }
 export function orderListItems(listItems) {
   return orderBy(listItems, [ 'position', 'id' ])
+}
+export function findActive(listItems) {
+  return find(listItems, { actionStatus: 'created' })
 }

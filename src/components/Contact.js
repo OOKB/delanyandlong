@@ -22,8 +22,9 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
               <p>{serviceText}</p>
             </div>
           </div>
-          <div className="blurb mb4">
+          <div className="blurb mb2">
             <p>{contactText}</p>
+            <p className="text-center light-gray"><i className="fa fa-angle-down fa-3x"></i></p>
           </div>
           <div className="us canada americas bt1 pt4 pb2">
             <Offices items={offices.us} />

@@ -10,14 +10,14 @@ import Footer from '../Footer'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
-  const { categoryKey, info, lead, disclaimer, menu, pager, route } = props
+  const { categoryKey, info, lead, disclaimer, pager } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, prefix, printWhenColor } = info
   const display = (id) => displayStyle.active === id
   const list = display('list')
   return (
     <div id="container-pricelist" className={category.activeCategory}>
-      <Header activeId={route.id} links={menu} />
+      <Header />
       <main className="clear m1 mt2">
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
@@ -40,7 +40,6 @@ Pricelist.propTypes = {
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
   disclaimer: PropTypes.string.isRequired,
-  menu: PropTypes.array.isRequired,
   pager: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
 }

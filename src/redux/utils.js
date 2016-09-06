@@ -6,6 +6,9 @@ import isString from 'lodash/isString'
 import isUndefined from 'lodash/isUndefined'
 import isObject from 'lodash/isObject'
 import pickBy from 'lodash/pickBy'
+import nthArg from 'lodash/nthArg'
+
+export const getProps = nthArg(1)
 
 // Returns the collection property at key as determined by idSelector.
 export function getSelect(collectionSelector, idSelector) {

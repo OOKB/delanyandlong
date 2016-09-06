@@ -5,13 +5,13 @@ import orderBy from 'lodash/orderBy'
 import keys from 'lodash/keys'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
-import values from 'lodash/values'
 
 import { createCollectionList, favsListSelector } from './select'
 
 // List of what kind of things.
 
 export const collectionType = 'CollectionList'
+export const liType = 'ListItem'
 export const favTitle = 'Favorites'
 export const isValidCollection = entityHasType(collectionType)
 
@@ -30,7 +30,7 @@ export function createCollectionItem(item, agent, position = 100) {
     item, // Thing that the user is adding to the collection.
     position,
     startTime: new Date(),
-    type: 'ListItem',
+    type: liType,
   }
 }
 // Adding an item to a list requires a new triple. Adding a field value to the collection.

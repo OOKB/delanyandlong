@@ -53,12 +53,14 @@ nav .active::before {
   color: rgb(205,206,191);
   color: rgba(205,206,191,1);
   display: inline-block;
-  font: normal normal normal 14px/2px FontAwesome;
+  /*font: normal normal normal 14px/2px FontAwesome;*/
+  font: normal normal normal 14px/2px 'DL';
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "\f0d7";
+  /*content: "\f0d7";*/
+  content: "\f047";
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);

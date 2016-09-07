@@ -75,9 +75,9 @@ export const createCollectionList = createSelector(
 )
 // Need to know if we should display a confirm window or a projectEdit window.
 // Select props.item.id from (state, props)
-export const itemId = select('item.id', getProps)
+export const getItemId = select('item.id', getProps)
 // Need to ListItems this textile shows up on.
-export const itemParents = entityDomainIncludes(itemId)
+export const itemParents = entityDomainIncludes(getItemId)
 export const itemLists = select('domainIncludes.item', itemParents, {})
 export const itemCollections = createSelector(
   itemLists,

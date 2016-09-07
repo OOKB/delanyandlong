@@ -21,7 +21,7 @@ export function getSelect(collectionSelector, idSelector) {
 }
 
 export function select(path, selector = identity, defaultValue) {
-  return state => get(selector(state), path, defaultValue)
+  return (state, props, ...args) => get(selector(state, props, ...args), path, defaultValue)
 }
 
 export function createAction(type, payloadCreator) {

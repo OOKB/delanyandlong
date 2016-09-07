@@ -10,17 +10,13 @@ import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
 import {
   collectionType, favTitle, findActive, fixListItems, liType, listItemIndex, orderListItems,
-  getItemCollections,
+  getItemCollections, isFavList,
 } from './helpers'
 
 // Select all CollectionList entities from the database.
 export const collectionListSelector = entityTypeSelector(collectionType)
 // Select all ListItem entities.
 export const ListItemSelector = entityTypeSelector(liType)
-// Is the CollectionList the default favorite one?
-export function isFavList(list) {
-  return list.title === favTitle
-}
 // Find user favs project from list entities.
 export function findFavList(listEntities) {
   return find(listEntities, isFavList)

@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import keyBy from 'lodash/keyBy'
 import mapValues from 'lodash/mapValues'
 import matchesProperty from 'lodash/matchesProperty'
+import negate from 'lodash/negate'
 import orderBy from 'lodash/orderBy'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
@@ -16,6 +17,10 @@ export const collectionType = 'CollectionList'
 export const liType = 'ListItem'
 export const favTitle = 'Favorites'
 export const isValidCollection = entityHasType(collectionType)
+// Valid unless ended/removed.
+export const isValidListItem = negate(matchesProperty('actionStatus', 'ended'))
+// Is the CollectionList the default favorite one?
+export const isFavList = matchesProperty('title', favTitle)
 
 // We need to know what collection we are adding this item to.
 export function getCollection(state, collectionList, dispatch) {
@@ -44,12 +49,11 @@ export function createCollectionItemTriple(list, item, agent, position) {
   // The item is attached to the list by adding an itemListElement predicate triple.
   return triple
 }
-export const validListItem = matchesProperty('actionStatus', 'ended')
 
 // Reducer to replace the items with filled versions. Filters out the invalids.
 export function fixListItem(items) {
   return (res, listItem, key) => {
-    if (!validListItem(listItem)) return res
+    if (!isValidListItem(listItem)) return res
     // Use first object key to get filled entity.
     const item = get(listItem.item, key0(items))
     return set(res, key, listItem.set('item', item))

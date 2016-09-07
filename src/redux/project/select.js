@@ -1,17 +1,23 @@
-import { entityTypeSelector, rebuildEntitySelector } from 'redux-graph'
+import {
+  entityDomainIncludes, entityTypeSelector, rebuildEntitySelector,
+} from 'redux-graph'
 import { createSelector } from 'reselect'
 import find from 'lodash/find'
 
-import { select } from '../utils'
+import { getProps, select } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
 import {
-  collectionType, favTitle, findActive, fixListItems, listItemIndex, orderListItems,
+  collectionType, favTitle, findActive, fixListItems, liType, listItemIndex, orderListItems,
+  getItemCollections,
 } from './helpers'
 
-// This will select all collection lists from the database.
+// Select all CollectionList entities from the database.
 export const collectionListSelector = entityTypeSelector(collectionType)
+// Select all ListItem entities.
+export const ListItemSelector = entityTypeSelector(liType)
+// Is the CollectionList the default favorite one?
 export function isFavList(list) {
   return list.title === favTitle
 }
@@ -33,6 +39,7 @@ export const listItems = createSelector(
   itemsFilled,
   fixListItems
 )
+
 export const activeListItem = createSelector(
   listElements,
   findActive,
@@ -71,3 +78,12 @@ export const createCollectionList = createSelector(
   buildCollectionList
 )
 // Need to know if we should display a confirm window or a projectEdit window.
+// Select props.item.id from (state, props)
+export const itemId = select('item.id', getProps)
+// Need to ListItems this textile shows up on.
+export const itemParents = entityDomainIncludes(itemId)
+export const itemLists = select('domainIncludes.item', itemParents, {})
+export const itemCollections = createSelector(
+  itemLists,
+  getItemCollections
+)

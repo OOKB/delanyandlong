@@ -1,8 +1,10 @@
-import { create, entityHasType } from 'redux-graph'
+import { create, entityHasType, key0, val0 } from 'redux-graph'
 import find from 'lodash/find'
+import get from 'lodash/get'
 import keyBy from 'lodash/keyBy'
+import mapValues from 'lodash/mapValues'
+import matchesProperty from 'lodash/matchesProperty'
 import orderBy from 'lodash/orderBy'
-import keys from 'lodash/keys'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
@@ -42,15 +44,14 @@ export function createCollectionItemTriple(list, item, agent, position) {
   // The item is attached to the list by adding an itemListElement predicate triple.
   return triple
 }
-export function validListItem(listItem) { return listItem.actionStatus !== 'ended' }
-export function key0(obj) { return keys(obj)[0] }
-// Use first object key to get filled entity.
-export function getFirstVal(obj, items) { return items[key0(obj)] }
+export const validListItem = matchesProperty('actionStatus', 'ended')
+
 // Reducer to replace the items with filled versions. Filters out the invalids.
 export function fixListItem(items) {
   return (res, listItem, key) => {
     if (!validListItem(listItem)) return res
-    const item = getFirstVal(listItem.item, items)
+    // Use first object key to get filled entity.
+    const item = get(listItem.item, key0(items))
     return set(res, key, listItem.set('item', item))
   }
 }
@@ -65,4 +66,14 @@ export function orderListItems(listItems) {
 }
 export function findActive(listItems) {
   return find(listItems, { actionStatus: 'created' })
+}
+export function getItemCollection(list) {
+  return list.set('collection', val0(list.domainIncludes.itemListElement))
+  .without('domainIncludes')
+}
+export function getItemCollections(lists) {
+  console.log('lis', lists)
+  const listElems = mapValues(lists, getItemCollection)
+  console.log(listElems)
+  return listElems
 }

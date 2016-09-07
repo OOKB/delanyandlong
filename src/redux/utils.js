@@ -20,8 +20,8 @@ export function getSelect(collectionSelector, idSelector) {
   return selector
 }
 
-export function select(path, selector = identity) {
-  return state => get(selector(state), path)
+export function select(path, selector = identity, defaultValue) {
+  return state => get(selector(state), path, defaultValue)
 }
 
 export function createAction(type, payloadCreator) {

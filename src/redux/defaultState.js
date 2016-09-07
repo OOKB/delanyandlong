@@ -49,8 +49,18 @@ const state = {
       printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
     menu: [
-      { id: 'about', href: '/about', label: 'About Us', icon: 'info' },
-      { id: 'contact', href: '/contact', label: 'Contact Us', icon: 'envelope-o' },
+      {
+        id: 'about',
+        href: '/about',
+        label: 'About Us',
+        icon: 'info'
+      },
+      {
+        id: 'contact',
+        href: '/contact',
+        label: 'Contact Us',
+        icon: 'envelope-o'
+      },
       {
         id: 'pricelist',
         href: '/trade/pricelist',
@@ -60,7 +70,7 @@ const state = {
       {
         id: 'tradeLogin',
         href: '/trade',
-        icon: 'user',
+        icon: 'trade-login',
         label: 'Trade Login',
         validators: [ 'isAnonymous' ],
       },

@@ -8,7 +8,7 @@ import Related from '../containers/Related'
 
 function NavItem({ onClick, ...props }) {
   return (
-    <li onClick={onClick} role="button" className="button">
+    <li onClick={onClick} role="button" className="button left">
       <div className="wrap">
         <ItemImg {...props} />
       </div>
@@ -21,7 +21,7 @@ NavItem.propTypes = {
 
 function Item({ item }) {
   return (
-    <li>
+    <li className="left">
       <ItemFav item={item} />
       <Related parent={item} />
       <Link href={item.link} className="wrap">

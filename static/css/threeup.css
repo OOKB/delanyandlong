@@ -5,19 +5,18 @@
 
 .filmStrip li:first-child,
 .filmStrip li:last-child {
-	width: 10%;
+  width: 10%;
 }
 
 .filmStrip li:nth-child(2) {
-	width: 80%;
+  width: 80%;
 }
 
 .filmStrip li {
-  float:left;
-	position: relative;
-	height: 250px;
-	overflow: hidden;
-	margin-bottom: 2px;
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 2px;
   padding: 2px;
 }
 

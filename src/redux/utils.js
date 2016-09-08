@@ -24,6 +24,14 @@ export function getSelect(collectionSelector, idSelector) {
 export function select(path, selector = identity, defaultValue) {
   return (state, props, ...args) => get(selector(state, props, ...args), path, defaultValue)
 }
+
+export function createSimpleSelector(...funcs) {
+  const last = funcs.pop()
+  return (state, props, ...args) => {
+    const params = funcs.map(dependency => dependency(state, props, ...args))
+    return last(...params)
+  }
+}
 export function thunkAction(...funcs) {
   const action = funcs.pop()
   return (props, ...args) => (dispatch, getState) => {

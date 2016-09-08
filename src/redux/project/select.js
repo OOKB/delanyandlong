@@ -58,11 +58,10 @@ export function buildCollectionList(agent, creator, mainEntity, title) {
     type: collectionType,
   }
 }
-export function getTitle(props, defaultTitle) {
-  return props && props.title || defaultTitle
-}
+export const getTitle = select('title', getProps, favTitle)
+
 export function collectionListAgent(state, props) {
-  if (getTitle(props)) return getUser(state)
+  if (getTitle(state, props)) return getUser(state)
   return getWebApp(state)
 }
 // create a new Favs list for the user.
@@ -70,7 +69,7 @@ export const createCollectionList = createSelector(
   collectionListAgent,
   getUser,
   getDataFeed,
-  (state, props) => getTitle(props, favTitle),
+  getTitle,
   buildCollectionList
 )
 // Need to know if we should display a confirm window or a projectEdit window.

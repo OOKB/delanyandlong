@@ -6,4 +6,7 @@ export const state = immutable({
     gender: 'bar',
   },
 })
-export const props = { item: { id: 'bar' } }
+export const props = {
+  item: { id: 'bar' },
+  title: 'strawberry',
+}

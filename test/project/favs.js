@@ -1,7 +1,7 @@
 import test from 'tape'
 import {
   createCollectionList, createCollectionItemTriple, getCollection, mainEntity,
-} from '../../src/redux/dispatch/favs'
+} from '../../src/redux/project/select'
 
 const creator = { id: 'user0', type: 'Person', name: 'Anonymous' }
 test('createCollectionList()', t => {

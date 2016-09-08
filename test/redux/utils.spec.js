@@ -1,6 +1,6 @@
 import test from 'tape'
 
-import { getProps, select } from '../../src/redux/utils'
+import { getProps, select, firstValArg } from '../../src/redux/utils'
 import { state, props } from '../mock'
 
 test('select()', t => {
@@ -16,5 +16,11 @@ test('select()', t => {
 })
 test('getProps', t => {
   t.equal(getProps(state, props), props, 'props')
+  t.end()
+})
+test('firstValArg', t => {
+  t.equal(firstValArg(1, 0, 2), 1, 'arg0')
+  t.equal(firstValArg(0, 0, 2), 2, 'arg2')
+  t.equal(firstValArg(undefined, null, '', 'hot'), 'hot', 'arg3')
   t.end()
 })

@@ -1,4 +1,5 @@
 import get from 'lodash/get'
+import find from 'lodash/find'
 import identity from 'lodash/identity'
 import isError from 'lodash/isError'
 import isFunction from 'lodash/isFunction'
@@ -48,6 +49,6 @@ export function createAction(type, payloadCreator) {
     return action
   }
 }
-export function firstValArg(arg1, arg2, arg3) {
-  return arg1 || arg2 || arg3 || null
+export function firstValArg(...args) {
+  return find(args)
 }

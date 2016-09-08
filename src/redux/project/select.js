@@ -9,9 +9,9 @@ import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
 import {
-  collectionType, favTitle, findActive, fixListItems, liType, listItemIndex, orderListItems,
-  getItemCollections, isFavList,
+  findActive, fixListItems, listItemIndex, orderListItems, getItemCollections, isFavList,
 } from './helpers'
+import { collectionType, liType, favTitle } from './const'
 
 // Select all CollectionList entities from the database.
 export const collectionListSelector = entityTypeSelector(collectionType)
@@ -58,6 +58,7 @@ export function buildCollectionList(agent, creator, mainEntity, title) {
     type: collectionType,
   }
 }
+console.log(favTitle)
 export const getTitle = select('title', getProps, favTitle)
 
 export function collectionListAgent(state, props) {

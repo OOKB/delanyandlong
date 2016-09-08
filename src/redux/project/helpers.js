@@ -10,12 +10,8 @@ import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
 import { createCollectionList, favsListSelector } from './select'
+import { collectionType, liType, favTitle } from './const'
 
-// List of what kind of things.
-
-export const collectionType = 'CollectionList'
-export const liType = 'ListItem'
-export const favTitle = 'Favorites'
 export const isValidCollection = entityHasType(collectionType)
 // Valid unless ended/removed.
 export const isValidListItem = negate(matchesProperty('actionStatus', 'ended'))

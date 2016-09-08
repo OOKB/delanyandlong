@@ -11,6 +11,6 @@ test('getItemId()', t => {
 
 test('getTitle', t => {
   t.equal(getTitle(state, props), 'strawberry', 'getTitle with prop')
-  t.equal(getTitle(state, {}), 'Favorites', 'no props')
+  t.equal(getTitle(state), 'Favorites', 'no props')
   t.end()
 })

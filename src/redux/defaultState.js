@@ -53,13 +53,13 @@ const state = {
         id: 'about',
         href: '/about',
         label: 'About Us',
-        icon: 'info'
+        icon: 'info-circle-btm',
       },
       {
         id: 'contact',
         href: '/contact',
         label: 'Contact Us',
-        icon: 'envelope-o'
+        icon: 'envelope-o',
       },
       {
         id: 'pricelist',

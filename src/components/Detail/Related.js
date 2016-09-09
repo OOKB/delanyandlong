@@ -9,7 +9,7 @@ const style = {
   },
   open: {
     boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',
-    height: 'calc(100% - 25px - 1.3em - 1.3em)',
+    height: 'auto',
   },
 }
 function getStyle(isOpen) {

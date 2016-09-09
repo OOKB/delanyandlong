@@ -40,7 +40,7 @@
 #detailWrapper > img {
   position: absolute;
   left:50%;
-  top:50%;
+  top: calc(50% + 2.5em);
   -webkit-transform: translate(-50%,-50%);
   -moz-transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
@@ -138,22 +138,22 @@
 
 #related-colors > ul {
   width: 100%;
-  height: calc(100% - 2em + 1px);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow:hidden;
+  overflow-y: auto;
+  max-height: calc(100% - 2em);
 }
 
 #related-colors > ul li {
-  flex: 1;
+  max-height: 3rem;
+  position: relative;
   overflow: hidden;
 }
 
-#related-colors > ul li + li {
-  flex: 1;
+#related-colors > ul li a,
+#related-colors > ul li span {
+  position: relative;
+  max-height: 3rem;
+  height: 100%;
   overflow: hidden;
-  border-top: 1px solid rgb(242,239,229);
 }
 
 #related-colors button.colors-header {

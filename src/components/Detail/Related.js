@@ -13,8 +13,8 @@ const style = {
   },
 }
 function getStyle(isOpen) {
-  if (isOpen) return style.closed
-  return style.open
+  if (isOpen) return style.open
+  return style.closed
 }
 
 function Related({ close, colors, isOpen, open, parent }) {

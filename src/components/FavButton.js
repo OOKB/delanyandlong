@@ -6,7 +6,7 @@ function FavButton({ favorited, onClick }) {
     return (
       <ButtonEl
         className="favorite"
-        icon="minus"
+        icon="minus-btl"
         onClick={onClick}
         title="Remove this item from favorites"
       />
@@ -15,7 +15,7 @@ function FavButton({ favorited, onClick }) {
   return (
     <ButtonEl
       className="favorite"
-      icon="plus"
+      icon="plus-btl"
       onClick={onClick}
       title="Favorite this item"
     />

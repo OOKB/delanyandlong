@@ -22,7 +22,7 @@ function Pager(props) {
   return (
     <div id="pager" className="flex-center bt2 bb1">
       <button onClick={prev} className={pgBtnClass('prev', !hasLess)} disabled={!hasLess}>
-        <i className="fa fa-chevron-left" aria-hidden="true"></i>
+        <i className="fa fa-angle-left" aria-hidden="true"></i>
       </button>
       <SelectEl
         label="Display Style"
@@ -46,7 +46,7 @@ function Pager(props) {
       />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
-        <i className="fa fa-chevron-right" aria-hidden="true"></i>
+        <i className="fa fa-angle-right" aria-hidden="true"></i>
       </button>
     </div>
   )

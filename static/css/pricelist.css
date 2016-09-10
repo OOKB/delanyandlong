@@ -138,6 +138,7 @@ td.favButton .favorite-container .popup {
 /*** trying to figure out how to style pricelist filters ***/
 /***********************************************************/
 /***********************************************************/
+
 .select-type {
   max-width: 800px;
 }
@@ -249,6 +250,8 @@ td.favButton .favorite-container .popup {
   }
   #pager .pagecount {
     left: calc(100% / 3);
+    font-size: .8rem;
+    line-height: 1.5rem;
   }
   #pager .inputSelect {
     height: 3rem;

@@ -4,113 +4,47 @@
 /******************************************/
 /******************************************/
 
-.detailHeader .logo {
-  min-width: none;
-  height: 25px;
-  margin: 0 0 0 .75em;
-  padding-top:    3px;
-  padding-bottom: 3px;
-}
-
-.detailHeader .logo svg {
-  min-width: none;
-  height: 19px;
-  margin: 0;
-}
-
-#detailWrapper > .close {
-  right: 0;
-  top: 0;
-  height: 25px;
-  border-top: 0;
-  width: 10%;
-  z-index: 99;
-}
-
-#detailWrapper,
-.detailHeader {
-  top:0;
-  right:0;
-  left:0;
-}
 #detailWrapper {
-  bottom:0;
-  overflow: hidden;
-}
-#detailWrapper > img {
-  position: absolute;
-  left:50%;
-  top: calc(50% + 2.5em);
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  z-index: 1;
+  width: 100%;
 }
 
 .detailHeader {
-  z-index: 10;
-  height: 25px;
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
-  border-bottom: 1px solid black;
+  text-align: center;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid;
 }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Pseudo-BNF */
-@media (min-aspect-ratio: 1/1) {
-  #detailWrapper > img {
-    width: 100%;
-    height: auto;
-  }
-}
-@media (max-aspect-ratio: 1/1) {
-  #detailWrapper > img {
-    height: 100%;
-    width: auto;
-  }
+.detailHeader .logo,
+.detailHeader .logo svg {
+  margin: 0 auto;
+  height: 1.5rem;
+  width: auto;
 }
 
-.item-information {
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
-  left: 0;
-  right: 0;
-  top:24px;
-  box-shadow: 0 0 1em 0 rgba(132,133,94,.5);
-  font-size: .9rem;
-  z-index: 9;
+.item-information ul {
+  text-align: center;
+  padding: 1rem 1rem 1.5rem;
 }
 
-.item-information h3 {
-  font-size: .9em;
-  color: rgb(33,33,24);
-  color: rgba(33,33,24,1);
+.item-information ul li + li {
+  margin-top: 1rem;
 }
 
-.item-information button.favorite {
-  font-size: 2em;
-  width: 2em;
-  height: 1.8em;
-  left: 0;
-  top: 0;
-  border-left: 0px;
+.item-information ul li h3 {
+  color: rgba(061,060,057,1);
+  font-size: .75em;
+  letter-spacing: 2px;
 }
 
-@media (min-width: 48rem) {
-  .item-information ul.flex-center {
-    padding-left: 4em;
-    padding-right: 10em;
-    align-items: stretch;
-  }
-  .item-information ul.flex-center li {
-    padding: .6em;
-  }
-  .item-information ul.flex-center li + li {
-    border-left: 1px solid;
-    border-color: rgb(33,33,24);
-    border-color: rgba(33,33,24,1);
-  }
+#detailWrapper .close {
+  top: 1.25em;
+  right: 1.25em;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0 .5rem 0 rgba(066,067,047,.6);
+  border-color: transparent;
 }
 
 /******************************************/
@@ -118,77 +52,3 @@
 /** Additional Colors **/
 /******************************************/
 /******************************************/
-#related-colors * {
-  transition: all 400ms;
-}
-
-#related-colors {
-  font-size: .9rem;
-  position: absolute;
-  right: 0;
-  top: 24px;
-  z-index: 11;
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
-  box-shadow: 0 .25em .75em 0 rgba(65,65,45,.75);
-  width: 10%;
-  height: calc(100% - 25px - 1.3em - 1.3em);
-  transition: all 400ms ease;
-}
-
-#related-colors > ul {
-  width: 100%;
-  overflow-y: auto;
-  max-height: calc(100% - 2em);
-}
-
-#related-colors > ul li {
-  max-height: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-#related-colors > ul li a,
-#related-colors > ul li span {
-  position: relative;
-  max-height: 3rem;
-  height: 100%;
-  overflow: hidden;
-}
-
-#related-colors button.colors-header {
-  display: block;
-  background: transparent;
-  border: 1px solid black;
-  line-height: 3rem;
-  height: calc(3rem + 4px);
-  width: 100%;
-  z-index: 999;
-
-  /** from pricelist filter buttons **/
-  cursor: pointer;
-  font-family: inherit;
-  white-space: nowrap;
-  color: rgb(66, 67, 47);
-  padding: 0 1rem;
-  -webkit-appearance: none;
-  appearance: none;
-  transition: all .2s ease;
-}
-
-#related-colors button.colors-header:focus,
-#related-colors button.colors-header:hover {
-  color: rgb(066,067,047);
-  color: rgba(066,067,047,1);
-  outline: none;
-  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-}
-
-#detailWrapper .favorite-container .popup {
-  left: .75rem;
-  top: 4em;
-}

@@ -9,7 +9,7 @@ const style = {
   },
   open: {
     boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',
-    height: 'auto',
+    height: '5rem',
   },
 }
 function getStyle(isOpen) {
@@ -24,13 +24,11 @@ function Related({ close, colors, isOpen, open, parent }) {
       <button className="colors-header" onClick={toggle}>
         <i className="fa fa-caret-down" aria-hidden="true"></i> Additional Colors
       </button>
-      {isOpen &&
-        <ul className="list-reset">
-          {map(colors, color =>
-            <Color key={color.colorNumber} parent={parent} color={color} />
-          )}
-        </ul>
-      }
+      <ul className="list-reset">
+        {map(colors, color =>
+          <Color key={color.colorNumber} parent={parent} color={color} />
+        )}
+      </ul>
     </div>
   )
 }

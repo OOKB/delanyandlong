@@ -31,14 +31,17 @@ function PricelistRowPattern({ columns, item, printWhenColor }) {
   })
   return (
     <tr className={className}>
+
       {map(columns, ({ value }) => (
         <td key={value} style={cellStyles[value]} className={value}>
           {cellValue(item, value, printWhenColor)}
         </td>
       ))}
+
       <td className="favButton">
         <ItemFav item={item} />
       </td>
+
     </tr>
   )
 }

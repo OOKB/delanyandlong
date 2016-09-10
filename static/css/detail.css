@@ -24,7 +24,8 @@
 
 .item-information ul {
   text-align: center;
-  padding: 1rem 1rem 1.5rem;
+  padding: 1.5rem;
+  font-size: .9rem;
 }
 
 .item-information ul li + li {
@@ -33,13 +34,13 @@
 
 .item-information ul li h3 {
   color: rgba(061,060,057,1);
-  font-size: .75em;
+  font-size: .7rem;
   letter-spacing: 2px;
 }
 
+#detailWrapper .favorite,
 #detailWrapper .close {
   top: 1.25em;
-  right: 1.25em;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 1.25rem;
@@ -47,8 +48,76 @@
   border-color: transparent;
 }
 
+#detailWrapper .close {
+  right: 1.25em;
+}
+
+#detailWrapper .favorite {
+  left: 1.25em;
+}
+
+@media (min-width: 50rem) {
+  #detailWrapper {
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    overflow: hidden;
+  }
+
+  .item-information ul {
+    text-align: left;
+    padding: 0 0 0 3rem;
+    display: flex;
+  }
+  .item-information ul li {
+    border-left: 1px solid;
+    padding: 1em;
+    flex: 1;
+  }
+  .item-information ul li + li {
+    margin-top: 0;
+  }
+  .item-information,
+  .item-information .favorite-container {
+    position: relative;
+  }
+  .item-information .favorite-container {
+    height: 100%;
+  }
+  #detailWrapper .favorite {
+    top: 0;
+    left: 0;
+    width: 3rem;
+    border-radius: 0;
+    box-shadow: none;
+    border-color: transparent;
+  }
+  #detailWrapper .favorite .fa {
+    font-size: 2rem;
+  }
+}
+
 /******************************************/
 /******************************************/
 /** Additional Colors **/
 /******************************************/
 /******************************************/
+
+#related-colors .colors-header {
+  width: 100%;
+  height: 1.5rem;
+  margin: 0;
+  background: white;
+  border: none;
+  border-bottom: 1px solid;
+  display: block;
+}
+
+#related-colors ul {
+  display: flex;
+}
+
+#related-colors ul li {
+  flex: 1;
+}

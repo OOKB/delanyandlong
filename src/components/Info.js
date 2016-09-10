@@ -7,7 +7,7 @@ function Info({ item, fields }) {
   return (
     <div className="item-information">
       <ItemFav item={item} />
-      <ul className="list-reset bb1 black-border">
+      <ul className="list-reset bb1">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
             <h3 className="m0 uppercase small">{label}</h3>

@@ -5,7 +5,7 @@ import Color from './RelatedColor'
 const style = {
   closed: {
     boxShadow: '0 0 0 0 rgba(65,65,45,0)',
-    height: 'calc(3rem + 4px)',
+    height: '1.5rem',
   },
   open: {
     boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',

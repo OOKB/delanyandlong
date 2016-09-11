@@ -1,12 +1,11 @@
 import { create, createTriple, entityUpdate } from 'redux-graph'
 import { getUser } from '../select/user'
 import { isAnonymous } from '../auth/select'
-import { thunkAction } from '../utils'
+import { isValidCollection } from './lang'
 import {
-  createCollectionItem, createCollectionItemTriple,
-  isValidCollection,
-} from './helpers'
-import { activeListItem, createCollectionList, favId, getActiveCollection } from './select'
+  createCollectionItem, createCollectionList, createCollectionItemTriple, endListItem,
+} from './entity'
+import { activeListItem, getActiveCollection } from './select'
 
 export function confirmFavorite(id) {
   return entityUpdate({ id, actionStatus: 'confirmed', dateUpdated: new Date() })
@@ -49,5 +48,6 @@ export function editItemCollections(item) {
   }
 }
 
-// Create thunk action.
-export const endFavorite = thunkAction(endFavFields, entityUpdate)
+export function endFavorite(id) {
+  return entityUpdate(endListItem(id))
+}

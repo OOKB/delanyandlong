@@ -49,7 +49,7 @@ export const itemParents = entityDomainIncludes(getItemId)
 export const itemLists = select('domainIncludes.item', itemParents)
 // Reorder list -> collection to collection -> list. Returns object or null if no list.
 export const itemCollections = createSelector(itemLists, getItemCollections)
-export const itemHasCollections = boolSelector(itemCollections)
+export const itemInCollections = boolSelector(itemCollections)
 export const itemFavCollection = createSelector(itemCollections, findCreator(isFavList))
 // Need to know if we should display a confirm window or a projectEdit window.
 // Find fav or active collection under edit.
@@ -75,5 +75,6 @@ export const buildCollectionList = createSelector(
 // ITEM CONTAINER
 // Used in the ItemFav container.
 export const mapStateToProps = createStructuredSelector({
-  itemHasCollections,
+  itemInCollections,
+  itemCollections,
 })

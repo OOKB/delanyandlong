@@ -1,29 +1,24 @@
 import React, { PropTypes } from 'react'
-import partial from 'lodash/partial'
 
-import FavAlert from './FavAlert'
+// import FavAlert from './FavAlert'
 import FavButton from './FavButton'
-
-function Fav({ actionStatus, confirmFavorite, endFavorite, favoriteItem, id, item }) {
-  const favorited = actionStatus && actionStatus !== 'ended' || false
-  const favToggle = favorited ? partial(endFavorite, id) : partial(favoriteItem, item)
+// {actionStatus === 'created' &&
+//   <FavAlert item={item} onClick={partial(confirmFavorite, id)} />
+// }
+function Fav({ collections, editItemCollections }) {
   return (
     <div className="favorite-container">
-      {actionStatus === 'created' &&
-        <FavAlert item={item} onClick={partial(confirmFavorite, id)} />
-      }
-      <FavButton favorited={favorited} item={item} onClick={favToggle} />
+      <FavButton favorited={!!collections} onClick={editItemCollections} />
     </div>
   )
 }
 
 Fav.propTypes = {
   actionStatus: PropTypes.string,
-  confirmFavorite: PropTypes.func.isRequired,
-  endFavorite: PropTypes.func.isRequired,
-  favoriteItem: PropTypes.func.isRequired,
-  id: PropTypes.string,
-  item: PropTypes.object.isRequired,
+  collections: PropTypes.object.isRequired,
+  // confirmFavorite: PropTypes.func.isRequired,
+  editItemCollections: PropTypes.func.isRequired,
+  // endFavorite: PropTypes.func.isRequired,
 }
 
 export default Fav

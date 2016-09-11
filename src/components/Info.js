@@ -5,9 +5,9 @@ import ItemFav from '../containers/ItemFav'
 
 function Info({ item, fields }) {
   return (
-    <div className="item-information fixed">
+    <div className="item-information">
       <ItemFav item={item} />
-      <ul className="flex-center list-reset text-left bb1 black-border">
+      <ul className="list-reset bb1">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>
             <h3 className="m0 uppercase small">{label}</h3>

@@ -18,6 +18,7 @@
   border: none;
   line-height: 3rem;
   font-size: 2rem;
+  padding: 0;
 
   color:rgba(132,133,094,1);
   cursor: pointer;
@@ -114,7 +115,7 @@ td.favButton .favorite-container .popup {
 
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/
 /** It also provides a cool scrolling table feature **/
-@media (max-width: 65em) {
+@media (max-width: 69rem) {
   .table-scroll {
     display: block;
     overflow: auto;
@@ -138,6 +139,7 @@ td.favButton .favorite-container .popup {
 /*** trying to figure out how to style pricelist filters ***/
 /***********************************************************/
 /***********************************************************/
+
 .select-type {
   max-width: 800px;
 }
@@ -249,6 +251,8 @@ td.favButton .favorite-container .popup {
   }
   #pager .pagecount {
     left: calc(100% / 3);
+    font-size: .8rem;
+    line-height: 1.5rem;
   }
   #pager .inputSelect {
     height: 3rem;

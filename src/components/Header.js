@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className="main-menu">
       <Logo />
-      <nav className="mt05 pt05">
+      <nav className="mt1">
         <Menu />
       </nav>
     </header>

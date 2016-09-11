@@ -1,85 +1,79 @@
 import {
-  entityDomainIncludes, entityTypeSelector, rebuildEntitySelector,
+  entityDomainIncludes, entityTypeSelector, rebuildEntitiesSelector,
 } from 'redux-graph'
 import { createSelector } from 'reselect'
-import find from 'lodash/find'
 
-import { getProps, select } from '../utils'
+import { boolSelector, getProps, select } from '../utils'
+import { createCollectionList } from './entity'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
+// import { isAnonymous } from '../auth/select'
+
 import {
-  findActive, fixListItems, listItemIndex, orderListItems, getItemCollections, isFavList,
+  findActive, fixListItems, listItemIndex, orderListItems, getItemCollections,
 } from './helpers'
+import { isFavList } from './lang'
+import { filterCreator, findCreator } from './util'
 import { collectionType, liType, favTitle } from './const'
+
+// COLLECTIONS
 
 // Select all CollectionList entities from the database.
 export const collectionListSelector = entityTypeSelector(collectionType)
+export const collections = rebuildEntitiesSelector(collectionListSelector)
 // Select all ListItem entities.
-export const ListItemSelector = entityTypeSelector(liType)
-// Find user favs project from list entities.
-export function findFavList(listEntities) {
-  return find(listEntities, isFavList)
-}
+export const listItemSelector = entityTypeSelector(liType)
 
-// Grab all collectionList entities and return user favorites project.
-export const favsListSelector = createSelector(
-  collectionListSelector,
-  findFavList,
-)
-export const favsListId = select('id', favsListSelector)
-export const listSelector = rebuildEntitySelector(favsListId)
-export const listElements = select('itemListElement', listSelector)
-export const listItems = createSelector(
-  listElements,
-  itemsFilled,
-  fixListItems
-)
+// USER COLLECTIONS
 
-export const activeListItem = createSelector(
-  listElements,
-  findActive,
-)
-export const hasFavorites = createSelector(
-  listElements,
-  (els) => !! els
-)
+// Find user collections.
+export const userCollections = createSelector(collections, getUser, filterCreator('creator'))
+export const userHasCollections = boolSelector(userCollections)
+// Find (first) user favs project from list entities.
+export const favsListSelector = createSelector(userCollections, findCreator(isFavList))
+export const favListElements = select('itemListElement', favsListSelector)
+export const userHasFavorites = boolSelector(favListElements)
+export const listItems = createSelector(favListElements, itemsFilled, fixListItems)
+
+export const activeListItem = createSelector(favListElements, findActive)
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
 
-export function buildCollectionList(agent, creator, mainEntity, title) {
-  return {
-    additionalType: 'ProjectDelanyLong',
-    agent,
-    creator, // User that created the thing.
-    itemListOrder: 'Ascending',
-    mainEntity, // List of what.
-    title,
-    type: collectionType,
-  }
-}
-console.log(favTitle)
-export const getTitle = select('title', getProps, favTitle)
+// ITEM LISTS & COLLECTIONS
 
-export function collectionListAgent(state, props) {
-  if (getTitle(state, props)) return getUser(state)
-  return getWebApp(state)
-}
-// create a new Favs list for the user.
-export const createCollectionList = createSelector(
-  collectionListAgent,
-  getUser,
-  getDataFeed,
-  getTitle,
-  buildCollectionList
-)
-// Need to know if we should display a confirm window or a projectEdit window.
 // Select props.item.id from (state, props)
 export const getItemId = select('item.id', getProps)
 // Need to ListItems this textile shows up on.
 export const itemParents = entityDomainIncludes(getItemId)
-export const itemLists = select('domainIncludes.item', itemParents, {})
-export const itemCollections = createSelector(
-  itemLists,
-  getItemCollections
+export const itemLists = select('domainIncludes.item', itemParents)
+// Reorder list -> collection to collection -> list. Returns object or null if no list.
+export const itemCollections = createSelector(itemLists, getItemCollections)
+export const itemHasCollections = boolSelector(itemCollections)
+export const itemFavCollection = createSelector(itemCollections, findCreator(isFavList))
+// Need to know if we should display a confirm window or a projectEdit window.
+// Find fav or active collection under edit.
+// export const getActiveCollection = createSimpleSelector(favCollection, firstValArg)
+// export const favId = select('itemListElement.id', favCollection)
+// export const favIfAnon = createSelector(isAnonymous, favCollection, (anon, favs) => anon && favs)
+// export const itemIcon = createSelector(itemCollections, getItemIcon)
+// // Used in the container.
+// export const mapStateToProps = createStructuredSelector({
+//   collections: itemCollections,
+//   favCollection,
+//   isAnonymous,
+// })
+
+// CREATE
+
+// Gep props.litlte or return favTitle default.
+export const getTitle = select('title', getProps, favTitle)
+// Return user if there was a title set. Otherwise return webApp.
+export function collectionListAgent(state, props) {
+  if (getTitle(state, props) !== favTitle) return getUser(state)
+  return getWebApp(state)
+}
+// create a new Favs list for the user.
+export const buildCollectionList = createSelector(
+  collectionListAgent, getUser, getDataFeed, getTitle, createCollectionList
 )

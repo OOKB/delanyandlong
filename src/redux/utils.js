@@ -32,6 +32,9 @@ export function createSimpleSelector(...funcs) {
     return last(...params)
   }
 }
+export function boolSelector(selector) {
+  createSimpleSelector(selector, res => !!res)
+}
 export function thunkAction(...funcs) {
   const action = funcs.pop()
   return (props, ...args) => (dispatch, getState) => {

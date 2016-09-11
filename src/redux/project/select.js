@@ -3,7 +3,7 @@ import {
 } from 'redux-graph'
 import { createSelector, createStructuredSelector } from 'reselect'
 
-import { boolSelector, getProps, select } from '../utils'
+import { boolSelector, getProps, select, createSimpleSelector } from '../utils'
 import { createCollectionList } from './entity'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
@@ -68,7 +68,7 @@ export function collectionListAgent(state, props) {
   return getWebApp(state)
 }
 // create a new Favs list for the user.
-export const buildCollectionList = createSelector(
+export const buildCollectionList = createSimpleSelector(
   collectionListAgent, getUser, getDataFeed, getTitle, createCollectionList
 )
 

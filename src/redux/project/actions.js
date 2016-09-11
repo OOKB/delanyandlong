@@ -1,10 +1,8 @@
 import { create, createTriple, entityUpdate } from 'redux-graph'
 import { getUser } from '../select/user'
 import { isAnonymous } from '../auth/select'
-import {
-  createCollectionItem, createCollectionList, createCollectionItemTriple, endListItem,
-} from './entity'
-import { activeListItem, favsListSelector, userHasCollections } from './select'
+import { createCollectionItemTriple, endListItem } from './entity'
+import { activeListItem, buildCollectionList, favsListSelector, userHasCollections } from './select'
 
 export function confirmFavorite(id) {
   return entityUpdate({ id, actionStatus: 'confirmed', dateUpdated: new Date() })
@@ -13,13 +11,15 @@ export function confirmActive(state, dispatch) {
   const itemToConfirm = activeListItem(state)
   if (itemToConfirm) dispatch(confirmFavorite(itemToConfirm.id))
 }
+// Create favs collection for user.
+export function createUserFavCollection(dispatch, getState) {
+  const collection = buildCollectionList(getState())
+  return create(collection)
+}
 // Make sure the user has a favs collection created.
-
-// We need to know what collection we are adding this item to.
 export function ensureUserHasCollection(dispatch, getState) {
-  const state = getState()
-  if (!userHasCollections(state)) {
-    return create(dispatch, createCollectionList(state))
+  if (!userHasCollections(getState())) {
+    return createUserFavCollection(dispatch, getState)
   }
   return null
 }

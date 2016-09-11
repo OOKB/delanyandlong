@@ -1,9 +1,25 @@
-Need two different actions that happen when a user clicks '+' next to an item.
+## Status
 
-1. When a user `isAnonymous` it should add to the favorites project.
-1. When a user `isAuthenticated` it should display a popup asking what project to add the item to.
+- `noList` - Item not in any list.
+- `inList` - auth in list.
+- `editing` - Auth can add/remove/edit.
 
-The icon needs three display modes.
-1. (+) User has not added to the item to any projects.
-1. (-) Anon user has item in favorites.
-1. (...) Auth user has item in a project.
+## onClick
+
+1. `noList` (+) Create `ListItem` entity associated with item. Create default favs collection list if user has no others. Display edit window.
+1. `inList` (...) Display edit window.
+1. `editing` (x) Close edit window.
+
+## Editing Window
+
+- `projects` List of projects the item is in. Remove and Edit button next to each. Dropdown to add to other projects. Option to make new project.
+- `project` Project detail. Allow editing comment, position or remove from collection.
+- `addProject` Add project.
+
+## Item Icons
+1. `noList` (+) Create `ListItem` entity associated with item. Create default favs collection list if user has no others. Display edit window.
+1. `inList` (...) Display edit window.
+1. `editing` (x) Close edit window.
+
+## State
+- Editing specific `ListItem`.

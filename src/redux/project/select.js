@@ -1,7 +1,7 @@
 import {
   entityDomainIncludes, entityTypeSelector, rebuildEntitiesSelector,
 } from 'redux-graph'
-import { createSelector } from 'reselect'
+import { createSelector, createStructuredSelector } from 'reselect'
 
 import { boolSelector, getProps, select } from '../utils'
 import { createCollectionList } from './entity'
@@ -57,12 +57,6 @@ export const itemFavCollection = createSelector(itemCollections, findCreator(isF
 // export const favId = select('itemListElement.id', favCollection)
 // export const favIfAnon = createSelector(isAnonymous, favCollection, (anon, favs) => anon && favs)
 // export const itemIcon = createSelector(itemCollections, getItemIcon)
-// // Used in the container.
-// export const mapStateToProps = createStructuredSelector({
-//   collections: itemCollections,
-//   favCollection,
-//   isAnonymous,
-// })
 
 // CREATE
 
@@ -77,3 +71,9 @@ export function collectionListAgent(state, props) {
 export const buildCollectionList = createSelector(
   collectionListAgent, getUser, getDataFeed, getTitle, createCollectionList
 )
+
+// ITEM CONTAINER
+// Used in the ItemFav container.
+export const mapStateToProps = createStructuredSelector({
+  itemHasCollections,
+})

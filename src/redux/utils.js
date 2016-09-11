@@ -33,7 +33,7 @@ export function createSimpleSelector(...funcs) {
   }
 }
 export function boolSelector(selector) {
-  createSimpleSelector(selector, res => !!res)
+  return createSimpleSelector(selector, res => !!res)
 }
 export function thunkAction(...funcs) {
   const action = funcs.pop()

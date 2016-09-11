@@ -25,7 +25,7 @@ export const collections = rebuildEntitiesSelector(collectionListSelector)
 // Select all ListItem entities.
 export const listItemSelector = entityTypeSelector(liType)
 
-// USER COLLECTIONS
+// USER COLLECTIONS - No props needed.
 
 // Find user collections.
 export const userCollections = createSelector(collections, getUser, filterCreator('creator'))
@@ -40,7 +40,7 @@ export const activeListItem = createSelector(favListElements, findActive)
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
 
-// ITEM LISTS & COLLECTIONS
+// ITEM LISTS & COLLECTIONS. Uses item prop.
 
 // Select props.item.id from (state, props)
 export const getItemId = select('item.id', getProps)

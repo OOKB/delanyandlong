@@ -27,9 +27,8 @@ export function createCollectionItem(item, agent, position = 100) {
 export function createCollectionItemTriple(list, item, agent, position) {
   // Create the ListItem.
   const object = createCollectionItem(item, agent, position)
-  const triple = { subject: list, predicate: 'itemListElement', object }
   // The item is attached to the list by adding an itemListElement predicate triple.
-  return triple
+  return { subject: list, predicate: 'itemListElement', object }
 }
 export function endListItem(id) {
   return { id, actionStatus: 'ended', endTime: new Date() }

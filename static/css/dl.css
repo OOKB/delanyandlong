@@ -27,6 +27,12 @@ html {
   box-sizing: border-box;
 }
 
+html,
+body {
+  min-height: 100%;
+  min-width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +43,6 @@ body {
   font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
   line-height: 1.3;
 }
-
 
 .lead {
   font-size: 1.25em;
@@ -81,6 +86,14 @@ a:hover {
   color: rgb(205,206,191);
   color: rgba(205,206,191,1);
 }
+
+a .description,
+a:hover .description {
+  color: rgb(132,133,94);
+  color: rgba(132,133,94,1);
+  border-bottom: initial;
+}
+
 
 p a:hover {
   border-bottom: 1px solid rgb(132,133,94);

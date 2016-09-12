@@ -78,12 +78,12 @@
   .item-information ul li + li {
     margin-top: 0;
   }
-  .item-information,
-  .item-information .favorite-container {
+  .item-information {
     position: relative;
   }
   .item-information .favorite-container {
     height: 100%;
+    position: absolute;
   }
   #detailWrapper .favorite {
     top: 0;
@@ -92,9 +92,28 @@
     border-radius: 0;
     box-shadow: none;
     border-color: transparent;
+    position: relative;
+    height: calc(100% - 1px);
   }
   #detailWrapper .favorite .fa {
     font-size: 2rem;
+  }
+}
+
+/*****
+  figuring out what to do re: the image???
+  *****/
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Pseudo-BNF */
+@media (min-aspect-ratio: 1/1) {
+  #detailWrapper > img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  #detailWrapper > img {
+    height: 100%;
+    width: auto;
   }
 }
 

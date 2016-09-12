@@ -13,23 +13,17 @@ export function confirmActive(state, dispatch) {
 }
 // Create favs collection for user.
 export function createUserFavCollection(dispatch, getState) {
-  const collection = buildCollectionList(getState())
-  return create(collection)
+  return create(dispatch, buildCollectionList(getState()))
 }
 // Make sure the user has a favs collection created.
 export function ensureUserHasCollection(dispatch, getState) {
-  if (!userHasCollections(getState())) {
-    return createUserFavCollection(dispatch, getState)
-  }
-  return null
+  return !userHasCollections(getState()) && createUserFavCollection(dispatch, getState)
 }
 // We know user is anon and has a favs collection. Create new listItem for favs collection.
 export function addItemToFavs(item) {
   return (dispatch, getState) => {
     const state = getState()
-    const creator = getUser(state)
-    const collection = favsListSelector(state)
-    const triple = createCollectionItemTriple(collection, item, creator)
+    const triple = createCollectionItemTriple(favsListSelector(state), item, getUser(state))
     createTriple(dispatch, triple)
   }
 }

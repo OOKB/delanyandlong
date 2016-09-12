@@ -14,7 +14,7 @@ import {
   findActive, fixListItems, listItemIndex, orderListItems, getItemCollections,
 } from './helpers'
 import { isFavList } from './lang'
-import { filterCreator, findCreator } from './util'
+import { predicateValueContains, findCreator } from './util'
 import { collectionType, liType, favTitle } from './const'
 
 // COLLECTIONS
@@ -28,7 +28,9 @@ export const listItemSelector = entityTypeSelector(liType)
 // USER COLLECTIONS - No props needed.
 
 // Find user collections.
-export const userCollections = createSelector(collections, getUser, filterCreator('creator'))
+export const userCollections = createSelector(
+  collections, getUser, predicateValueContains('creator')
+)
 export const userHasCollections = boolSelector(userCollections)
 // Find (first) user favs project from list entities.
 export const favsListSelector = createSelector(userCollections, findCreator(isFavList))

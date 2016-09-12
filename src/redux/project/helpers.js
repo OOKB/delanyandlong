@@ -35,6 +35,7 @@ export function getLiCollection(listItem) {
 export function setLiCollection(listItem) {
   return listItem.set('collection', getLiCollection(listItem)).without('domainIncludes')
 }
+// Move domainIncludes.itemListElement to collection.
 export function setListItemsCollection(listItems) {
   return mapValues(listItems, setLiCollection)
 }

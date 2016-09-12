@@ -50,10 +50,12 @@ export const getItemId = select('item.id', getProps)
 // Need to ListItems this textile shows up on.
 export const itemParents = entityDomainIncludes(getItemId)
 export const itemListItems = select('domainIncludes.item', itemParents)
+// Reduce to only valid/active listItemElements
 export const itemActiveListItems = createSelector(itemListItems, pickBy(isValidListItem))
+// Move domainIncludes.itemListElement to collection.
 export const itemLists = createSelector(itemActiveListItems, setListItemsCollection)
 export const itemListCreated = createSelector(itemLists, findActionCreated)
-// Reorder list -> collection to collection -> list. Returns object or null if no list.
+// Reorder list -> collection to collection -> listItemElement. Returns object or null if no list.
 export const itemCollections = createSelector(itemLists, invertListItems)
 export const itemInCollections = boolSelector(itemCollections)
 export const itemFavCollection = createSelector(itemCollections, find(isFavList))

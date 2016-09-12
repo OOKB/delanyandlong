@@ -1,0 +1,46 @@
+@off-white:           rgba(242,239,229,1);
+@gold:                rgba(132,133,094,1);
+
+@dark-gold:           rgba(066,067,047,1);
+@light-gray:          rgba(205,206,191,1);
+@medium-gray:         rgba(121,120,115,1);
+@dark-gray:           rgba(061,060,057,1);
+@black:               rgba(033,033,024,1);
+
+@orange:              rgba(189,151,119,1);
+@yellow:              rgba(189,178,119,1);
+@green:               rgba(114,136,119,1);
+@blue:                rgba(130,151,177,1);
+@purple:              rgba(152,142,177,1);
+@dark-orange:         rgba(103,084,049,1);
+@dark-yellow:         rgba(103,099,049,1);
+@dark-green:          rgba(062,076,049,1);
+@dark-blue:           rgba(079,083,083,1);
+@dark-purple:         rgba(083,079,070,1);
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+
+.sans {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.serif {
+  font-family: "Adobe Caslon", AdobeCaslon, Gentium, Georgia, Times, Serif;
+}
+.mono {
+  font-family: monospace;
+}

@@ -11,11 +11,9 @@ export function collectionReduceFilter(predicate, entity) {
   return (res, item, key) =>
     predicateValueIdMatches(entity, item[predicate]) && set(res, key, item) || res
 }
-export const predicateValueContains = curry((predicate, collection, entity) => {
-  const res = reduce(collection, collectionReduceFilter(predicate, entity), {})
-  console.log(collection, predicate, res)
-  return res
-})
+export const predicateValueContains = curry((predicate, collection, entity) =>
+  reduce(collection, collectionReduceFilter(predicate, entity), {})
+)
 export function findCreator(predicate) {
   return collection => find(collection, predicate)
 }

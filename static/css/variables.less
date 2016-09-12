@@ -21,6 +21,8 @@
 @small-break: 30rem;
 @main-break:  50rem;
 
+@single-column: 37em;
+
 .transition(@transition) {
   -webkit-transition: @transition;
   -moz-transition: @transition;
@@ -36,6 +38,12 @@
 .opacity(@opacity) {
   opacity: @opacity / 100;
   filter: ~"alpha(opacity=@{opacity})";
+}
+.box-shadow {
+  -webkit-box-shadow: 0 0 .5rem 0 rgba(066,067,047,.6); /* some clever less thing here? */
+  -moz-box-shadow: 0 0 .5rem 0 rgba(066,067,047,.6); /* some clever less thing here? */
+  -o-box-shadow: 0 0 .5rem 0 rgba(066,067,047,.6); /* some clever less thing here? */
+  box-shadow: 0 0 .5rem 0 rgba(066,067,047,.6); /* some clever less thing here? */
 }
 
 .sans {

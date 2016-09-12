@@ -1,11 +1,13 @@
 import get from 'lodash/get'
 import find from 'lodash/find'
 import identity from 'lodash/identity'
+import isArray from 'lodash/isArray'
+import isEmpty from 'lodash/isEmpty'
 import isError from 'lodash/isError'
 import isFunction from 'lodash/isFunction'
+import isObject from 'lodash/isObject'
 import isString from 'lodash/isString'
 import isUndefined from 'lodash/isUndefined'
-import isObject from 'lodash/isObject'
 import pickBy from 'lodash/pickBy'
 import nthArg from 'lodash/nthArg'
 
@@ -32,8 +34,12 @@ export function createSimpleSelector(...funcs) {
     return last(...params)
   }
 }
+export function toBool(val) {
+  if (isArray(val) || isObject(val)) return !isEmpty(val)
+  return !!val
+}
 export function boolSelector(selector) {
-  return createSimpleSelector(selector, res => !!res)
+  return createSimpleSelector(selector, toBool)
 }
 export function thunkAction(...funcs) {
   const action = funcs.pop()

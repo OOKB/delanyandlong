@@ -34,10 +34,8 @@ header nav a:link {
 
 header nav a:hover {
   text-decoration: none;
-  background-color: rgb(132,133,94);
-  background-color: rgba(132,133,94,1);
-  color: rgb(242,239,229);
-  color: rgba(242,239,229,1);
+  background-color: @gold;
+  color: @off-white;
 }
 
 nav .active {
@@ -45,37 +43,30 @@ nav .active {
 }
 
 nav .active a {
-  background-color: rgb(205,206,191);
-  background-color: rgba(205,206,191,1);
+  background-color: @light-gray;
 }
 
 nav .active::before {
-  color: rgb(205,206,191);
-  color: rgba(205,206,191,1);
+  color: @light-gray;
   display: inline-block;
-  /*font: normal normal normal 14px/2px FontAwesome;*/
   font: normal normal normal 14px/2px 'DL';
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*content: "\f0d7";*/
   content: "\f047";
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  transform: translateX(-50%);
   bottom: -3px;
-  transition: all 400ms;
+  .transform( translateX(-50%) );
+  .transition(all 400ms);
 }
 
-@media (max-width: 50rem) {
+@media (max-width: @main-break) {
   nav ul.MenuHome {
     display: flex;
     text-align: center;
   }
-
   nav ul.MenuHome li {
     flex: 1;
   }
@@ -94,43 +85,37 @@ nav .active::before {
     line-height: 2em;
   }
   nav .active:hover::before {
-    color: rgb(132,133,94);
-    color: rgba(132,133,94,1);
+    color: @gold;
   }
 }
 
-@media (min-width: 50rem) {
+@media (min-width: @main-break) {
   header .logo {
     margin-top: 3rem;
     margin-bottom: -.35rem;
   }
   header nav {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: @main-break;
+    .mlrauto;
   }
   header nav a,
   header nav a:link,
   header nav a:hover {
     background-color: transparent;
-    color: rgb(132,133,94);
-    color: rgba(132,133,94,1);
+    color: @gold;
     padding: 0;
     font-size: .85em;
   }
   header nav a:hover {
-    color: rgb(66,67,47);
-    color: rgba(66,67,47,1);
+    color: @dark-gold;
   }
-
   nav .active a {
-    color: rgba(205,206,191,1);
+    color: @light-gray;
   }
   nav .active::before {
     border-top: 1px solid;
     bottom: -.5em;
     width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    .mlrauto;
   }
 }

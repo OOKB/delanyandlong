@@ -27,11 +27,11 @@ function Item({ item }) {
       <Link href={item.link} className="wrap">
         <ItemImg {...item} />
         <div className="description">
-          <p><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
-          <h2>{item.name}: {item.color}</h2>
-          <p>{item.contents}</p>
-          <p>{item.approxWidth}</p>
-          <p>Other info for these?</p>
+          <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
+          <h2 className="name">{item.name}: {item.color}</h2>
+          <p className="contents meta-data"><strong>Contents:</strong> {item.contents}</p>
+          <p className="approxWidth meta-data"><strong>Approx Width:</strong> {item.approxWidth}</p>
+          <p className="price meta-data"><strong>Price:</strong> {item.price}</p>
         </div>
       </Link>
     </li>

@@ -31,7 +31,7 @@ export function addItemToFavs(item) {
 // Anon user. Create new collection & listItem.
 
 // Action to dispatch when a user clicks the (+) favorite button.
-export function addItemToCollection(item) {
+export function editItemCollections(item) {
   return (dispatch, getState) => {
     ensureUserHasCollection(dispatch, getState)
     const state = getState()

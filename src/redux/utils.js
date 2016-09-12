@@ -34,6 +34,7 @@ export function createSimpleSelector(...funcs) {
     return last(...params)
   }
 }
+export const simpleSelector = createSimpleSelector
 export function toBool(val) {
   if (isArray(val) || isObject(val)) return !isEmpty(val)
   return !!val

@@ -1,5 +1,5 @@
 import { key0, val0 } from 'redux-graph'
-import find from 'lodash/find'
+import find from 'lodash/fp/find'
 import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
 import keyBy from 'lodash/keyBy'
@@ -27,9 +27,7 @@ export function listItemIndex(listItems) { return keyBy(listItems, 'item.id') }
 export function orderListItems(listItems) {
   return orderBy(listItems, [ 'position', 'id' ])
 }
-export function findActive(listItems) {
-  return find(listItems, { actionStatus: 'created' })
-}
+export const findActionCreated = find({ actionStatus: 'created' })
 export function setItemCollection(res, { domainIncludes, ...listItem }) {
   const collectionList = val0(domainIncludes.itemListElement)
   const collection = collectionList.merge({
@@ -43,7 +41,4 @@ export function setItemCollection(res, { domainIncludes, ...listItem }) {
 export function getItemCollections(lists) {
   const collections = lists && reduce(lists, setItemCollection, {})
   return !isEmpty(collections) && collections || null
-}
-export function getFavCollection(isAnon, collections) {
-  return isAnon && collections && find(collections, { isFavList }) || null
 }

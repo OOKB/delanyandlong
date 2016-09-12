@@ -1,13 +1,15 @@
 import { key0, val0 } from 'redux-graph'
 import find from 'lodash/fp/find'
 import get from 'lodash/get'
-import isEmpty from 'lodash/isEmpty'
 import keyBy from 'lodash/keyBy'
+import mapValues from 'lodash/mapValues'
 import orderBy from 'lodash/orderBy'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
-import { isFavList, isValidListItem } from './lang'
+import { isValidListItem } from './lang'
+
+export const findActionCreated = find({ actionStatus: 'created' })
 
 // Reducer to replace the items with filled versions. Filters out the invalids.
 export function fixListItem(items) {
@@ -27,18 +29,19 @@ export function listItemIndex(listItems) { return keyBy(listItems, 'item.id') }
 export function orderListItems(listItems) {
   return orderBy(listItems, [ 'position', 'id' ])
 }
-export const findActionCreated = find({ actionStatus: 'created' })
-export function setItemCollection(res, { domainIncludes, ...listItem }) {
-  const collectionList = val0(domainIncludes.itemListElement)
-  const collection = collectionList.merge({
-    itemListElement: listItem,
-    isFavList: isFavList(collectionList),
-  })
-  // Add collection only if listItem is valid/active.
-  return isValidListItem(listItem) && set(res, collection.id, collection) || res
+export function getLiCollection(listItem) {
+  return val0(listItem.domainIncludes.itemListElement)
+}
+export function setLiCollection(listItem) {
+  return listItem.set('collection', getLiCollection(listItem)).without('domainIncludes')
+}
+export function setListItemsCollection(listItems) {
+  return mapValues(listItems, setLiCollection)
+}
+export function invertLiCollection(res, { collection, ...listItem }) {
+  return collection.set('itemListElement', listItem)
 }
 // Invert from list -> collection to collection -> list
-export function getItemCollections(lists) {
-  const collections = lists && reduce(lists, setItemCollection, {})
-  return !isEmpty(collections) && collections || null
+export function invertListItems(lists) {
+  return lists && reduce(lists, invertLiCollection, {}) || null
 }

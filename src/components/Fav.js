@@ -5,19 +5,19 @@ import FavButton from './FavButton'
 // {actionStatus === 'created' &&
 //   <FavAlert item={item} onClick={partial(confirmFavorite, id)} />
 // }
-function Fav({ itemInCollections, editItemCollections }) {
+function Fav({ inCollections, editItemCollections }) {
   return (
     <div className="favorite-container">
-      <FavButton itemInCollections={itemInCollections} onClick={editItemCollections} />
+      <FavButton inCollections={inCollections} onClick={editItemCollections} />
     </div>
   )
 }
 
 Fav.propTypes = {
   actionStatus: PropTypes.string,
+  collections: PropTypes.object,
   editItemCollections: PropTypes.func.isRequired,
-  itemInCollections: PropTypes.bool.isRequired,
-  itemCollections: PropTypes.object,
+  inCollections: PropTypes.bool.isRequired,
   // confirmFavorite: PropTypes.func.isRequired,
   // endFavorite: PropTypes.func.isRequired,
 }

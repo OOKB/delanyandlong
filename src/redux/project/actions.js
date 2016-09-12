@@ -2,13 +2,15 @@ import { create, createTriple, entityUpdate } from 'redux-graph'
 import { getUser } from '../select/user'
 import { isAnonymous } from '../auth/select'
 import { createCollectionItemTriple, endListItem } from './entity'
-import { activeListItem, buildCollectionList, favsListSelector, userHasCollections } from './select'
+import {
+  buildCollectionList, favsListSelector, itemListCreated, userHasCollections,
+} from './select'
 
 export function confirmFavorite(id) {
   return entityUpdate({ id, actionStatus: 'confirmed', dateUpdated: new Date() })
 }
 export function confirmActive(state, dispatch) {
-  const itemToConfirm = activeListItem(state)
+  const itemToConfirm = itemListCreated(state)
   if (itemToConfirm) dispatch(confirmFavorite(itemToConfirm.id))
 }
 // Create favs collection for user.

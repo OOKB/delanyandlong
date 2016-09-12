@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import ButtonEl from './Button'
 
-function FavButton({ itemInCollections, onClick }) {
-  if (itemInCollections) {
+function FavButton({ inCollections, onClick }) {
+  if (inCollections) {
     return (
       <ButtonEl
         className="favorite"
@@ -23,7 +23,7 @@ function FavButton({ itemInCollections, onClick }) {
 }
 
 FavButton.propTypes = {
-  itemInCollections: PropTypes.bool.isRequired,
+  inCollections: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   item: PropTypes.object,
 }

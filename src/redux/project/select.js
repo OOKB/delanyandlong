@@ -3,6 +3,7 @@ import {
 } from 'redux-graph'
 import { createSelector, createStructuredSelector } from 'reselect'
 import find from 'lodash/fp/find'
+import pickBy from 'lodash/fp/pickBy'
 
 import { boolSelector, getProps, select, createSimpleSelector } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
@@ -11,9 +12,10 @@ import { itemsFilled } from '../select/items'
 
 import { createCollectionList } from './entity'
 import {
-  findActionCreated, fixListItems, listItemIndex, orderListItems, getItemCollections,
+  findActionCreated, fixListItems, listItemIndex, orderListItems, invertListItems,
+  setListItemsCollection,
 } from './helpers'
-import { isFavList } from './lang'
+import { isFavList, isValidListItem } from './lang'
 import { predicateValueContains } from './util'
 import { collectionType, liType, favTitle } from './const'
 
@@ -47,10 +49,12 @@ export const favsItemIndex = createSelector(listItems, listItemIndex)
 export const getItemId = select('item.id', getProps)
 // Need to ListItems this textile shows up on.
 export const itemParents = entityDomainIncludes(getItemId)
-export const itemLists = select('domainIncludes.item', itemParents)
-export const itemListCreated = createSelector(favListElements, findActionCreated)
+export const itemListItems = select('domainIncludes.item', itemParents)
+export const itemActiveListItems = createSelector(itemListItems, pickBy(isValidListItem))
+export const itemLists = createSelector(itemActiveListItems, setListItemsCollection)
+export const itemListCreated = createSelector(itemLists, findActionCreated)
 // Reorder list -> collection to collection -> list. Returns object or null if no list.
-export const itemCollections = createSelector(itemLists, getItemCollections)
+export const itemCollections = createSelector(itemLists, invertListItems)
 export const itemInCollections = boolSelector(itemCollections)
 export const itemFavCollection = createSelector(itemCollections, find(isFavList))
 // Need to know if we should display a confirm window or a projectEdit window.
@@ -76,6 +80,7 @@ export const buildCollectionList = createSimpleSelector(
 // ITEM CONTAINER
 // Used in the ItemFav container.
 export const mapStateToProps = createStructuredSelector({
-  itemInCollections,
-  itemCollections,
+  activeListItem: itemListCreated,
+  collections: itemCollections,
+  inCollections: itemInCollections,
 })

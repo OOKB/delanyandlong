@@ -1,8 +1,20 @@
 import curry from 'lodash/curry'
-import filter from 'lodash/filter'
+import find from 'lodash/find'
+import get from 'lodash/get'
+import reduce from 'lodash/reduce'
+import set from 'lodash/set'
 
-export const filterCreator = curry((propKey, collection, entity) => {
-  filter(collection, item => item[propKey].id === entity.id)
+export const predicateValueIdMatches = curry((entity, predicateValues) =>
+  get(predicateValues, [ entity.id, 'id' ]) === entity.id
+)
+export function collectionReduceFilter(predicate, entity) {
+  return (res, item, key) =>
+    predicateValueIdMatches(entity, item[predicate]) && set(res, key, item) || res
+}
+export const predicateValueContains = curry((predicate, collection, entity) => {
+  const res = reduce(collection, collectionReduceFilter(predicate, entity), {})
+  console.log(collection, predicate, res)
+  return res
 })
 export function findCreator(predicate) {
   return collection => find(collection, predicate)

@@ -1,6 +1,6 @@
 import test from 'tape'
 
-import { isFavList, isValidListItem } from '../../src/redux/project/helpers'
+import { isFavList, isValidListItem } from '../../src/redux/project/lang'
 import { favTitle } from '../../src/redux/project/const'
 
 test('isValidListItem()', t => {

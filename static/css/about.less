@@ -1,8 +1,13 @@
 
-#container-about main {
-  width: 100%;
-  max-width: @single-column;
-  padding: 1em;
+#container-about {
+  main {
+    width: 100%;
+    max-width: @single-column;
+    padding: 1em;
+  }
+  .small.bt1 {
+    border-color: @light-gray;
+  }
 }
 
 @media (min-width: @main-break) {
@@ -11,15 +16,11 @@
   }
 }
 
-.about > p:first-of-type {
-  font-size: 1.25em;
-  font-weight: 300;
-}
-
-.about > p {
+.about {
+  p:first-of-type {
+  .lead;
+  }
+  p {
   color: @dark-gold;
-}
-
-#container-about .small.bt1 {
-  border-color: @light-gray;
+  }
 }

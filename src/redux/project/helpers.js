@@ -40,7 +40,7 @@ export function setListItemsCollection(listItems) {
   return mapValues(listItems, setLiCollection)
 }
 export function invertLiCollection(res, { collection, ...listItem }) {
-  return collection.set('itemListElement', listItem)
+  return set(res, collection.id, collection.set('itemListElement', listItem))
 }
 // Invert from list -> collection to collection -> list
 export function invertListItems(lists) {

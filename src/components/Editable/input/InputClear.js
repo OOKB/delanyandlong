@@ -1,6 +1,6 @@
 import radium from 'radium'
-import React, { Component, PropTypes } from 'react'
-import Icon from '../Icon'
+import React, { PropTypes } from 'react'
+import Icon from '../../Icon'
 
 const styles = {
   base: {
@@ -18,15 +18,12 @@ const styles = {
   },
 }
 
-class InputClear extends Component {
-  render() {
-    const { style, ...props } = this.props
-    return (
-      <button {...props} type="button" style={[ styles.base, style ]}>
-        <Icon symbol="times" />
-      </button>
-    )
-  }
+function InputClear({ style, ...props }) {
+  return (
+    <button {...props} type="button" style={[ styles.base, style ]}>
+      <Icon symbol="times" />
+    </button>
+  )
 }
 
 InputClear.propTypes = {

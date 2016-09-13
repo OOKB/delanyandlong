@@ -23,6 +23,9 @@ const styles = {
       outline: 'none',
     },
   },
+  empty: {
+    color: 'red',
+  },
 }
 
 function PreviewTextEditable({ className, emptyText, title, value, onClick, style }) {
@@ -31,7 +34,7 @@ function PreviewTextEditable({ className, emptyText, title, value, onClick, styl
       className={className}
       onClick={onClick}
       title={title}
-      style={[ styles.base, style ]}
+      style={[ styles.base, style, !value && styles.empty ]}
     >
       {value || emptyText}
     </button>

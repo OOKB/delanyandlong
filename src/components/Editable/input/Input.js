@@ -93,7 +93,7 @@ class Input extends Component {
           id={id}
           value={value}
         />
-        { value &&
+        {value &&
           <InputClear onClick={this.clearInputValue} />
         }
       </div>

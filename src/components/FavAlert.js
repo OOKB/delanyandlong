@@ -2,11 +2,30 @@ import React, { PropTypes } from 'react'
 import { Link } from 'redux-history-sync'
 
 import Close from './CloseButton'
-import Field from './Editable/Field'
+import Field from './Editable/FieldWrapper'
 
+function getSchema(listItem) {
+  const prefix = [ listItem.type, listItem.id ]
+  return {
+    description: {
+      description: 'Notes about item within collection.',
+      label: 'Notes',
+      id: `${listItem.id}-description`,
+      prefix: prefix.concat('description'),
+      value: listItem.description,
+    },
+    position: {
+      description: 'Position within list.',
+      label: 'Position',
+      id: `${listItem.id}-position`,
+      prefix: prefix.concat('position'),
+      value: listItem.position,
+    },
+  }
+}
 function FavAlert({ onClick, item, listItem }) {
   const message = `${item.id} has been added to your favorites!`
-  const prefix = [ listItem.type, listItem.id ]
+  const schema = getSchema(listItem)
   return (
     <div className="favorite popup absolute p1">
       <Close onClick={onClick} />
@@ -14,22 +33,10 @@ function FavAlert({ onClick, item, listItem }) {
         <p>{message}</p>
         <ul>
           <li>
-            <Field
-              description="Position within list."
-              name="Position"
-              type="number"
-              prefix={prefix.concat('position')}
-              initialValue={listItem.position}
-            />
+            <Field {...schema.position} />
           </li>
           <li>
-            <Field
-              description="Notes about item within collection."
-              name="Notes"
-              type="text"
-              prefix={prefix.concat('description')}
-              initialValue={listItem.position}
-            />
+            <Field {...schema.description} />
           </li>
           {listItem.title && <li>{listItem.title}</li>}
         </ul>

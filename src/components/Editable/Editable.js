@@ -1,37 +1,28 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 import FormGroup from './FormGroup'
+import { preventDefault } from './utils'
 
 // This is for an individual, edtiable field.
-class EditableField extends Component {
-  constructor(props) {
-    super(props)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  handleSubmit(event) {
-    event.preventDefault()
-    // this.props.action.submit()
-  }
-  render() {
-    const { children, editable, label, id, required, form, savingTxt } = this.props
-    const { saving, status } = form
+function EditableField({ children, editable, label, id, required, form, savingTxt }) {
+  const { saving, status } = form
 
-    return (
-      <div className="editable-form form-horizontal" onSubmit={this.handleSubmit}>
-        <FormGroup
-          id={id}
-          label={label}
-          editable={editable}
-          required={required}
-          status={status}
-        >
-          {children}
-          {saving && <span>{savingTxt}</span>}
-        </FormGroup>
-      </div>
-    )
-  }
+  return (
+    <div className="editable-form form-horizontal" onSubmit={preventDefault}>
+      <FormGroup
+        id={id}
+        label={label}
+        editable={editable}
+        required={required}
+        status={status}
+      >
+        {children}
+        {saving && <span>{savingTxt}</span>}
+      </FormGroup>
+    </div>
+  )
 }
+
 
 EditableField.propTypes = {
   // action: PropTypes.shape({

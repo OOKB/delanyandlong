@@ -43,14 +43,6 @@ FieldHorizontalWrap.propTypes = {
   prefix: PropTypes.array,
   required: PropTypes.bool,
   savingTxt: PropTypes.string.isRequired,
-  type: PropTypes.oneOf([
-    'email',
-    'dateTime',
-    'fullName',
-    'select',
-    'text',
-    'textarea',
-  ]).isRequired,
   validators: PropTypes.array,
   value: PropTypes.oneOfType([
     PropTypes.string,

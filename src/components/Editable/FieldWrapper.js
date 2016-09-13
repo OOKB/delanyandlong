@@ -45,7 +45,14 @@ Wrapper.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   open: PropTypes.bool,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.oneOf([
+    'email',
+    'dateTime',
+    'fullName',
+    'select',
+    'text',
+    'textarea',
+  ]).isRequired,
   value: PropTypes.any,
 }
 Wrapper.defaultProps = {

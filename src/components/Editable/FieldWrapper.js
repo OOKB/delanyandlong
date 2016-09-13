@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import Editable from './Editable'
+import Editable from './FieldHorizontalWrap'
 import PreviewText from './PreviewText'
 import EditField from './EditField'
 

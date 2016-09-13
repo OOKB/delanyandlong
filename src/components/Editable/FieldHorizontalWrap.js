@@ -4,7 +4,7 @@ import FormGroup from './FormGroup'
 import { preventDefault } from './utils'
 
 // This is for an individual, edtiable field.
-function EditableField({ children, editable, label, id, required, form, savingTxt }) {
+function FieldHorizontalWrap({ children, editable, label, id, required, form, savingTxt }) {
   const { saving, status } = form
 
   return (
@@ -24,7 +24,7 @@ function EditableField({ children, editable, label, id, required, form, savingTx
 }
 
 
-EditableField.propTypes = {
+FieldHorizontalWrap.propTypes = {
   // action: PropTypes.shape({
   //   submit: PropTypes.func.isRequired,
   // }).isRequired,
@@ -58,8 +58,8 @@ EditableField.propTypes = {
   ]),
 }
 
-EditableField.defaultProps = {
+FieldHorizontalWrap.defaultProps = {
   savingTxt: 'Saving...',
 }
 
-export default EditableField
+export default FieldHorizontalWrap

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import FieldHorizontalWrap from './FieldHorizontalWrap'
+import FormGroup from './FormGroup'
 import PreviewText from './PreviewText'
 import EditField from './EditField'
 
@@ -13,7 +13,7 @@ function FieldWrapper(props) {
   const preventClose = !saving && props.open
   const open = preventClose || form.open
   return (
-    <FieldHorizontalWrap {...props}>
+    <FormGroup {...props}>
       {!open &&
         <PreviewText
           editable={!saving && editable}
@@ -33,7 +33,7 @@ function FieldWrapper(props) {
           type={type}
         />
       }
-    </FieldHorizontalWrap>
+    </FormGroup>
   )
 }
 

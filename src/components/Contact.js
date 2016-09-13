@@ -6,6 +6,7 @@ import Editor from '../containers/Editor'
 import Header from './Header'
 import Footer from './Footer'
 import Offices from './Offices'
+import Icon from './Icon'
 
 function Contact({ contactText, menu, offices, route, serviceText }) {
   return (
@@ -24,7 +25,9 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
           </div>
           <div className="blurb mb2">
             <p>{contactText}</p>
-            <p className="text-center light-gray"><i className="fa fa-angle-down fa-3x"></i></p>
+            <p className="text-center light-gray">
+              <Icon className="fa-3x" symbol="angle-down" />
+            </p>
           </div>
           <div className="us canada americas bt1 pt4 pb2">
             <Offices items={offices.us} />

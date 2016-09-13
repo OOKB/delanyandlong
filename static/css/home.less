@@ -1,20 +1,33 @@
 #home .item-grid > li {
   padding: 0;
-  transition: all 400ms;
+  .transition(all 400ms);
 }
 
 #home .item-grid > li:hover {
   transform: scale(1.5,1.5);
   z-index: 9;
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+  .box-shadow;
 }
 
-#home .item-grid > li:hover:nth-child(10n+5) {
+#home .item-grid > li:hover:nth-child(odd) {
+  transform-origin: 0% 50%;
+}
+#home .item-grid > li:hover:nth-child(even) {
   transform-origin: 100% 50%;
 }
-#home .item-grid > li:hover:nth-child(10n+6) {
-  transform-origin: 0 50%;
+#home .item-grid > li:hover:nth-child(1) {
+  transform-origin: 0% 0%;
 }
+#home .item-grid > li:hover:nth-child(2) {
+  transform-origin: 100% 0%;
+}
+
+// #home .item-grid > li:hover:nth-child(10n+5) {
+//   transform-origin: 100% 50%;
+// }
+// #home .item-grid > li:hover:nth-child(10n+6) {
+//   transform-origin: 0 50%;
+// }
 
 /**** home edits to item grid? ****/
 @media (min-width: 40em) {
@@ -30,7 +43,7 @@
   }
 }
 
-@media (min-width: 50rem) {
+@media (min-width: @main-break) {
   #home header {
     margin-bottom: 1rem;
   }
@@ -74,7 +87,7 @@
 
 /*** special home footer? ***/
 #home footer {
-  background-color:rgba(242,239,229,1);
+  background-color: @off-white;
   position: fixed;
   right:0;
   bottom:0;
@@ -88,7 +101,7 @@
   padding:0;
 }
 
-@media (min-width: 50rem) {
+@media (min-width: @main-break) {
   #home footer p.pt2.uppercase {
     margin: 0;
     padding: 0;

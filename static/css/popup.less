@@ -1,7 +1,6 @@
 .popup {
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+  background-color: @off-white;
+  .box-shadow;
 }
 
 .popup .close {
@@ -12,4 +11,14 @@
   border-radius: .75rem;
   .box-shadow;
   border-color: transparent;
+}
+
+#detailWrapper .favorite.popup {
+  width: 300px;
+  background: @off-white;
+  z-index: 99;
+  height: auto;
+  position: absolute;
+  left: 95%;
+  top: 95%;
 }

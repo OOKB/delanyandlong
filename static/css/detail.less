@@ -38,8 +38,8 @@
   letter-spacing: 2px;
 }
 
-#detailWrapper .favorite,
-#detailWrapper .close {
+#detailWrapper button.favorite,
+#detailWrapper > .close {
   top: 1.25em;
   width: 2.5rem;
   height: 2.5rem;
@@ -48,11 +48,11 @@
   border-color: transparent;
 }
 
-#detailWrapper .close {
+#detailWrapper > .close {
   right: 1.25em;
 }
 
-#detailWrapper .favorite {
+#detailWrapper button.favorite {
   left: 1.25em;
 }
 
@@ -85,7 +85,7 @@
     height: 100%;
     position: absolute;
   }
-  #detailWrapper .favorite {
+  #detailWrapper button.favorite {
     top: 0;
     left: 0;
     width: 3rem;
@@ -95,7 +95,7 @@
     position: relative;
     height: calc(100% - 1px);
   }
-  #detailWrapper .favorite .fa {
+  #detailWrapper button.favorite .fa {
     font-size: 2rem;
   }
 }

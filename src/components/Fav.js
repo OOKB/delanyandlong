@@ -1,24 +1,26 @@
 import React, { PropTypes } from 'react'
 
-// import FavAlert from './FavAlert'
+import FavAlert from './FavAlert'
 import FavButton from './FavButton'
-// {actionStatus === 'created' &&
-//   <FavAlert item={item} onClick={partial(confirmFavorite, id)} />
-// }
-function Fav({ inCollections, editItemCollections }) {
+
+function Fav({ activeListItem, inCollections, item, editItemCollections }) {
   return (
     <div className="favorite-container">
+      {activeListItem &&
+        <FavAlert item={item} listItem={activeListItem} />
+      }
       <FavButton inCollections={inCollections} onClick={editItemCollections} />
     </div>
   )
 }
 
 Fav.propTypes = {
-  actionStatus: PropTypes.string,
+  activeListItem: PropTypes.object,
   collections: PropTypes.object,
   editItemCollections: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
   inCollections: PropTypes.bool.isRequired,
-  // confirmFavorite: PropTypes.func.isRequired,
+  confirmFavorite: PropTypes.func.isRequired,
   // endFavorite: PropTypes.func.isRequired,
 }
 

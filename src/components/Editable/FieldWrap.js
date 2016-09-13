@@ -3,8 +3,8 @@ import flow from 'lodash/flow'
 import property from 'lodash/property'
 import { getActions, getPrefix, getState as mapStateToProps } from 'redux-field'
 
-import { mapDispatchToProps } from '../redux/utils'
-import Component from '../components/Editable/Field'
+import { mapDispatchToProps } from '../../redux/utils'
+import Component from './Field'
 
 const getFormEvents = flow(
   property('prefix'), // Extract prefix property from props argument.

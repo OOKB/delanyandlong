@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
-function Icon({ symbol, className, hidden }) {
+function Icon({ symbol, className, hidden, ...props }) {
   const classStr = `fa fa-${symbol}`
 
   return (
     <i
       className={classNames(classStr, className)}
       aria-hidden={hidden}
+      {...props}
     />
   )
 }

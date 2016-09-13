@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
+import { ternVal } from '../utils'
+import Icon from '../Icon'
 import Color from './RelatedColor'
+
 const style = {
   closed: {
     boxShadow: '0 0 0 0 rgba(65,65,45,0)',
@@ -23,25 +26,17 @@ const style = {
     transition: 'all 300ms',
   },
 }
-function getStyle(isOpen) {
-  if (isOpen) return style.open
-  return style.closed
-}
-function getRotation(isOpen) {
-  if (isOpen) return style.rotated
-  return style.plain
-}
+
+const getStyle = ternVal(style.open, style.closed)
+const getRotation = ternVal(style.rotated, style.plain)
 
 function Related({ close, colors, isOpen, open, parent }) {
   const toggle = isOpen ? close : open
   return (
     <div id="related-colors" style={getStyle(isOpen)}>
       <button className="colors-header" onClick={toggle}>
-        <i
-          className="fa fa-caret-down"
-          aria-hidden="true"
-          style={getRotation(isOpen)}
-        ></i> Additional Colors
+        <Icon symbol="caret-down" hidden style={getRotation(isOpen)} />
+        Additional Colors
       </button>
       <ul className="list-reset">
         {map(colors, color =>

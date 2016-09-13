@@ -1,9 +1,8 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import partial from 'lodash/partial'
 
+import { mapDispatchToProps } from '../redux/utils'
 import { mapStateToProps } from '../redux/project/select'
-
 import { editItemCollections } from '../redux/project/actions'
 
 function getActions({ item }) {
@@ -11,10 +10,8 @@ function getActions({ item }) {
     editItemCollections: partial(editItemCollections, item),
   }
 }
-function mapDispatchToProps(dispatch, props) {
-  return bindActionCreators(getActions(props), dispatch)
-}
+
 
 import Component from '../components/Fav'
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component)
+export default connect(mapStateToProps, mapDispatchToProps(getActions))(Component)

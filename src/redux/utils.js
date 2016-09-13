@@ -1,3 +1,4 @@
+import { bindActionCreators } from 'redux'
 import get from 'lodash/get'
 import find from 'lodash/find'
 import identity from 'lodash/identity'
@@ -76,4 +77,7 @@ export function createAction(type, payloadCreator) {
 }
 export function firstValArg(...args) {
   return find(args)
+}
+export function mapDispatchToProps(getActions) {
+  return (dispatch, props) => bindActionCreators(getActions(props), dispatch)
 }

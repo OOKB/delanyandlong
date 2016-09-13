@@ -4,7 +4,7 @@ import FieldHorizontalWrap from './FieldHorizontalWrap'
 import PreviewText from './PreviewText'
 import EditField from './EditField'
 
-function Wrapper(props) {
+function FieldWrapper(props) {
   const { editable, id, type, fieldEvent, formEvent, form, value } = props
   const { saving } = form
   function handleOpen() {
@@ -37,13 +37,12 @@ function Wrapper(props) {
   )
 }
 
-Wrapper.propTypes = {
+FieldWrapper.propTypes = {
   editable: PropTypes.bool.isRequired,
   fieldEvent: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
   open: PropTypes.bool,
   type: PropTypes.oneOf([
     'email',
@@ -55,8 +54,8 @@ Wrapper.propTypes = {
   ]).isRequired,
   value: PropTypes.any,
 }
-Wrapper.defaultProps = {
+FieldWrapper.defaultProps = {
   editable: true,
   type: 'text',
 }
-export default Wrapper
+export default FieldWrapper

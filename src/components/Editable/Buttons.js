@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Icon from './Icon'
+import Icon from '../Icon'
 
 function EditableButtons(props) {
   const { closeTxt, disabled, onSubmit, close, preventClose, submitTxt, value } = props

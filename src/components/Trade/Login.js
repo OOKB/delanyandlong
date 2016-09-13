@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 import Header from '../Header'
 import Footer from '../Footer'
+import Icon from '../Icon'
 
 function Trade({ actQ, onClick, small }) {
   return (
@@ -10,21 +11,15 @@ function Trade({ actQ, onClick, small }) {
       <main className="container">
         <div className="login-wrapper">
           <div className="input-group accountNumber">
-            <label>
-              <i className="fa fa-hashtag light-gray" aria-hidden="true"></i>
-            </label>
+            <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
             <input placeholder="D&L Account Number" />
           </div>
           <div className="input-group zipCode">
-            <label>
-              <i className="fa fa-hashtag light-gray" aria-hidden="true"></i>
-            </label>
+            <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
             <input placeholder="ZIP Code" />
           </div>
           <div className="icon-group">
-            <label>
-              <i className="fa fa-sign-in white" aria-hidden="true"></i>
-            </label>
+            <label><Icon className="shite" symbol="sign-in" hidden /></label>
             <button className="btn-outline" type="submit" onClick={onClick}>Log In</button>
           </div>
         </div>

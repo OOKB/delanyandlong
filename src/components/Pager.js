@@ -3,6 +3,7 @@ import { connectField } from 'redux-field'
 import classnames from 'classnames'
 
 import SelectEl from './Editable/InputSelect'
+import Icon from './Icon'
 
 function pgBtnClass(name, disabled) {
   return classnames('control', name, { disabled })
@@ -22,7 +23,7 @@ function Pager(props) {
   return (
     <div id="pager" className="flex-center bt2 bb1">
       <button onClick={prev} className={pgBtnClass('prev', !hasLess)} disabled={!hasLess}>
-        <i className="fa fa-angle-left" aria-hidden="true"></i>
+        <Icon symbol="angle-left" hidden />
       </button>
       <SelectEl
         label="Display Style"
@@ -46,7 +47,7 @@ function Pager(props) {
       />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
-        <i className="fa fa-angle-right" aria-hidden="true"></i>
+        <Icon symbol="angle-right" hidden />
       </button>
     </div>
   )

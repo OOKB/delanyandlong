@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
+import { connectField } from 'redux-field'
 
 import FormGroup from './FormGroup'
 import PreviewText from './PreviewText'
 import EditField from './EditField'
 
+// Using this for a typical horizontal editable field.
+// Think of this as the field form container.
 function FieldWrapper(props) {
   const { editable, id, type, fieldEvent, formEvent, form, value } = props
   const { saving } = form
@@ -58,4 +61,4 @@ FieldWrapper.defaultProps = {
   editable: true,
   type: 'text',
 }
-export default FieldWrapper
+export default connectField()(FieldWrapper)

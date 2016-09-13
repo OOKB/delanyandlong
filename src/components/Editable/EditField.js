@@ -11,7 +11,9 @@ import Help from './Help'
 // Bubble hasError (and value?) up.
 
 function EditField(props) {
-  const { fieldEvent, formEvent, className, id, form, preventClose, type, ...other } = props
+  const {
+    buttons, fieldEvent, formEvent, className, id, form, preventClose, type, ...other,
+  } = props
   const { hasError, errorMessage, help, suggestion, value } = form
   const helpTxt = hasError ? errorMessage : help
   return (
@@ -37,7 +39,7 @@ function EditField(props) {
             value={value}
           />
         }
-        {props.buttons &&
+        {buttons &&
           <EditableButtons
             {...fieldEvent}
             {...formEvent}

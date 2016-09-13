@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import { connectField } from 'redux-field'
+import Icon from './Icon'
 
 function TextSearch({ form, formEvent }) {
   const { value } = form
@@ -8,9 +9,7 @@ function TextSearch({ form, formEvent }) {
   return (
     <div className="text-search text-center mb1">
       <div className="search-wrapper">
-        <label>
-          <i className="fa fa-search"></i>
-        </label>
+        <label><Icon symbol="search" /></label>
         <input
           autoFocus
           onBlur={onBlur}

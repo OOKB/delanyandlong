@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react'
 
-import classNames from 'classnames'
+import classnames from 'classnames'
 
-// Editable formGroup.
+import { preventDefault } from './utils'
 
-function FormGroup({ label, status, id, required, children, editable, className }) {
+// Editable formGroup wrapper.
+function FormGroup(props) {
+  const { children, className, label, form, id, required, editable, wrapClass, savingTxt } = props
+  const { saving, status } = form
   const cssClasses = {
     editable,
     'form-group': true,
@@ -13,16 +16,18 @@ function FormGroup({ label, status, id, required, children, editable, className 
     'has-warning': (status === 'warning'),
     'has-feedback': status,
   }
-
   return (
-    <div className={classNames(cssClasses, className)} id={`${id}-group`}>
-      {label &&
-        <label className="control-label col-md-3" htmlFor={id}>
-          {label}
-          {required ? '*' : false}
-        </label>
-      }
-      {children}
+    <div className={classnames('editable-form', wrapClass)} onSubmit={preventDefault}>
+      <div className={classnames(cssClasses, className)} id={`${id}-group`}>
+        {label &&
+          <label className="control-label col-md-3" htmlFor={id}>
+            {label}
+            {required ? '*' : false}
+          </label>
+        }
+        {children}
+        {saving && <span>{savingTxt}</span>}
+      </div>
     </div>
   )
 }
@@ -31,13 +36,22 @@ FormGroup.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   editable: PropTypes.bool,
+  form: PropTypes.shape({
+    editing: PropTypes.bool.isRequired,
+    errorMessage: PropTypes.string,
+    status: PropTypes.string,
+  }),
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   required: PropTypes.bool,
+  savingTxt: PropTypes.string.isRequired,
   status: PropTypes.string,
+  wrapClass: PropTypes.string,
 }
 
 FormGroup.defaultProps = {
+  savingTxt: 'Saving...',
+  wrapClass: 'form-horizontal',
 }
 
 export default FormGroup

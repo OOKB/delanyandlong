@@ -13,7 +13,7 @@ const styles = {
     width: '1rem',
     color: 'currentColor',
     ':hover': {
-      color: 'red',
+      color: 'rgba(189,151,119,1);',
     },
   },
 }

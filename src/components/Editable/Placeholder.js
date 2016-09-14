@@ -5,7 +5,7 @@ const style = {
   base: {
     background: 'transparent',
     border: 0,
-    color: 'grey',
+    color: 'rgba(205,206,191,1)',
     fontSize: '1rem',
     textAlign: 'left',
   },
@@ -25,7 +25,7 @@ Placeholder.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 Placeholder.defaultProps = {
-  color: 'grey',
+  color: 'rgba(205,206,191,1)',
 }
 
 export default Placeholder

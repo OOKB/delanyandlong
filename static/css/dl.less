@@ -161,10 +161,14 @@ code.uppercase {
   margin: 0 0 2rem 0;
 }
 
+.cf,
 .clearfix::after,
 .clear-fix::after,
 .cf::after,
-.group::after {
+.group::after,
+.form-group::after,
+.grouped::after,
+.row::after {
   content: '';
   display: table;
   clear: both;
@@ -259,6 +263,11 @@ code.uppercase {
   .grouped,
   .row {
     margin: 0 -1rem 2rem -1rem;
+  }
+
+  .form-group {
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 
   /* columnar stuff */

@@ -31,7 +31,7 @@ function FavAlert({ onClick, item, listItem }) {
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>
-        <ul>
+        <ul className="list-reset">
           <li>
             <Field {...schema.position} />
           </li>

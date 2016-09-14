@@ -10,11 +10,12 @@ const styles = {
     borderTop: 'none',
     borderBottom: '1px dashed currentColor',
     borderRadius: 0,
+    color: 'rgba(061,060,057,1)',
     fontSize: '1rem',
     padding: '.25em',
     textDecoration: 'none',
     ':hover': {
-      color: 'blue',
+      color: 'rgba(130,151,177,1)',
     },
     ':focus': {
       outline: 'none',
@@ -24,7 +25,7 @@ const styles = {
     },
   },
   empty: {
-    color: 'red',
+    color: 'rgba(189,151,119,1)',
   },
 }
 

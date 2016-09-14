@@ -28,9 +28,25 @@
   button {
     width: 50%;
     float: left;
+    .transition(all 300ms);
 
-    > span {
-      display: none;
+    border:none;
+    background-color: transparent;
+    border-radius: .15em;
+  }
+
+  .editable-submit {
+    background-color: @green;
+    color:@off-white;
+    &:hover {
+      background-color: @dark-green;
+    }
+  }
+  .editable-close {
+    background-color: @yellow;
+    color:@off-white;
+    &:hover {
+      background-color: @dark-yellow;
     }
   }
 }

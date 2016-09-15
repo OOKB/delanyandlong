@@ -12,16 +12,19 @@ const styles = {
     borderRadius: 0,
     color: 'rgba(061,060,057,1)',
     fontSize: '1rem',
-    padding: '.25em',
+    lineHeight: '1.5rem',
+    padding: '0',
     textDecoration: 'none',
     ':hover': {
       color: 'rgba(130,151,177,1)',
     },
     ':focus': {
       outline: 'none',
+      color: 'rgba(130,151,177,1)',
     },
     ':active': {
       outline: 'none',
+      color: 'rgba(130,151,177,1)',
     },
   },
   empty: {

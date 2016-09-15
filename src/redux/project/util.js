@@ -1,5 +1,4 @@
 import curry from 'lodash/curry'
-import find from 'lodash/find'
 import get from 'lodash/get'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
@@ -14,6 +13,3 @@ export function collectionReduceFilter(predicate, entity) {
 export const predicateValueContains = curry((predicate, collection, entity) =>
   reduce(collection, collectionReduceFilter(predicate, entity), {})
 )
-export function findCreator(predicate) {
-  return collection => find(collection, predicate)
-}

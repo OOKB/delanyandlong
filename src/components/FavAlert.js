@@ -27,7 +27,7 @@ function FavAlert({ onClick, item, listItem }) {
   const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
   const schema = getSchema(listItem)
   return (
-    <div className="favorite popup absolute p1">
+    <div className="favorite popup absolute p1" style={{ zIndex: 10 }}>
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>
@@ -36,6 +36,7 @@ function FavAlert({ onClick, item, listItem }) {
           <li><Field {...schema.description} /></li>
         </ul>
         <Link className="small uppercase" href="/favs" onClick={onClick}>View and share</Link>
+        <div className="small" style={{ color: 'burlywood' }}>ListItem ID: {listItem.id}</div>
       </div></div>
     </div>
   )

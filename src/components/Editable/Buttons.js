@@ -13,18 +13,20 @@ function EditableButtons(props) {
         className="editable-submit"
         disabled={disabled}
         type="submit"
+        title={submitTxt}
         onClick={handleSubmit}
       >
-        <span>{submitTxt}</span>
+        <span className="hidden">{submitTxt}</span>
         <Icon symbol="check" />
       </button>
       {!preventClose &&
         <button
           className="editable-close"
           type="button"
+          title={closeTxt}
           onClick={close}
         >
-          <span>{closeTxt}</span>
+          <span className="hidden">{closeTxt}</span>
           <Icon symbol="ban" />
         </button>
       }

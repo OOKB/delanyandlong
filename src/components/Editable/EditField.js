@@ -17,7 +17,7 @@ function EditField(props) {
   const { hasError, errorMessage, help, suggestion, value } = form
   const helpTxt = hasError ? errorMessage : help
   return (
-    <div className={classNames('editable-form col-md-9', className)}>
+    <div className={classNames('editable-form eight right', className)}>
       <div className="editable-row">
         {type !== 'textarea' &&
           <Input

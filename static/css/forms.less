@@ -1,0 +1,80 @@
+.editable-fixed-value {
+  line-height: 1.5rem;
+}
+
+.editable .control-label {
+  line-height: 1.5rem;
+  color: @light-gray;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .66rem;
+  letter-spacing: .1em;
+}
+
+.editable-row {
+  &::after {
+    .cf;
+  }
+}
+
+.editable-input,
+.editable-buttons {
+  .relative;
+  float: left;
+}
+
+.editable-input {
+  width: 75%;
+
+  .form-control {
+    width: 100%;
+
+    border: none;
+    background: transparent;
+    color: @gold;
+    border-bottom: 1px solid currentColor;
+    padding: 0;
+    padding-bottom: 0;
+    line-height: 1.5rem;
+    .transition(all 400ms);
+
+    &:active,
+    &:focus {
+      outline: none;
+      color: @dark-gray;
+    }
+  }
+
+}
+
+.editable-buttons {
+  width: 25%;
+  &::after {
+    .cf;
+  }
+
+  button {
+    width: 50%;
+    float: left;
+    .transition(all 300ms);
+
+    border:none;
+    background-color: transparent;
+    border-radius: .15em;
+  }
+
+  .editable-submit {
+    background-color: @green;
+    color:@off-white;
+    &:hover {
+      background-color: @dark-green;
+    }
+  }
+  .editable-close {
+    background-color: @yellow;
+    color:@off-white;
+    &:hover {
+      background-color: @dark-yellow;
+    }
+  }
+}

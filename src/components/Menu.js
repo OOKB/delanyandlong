@@ -12,7 +12,7 @@ function Menu({ activeId, links }) {
     <ul className="menu list-reset list-inline">
       {map(links, ({ id, href, label, icon }) => (
         <li key={id} className={classnames(id, { active: isActive(id) })}>
-          <Link href={href}>
+          <Link href={href} alt={label} title={label}>
             {icon &&
               <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true"></i>
             }

@@ -5,6 +5,7 @@ import { connectField } from 'redux-field'
 const style = {
   label: {
     fontSize: '.7em',
+    // lineHeight: '1.5rem',
     paddingRight: 5,
   },
 }

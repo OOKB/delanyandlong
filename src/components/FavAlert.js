@@ -24,7 +24,7 @@ function getSchema(listItem) {
   }
 }
 function FavAlert({ onClick, item, listItem }) {
-  const message = `${item.id} has been added to your favorites!`
+  const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
   const schema = getSchema(listItem)
   return (
     <div className="favorite popup absolute p1">

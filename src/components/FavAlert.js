@@ -31,14 +31,9 @@ function FavAlert({ onClick, item, listItem }) {
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
         <p>{message}</p>
-        <ul className="list-reset mb1">
-          <li>
-            <Field {...schema.position} />
-          </li>
-          <li>
-            <Field {...schema.description} />
-          </li>
-          {listItem.title && <li>{listItem.title}</li>}
+        <ul>
+          <li><Field {...schema.position} /></li>
+          <li><Field {...schema.description} /></li>
         </ul>
         <Link className="small uppercase" href="/favs" onClick={onClick}>View and share</Link>
       </div></div>

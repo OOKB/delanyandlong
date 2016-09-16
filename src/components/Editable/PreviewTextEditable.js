@@ -11,7 +11,7 @@ const styles = {
     borderBottom: '1px dashed currentColor',
     borderRadius: 0,
     color: 'rgba(061,060,057,1)',
-    fontSize: '1rem',
+    fontSize: '1em',
     lineHeight: '1.5rem',
     padding: '0',
     textDecoration: 'none',

@@ -6,11 +6,10 @@ const styles = {
   base: {
     position: 'absolute',
     top: 0,
-    bottom: 0,
-    right: 0,
+    // bottom: 0,
+    right: 4,
     border: 'none',
     background: 'transparent',
-    width: '1rem',
     color: 'currentColor',
     ':hover': {
       color: 'rgba(103,099,049,1)',

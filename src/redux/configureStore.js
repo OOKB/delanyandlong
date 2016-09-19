@@ -13,15 +13,14 @@ import {
 // Socket.io linking
 import io from 'socket.io-client'
 import { middleware as createSocketMiddleware } from 'cape-redux-socket'
-const location = process.env.SOCKET_LOC || ''
-const socket = createSocketMiddleware(io(location))
-
 import createStore from './createStore'
 // Redux Reducers.
 // Our reducer index.
-import reducer from './reducer'
+import reducer from 'cape-redux-reducer'
 import defaultState from './defaultState'
 
+const location = process.env.SOCKET_LOC || ''
+const socket = createSocketMiddleware(io(location))
 // Define the middeware we want to apply to the store.
 const middleware = [
   historyMiddleware(window.history),

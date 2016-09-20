@@ -16,6 +16,11 @@ function Home({ items, missingImage }) {
       <ItemGrid items={items} missingImage={missingImage} />
       <ItemGrid items={items} missingImage={missingImage} />
       <ItemGrid items={items} missingImage={missingImage} />
+      {!items || !items.length &&
+        <div className="temporary filler">
+          <img src="http://rogersandgoffigon.imgix.net/normal/dl5012-05.jpg" alt="Delany & Long, more items on their way." />
+        </div>
+      }
       <Footer />
     </div>
   )

@@ -31,10 +31,8 @@ function getButtonStyle(activeCategory, value) {
 function CategoryFilter({ activeCategory, formEvent, options }) {
   return (
     <div className="collection-menu group mb0">
-      {/* <h2 className="twelve columns mb0 uppercase">Filters</h2> */}
       <div className="select-type mlrauto">
         <div className="button-group flex-center text-center">
-          {/* <p className="uppercase m0">Filter By Type:</p> */}
           {map(options, ({ value, label }) => {
             const style = getButtonStyle(activeCategory, value)
             return (

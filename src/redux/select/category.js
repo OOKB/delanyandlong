@@ -9,7 +9,7 @@ import { getDb, getFilter, getSchema, optionFill, pricelistInfo } from './'
 // Array of category options from database.
 export const getCategoryOptions = getDb('categoryOptions')
 
-export const defaultCategory = select('defaultCategory', pricelistInfo)
+export const defaultCategory = select(pricelistInfo, 'defaultCategory')
 export const getFilterCategory = getFilter('category')
 
 export const categoryOptionsSelector = createSelector(

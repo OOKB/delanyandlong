@@ -6,7 +6,7 @@ import isObject from 'lodash/isObject'
 import map from 'lodash/map'
 import partialRight from 'lodash/partialRight'
 
-import { select } from '../utils'
+import { select } from 'cape-select'
 import { pageSizes } from '../../helpers/pager'
 
 export const pageSizeOptions = pageSizes()
@@ -20,7 +20,7 @@ export const getDataFeed = select('pBlf', entitySelector)
 export const getWebApp = select('delanyLongWebApp', entitySelector)
 
 export function optionFill(opts, schema) {
-  return map(opts, opt => {
+  return map(opts, (opt) => {
     if (isObject(opt)) return opt
     return { ...schema[opt], value: opt }
   })

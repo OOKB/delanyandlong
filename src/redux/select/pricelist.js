@@ -1,8 +1,8 @@
 import { createSelector, createStructuredSelector } from 'reselect'
+import { select } from 'cape-select'
 
 import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
 import trio from '../../helpers/trio'
-import { select } from '../utils'
 import {
   pricelistInfo, formPrefix, getFilter, getDb, getFilterText, getPageIndex,
   getSchema, optionFill, pageSizeOptions,

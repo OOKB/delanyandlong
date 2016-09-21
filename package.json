@@ -54,6 +54,7 @@
     "node": ">=5.0.0"
   },
   "dependencies": {
+    "cape-redux-auth": "^1.0.0",
     "cape-redux-reducer": "^1.0.1",
     "cape-redux-socket": "^2.0.1",
     "classnames": "^2.2.5",

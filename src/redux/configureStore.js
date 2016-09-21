@@ -13,10 +13,10 @@ import {
 // Socket.io linking
 import io from 'socket.io-client'
 import { middleware as createSocketMiddleware } from 'cape-redux-socket'
-import createStore from './createStore'
 // Redux Reducers.
 // Our reducer index.
 import reducer from 'cape-redux-reducer'
+import createStore from './createStore'
 import defaultState from './defaultState'
 
 const location = process.env.SOCKET_LOC || ''

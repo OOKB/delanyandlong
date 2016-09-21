@@ -16,6 +16,6 @@ function routeInfoSelector(history) {
 // Pass in the state object and return some info about a "route".
 // selectActiveKeyDefault() is a helper function to grab the current location info.
 const routingSelector = createSelector(selectActiveKeyDefault, routeInfoSelector)
-export const getRoute = select('route', routingSelector)
-export const getRouteId = select('id', getRoute)
+export const getRoute = select(routingSelector, 'route')
+export const getRouteId = select(getRoute, 'id')
 export default routingSelector

@@ -36,7 +36,7 @@ export const userCollections = createSelector(
 export const userHasCollections = boolSelector(userCollections)
 // Find (first) user favs project from list entities.
 export const favsListSelector = createSelector(userCollections, find(isFavList))
-export const favListElements = select('itemListElement', favsListSelector)
+export const favListElements = select(favsListSelector, 'itemListElement')
 export const userHasFavorites = boolSelector(favListElements)
 export const listItems = createSelector(favListElements, itemsFilled, fixListItems)
 
@@ -46,10 +46,10 @@ export const favsItemIndex = createSelector(listItems, listItemIndex)
 // ITEM LISTS & COLLECTIONS. Uses item prop.
 
 // Select props.item.id from (state, props)
-export const getItemId = select('item.id', getProps)
+export const getItemId = select(getProps, 'item.id')
 // Need to ListItems this textile shows up on.
 export const itemParents = entityDomainIncludes(getItemId)
-export const itemListItems = select('domainIncludes.item', itemParents)
+export const itemListItems = select(itemParents, 'domainIncludes.item')
 // Reduce to only valid/active listItemElements
 export const itemActiveListItems = createSelector(itemListItems, pickBy(isValidListItem))
 // Move domainIncludes.itemListElement to collection.
@@ -68,7 +68,7 @@ export const itemFavCollection = createSelector(itemCollections, find(isFavList)
 // CREATE
 
 // Gep props.litlte or return favTitle default.
-export const getTitle = select('title', getProps, favTitle)
+export const getTitle = select(getProps, 'title', favTitle)
 // Return user if there was a title set. Otherwise return webApp.
 export function collectionListAgent(state, props) {
   if (getTitle(state, props) !== favTitle) return getUser(state)

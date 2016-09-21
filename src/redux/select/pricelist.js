@@ -58,8 +58,8 @@ export function getPager(items, pgIndex, pgSize) {
   if (pgSize === 3) return trio(items, pgIndex)
   return getPagerInfo(items, { page: pgIndex, perPage: pgSize })
 }
-const pgIndex = select('pgIndex', pricelistInfoSelector)
-const pgSize = select('pgSize', pricelistInfoSelector)
+const pgIndex = select(pricelistInfoSelector, 'pgIndex')
+const pgSize = select(pricelistInfoSelector, 'pgSize')
 export const pagerSelector = createSelector(
   patternColorSelector,
   pgIndex,

@@ -1,8 +1,8 @@
 import { selectActiveKeyDefault } from 'redux-history-sync'
 import { createSelector } from 'reselect'
+import { select } from 'cape-select'
 
 import locationInfo from '../routes'
-import { select } from './utils'
 
 // We are using the redux-history-sync to put location into state.
 function routeInfoSelector(history) {

@@ -2,9 +2,10 @@ import { createSelector, createStructuredSelector } from 'reselect'
 import map from 'lodash/map'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
+import { select } from 'cape-select'
+import { firstValArg } from 'cape-lodash'
 
 import { getDb, getFilter, getSchema, optionFill, pricelistInfo } from './'
-import { select, firstValArg } from '../utils'
 // Array of category options from database.
 export const getCategoryOptions = getDb('categoryOptions')
 

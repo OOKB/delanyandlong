@@ -1,6 +1,7 @@
 import { create, createTriple, entityUpdate } from 'redux-graph'
+import { isAnonymous } from 'cape-redux-auth'
+
 import { getUser } from '../select/user'
-import { isAnonymous } from '../auth/select'
 import { createCollectionItemTriple, endListItem } from './entity'
 import {
   buildCollectionList, favsListSelector, itemListCreated, userHasCollections,

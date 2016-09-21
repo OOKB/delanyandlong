@@ -4,8 +4,8 @@ import {
 import { createSelector, createStructuredSelector } from 'reselect'
 import find from 'lodash/fp/find'
 import pickBy from 'lodash/fp/pickBy'
+import { boolSelector, getProps, select, simpleSelector } from 'cape-select'
 
-import { boolSelector, getProps, select, createSimpleSelector } from '../utils'
 import { getDataFeed, getWebApp } from '../select'
 import { getUser } from '../select/user'
 import { itemsFilled } from '../select/items'
@@ -61,7 +61,7 @@ export const itemInCollections = boolSelector(itemCollections)
 export const itemFavCollection = createSelector(itemCollections, find(isFavList))
 // Need to know if we should display a confirm window or a projectEdit window.
 // Find fav or active collection under edit.
-// export const getActiveCollection = createSimpleSelector(favCollection, firstValArg)
+// export const getActiveCollection = simpleSelector(favCollection, firstValArg)
 // export const favId = select('itemListElement.id', favCollection)
 // export const itemIcon = createSelector(itemCollections, getItemIcon)
 
@@ -75,7 +75,7 @@ export function collectionListAgent(state, props) {
   return getWebApp(state)
 }
 // create a new Favs list for the user.
-export const buildCollectionList = createSimpleSelector(
+export const buildCollectionList = simpleSelector(
   collectionListAgent, getUser, getDataFeed, getTitle, createCollectionList
 )
 

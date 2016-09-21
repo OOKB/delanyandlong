@@ -10,17 +10,17 @@ function Home({ items, missingImage }) {
   return (
     <div id="home">
       <Header />
-      <ItemGrid items={items} missingImage={missingImage} />
-      <ItemGrid items={items} missingImage={missingImage} />
-      <ItemGrid items={items} missingImage={missingImage} />
-      <ItemGrid items={items} missingImage={missingImage} />
-      <ItemGrid items={items} missingImage={missingImage} />
-      <ItemGrid items={items} missingImage={missingImage} />
       {!items || !items.length &&
         <div className="temporary filler">
-          <img src="http://rogersandgoffigon.imgix.net/normal/dl5012-05.jpg" alt="Delany & Long, more items on their way." />
+          <img src="http://rogersandgoffigon.imgix.net/normal/dl5012-05.jpg" alt="Delany & Long, waiting for items to load." />
         </div>
       }
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
+      <ItemGrid items={items} missingImage={missingImage} />
       <Footer />
     </div>
   )

@@ -12,7 +12,7 @@ import {
 
 // Socket.io linking
 import io from 'socket.io-client'
-import { middleware as createSocketMiddleware } from 'cape-redux-socket'
+import { middleware as createSocketMiddleware, cookieMiddleware } from 'cape-redux-socket'
 // Redux Reducers.
 // Our reducer index.
 import reducer from 'cape-redux-reducer'
@@ -25,6 +25,7 @@ const socket = createSocketMiddleware(io(location))
 const middleware = [
   historyMiddleware(window.history),
   socket,
+  cookieMiddleware,
   thunk,
 ]
 

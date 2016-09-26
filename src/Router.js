@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import get from 'lodash/get'
 import isFunction from 'lodash/isFunction'
-import isString from 'lodash/isString'
+// import isString from 'lodash/isString'
 // Top level "router". Heh.
 import * as routeIndex from './RouteIndex'
 

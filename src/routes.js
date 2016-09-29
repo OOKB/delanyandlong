@@ -10,5 +10,5 @@ addRoute('pricelist', '/collection(/*)')
 addRoute('detail', '/detail/*')
 addRoute('itemEdit', '/edit/*')
 addRoute('favs', '/favs')
-addRoute('trade', '/trade')
+addRoute('login', '/login')
 export default locationInfo

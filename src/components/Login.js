@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-import Header from '../Header'
-import Footer from '../Footer'
-import Icon from '../Icon'
+import Header from './Header'
+import Footer from './Footer'
+import Icon from './Icon'
 
 function Trade({ actQ, onClick, small }) {
   return (

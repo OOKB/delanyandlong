@@ -4,7 +4,7 @@ import partial from 'lodash/partial'
 import { login } from 'cape-redux-auth'
 
 import { getTrade as mapStateToProps } from '../redux/select/trade'
-import Component from '../components/Trade/Login'
+import Component from '../components/Login'
 
 const mapDispatchToProps = {
   onClick: partial(ary(login, 1), { id: 'auth123' }),

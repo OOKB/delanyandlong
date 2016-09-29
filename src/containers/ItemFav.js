@@ -2,8 +2,7 @@ import { connect } from 'react-redux'
 import partial from 'lodash/partial'
 
 import { mapDispatchToProps } from 'cape-redux'
-import { mapStateToProps } from '../redux/project/select'
-import { editItemCollections } from '../redux/project/actions'
+import { editItemCollections, mapStateToProps } from 'cape-redux-collection'
 import Component from '../components/Fav'
 
 function getActions({ item }) {

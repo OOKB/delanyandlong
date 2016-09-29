@@ -1,6 +1,6 @@
 import { createStructuredSelector } from 'reselect'
 import { isAnonymous, isAuthenticated } from 'cape-redux-auth'
-import { userHasFavorites } from '../project/select'
+import { userHasFavorites } from 'cape-redux-collection'
 
 const permissions = createStructuredSelector({
   hasFavorites: userHasFavorites,

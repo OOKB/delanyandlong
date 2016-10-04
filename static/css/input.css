@@ -5,7 +5,8 @@
 .search-wrapper input,
 .login-wrapper label,
 .login-wrapper input,
-.login-wrapper button  {
+.login-wrapper button,
+.login-wrapper .labelLike  {
   line-height: 3rem;
   height: 3rem;
   font-size: 1.5rem;
@@ -27,6 +28,11 @@
 .input-group,
 .icon-group {
   position: relative;
+}
+
+.input-group label,
+.icon-group .labelLike {
+  z-index: 2;
 }
 
 .search-wrapper input {
@@ -91,7 +97,6 @@
 .login-wrapper input:active {
   background-color: white;
   color: rgb(066,067,047);
-  color: rgba(066,067,047,1);
 }
 
 .login-wrapper input,
@@ -136,4 +141,10 @@
   -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
   -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
   box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1),inset 3rem 3rem 3rem rgba(066,067,047,.5);
+}
+
+.login-wrapper .labelLike  {
+  top:0;
+  bottom:0;
+  left: .5em;
 }

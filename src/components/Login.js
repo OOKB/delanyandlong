@@ -29,8 +29,9 @@ function Login({ actQ, onClick, small }) {
           <FormField {...custNum} />
           <FormField {...zip} />
           <div className="icon-group">
-            <Icon className="shite" symbol="sign-in" hidden />
-            <button className="btn-outline" type="submit" onClick={onClick}>Log In</button>
+            <button type="submit" onClick={onClick}>
+              <Icon className="absolute labelLike" symbol="sign-in" hidden /> Log In
+            </button>
           </div>
         </div>
         <div className="help-text">

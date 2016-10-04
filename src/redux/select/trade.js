@@ -1,9 +1,9 @@
 import { constant, flow, overEvery, partialRight, property } from 'lodash'
 import { getState } from 'redux-field'
 import { createSelector, createStructuredSelector } from 'reselect'
+import { fieldValidation } from 'cape-validate'
 
 import { getDb } from './'
-import fieldValidation from 'cape-validate'
 
 const custNum = {
   className: 'accountNumber',

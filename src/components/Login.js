@@ -17,6 +17,7 @@ const zip = {
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'Postal Code',
   prefix: [ 'login', 'postalCode' ],
+  validators: [ 'numString', [ 'length', 5 ] ],
 }
 
 function Login({ actQ, onClick, small }) {
@@ -28,7 +29,7 @@ function Login({ actQ, onClick, small }) {
           <FormField {...custNum} />
           <FormField {...zip} />
           <div className="icon-group">
-            <label><Icon className="shite" symbol="sign-in" hidden /></label>
+            <Icon className="shite" symbol="sign-in" hidden />
             <button className="btn-outline" type="submit" onClick={onClick}>Log In</button>
           </div>
         </div>
@@ -64,7 +65,6 @@ function Login({ actQ, onClick, small }) {
 Login.propTypes = {
   actQ: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
   small: PropTypes.string.isRequired,
 }
 Login.defaultProps = {}

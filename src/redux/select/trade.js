@@ -34,7 +34,7 @@ export const acctNumState = formState(custNum)
 export const fieldValid = partialRight(flow, overEvery(property('isValid'), property('value')))
 export const showZip = fieldValid(acctNumState)
 export const zipState = formState(zip)
-export const showLoginButton = fieldValid(zipState)
+export const showLoginButton = overEvery(showZip, fieldValid(zipState))
 
 export const validInfo = createStructuredSelector({
   showZip,

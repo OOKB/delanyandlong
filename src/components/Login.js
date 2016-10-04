@@ -18,7 +18,7 @@ const zip = {
   prefix: [ 'login', 'postalCode' ],
 }
 
-function Login({ actQ, onClick, onChange, small }) {
+function Login({ actQ, onClick, small }) {
   return (
     <div id="trade">
       <Header />

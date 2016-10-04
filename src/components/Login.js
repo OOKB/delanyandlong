@@ -4,20 +4,21 @@ import Header from './Header'
 import Footer from './Footer'
 import Icon from './Icon'
 import FormField from '../containers/FormField'
+import fieldValidation from '../utils/formValidation'
 
 const custNum = {
   className: 'accountNumber',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'D&L Account Number',
   prefix: [ 'login', 'customerNumber' ],
-  validators: [ 'numString', [ 'length', 6 ] ],
+  validate: fieldValidation([ 'numString', [ 'length', 6 ] ]),
 }
 const zip = {
   className: 'zipCode',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'Postal Code',
   prefix: [ 'login', 'postalCode' ],
-  validators: [ 'numString', [ 'length', 5 ] ],
+  validate: fieldValidation([ 'numString', [ 'length', 5 ] ]),
 }
 
 function Login({ actQ, onClick, small }) {

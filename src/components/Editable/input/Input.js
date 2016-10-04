@@ -107,7 +107,9 @@ Input.propTypes = {
   onNext: PropTypes.func,
   // Needed in place of refs.
   id: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   value: PropTypes.string,
+}
+Input.defaultProps = {
+  type: 'text',
 }
 export default Input

@@ -4,24 +4,20 @@ import Header from './Header'
 import Footer from './Footer'
 import Icon from './Icon'
 
-function getSchema() {
-  return {
-    customerNumber: {
-      description: 'D&L Account Number',
-      label: 'D&L Account Number',
-      id: 'customerNumber',
-      prefix: [ 'login', 'customerNumber' ],
-    },
-    position: {
-      description: 'Postal Code',
-      label: 'ZIP Code',
-      id: 'postalCode',
-      prefix: [ 'login', 'postalCode' ],
-    },
-  }
+const custNum = {
+  description: 'D&L Account Number',
+  label: 'D&L Account Number',
+  id: 'customerNumber',
+  prefix: [ 'login', 'customerNumber' ],
+}
+const zip = {
+  description: 'Postal Code',
+  label: 'ZIP Code',
+  id: 'postalCode',
+  prefix: [ 'login', 'postalCode' ],
 }
 
-function Login({ actQ, onClick, small }) {
+function Login({ actQ, onClick, onChange, small }) {
   return (
     <div id="trade">
       <Header />
@@ -29,7 +25,7 @@ function Login({ actQ, onClick, small }) {
         <div className="login-wrapper">
           <div className="input-group accountNumber">
             <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
-            <input placeholder="" />
+            <input placeholder={custNum.label} onChange={onChange} />
           </div>
           <div className="input-group zipCode">
             <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
@@ -71,9 +67,8 @@ function Login({ actQ, onClick, small }) {
 
 Login.propTypes = {
   actQ: PropTypes.string.isRequired,
-  items: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
-  route: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
   small: PropTypes.string.isRequired,
 }
 Login.defaultProps = {}

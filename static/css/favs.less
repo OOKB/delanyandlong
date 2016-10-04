@@ -1,0 +1,21 @@
+.editable-input,
+.editable-buttons {
+  .relative;
+  float: left;
+}
+
+.editable-input {
+  width: 75%;
+}
+
+.editable-buttons {
+  width: 25%;
+  &::after {
+    .cf;
+  }
+
+  button {
+    width: 50%;
+    float: left;
+  }
+}

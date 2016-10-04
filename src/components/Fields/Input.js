@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
-import isString from 'lodash/isString'
 
 import Input from '../Editable/input/Input'
 import Help from '../Editable/Help'

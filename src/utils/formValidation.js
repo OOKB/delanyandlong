@@ -32,7 +32,7 @@ export const validatorToFunc = memoize((validator) => {
 })
 
 // Return any errors.
-export function fieldValidation(validators) {
+export default function fieldValidation(validators) {
   if (!validators || !validators.length) throw new Error('validators array required')
 
   // Turn each string/array into a validation function.

@@ -14,5 +14,6 @@ export const maxLength = curry((max, value) => {
   return undefined
 })
 export function numString(val) {
-  return /^\d+$/.test(val)
+  if (!/^\d+$/.test(val)) return 'Must contain only numbers.'
+  return undefined
 }

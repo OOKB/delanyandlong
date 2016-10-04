@@ -10,6 +10,7 @@ const custNum = {
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'D&L Account Number',
   prefix: [ 'login', 'customerNumber' ],
+  validators: [ 'numString', [ 'length', 6 ] ],
 }
 const zip = {
   className: 'zipCode',

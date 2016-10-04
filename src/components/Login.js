@@ -3,17 +3,18 @@ import React, { PropTypes } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Icon from './Icon'
+import FormField from '../containers/FormField'
 
 const custNum = {
-  description: 'D&L Account Number',
-  label: 'D&L Account Number',
-  id: 'customerNumber',
+  className: 'accountNumber',
+  icon: { className: 'light-gray', symbol: 'hashtag' },
+  placeholder: 'D&L Account Number',
   prefix: [ 'login', 'customerNumber' ],
 }
 const zip = {
-  description: 'Postal Code',
-  label: 'ZIP Code',
-  id: 'postalCode',
+  className: 'zipCode',
+  icon: { className: 'light-gray', symbol: 'hashtag' },
+  placeholder: 'Postal Code',
   prefix: [ 'login', 'postalCode' ],
 }
 
@@ -23,14 +24,8 @@ function Login({ actQ, onClick, onChange, small }) {
       <Header />
       <main className="container">
         <div className="login-wrapper">
-          <div className="input-group accountNumber">
-            <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
-            <input placeholder={custNum.label} onChange={onChange} />
-          </div>
-          <div className="input-group zipCode">
-            <label><Icon className="light-gray" symbol="hashtag" hidden /></label>
-            <input placeholder="ZIP Code" />
-          </div>
+          <FormField {...custNum} />
+          <FormField {...zip} />
           <div className="icon-group">
             <label><Icon className="shite" symbol="sign-in" hidden /></label>
             <button className="btn-outline" type="submit" onClick={onClick}>Log In</button>

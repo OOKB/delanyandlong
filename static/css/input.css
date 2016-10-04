@@ -24,6 +24,11 @@
   max-width: 800px;
 }
 
+.input-group,
+.icon-group {
+  position: relative;
+}
+
 .search-wrapper input {
   color: rgb(033,033,024);
   color: rgba(033,033,024,1);

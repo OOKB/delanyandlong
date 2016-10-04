@@ -65,7 +65,6 @@ function Login({ actQ, onClick, small }) {
 Login.propTypes = {
   actQ: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
   small: PropTypes.string.isRequired,
 }
 Login.defaultProps = {}

@@ -1,18 +1,33 @@
-import curry from 'lodash/curry'
-import isEmpty from 'lodash/isEmpty'
+import { curry, eq, flow, gt, lt, nthArg, over, partial, property } from 'lodash'
 
-export const minLength = curry((min, value) => {
-  if (!isEmpty(value) && value.length < min) {
-    return `Must be at least ${min} characters`
-  }
+export function createValidator(validateFunc, errMsg) {
+  return curry((args, value) => {
+    if (validateFunc(args, value)) return errMsg
+    return undefined
+  })
+}
+
+export const valueLength = flow(nthArg(1), property('length'))
+export const createLengthCheck = partial(flow, over(valueLength), nthArg(0))
+
+export const invalidLength = createLengthCheck(eq)
+export const length = curry((arg, value) => {
+  if (!eq(arg, value.length)) return `Must be at ${arg} characters long.`
   return undefined
 })
-export const maxLength = curry((max, value) => {
-  if (!isEmpty(value) && value.length > max) {
-    return `Must be no more than ${max} characters`
-  }
+
+export const underMinLen = createLengthCheck(lt)
+export const minLength = curry((arg, value) => {
+  if (underMinLen(arg, value)) return `Must be at least ${arg} characters`
   return undefined
 })
+
+export const overMaxLen = createLengthCheck(gt)
+export const maxLength = curry((arg, value) => {
+  if (overMaxLen(arg, value)) return `Must be no more than ${arg} characters`
+  return undefined
+})
+
 export function numString(val) {
   if (!/^\d+$/.test(val)) return 'Must contain only numbers.'
   return undefined

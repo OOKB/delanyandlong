@@ -4,36 +4,29 @@ import Header from './Header'
 import Footer from './Footer'
 import Icon from './Icon'
 import FormField from '../containers/FormField'
-import fieldValidation from '../utils/formValidation'
 
-const custNum = {
-  className: 'accountNumber',
-  icon: { className: 'light-gray', symbol: 'hashtag' },
-  placeholder: 'D&L Account Number',
-  prefix: [ 'login', 'customerNumber' ],
-  validate: fieldValidation([ 'numString', [ 'length', 6 ] ]),
+function Submit({ onClick }) {
+  return (
+    <div className="icon-group">
+      <button type="submit" onClick={onClick}>
+        <Icon className="absolute labelLike" symbol="sign-in" hidden /> Log In
+      </button>
+    </div>
+  )
 }
-const zip = {
-  className: 'zipCode',
-  icon: { className: 'light-gray', symbol: 'hashtag' },
-  placeholder: 'Postal Code',
-  prefix: [ 'login', 'postalCode' ],
-  validate: fieldValidation([ 'numString', [ 'length', 5 ] ]),
+Submit.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }
 
-function Login({ actQ, onClick, small }) {
+function Login({ actQ, custNum, onClick, showZip, showLoginButton, small, zip }) {
   return (
     <div id="trade">
       <Header />
       <main className="container">
         <div className="login-wrapper">
           <FormField {...custNum} />
-          <FormField {...zip} />
-          <div className="icon-group">
-            <button type="submit" onClick={onClick}>
-              <Icon className="absolute labelLike" symbol="sign-in" hidden /> Log In
-            </button>
-          </div>
+          {showZip && <FormField {...zip} />}
+          {showLoginButton && <Submit onClick={onClick} />}
         </div>
         <div className="help-text">
           <ul className="list-reset group">
@@ -66,8 +59,10 @@ function Login({ actQ, onClick, small }) {
 
 Login.propTypes = {
   actQ: PropTypes.string.isRequired,
+  custNum: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   small: PropTypes.string.isRequired,
+  zip: PropTypes.object.isRequired,
 }
 Login.defaultProps = {}
 export default Login

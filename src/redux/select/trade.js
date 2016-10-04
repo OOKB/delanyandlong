@@ -3,14 +3,14 @@ import { getState } from 'redux-field'
 import { createSelector, createStructuredSelector } from 'reselect'
 
 import { getDb } from './'
-import fieldValidation from '../../utils/formValidation'
+import fieldValidation from 'cape-validate'
 
 const custNum = {
   className: 'accountNumber',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'D&L Account Number',
   prefix: [ 'login', 'customerNumber' ],
-  validate: fieldValidation([ 'numString', [ 'length', 6 ] ]),
+  validate: fieldValidation([ 'numString', [ 'firstChar', '0' ], [ 'length', 6 ] ]),
 }
 const zip = {
   className: 'zipCode',

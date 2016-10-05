@@ -13,7 +13,7 @@ function Help({ help, hasErrors, id, suggestion, onClick }) {
   })
 
   return (
-    <span className={className} id={`${id}-helpBlock`}>
+    <p className={className} id={`${id}-helpBlock`}>
       {suggestion &&
         <span>
           {preTxt}
@@ -24,7 +24,7 @@ function Help({ help, hasErrors, id, suggestion, onClick }) {
         </span>
       }
       {help}
-    </span>
+    </p>
   )
 }
 

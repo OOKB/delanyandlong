@@ -155,6 +155,8 @@ const state = {
     ],
     trade: {
       actQ: "Do you have an existing account with us but don't know your login information?",
+      mustHave: 'You must have a Trade Account to view prices and utilize the other special features, like saving custom projects and viewing sale items.',
+      noActQ: 'Are you a trades person and without an existing account?',
       small: 'Accounts are available to trades people only (designers, re-sellers and industry members) and are not meant for regular customers.',
     },
   },

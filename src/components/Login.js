@@ -18,7 +18,7 @@ Submit.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-function Login({ actQ, custNum, onClick, showZip, showLoginButton, small, zip }) {
+function Login({ actQ, custNum, mustHave, noActQ, onClick, showZip, showLoginButton, small, zip }) {
   return (
     <div id="trade">
       <Header />
@@ -31,19 +31,17 @@ function Login({ actQ, custNum, onClick, showZip, showLoginButton, small, zip })
         <div className="help-text">
           <ul className="list-reset group">
             <li className="mb2">
-              <p>
-                You must have a Trade Account to view prices and utilize the other special features.
-              </p>
+              <p>{mustHave}</p>
             </li>
             <li className="mb2">
               <p>
                 <strong className="sans uppercase gray">{actQ}</strong><br />
-                Use your full Delany and Long account number in the <code className="uppercase dark-gold">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-gold">ZIP Code</code> field.
+                Use your full Delany and Long account number in the <code className="uppercase dark-gold">Account Number</code> field and the ZIP Code associated with your account in the <code className="uppercase dark-gold">ZIP Code</code> field. Customers outside the US may need to use their country name. Contact <a href="customerservice@delanyandlong.com">customer service</a> if your ZIP code or postal code does not allow access.
               </p>
             </li>
             <li>
               <p>
-                <strong className="sans uppercase gray">Are you a trades person and without an existing account?</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice @ delanyandlong.com</a>.
+                <strong className="sans uppercase gray">{noActQ}</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice @ delanyandlong.com</a>.
               </p>
             </li>
             <li>
@@ -60,6 +58,8 @@ function Login({ actQ, custNum, onClick, showZip, showLoginButton, small, zip })
 Login.propTypes = {
   actQ: PropTypes.string.isRequired,
   custNum: PropTypes.object.isRequired,
+  mustHave: PropTypes.string.isRequired,
+  noActQ: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   small: PropTypes.string.isRequired,
   zip: PropTypes.object.isRequired,

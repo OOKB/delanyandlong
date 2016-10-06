@@ -19,7 +19,7 @@ function InputField(props) {
     <div className={classnames('input-group', className)}>
       <label htmlFor={key}><Icon {...icon} hidden /></label>
       <Input {...rest} id={key} />
-      {validating && <div>validating</div>}
+      {validating && <p><i className="fa fa-refresh-fa fa-spin"></i> validating</p>}
       {(errorMessage || message || suggestion) &&
         <Help
           help={message || errorMessage}

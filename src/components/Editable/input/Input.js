@@ -79,16 +79,9 @@ class Input extends Component {
   }
   render() {
     const { id, value, ...other } = this.props
-    const cssClasses = {
-      'has-error': (status === 'error'),
-      'has-success': (status === 'success'),
-      'has-warning': (status === 'warning'),
-      'has-feedback': !!status,
-    }
-
     return (
       // Is a blur the same as a save?
-      <div className="editable-input `{cssClasses}`">
+      <div className="editable-input">
         <input
           {...other}
           autoFocus

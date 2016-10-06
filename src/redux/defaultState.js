@@ -69,7 +69,7 @@ const state = {
       },
       {
         id: 'tradeLogin',
-        href: '/trade',
+        href: '/login',
         icon: 'trade-login',
         label: 'Trade Login',
         validators: [ 'isAnonymous' ],

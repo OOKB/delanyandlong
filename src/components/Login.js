@@ -20,9 +20,10 @@ Submit.propTypes = {
 
 function Login(props) {
   const {
-    actQ, acctNumChecking, custNum, mustHave, noActQ,
-    onClick, showZip, showLoginButton, small, zip, zipInvalid,
+    actQ, acctNumChecking, custNum, mustHave, noActQ, onClick,
+    showZip, small, uid, zip, zipInvalid,
   } = props
+
   const zipMsg = zipInvalid ? 'Zip does not match our records for this customer number.' : null
   return (
     <div id="trade">
@@ -31,7 +32,7 @@ function Login(props) {
         <div className="login-wrapper">
           <FormField {...custNum} validating={acctNumChecking} />
           {showZip && <FormField {...zip} hardError={zipInvalid} message={zipMsg} />}
-          {showLoginButton && <Submit onClick={onClick} />}
+          {uid && <Submit onClick={onClick} />}
         </div>
         <div className="help-text">
           <ul className="list-reset group">
@@ -67,9 +68,9 @@ Login.propTypes = {
   mustHave: PropTypes.string.isRequired,
   noActQ: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  showLoginButton: PropTypes.bool,
   showZip: PropTypes.bool,
   small: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   zip: PropTypes.object.isRequired,
   zipInvalid: PropTypes.bool,
 }

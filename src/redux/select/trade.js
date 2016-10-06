@@ -1,7 +1,10 @@
-import { constant, flow, overEvery, partialRight, property } from 'lodash'
+import { constant, eq, flow, over, overEvery, partialRight, property, spread } from 'lodash'
+import { isEqual } from 'lodash/fp'
 import { getState } from 'redux-field'
 import { createSelector, createStructuredSelector } from 'reselect'
 import { fieldValidation } from 'cape-validate'
+import { getSelect, select } from 'cape-select'
+import { entitySelector } from 'redux-graph'
 
 import { getDb } from './'
 
@@ -32,12 +35,28 @@ export function formState(props) {
 }
 export const acctNumState = formState(custNum)
 export const fieldValid = partialRight(flow, overEvery(property('isValid'), property('value')))
-export const showZip = fieldValid(acctNumState)
+export const acctNumValid = fieldValid(acctNumState)
+export const acctNumFound = flow(acctNumState, property('validValue'))
+export const acctNumChecking = flow(over(acctNumValid, acctNumFound), isEqual([ true, null ]))
+export const showZip = overEvery(acctNumValid, acctNumFound)
+
 export const zipState = formState(zip)
-export const showLoginButton = overEvery(showZip, fieldValid(zipState))
+export const zipValue = select(zipState, 'value')
+export const getCustomerZip = flow(
+  getSelect(entitySelector, acctNumFound),
+  property('postalCode')
+)
+export const zipMatch = flow(
+  over(getCustomerZip, zipValue),
+  spread(eq)
+)
+export const zipInvalid = flow(over(fieldValid(zipState), zipMatch), isEqual([ true, false ]))
+export const showLoginButton = overEvery(showZip, fieldValid(zipState), zipMatch)
 
 export const validInfo = createStructuredSelector({
+  acctNumChecking,
   showZip,
   showLoginButton,
+  zipInvalid,
 })
 export const mapStateToProps = createSelector(constState, validInfo, mergeTwo)

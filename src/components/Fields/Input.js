@@ -10,17 +10,20 @@ function getKey(id, prefix) {
   return prefix.join('-')
 }
 function InputField(props) {
-  const { className, errorMessage, hasError, icon, id, prefix, suggestion } = props
+  const {
+    className, errorMessage, hardError, icon, id, message, prefix, suggestion, validating, ...rest,
+  } = props
   const key = getKey(id, prefix)
 
   return (
     <div className={classnames('input-group', className)}>
       <label htmlFor={key}><Icon {...icon} hidden /></label>
-      <Input {...props} id={key} />
-      {(errorMessage || suggestion) &&
+      <Input {...rest} id={key} />
+      {validating && <div>validating</div>}
+      {(errorMessage || message || suggestion) &&
         <Help
-          help={errorMessage}
-          hasErrors={hasError}
+          help={message || errorMessage}
+          hasErrors={hardError}
           id={id}
           suggestion={suggestion}
         />
@@ -33,10 +36,13 @@ function InputField(props) {
 InputField.propTypes = {
   className: PropTypes.string,
   errorMessage: PropTypes.string,
-  hasError: PropTypes.bool.isRequired,
+  hardError: PropTypes.bool,
+  icon: PropTypes.object,
   id: PropTypes.string,
+  message: PropTypes.string,
   prefix: PropTypes.arrayOf(React.PropTypes.string).isRequired,
   suggestion: PropTypes.string,
+  validating: PropTypes.bool,
 }
 InputField.defaultProps = {}
 export default InputField

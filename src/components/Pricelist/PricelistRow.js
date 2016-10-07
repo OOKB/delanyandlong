@@ -9,7 +9,7 @@ import { cellStyles } from './styles'
 
 function makeValue(key, alt, value) {
   if (key !== 'img') return value
-  return <img src={value} alt={alt} />
+  return <img src={`${value}?w=150`} alt={alt} />
 }
 
 function itemLink(item, key, value) {
@@ -20,7 +20,7 @@ function itemLink(item, key, value) {
 function cellValue(item, key, printWhenColor) {
   if (item.isPattern) return itemLink(item, key, item[key])
   const colorKey = printWhenColor[key]
-  return colorKey && itemLink(item, key, item[colorKey]) || null
+  return colorKey ? itemLink(item, key, item[colorKey]) : null
 }
 
 function PricelistRowPattern({ columns, item, printWhenColor }) {

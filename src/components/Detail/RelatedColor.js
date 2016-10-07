@@ -6,7 +6,7 @@ function RelatedColor({ color, parent }) {
   return (
     <li>
       <LinkOrNot color={color} parent={parent}>
-        <img src={color.img.replace('_big', '')} alt={color.id} />
+        <img src={color.img.concat('?w=200')} alt={color.id} />
       </LinkOrNot>
     </li>
   )

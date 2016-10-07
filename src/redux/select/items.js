@@ -20,7 +20,7 @@ export function isValidItem(entity) {
 }
 export const activeColor = getFilter('color')
 // const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
-const CDN = 'http://65.110.85.163'
+const CDN = 'https://delanyandlong.imgix.net'
 export function itemFill(item, catCodeIndex) {
   if (!item || !item.id) return item
   const { id, category, colors, contents, name, patternNumber, price } = item
@@ -32,7 +32,7 @@ export function itemFill(item, catCodeIndex) {
     color,
     colorNumber,
     link: `/detail/${id}`,
-    img: `${CDN}/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
+    img: `${CDN}/${id}.jpg`,
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents + name + id).toLowerCase(),
   }

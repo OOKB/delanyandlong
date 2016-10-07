@@ -13,7 +13,7 @@ function Pricelist(props) {
   const { categoryKey, info, lead, disclaimer, pager } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, prefix, printWhenColor } = info
-  const display = (id) => displayStyle.active === id
+  const display = id => displayStyle.active === id
   const list = display('list')
   return (
     <div id="container-pricelist" className={category.activeCategory}>

@@ -3,7 +3,9 @@ import get from 'lodash/get'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
+import { getDb, getSchema, optionFill } from './'
 import { itemsFilled } from './items'
+import { filterPerms } from './perms'
 
 // Get the id from the URL.
 export function getItemId(state, props) {
@@ -33,4 +35,9 @@ export const colorsOpen = state => get(state, 'form.detail.related.focus', false
 export const relatedSelector = createStructuredSelector({
   colors: colorsSelector,
   isOpen: colorsOpen,
+})
+export const getFields = createSelector(getDb('detailFields'), getSchema, optionFill)
+export const fields = filterPerms(getFields)
+export const detailFields = createStructuredSelector({
+  fields,
 })

@@ -1,6 +1,8 @@
+import { connect } from 'react-redux'
+
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
-
+import { detailFields } from '../redux/select/item'
 import ItemFav from '../containers/ItemFav'
 
 function Info({ item, fields }) {
@@ -23,14 +25,6 @@ Info.propTypes = {
   item: PropTypes.object.isRequired,
   fields: PropTypes.array.isRequired,
 }
-Info.defaultProps = {
-  fields: [
-    { value: 'id', label: 'Fabric' },
-    { value: 'name', label: 'Pattern' },
-    { value: 'color', label: 'Color' },
-    { value: 'contents', label: 'Content' },
-    { value: 'approxWidth', label: 'Approx Width' },
-    { value: 'price', label: 'Price' },
-  ],
-}
-export default Info
+Info.defaultProps = {}
+
+export default connect(detailFields)(Info)

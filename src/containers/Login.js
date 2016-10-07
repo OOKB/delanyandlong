@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { login } from 'cape-redux-auth'
+import { loginRedirect } from 'cape-redux-auth'
 import { mapStateToProps } from '../redux/select/trade'
 import Component from '../components/Login'
 
 const mapDispatchToProps = {
-  login,
+  login: loginRedirect,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component)

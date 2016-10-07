@@ -23,7 +23,7 @@ function Login(props) {
     actQ, acctNumChecking, custNum, login, mustHave, noActQ,
     showZip, small, uid, zip, zipInvalid,
   } = props
-  function onClick() { return login({ id: uid }) }
+  function onClick() { return login({ id: uid }, '/collection') }
   const zipMsg = zipInvalid ? 'Zip does not match our records for this customer number.' : null
   return (
     <div id="trade">

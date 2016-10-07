@@ -134,6 +134,7 @@ const state = {
       },
       price: {
         label: 'Net Price',
+        validators: [ 'isAuthenticated' ],
       },
       repeat: {
         label: 'Approx. Repeat',

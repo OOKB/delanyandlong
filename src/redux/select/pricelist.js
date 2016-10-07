@@ -9,6 +9,7 @@ import {
 } from './'
 import { colorSelector, patternColorSelector } from './items'
 import { activeCategorySelector, category, getCategoryKey } from './category'
+import { filterPerms } from './perms'
 
 export const getStyles = getDb('styles')
 // Get active display. (list, grid, film)
@@ -25,17 +26,17 @@ export const columnsSelector = createSelector(
   activeCategorySelector,
   (info, schema, activeCategory) => optionFill(info.columns[activeCategory || 'textile'], schema)
 )
-
+export const columns = filterPerms(columnsSelector)
 // How many items to include on a page.
-export const getPageSize = state => {
+export const getPageSize = (state) => {
   const pgSize = getFilter('pgSize')(state)
   if (getDisplayStyle(state) === 'film') return 3
-  return pgSize && parseInt(pgSize, 10) || defaultPageSize
+  return pgSize ? parseInt(pgSize, 10) : defaultPageSize
 }
 
 const pricelistProps = createStructuredSelector({
   category,
-  columns: columnsSelector,
+  columns,
   displayStyle,
   searchText: getFilterText,
   pgIndex: getPageIndex,

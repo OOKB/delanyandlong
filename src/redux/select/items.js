@@ -35,7 +35,6 @@ export function itemFill(item, catCodeIndex) {
     img: `${CDN}/images/fabrics/${patternNumber}/${colorNumber}_big.jpg`,
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents + name + id).toLowerCase(),
-    type: 'OrderTrackItem',
   }
 }
 export const itemsRaw = createSelector(

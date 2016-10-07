@@ -20,10 +20,10 @@ Submit.propTypes = {
 
 function Login(props) {
   const {
-    actQ, acctNumChecking, custNum, mustHave, noActQ, onClick,
+    actQ, acctNumChecking, custNum, login, mustHave, noActQ,
     showZip, small, uid, zip, zipInvalid,
   } = props
-
+  function onClick() { return login({ id: uid }) }
   const zipMsg = zipInvalid ? 'Zip does not match our records for this customer number.' : null
   return (
     <div id="trade">
@@ -65,9 +65,9 @@ Login.propTypes = {
   actQ: PropTypes.string.isRequired,
   acctNumChecking: PropTypes.bool,
   custNum: PropTypes.object.isRequired,
+  login: PropTypes.func.isRequired,
   mustHave: PropTypes.string.isRequired,
   noActQ: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   showZip: PropTypes.bool,
   small: PropTypes.string.isRequired,
   uid: PropTypes.string,

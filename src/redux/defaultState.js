@@ -15,7 +15,11 @@ entity.delanyLongWebApp = insertFields(webAppEntity)
 const state = {
   db: {
     about: [
-      `DeLany & Long Ltd. was established by the creative team of John Flynn and Jamie Gould, founders of Rogers & Goffigon Ltd. The wholly independent company is dedicated to the design and marketing of distinctive textiles for outdoor applications. We bring to the outdoor fabric market the signature style and quality which make Rogers & Goffigon an important resource for fine interior fabrics.`,
+      `DeLany & Long Ltd. was established by the creative team of John Flynn and Jamie Gould,
+      founders of Rogers & Goffigon Ltd. The wholly independent company is dedicated to the design
+      and marketing of distinctive textiles for outdoor applications. We bring to the outdoor fabric
+      market the signature style and quality which make Rogers & Goffigon an important resource for
+      fine interior fabrics.`,
       `DeLany & Long fabrics are marked by a singular approach to color, texture and construction and are developed and produced in collaboration with European specialty mills. The collection is integrated in its overall character and individual characteristics. Seventeen coordinated colorways include solids, stripes and textures in a subtle, muted palette. Our colors are derived from vegetable dyes, chosen because they reflect nature rather than compete with it. Our weaves have visual and tactile interest not found in outdoor fabrics currently in the marketplace. The quality of our construction reflects the long tradition of our mill partners in weaving fine fabrics.`,
       `DeLany & Long fabrics transition between inside and outside. They are ideal for use in the home garden, patio and poolside, at hotels and resorts, on beaches and boats. And they are also inspired solutions for playrooms, kitchens, sunrooms and other interior areas subject to hard wear.`,
     ],
@@ -25,6 +29,7 @@ const state = {
     orders: `For fabric pricing and ordering <a href="/contact">please contact your local showroom or sales representative</a>.`,
     questions: `Please check our <a href="/contact">distributors page to find the closest showroom</a>. If you have any questions about who to call please contact our headquarters office in Greenwich, Connecticut.`,
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
+    detailFields: [ 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
     pricelist: {
       columns: {
         textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
@@ -127,13 +132,14 @@ const state = {
         label: 'Leather',
       },
       name: {
-        label: 'Name',
+        label: 'Pattern Name',
       },
       originCountry: {
         label: 'Origin',
       },
       price: {
         label: 'Net Price',
+        validators: [ 'isAuthenticated' ],
       },
       repeat: {
         label: 'Approx. Repeat',

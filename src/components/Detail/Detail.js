@@ -15,7 +15,7 @@ function Detail({ detailClose, item, route }) {
     <div id="detailWrapper" className={classnames('absolute', { editing })}>
       <DetailHeader />
       <Info item={item} />
-      <img className="fixed" src={item.img} alt={item.id} style={{ zIndex: -1 }} />
+      <img className="fixed" src={`${item.img}?w=1500`} alt={item.id} style={{ zIndex: -1 }} />
       {editing &&
         <Images subject={item} style={{ marginTop: 100 }} />
       }

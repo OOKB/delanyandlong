@@ -6,6 +6,11 @@
 
 #detailWrapper {
   width: 100%;
+
+  .detailHeader,
+  .item-information {
+    background-color: @off-white;
+  }
 }
 
 .detailHeader {
@@ -105,13 +110,13 @@
   *****/
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Pseudo-BNF */
 @media (min-aspect-ratio: 1/1) {
-  #detailWrapper > img {
+  #detailWrapper .imageWrapper > img {
     width: 100%;
     height: auto;
   }
 }
 @media (max-aspect-ratio: 1/1) {
-  #detailWrapper > img {
+  #detailWrapper .imageWrapper > img {
     height: 100%;
     width: auto;
   }
@@ -150,4 +155,75 @@
 
 #related-colors ul li {
   flex: 1;
+}
+
+/** Passementerie based tweaks? **/
+.imageWrapper {
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+
+  &.trim {
+    background-color:white;
+  }
+}
+
+@media(min-width: @main-break) {
+  .imageWrapper {
+    top:100px;
+
+    &.trim {
+      img {
+        position: absolute;
+        top:50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+@media (max-width: @main-break) {
+  #detailWrapper .imageWrapper.trim > img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100vh;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%) rotate(90deg);
+    -moz-transform: translate(-50%,-50%) rotate(90deg);
+    -ms-transform: translate(-50%,-50%) rotate(90deg);
+    -o-transform: translate(-50%,-50%) rotate(90deg);
+    transform: translate(-50%,-50%) rotate(90deg);
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -ms-transform-origin: center center;
+    -o-transform-origin: center center;
+    transform-origin: center center;
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  #detailWrapper .imageWrapper.trim > img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100vh;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%) rotate(90deg);
+    -moz-transform: translate(-50%,-50%) rotate(90deg);
+    -ms-transform: translate(-50%,-50%) rotate(90deg);
+    -o-transform: translate(-50%,-50%) rotate(90deg);
+    transform: translate(-50%,-50%) rotate(90deg);
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -ms-transform-origin: center center;
+    -o-transform-origin: center center;
+    transform-origin: center center;
+  }
 }

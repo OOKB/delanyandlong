@@ -45,6 +45,9 @@ function Pager(props) {
         value={pgSize.toString()}
         className={[ 'Qty', 'small-stack' ]}
       />
+      <button className="summerSale btn-block gold">
+        <Icon symbol="tag" hidden /> Summer Sale
+      </button>
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
         <Icon symbol="angle-right" hidden />

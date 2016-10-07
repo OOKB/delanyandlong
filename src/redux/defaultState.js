@@ -157,7 +157,6 @@ const state = {
       { value: 'list', label: 'List' },
       { value: 'grid', label: 'Grid' },
       { value: 'film', label: 'Horizontal (Trio)' },
-      { value: 'specs', label: 'Specifications?' },
     ],
     trade: {
       actQ: "Do you have an existing account with us but don't know your login information?",

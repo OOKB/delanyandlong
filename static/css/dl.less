@@ -146,6 +146,16 @@ code.uppercase {
 .relative   { position: relative; }
 .static     { position: static;   }
 
+.fixed.center {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
 /* some grid related stuff */
 /* columnar stuff */
 .wrapper,
@@ -456,6 +466,9 @@ code.uppercase {
 .bb2     { border-bottom: 2px solid currentColor;  }
 .bb3     { border-bottom: 3px solid currentColor;  }
 .bb4     { border-bottom: 4px solid currentColor;  }
+
+// z index stuff
+.zn2 { z-index: -2; }
 
 .white          { color: @off-white; }
 .gold           { color: @gold; }

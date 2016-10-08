@@ -15,14 +15,18 @@ function Detail({ detailClose, item, route }) {
     <div id="detailWrapper" className={classnames('absolute', { editing })}>
       <DetailHeader />
       <Info item={item} />
-      <div className={classnames('imageWrapper fixed', item.category)} style={{ zIndex: -1 }}>
-        <img src={`${item.img}?w=1500`} alt={item.id} />
+      <div className={classnames('imageWrapper absolute', item.category)} style={{ zIndex: -1 }}>
+        <img src={`${item.img}?w=1500&fm=pjpg`} alt={item.id} />
         {editing &&
           <Images subject={item} style={{ marginTop: 100 }} />
         }
       </div>
       <Related parent={item} />
       <Close onClick={detailClose} />
+      <div className="loading center fixed zn2">
+        <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray"></i>
+        <span className="sr-only">Loading...</span>
+      </div>
     </div>
   )
 }

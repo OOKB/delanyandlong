@@ -35,8 +35,7 @@ function Related({ close, colors, isOpen, open, parent }) {
   return (
     <div id="related-colors" style={getStyle(isOpen)}>
       <button className="colors-header" onClick={toggle}>
-        <Icon symbol="caret-down" hidden style={getRotation(isOpen)} />
-        Additional Colors
+        <Icon symbol="caret-down" hidden style={getRotation(isOpen)} /> Additional Colors
       </button>
       <ul className="list-reset">
         {map(colors, color =>

@@ -9,7 +9,7 @@ import { cellStyles } from './styles'
 
 function makeValue(key, alt, value) {
   if (key !== 'img') return value
-  return <img src={`${value}?w=150`} alt={alt} />
+  return <img src={`${value}?w=150&h=30&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1`} alt={alt} />
 }
 
 function itemLink(item, key, value) {

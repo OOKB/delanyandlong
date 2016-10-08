@@ -149,8 +149,16 @@
 
 #related-colors ul {
   display: flex;
-  height: 3.5rem;
+  height: 2.5rem;
   overflow: hidden;
+}
+
+@media (min-width: @main-break) {
+  #related-colors ul {
+    display: flex;
+    height: 3.5rem;
+    overflow: hidden;
+  }
 }
 
 #related-colors ul li {
@@ -159,10 +167,10 @@
 
 /** Passementerie based tweaks? **/
 .imageWrapper {
-  top:0;
-  bottom:0;
+  top:300px;
   left:0;
   right:0;
+  height: 100vh;
 
   &.trim {
     background-color:white;

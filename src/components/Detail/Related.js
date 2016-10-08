@@ -13,7 +13,7 @@ const style = {
   },
   open: {
     boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',
-    height: '5rem',
+    height: 'inherit',
     border: '2px solid rgba(242,239,229,1)',
     borderTop: '0',
   },

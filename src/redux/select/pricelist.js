@@ -1,5 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 import { select } from 'cape-select'
+import { isAuthenticated } from 'cape-redux-auth'
 
 import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
 import trio from '../../helpers/trio'
@@ -39,6 +40,7 @@ const pricelistProps = createStructuredSelector({
   columns,
   displayStyle,
   searchText: getFilterText,
+  showSummer: isAuthenticated,
   pgIndex: getPageIndex,
   pgSize: getPageSize,
 })

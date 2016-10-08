@@ -10,7 +10,7 @@ function pgBtnClass(name, disabled) {
 }
 function Pager(props) {
   const { colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
-    pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
+    pageIndex, pageSizeOptions, pgSize, pgSizePrefix, showSummer,
   } = props
   const { onChange } = formEvent
   const pageCount = `${pageIndex} / ${maxPage}`
@@ -45,9 +45,11 @@ function Pager(props) {
         value={pgSize.toString()}
         className={[ 'Qty', 'small-stack' ]}
       />
+    { showSummer &&
       <button className="summerSale btn-block gold">
         <Icon symbol="tag" hidden /> Summer Sale
       </button>
+    }
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
         <Icon symbol="angle-right" hidden />
@@ -67,6 +69,7 @@ Pager.propTypes = {
   pageSizeOptions: PropTypes.array.isRequired,
   pgSize: PropTypes.number.isRequired,
   pgSizePrefix: PropTypes.array.isRequired,
+  showSummer: PropTypes.bool.isRequired,
 }
 Pager.defaultProps = {
   hasLess: false,

@@ -13,7 +13,7 @@ function Item({ item, onError }) {
       <ItemFav item={item} />
       <Link href={item.link}>
         <img
-          src={color.img.concat(imgSize)}
+          src={item.img.concat(imgSize)}
           alt={item.id}
           title={item.id}
           onError={handleImgError}

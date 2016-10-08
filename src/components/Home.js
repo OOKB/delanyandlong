@@ -11,9 +11,12 @@ function Home({ items, missingImage }) {
     <div id="home">
       <Header />
       {!items || !items.length &&
-        <div className="temporary filler" style={{backgroundImage: "url(http://rogersandgoffigon.imgix.net/normal/dl5012-05.jpg)"}}>
+        <div
+          className="temporary filler"
+          style={{backgroundImage: "url(https://delanyandlong.imgix.net/DL10001-22.jpg?w=1500)"}}
+          >
           {/* <!--Delany & Long, waiting for items to load.--> */}
-          <p className="hidden">Welcom to Delany And Long LTD</p>
+          <p className="hidden">Welcome to Delany And Long LTD</p>
         </div>
       }
       <ItemGrid items={items} missingImage={missingImage} />

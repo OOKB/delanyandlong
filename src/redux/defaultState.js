@@ -82,7 +82,7 @@ const state = {
       {
         id: 'showroom',
         href: '/showroom',
-        icon: 'showroom',
+        icon: 'trade-login',
         label: 'Showroom',
         validators: [ 'isAuthenticated' ],
       },

@@ -5,8 +5,9 @@
 /******************************************/
 
 #detailWrapper {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  overflow: visible;
 
   .detailHeader,
   .item-information {
@@ -28,20 +29,29 @@
   width: auto;
 }
 
+@media (max-width: 400px) {
+  .detailHeader .logo,
+  .detailHeader .logo svg {
+    max-width: 180px;
+  }
+}
+
 .item-information > ul {
   text-align: center;
   padding: 1.5rem;
   font-size: .9rem;
-}
 
-.item-information > ul li + li {
-  margin-top: 1rem;
-}
+  li + li {
+    margin-top: 1rem;
+  }
 
-.item-information > ul li h3 {
-  color: @dark-gray;
-  font-size: .7rem;
-  letter-spacing: 2px;
+  li {
+    h3 {
+      color: @dark-gray;
+      font-size: .7rem;
+      letter-spacing: 2px;
+    }
+  }
 }
 
 #detailWrapper button.favorite,

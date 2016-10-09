@@ -11,4 +11,5 @@ addRoute('detail', '/detail/*')
 addRoute('itemEdit', '/edit/*')
 addRoute('favs', '/favs')
 addRoute('login', '/login')
+addRoute('showroom', '/showroom')
 export default locationInfo

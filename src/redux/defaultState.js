@@ -80,10 +80,10 @@ const state = {
         validators: [ 'isAnonymous' ],
       },
       {
-        id: 'trade',
-        href: '/trade',
-        icon: 'trade-login',
-        label: 'Trade',
+        id: 'showroom',
+        href: '/showroom',
+        icon: 'showroom',
+        label: 'Showroom',
         validators: [ 'isAuthenticated' ],
       },
       {

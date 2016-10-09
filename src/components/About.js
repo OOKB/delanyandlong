@@ -2,13 +2,11 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { aboutSelector } from '../redux/select/about'
-import Header from './Header'
-import Footer from './Footer'
+import Page from './Page'
 
-function About({ aboutText, distributedText, serviceText, menu, route }) {
+function About({ aboutText, distributedText, serviceText }) {
   return (
-    <div id="container-about">
-      <Header activeId={route.id} links={menu} />
+    <Page id="container-about">
       <main className="clear mlrauto">
         <div className="about">
           {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
@@ -18,17 +16,14 @@ function About({ aboutText, distributedText, serviceText, menu, route }) {
           </div>
         </div>
       </main>
-      <Footer />
-    </div>
+    </Page>
   )
 }
 
 About.propTypes = {
-  route: PropTypes.object.isRequired,
-  aboutText: PropTypes.array.isRequired,
+  aboutText: PropTypes.arrayOf(PropTypes.string).isRequired,
   serviceText: PropTypes.string.isRequired,
   distributedText: PropTypes.string.isRequired,
-  menu: PropTypes.array.isRequired,
 }
 
 export default connect(aboutSelector)(About)

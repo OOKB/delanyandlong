@@ -30,6 +30,10 @@ function getButtonStyle(activeCategory, value) {
 
 function CategoryFilter({ activeCategory, formEvent, options }) {
   if (!options.length) return <div>NO OPTIONS</div>
+  function onClick({ target }) {
+    if (target.value === activeCategory) return formEvent.onChange(null)
+    return formEvent.onChange(target.value)
+  }
   return (
     <div className="collection-menu group mb0">
       <div className="select-type mlrauto">
@@ -40,7 +44,7 @@ function CategoryFilter({ activeCategory, formEvent, options }) {
               <button
                 className="flex-item"
                 style={style}
-                onClick={formEvent.onChange}
+                onClick={onClick}
                 value={value}
                 key={value}
               >

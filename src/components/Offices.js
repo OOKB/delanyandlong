@@ -3,8 +3,8 @@ import map from 'lodash/map'
 
 import EditButton from './Editable/EditButton'
 
-function Office({ address, email, id, name, tel, fax, title }) {
-  const onClick = event => {
+function Office({ address, email, id, name, telephone, fax, title }) {
+  const onClick = (event) => {
     event.preventDefault()
     window.location.href = `mailto:${email}`
   }
@@ -18,7 +18,7 @@ function Office({ address, email, id, name, tel, fax, title }) {
       </address>
       <ul className="list-reset connect">
         <li>{email && <button onClick={onClick}>{email}</button>}</li>
-        <li>{tel && <phone>{tel}</phone>}</li>
+        <li>{telephone && <phone>{telephone}</phone>}</li>
         <li>{fax && <phone>fax: {fax}</phone>}</li>
       </ul>
     </li>
@@ -29,7 +29,7 @@ Office.propTypes = {
   email: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string,
-  tel: PropTypes.string,
+  telephone: PropTypes.string,
   fax: PropTypes.string,
   title: PropTypes.string.isRequired,
 }

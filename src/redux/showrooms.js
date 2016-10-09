@@ -6,7 +6,7 @@ export default [
       "41 Chestnut Street",
       "Greenwich CT 06830"
     ],
-    "tel": "203-532-8068",
+    "telephone": "203-532-8068",
     type: 'Showroom',
     "fax": "203-532-9514"
   },
@@ -21,7 +21,7 @@ export default [
     ],
     "email": "nycshowroom@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "212-888-3242"
+    "telephone": "212-888-3242"
   },
   {
     "id": "dlheadquarters",
@@ -31,7 +31,7 @@ export default [
       "Greenwich CT 06830"
     ],
     "email": "customerservice@delanyandlong.com",
-    "tel": "203.532.0010",
+    "telephone": "203.532.0010",
     type: 'Showroom',
     "fax": "203.532.0032"
   },
@@ -44,7 +44,7 @@ export default [
       "Scottsdale, AZ 85257"
     ],
     "email": "infoAZ@townstudio.com",
-    "tel": "480.214.4792",
+    "telephone": "480.214.4792",
     type: 'Showroom',
     "fax": "602.297.6821"
   },
@@ -54,7 +54,7 @@ export default [
     "name": "Karen Walls",
     "email": "karen@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "617.480.2135"
+    "telephone": "617.480.2135"
   },
   {
     "id": "chicago",
@@ -66,7 +66,7 @@ export default [
     ],
     "email": "nancy_cordin@cowtan.com",
     type: 'Showroom',
-    "tel": "312.644.0717"
+    "telephone": "312.644.0717"
   },
   {
     "id": "mountainStates",
@@ -79,7 +79,7 @@ export default [
     ],
     "email": "jeremy@townstudio.com",
     type: 'Showroom',
-    "tel": "303.282.8696"
+    "telephone": "303.282.8696"
   },
   {
     "id": "connecticutEtc",
@@ -87,7 +87,7 @@ export default [
     "name": "Sarah Conduit",
     "email": "sarah@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "203.247.6514"
+    "telephone": "203.247.6514"
   },
   {
     "id": "dallas",
@@ -100,7 +100,7 @@ export default [
     ],
     "email": "noelm@gcnash.com",
     type: 'Showroom',
-    "tel": "214.744.1544"
+    "telephone": "214.744.1544"
   },
   {
     "id": "washingtonDC",
@@ -113,7 +113,7 @@ export default [
     ],
     "email": "carol_reilly@cowtan.com",
     type: 'Showroom',
-    "tel": "202.863.8490"
+    "telephone": "202.863.8490"
   },
   {
     "id": "florida",
@@ -127,7 +127,7 @@ export default [
     ],
     "email": "noelle_collins@cowtan.com",
     type: 'Showroom',
-    "tel": "954.681.4550"
+    "telephone": "954.681.4550"
   },
   {
     "id": "houston",
@@ -140,7 +140,7 @@ export default [
     ],
     "email": "cynthiaw@gcnash.com",
     type: 'Showroom',
-    "tel": "713.892.5710"
+    "telephone": "713.892.5710"
   },
   {
     "id": "midwest",
@@ -148,7 +148,7 @@ export default [
     "name": "blakeConcepts LLC",
     "email": "leah@blakeConcepts.com",
     type: 'Showroom',
-    "tel": "312.505.5249"
+    "telephone": "312.505.5249"
   },
   {
     "id": "laWestCoast",
@@ -161,7 +161,7 @@ export default [
     ],
     "email": "gina_marra@cowtan.com",
     type: 'Showroom',
-    "tel": "310.659.1423"
+    "telephone": "310.659.1423"
   },
   {
     "id": "newjersey",
@@ -169,7 +169,7 @@ export default [
     "name": "Blake Haase",
     "email": "blake@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "845.863.9671"
+    "telephone": "845.863.9671"
   },
   {
     "id": "midatlantic",
@@ -182,7 +182,7 @@ export default [
     ],
     "email": "sharrington@shaenharringtoninc.com",
     type: 'Showroom',
-    "tel": "215.567.2181"
+    "telephone": "215.567.2181"
   },
   {
     "id": "sanfranWestCoast",
@@ -195,7 +195,7 @@ export default [
     ],
     "email": "sanfranciscoinfo@kneedlerfauchere.com",
     type: 'Showroom',
-    "tel": "415.487.6180"
+    "telephone": "415.487.6180"
   },
   {
     "id": "southeast",
@@ -203,7 +203,7 @@ export default [
     "name": "Luane Goldstone",
     "email": "luane@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "843.513.2208"
+    "telephone": "843.513.2208"
   },
   {
     "id": "northwest",
@@ -211,7 +211,7 @@ export default [
     "name": "Peg Winship",
     "email": "peg@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "206.618.4145"
+    "telephone": "206.618.4145"
   },
   {
     "id": "pacificrim",
@@ -219,14 +219,14 @@ export default [
     "name": "Caterina Ferrari",
     "email": "caterina@rogersandgoffigon.com",
     type: 'Showroom',
-    "tel": "+61 (0)4 2213 0584"
+    "telephone": "+61 (0)4 2213 0584"
   },
   {
     "id": "europe",
     "title": "European Representative",
     "name": "Please call our main customer service number",
     type: 'Showroom',
-    "tel": "001.203.532.0010"
+    "telephone": "001.203.532.0010"
   },
   {
     "id": "canada",
@@ -239,6 +239,6 @@ export default [
     ],
     "email": "diego@primavera.ca",
     type: 'Showroom',
-    "tel": "416.921.3334"
+    "telephone": "416.921.3334"
   }
 ]

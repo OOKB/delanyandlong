@@ -60,7 +60,7 @@
     "cape-redux-collection": "^1.0.2",
     "cape-redux-reducer": "^1.0.1",
     "cape-redux-socket": "^2.2.2",
-    "cape-select": "^2.0.0",
+    "cape-select": "^2.1.1",
     "cape-validate": "^1.0.2",
     "classnames": "^2.2.5",
     "isomorphic-fetch": "^2.2.1",

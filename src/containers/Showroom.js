@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { selectUser } from 'cape-redux-auth'
+
+import { userSalesOffice } from '../redux/select/contact'
 import Component from '../components/Showroom'
 
-export default connect(selectUser)(Component)
+export default connect(userSalesOffice)(Component)

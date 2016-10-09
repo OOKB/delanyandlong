@@ -6,11 +6,13 @@ function Showroom({ email, name, telephone, title }) {
   const header = name || title
   return (
     <Page>
-      <main>
-        <h2>Showroom</h2>
-        {header && <h3>{header}</h3>}
-        {email && <div>{email}</div>}
-        {telephone && <phone>{telephone}</phone>}
+      <main className="mlrauto text-center mt6">
+        <p>Your Delany & Long sales representative:</p>
+        <div className="sales rep">
+          {header && <h3>{header}</h3>}
+          {email && <div>{email}</div>}
+          {telephone && <phone>{telephone}</phone>}
+        </div>
       </main>
     </Page>
   )

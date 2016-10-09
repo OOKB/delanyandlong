@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 import { entityTypeSelector } from 'redux-graph'
 import {
-  compact, curry, every, flatten, filter, includes, map, mapValues, orderBy, uniq,
+  compact, curry, every, flatten, filter, includes, map, mapValues, orderBy, pickBy, uniq,
 } from 'lodash'
 
 import { getFilter, getFilterText } from './'
@@ -26,7 +26,14 @@ export function itemFill(item, catCodeIndex) {
     searchable: (color + contents + name + id).toLowerCase(),
   }
 }
-export const itemsRaw = entityTypeSelector('OrderTrackItem')
+export function isValidItem(entity) {
+  return entity.id.startsWith('DL')
+}
+export const orderTrackItems = entityTypeSelector('OrderTrackItem')
+export const itemsRaw = createSelector(
+  orderTrackItems,
+  entity => pickBy(entity, isValidItem)
+)
 export const itemsFilled = createSelector(
   itemsRaw,
   categoryCodeIndex,
@@ -69,7 +76,7 @@ export const patternColorSelector = createSelector(
   textSearchSelector,
   (items) => {
     let currentPattern = null
-    return map(items, item => {
+    return map(items, (item) => {
       const isPattern = currentPattern !== item.patternNumber
       currentPattern = item.patternNumber
       return {

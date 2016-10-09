@@ -24,12 +24,13 @@ function opts(arg) {
 }
 
 function Select({ options, value, ...props }) {
+  if (!options.length) return <div>NO OPTIONS</div>
   return (
     <select
       {...props}
       value={value}
     >
-      {map(options, opt => {
+      {map(options, (opt) => {
         const optionDetails = opts(opt)
         return (<SelectOption
           {...optionDetails}

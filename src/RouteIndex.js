@@ -1,6 +1,5 @@
 export about from './components/About'
 export contact from './components/Contact'
-export collection from './components/Collection'
 export favs from './containers/Favs'
 export loading from './redux/Loading'
 export home from './containers/Home'

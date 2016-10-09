@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react'
-import Header from './Header'
+
+import Page from './Page'
 
 function Showroom({ sales: { email, name, telephone } }) {
   return (
-    <div>
-      <Header />
-      <h2>Showroom</h2>
-      {name && <h3>{name}</h3>}
-      {email && <div>{email}</div>}
-      {telephone && <phone>{telephone}</phone>}
-    </div>
+    <Page>
+      <main>
+        <h2>Showroom</h2>
+        {name && <h3>{name}</h3>}
+        {email && <div>{email}</div>}
+        {telephone && <phone>{telephone}</phone>}
+      </main>
+    </Page>
   )
 }
 

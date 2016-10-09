@@ -5,8 +5,7 @@ import Search from './PricelistSearch'
 import Table from './PricelistTable'
 import Grid from '../ItemGrid'
 import Film from '../FilmStrip'
-import Header from '../Header'
-import Footer from '../Footer'
+import Page from '../Page'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
@@ -16,8 +15,7 @@ function Pricelist(props) {
   const display = id => displayStyle.active === id
   const list = display('list')
   return (
-    <div id="container-pricelist" className={category.activeCategory}>
-      <Header />
+    <Page id="container-pricelist" className={category.activeCategory}>
       <main className="clear m1 mt2">
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
@@ -31,8 +29,7 @@ function Pricelist(props) {
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
         </div>
       </main>
-      <Footer />
-    </div>
+    </Page>
   )
 }
 Pricelist.propTypes = {
@@ -41,7 +38,6 @@ Pricelist.propTypes = {
   lead: PropTypes.string.isRequired,
   disclaimer: PropTypes.string.isRequired,
   pager: PropTypes.object.isRequired,
-  route: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
   disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',

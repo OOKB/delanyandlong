@@ -76,7 +76,7 @@ export const patternColorSelector = createSelector(
   textSearchSelector,
   (items) => {
     let currentPattern = null
-    return map(items, item => {
+    return map(items, (item) => {
       const isPattern = currentPattern !== item.patternNumber
       currentPattern = item.patternNumber
       return {

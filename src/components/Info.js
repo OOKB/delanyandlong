@@ -7,7 +7,7 @@ import ItemFav from '../containers/ItemFav'
 
 function Info({ item, fields }) {
   return (
-    <div className="item-information">
+    <div className="item-information z3 relative">
       <ItemFav item={item} />
       <ul className="list-reset bb1">
         {map(fields, ({ value, label }) => (

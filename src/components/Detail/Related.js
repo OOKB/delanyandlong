@@ -13,7 +13,7 @@ const style = {
   },
   open: {
     boxShadow: '0 .25em .75em 0 rgba(65,65,45,.75)',
-    height: 'inherit',
+    height: '66px',
     border: '2px solid rgba(242,239,229,1)',
     borderTop: '0',
   },
@@ -33,7 +33,7 @@ const getRotation = ternVal(style.rotated, style.plain)
 function Related({ close, colors, isOpen, open, parent }) {
   const toggle = isOpen ? close : open
   return (
-    <div id="related-colors" style={getStyle(isOpen)}>
+    <div id="related-colors" className="z2 relative" style={getStyle(isOpen)}>
       <button className="colors-header" onClick={toggle}>
         <Icon symbol="caret-down" hidden style={getRotation(isOpen)} /> Additional Colors
       </button>

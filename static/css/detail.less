@@ -6,6 +6,7 @@
 
 #detailWrapper {
   width: 100%;
+  height: 100%;
 
   .detailHeader,
   .item-information {
@@ -45,7 +46,6 @@
 
 #detailWrapper button.favorite,
 #detailWrapper > .close {
-  top: 1.25em;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 1.25rem;
@@ -54,10 +54,12 @@
 }
 
 #detailWrapper > .close {
+  top: 1.25em;
   right: 1.25em;
 }
 
 #detailWrapper button.favorite {
+  top: -2em;
   left: 1.25em;
 }
 
@@ -149,32 +151,40 @@
 
 #related-colors ul {
   display: flex;
-  height: 2.5rem;
+  height: calc(64px - 1.5rem);
   overflow: hidden;
 }
 
 @media (min-width: @main-break) {
   #related-colors ul {
     display: flex;
-    height: 3.5rem;
     overflow: hidden;
+    justify-content: center;
   }
 }
 
 #related-colors ul li {
   flex: 1;
+  height: 100%;
 }
 
+#related-colors ul li a {
+  display: block;
+  height: 100%;
+}
 /** Passementerie based tweaks? **/
 .imageWrapper {
   top: 300px;
   left:0;
   right:0;
   min-height: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .imageWrapper.trim {
   min-height: 100vh;
+  height: 100vh;
 
   &.trim {
     background-color:white;

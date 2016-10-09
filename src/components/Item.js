@@ -7,7 +7,7 @@ function Item({ item, onError }) {
   function handleImgError() {
     if (onError) onError(item)
   }
-  const imgSize = '?w=100&h=100&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1.5'
+  const imgSize = '?w=240&h=168&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1.5'
   return (
     <li>
       <ItemFav item={item} />

@@ -29,6 +29,7 @@ function getButtonStyle(activeCategory, value) {
 }
 
 function CategoryFilter({ activeCategory, formEvent, options }) {
+  if (!options.length) return <div>NO OPTIONS</div>
   return (
     <div className="collection-menu group mb0">
       <div className="select-type mlrauto">

@@ -2,7 +2,7 @@ import { selectForm } from 'redux-field'
 import { entitySelector } from 'redux-graph'
 import { curry, get, isObject, map, partial, property } from 'lodash'
 
-import { select } from 'cape-select'
+import { getSelect, select } from 'cape-select'
 import { pageSizes } from '../../helpers/pager'
 
 export const pageSizeOptions = pageSizes()
@@ -27,6 +27,7 @@ export const formPrefix = curry((filterType, state) => pricelistInfo(state).pref
 export const getFilter = curry((filterType, state) =>
   get(selectForm(state), formPrefix(filterType, state), {}).value
 )
+export const getFilterState = partial(getSelect, selectForm)
 export const getFilterText = getFilter('text')
 
 // Page number.

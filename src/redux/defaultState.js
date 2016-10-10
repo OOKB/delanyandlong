@@ -50,6 +50,7 @@ const state = {
         pgSize: [ 'pricelist', 'pgSize' ],
         text: [ 'pricelist', 'text' ],
         display: [ 'pricelist', 'display' ],
+        discontinued: [ 'pricelist', 'discontinued' ],
       },
       printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },

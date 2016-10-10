@@ -4,13 +4,14 @@ import classnames from 'classnames'
 
 import SelectEl from './Editable/InputSelect'
 import Icon from './Icon'
+import DiscToggle from '../containers/DiscToggle'
 
 function pgBtnClass(name, disabled) {
   return classnames('control', name, { disabled })
 }
 function Pager(props) {
   const { colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
-    pageIndex, pageSizeOptions, pgSize, pgSizePrefix, showSummer,
+    pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
   } = props
   const { onChange } = formEvent
   const pageCount = `${pageIndex} / ${maxPage}`
@@ -45,11 +46,7 @@ function Pager(props) {
         value={pgSize.toString()}
         className={[ 'Qty', 'small-stack' ]}
       />
-    { showSummer &&
-      <button className="summerSale btn-block gold">
-        <Icon symbol="tag" hidden /> Summer Sale
-      </button>
-    }
+      <DiscToggle />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>
         <Icon symbol="angle-right" hidden />
@@ -69,7 +66,6 @@ Pager.propTypes = {
   pageSizeOptions: PropTypes.array.isRequired,
   pgSize: PropTypes.number.isRequired,
   pgSizePrefix: PropTypes.array.isRequired,
-  showSummer: PropTypes.bool.isRequired,
 }
 Pager.defaultProps = {
   hasLess: false,

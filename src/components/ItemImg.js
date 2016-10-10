@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react'
 
 function ItemImg({ img, id, imgixExt }) {
-  const imgSize = imgixExt
   return <img
-            src={img.concat(imgSize)}
+            src={img.concat(imgixExt)}
             alt={id} title={id}
             />
 }

@@ -10,7 +10,10 @@ function NavItem({ onClick, ...props }) {
   return (
     <li onClick={onClick} role="button" className="button left">
       <div className="wrap">
-        <ItemImg {...props} />
+        <ItemImg
+          {...props}
+          imgixExt='?w=500&h=700&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2&fp-debug=true'
+          />
       </div>
     </li>
   )
@@ -23,9 +26,12 @@ function Item({ item }) {
   return (
     <li className="left">
       <ItemFav item={item} />
-      <Related parent={item} />
+      {/* <Related parent={item} /> */}
       <Link href={item.link} className="wrap">
-        <ItemImg {...item} />
+        <ItemImg
+          {...item}
+          imgixExt='?w=1500&h=700&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
+          />
         <div className="description">
           <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
           <h2 className="name">{item.name}: {item.color}</h2>
@@ -63,6 +69,7 @@ FilmStrip.propTypes = {
   next: PropTypes.object.isRequired,
   previous: PropTypes.object.isRequired,
   missingImage: PropTypes.func,
+  imgixExt: PropTypes.string.isRequired,
 }
 
 export default connectField()(FilmStrip)

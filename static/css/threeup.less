@@ -13,6 +13,7 @@
 }
 
 .filmStrip li {
+  float:left;
   position: relative;
   height: 250px;
   overflow: hidden;
@@ -23,11 +24,44 @@
 .filmStrip li.button {
   cursor: pointer;
 }
-.filmStrip li.button:nth-child(1) {
+.filmStrip li.button:first-child {
   cursor: w-resize;
+  &:hover::before {
+    content: "\f082"
+  }
 }
-.filmStrip li.button:nth-child(3) {
+.filmStrip li.button:last-child {
   cursor: e-resize;
+  &:hover::before {
+    content: "\f081"
+  }
+}
+
+.filmStrip li:first-child:hover,
+.filmStrip li:last-child:hover {
+  &::before {
+    font-family: 'DL';
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 2rem;
+    height:2rem;
+    background-color: @off-white;
+    border-radius: 1rem;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    z-index: 3;
+    opacity: .5;
+  }
+  .wrap {
+    background: @gold;
+  }
+  img {
+    opacity: .5;
+  }
 }
 
 .filmStrip li .wrap {
@@ -35,15 +69,17 @@
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+  z-index: 1;
+}
+.filmStrip li button.favorite {
+  z-index: 2;
+  top:.5em;
+  left:.5em;
 }
 
 .filmStrip li .wrap img {
 	height: 100%;
 	width: auto;
-}
-
-.filmStrip li:nth-child(2) a img {
-	width: 100% !important; /* TEMPORARY!!! */
 }
 
 /** inside the items... **/
@@ -131,6 +167,17 @@
   .filmStrip li {
   	height: 300px;
   }
+
+  .filmStrip li:first-child:hover,
+  .filmStrip li:last-child:hover {
+    &::before {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 1.5rem;
+      line-height: 3rem;
+      font-size: 2rem;
+    }
+  }
 }
 
 @media (min-width: 60em) {
@@ -151,6 +198,16 @@
 @media (min-width: 75em) {
   .filmStrip li {
   	height: 450px;
+  }
+  .filmStrip li:first-child:hover,
+  .filmStrip li:last-child:hover {
+    &::before {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 2rem;
+      line-height: 4rem;
+      font-size: 3rem;
+    }
   }
 }
 

@@ -12,7 +12,7 @@ function NavItem({ onClick, ...props }) {
       <div className="wrap">
         <ItemImg
           {...props}
-          imgixExt='?w=500&h=700&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2&fp-debug=true'
+          imgixExt='?w=500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2&fp-debug=true'
           />
       </div>
     </li>
@@ -30,7 +30,7 @@ function Item({ item }) {
       <Link href={item.link} className="wrap">
         <ItemImg
           {...item}
-          imgixExt='?w=1500&h=700&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
+          imgixExt='?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
           />
         <div className="description">
           <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>

@@ -20,7 +20,7 @@ export const patternIndex = createSelector(
 
 export const homeItems = createSelector(
   patternIndex,
-  patterns => map(sampleSize(patterns, 16), sample)
+  patterns => map(sampleSize(patterns, 19), sample)
 )
 
 export const homeSelector = createStructuredSelector({

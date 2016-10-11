@@ -26,12 +26,11 @@ function Item({ item }) {
   const imgixExt = '?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
   return (
     <li className="left">
-      <ItemFav item={item} />
       {/* <Related parent={item} /> */}
       <Link href={item.link} className="wrap">
         <ItemImg {...item} imgixExt={imgixExt} />
-        <Info item={item} />
       </Link>
+      <Info item={item} />
     </li>
   )
 }

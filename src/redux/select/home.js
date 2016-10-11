@@ -1,10 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-
-import filter from 'lodash/filter'
-import groupBy from 'lodash/groupBy'
-import map from 'lodash/map'
-import sample from 'lodash/sample'
-import sampleSize from 'lodash/sampleSize'
+import { filter, fill, flatten, flow, groupBy, map, sample, sampleSize } from 'lodash'
 
 import { itemsFilled } from './items'
 
@@ -17,10 +12,14 @@ export const patternIndex = createSelector(
   filterOutMissingImages,
   items => groupBy(items, 'patternNumber')
 )
-
+export function randomPatternItems(patterns) { return map(sampleSize(patterns, 19), sample) }
+export const duplicateItems = flow(
+  randomPatternItems,
+  items => flatten(fill(Array(3), items))
+)
 export const homeItems = createSelector(
   patternIndex,
-  patterns => map(sampleSize(patterns, 19), sample)
+  duplicateItems
 )
 
 export const homeSelector = createStructuredSelector({

@@ -89,10 +89,16 @@
   left: 50%;
   .transform(translate(-50%,-50%));
   min-width: 240px;
-  width: 60%;
+  width: 80%;
   max-width: 800px;
   transition: all 400ms;
   opacity: 0;
+  @media (min-width: 40rem) {
+    width: 70%;
+  }
+  @media (min-width: @main-break) {
+    width: 60%;
+  }
 
   button.favorite {
     height: 100%;
@@ -106,11 +112,14 @@
     border-bottom: none;
     padding: 0 0 0 3rem;
     text-align: left;
-    
+    li+li {
+      margin-top: 0;
+    }
     li {
       display: block;
       flex: none;
       padding: 0 0 .3em 2rem;
+      border-left: 1px solid currentColor;
 
       &.categoryCode {
         position: absolute;
@@ -151,9 +160,11 @@
 
       &.name,
       &.color {
-        font-size: 1.5rem;
         font-weight: bold;
         float: left;
+        @media (min-width: @main-break) {
+          font-size: 1.5rem;
+        }
       }
 
       &.name {

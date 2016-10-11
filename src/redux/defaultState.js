@@ -29,7 +29,7 @@ const state = {
     orders: `For fabric pricing and ordering <a href="/contact">please contact your local showroom or sales representative</a>.`,
     questions: `Please check our <a href="/contact">distributors page to find the closest showroom</a>. If you have any questions about who to call please contact our headquarters office in Greenwich, Connecticut.`,
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
-    detailFields: [ 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
+    detailFields: [ 'categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
     pricelist: {
       columns: {
         textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],

@@ -4,7 +4,7 @@ import { connectField } from 'redux-field'
 import { Link } from 'redux-history-sync'
 import ItemFav from '../containers/ItemFav'
 import ItemImg from './ItemImg'
-import Related from '../containers/Related'
+import Info from './Info'
 
 function NavItem({ onClick, ...props }) {
   return (
@@ -23,29 +23,20 @@ NavItem.propTypes = {
 }
 
 function Item({ item }) {
+  const imgixExt = '?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
   return (
     <li className="left">
       <ItemFav item={item} />
       {/* <Related parent={item} /> */}
       <Link href={item.link} className="wrap">
-        <ItemImg
-          {...item}
-          imgixExt='?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
-          />
-        <div className="description">
-          <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
-          <h2 className="name">{item.name}: {item.color}</h2>
-          <p className="contents meta-data"><strong>Contents:</strong> {item.contents}</p>
-          <p className="approxWidth meta-data"><strong>Approx Width:</strong> {item.approxWidth}</p>
-          <p className="price meta-data"><strong>Price:</strong> {item.price}</p>
-        </div>
+        <ItemImg {...item} imgixExt={imgixExt} />
+        <Info item={item} />
       </Link>
     </li>
   )
 }
 Item.propTypes = {
   item: PropTypes.object.isRequired,
-  onError: PropTypes.func,
 }
 
 function FilmStrip({ active, formEvent: { onChange }, next, previous }) {

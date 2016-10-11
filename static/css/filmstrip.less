@@ -71,10 +71,19 @@
 	overflow: hidden;
   z-index: 1;
 }
-.filmStrip li button.favorite {
-  z-index: 2;
-  top:.5em;
-  left:.5em;
+.filmStrip {
+  button.favorite {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 100%;
+    .box-shadow;
+    border-color: transparent;
+    top: calc(50% - 1rem);
+    left: calc(20% - 1rem);
+    z-index: 2;
+    opacity: 0;
+  }
 }
 
 .filmStrip li .wrap img {
@@ -94,13 +103,16 @@
 .filmStrip .description {
   position: absolute;
   display: block;
-  background-color: rgb(242,239,229);
-  background-color: rgba(242,239,229,1);
+  background-color: @off-white;
   padding: 1.5em;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  min-width: 300px;
+  min-width: 240px;
   width: 60%;
   max-width: 800px;
   transition: all 400ms;
@@ -146,14 +158,14 @@
   color: @light-gray;
 }
 
-.filmStrip > li:hover .description {
-  box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
-  opacity: 1;
-}
-
-.filmStrip li:first-child .description,
-.filmStrip li:last-child .description {
-	display:none;
+.filmStrip > li:hover {
+  .description {
+    box-shadow: 0 0 .5em 0 rgba(0,0,0,.33);
+    opacity: 1;
+  }
+  button.favorite {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 31em) {

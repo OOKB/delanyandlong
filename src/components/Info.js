@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
+
 import { detailFields } from '../redux/select/item'
 import ItemFav from '../containers/ItemFav'
 

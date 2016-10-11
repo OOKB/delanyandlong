@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'redux-history-sync'
+import { merge } from 'cape-redux'
 
 const styles = {
   active: {
     display: 'block',
+    position: 'relative',
     height: '100%',
     width: '100%',
     overflow: 'hidden',
@@ -11,16 +13,26 @@ const styles = {
     border: '3px solid rgba(66,67,47,1)',
   },
 }
+function getLinkStyles(bgImage) {
+  if (bgImage) return { backgroundImage: `url(${bgImage})` }
+  return {}
+}
 
-function LinkOrNot({ children, color, parent }) {
-  if (parent.id === color.id) return <span style={styles.active}>{children}</span>
-  return <Link href={color.link} title={color.id}>{children}</Link>
+function LinkOrNot({ children, color, parent, bgImage }) {
+  const bgStyle = getLinkStyles(bgImage)
+  if (parent.id === color.id) return <span className="thisItem" style={merge(styles.active, bgStyle)}>{children}</span>
+  return (
+    <Link href={color.link} title={color.id} style={bgStyle} className="bg-cover">
+      {children}
+    </Link>
+  )
 }
 
 LinkOrNot.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.object.isRequired,
   parent: PropTypes.object.isRequired,
+  bgImage: PropTypes.string.isRequired,
 }
 
 export default LinkOrNot

@@ -15,19 +15,16 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
       <Editor classId="Organization" />
       <main className="pt2 container clearfix">
         <section className="showroomsAndReps">
-          <div className="top bb1 pb4 pt2 mb4 clearfix">
+          <div className="top pt2 mb4 clearfix">
             <div className="headquarters mb2">
               <Offices items={offices.main} />
             </div>
             <div className="blurb">
-              <p>{serviceText}</p>
+              <p>{contactText}</p>
+              <p className="text-center light-gray">
+                <Icon className="fa-3x" symbol="angle-down" />
+              </p>
             </div>
-          </div>
-          <div className="blurb mb2">
-            <p>{contactText}</p>
-            <p className="text-center light-gray">
-              <Icon className="fa-3x" symbol="angle-down" />
-            </p>
           </div>
           <div className="us canada americas bt1 pt4 pb2">
             <Offices items={offices.us} />

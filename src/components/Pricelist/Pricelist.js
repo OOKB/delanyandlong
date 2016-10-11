@@ -23,7 +23,7 @@ function Pricelist(props) {
         {display('film') && <Film {...pagerInfo} prefix={prefix.pgIndex} />}
         <div className="text-center small">
           <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
-            {categoryKey.map((pText, index) => <li className={pText} key={index}><p>{pText}</p></li>)}
+            {categoryKey.map((pText, index) => <li className={pText} key={index}><p className="m0">{pText}</p></li>)}
           </ul>
           <p className="uppercase">{lead}</p>
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />

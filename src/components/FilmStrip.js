@@ -24,6 +24,7 @@ NavItem.propTypes = {
 
 function Item({ item }) {
   const imgixExt = '?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
+  const trimImgixExt = '?w=1500&h=600&fp-debug=true&fit=fill&bg=FFF&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
   return (
     <li className="left">
       {/* <Related parent={item} /> */}

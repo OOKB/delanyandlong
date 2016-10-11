@@ -28,7 +28,7 @@ export const categoryCodeIndex = createSelector(
 // Used in the footer area to describe key codes.
 export const getCategoryKey = createSelector(
   categoryOptionsSelector,
-  opts => map(opts, ({ code, label }) => `${code}: ${label}`)
+  opts => map(opts, ({ code, label }) => `${code} ${label}`)
 )
 // The selected or default category.
 export const activeCategorySelector = createSelector(

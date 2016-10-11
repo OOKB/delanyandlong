@@ -7,11 +7,11 @@ function ItemGrid({ items, missingImage }) {
   return (
     <div className="items">
       <ul className="list-reset item-grid clearfix">
-        {map(items, item => (
-          <Item key={item.id} item={item} onError={missingImage} />
+        {map(items, (item, index) => (
+          <Item key={index} item={item} onError={missingImage} />
         ))}
       </ul>
-      {!items || !items.length && <p className="homeHidden">No Items</p>}
+      {(!items || !items.length) && <p className="homeHidden">No Items</p>}
     </div>
   )
 }

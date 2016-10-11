@@ -13,9 +13,10 @@ export const patternIndex = createSelector(
   items => groupBy(items, 'patternNumber')
 )
 export function randomPatternItems(patterns) { return map(sampleSize(patterns, 19), sample) }
+// Get random selection of pattern items and then duplicate it.
 export const duplicateItems = flow(
   randomPatternItems,
-  items => flatten(fill(Array(3), items))
+  items => flatten(fill(Array(6), items))
 )
 export const homeItems = createSelector(
   patternIndex,

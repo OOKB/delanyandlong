@@ -15,11 +15,11 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
       <Editor classId="Organization" />
       <main className="pt2 container clearfix">
         <section className="showroomsAndReps">
-          <div className="top pt2 mb4 clearfix">
+          <div className="top pt3 pb3 clearfix mlrauto">
             <div className="headquarters mb2">
               <Offices items={offices.main} />
             </div>
-            <div className="blurb">
+            <div className="blurb pt1">
               <p>{contactText}</p>
               <p className="text-center light-gray">
                 <Icon className="fa-3x" symbol="angle-down" />

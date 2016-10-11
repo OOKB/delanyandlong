@@ -13,4 +13,5 @@ export const listAgentMain = structuredSelector({
   mainEntity: getDataFeed,
 })
 export const createCollectionList = buildCollectionList(listAgentMain)
+
 export const collectionSelector = {}

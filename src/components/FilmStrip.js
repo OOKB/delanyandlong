@@ -11,7 +11,7 @@ function FilmStrip({ active, formEvent: { onChange }, next, previous }) {
     <div className="items">
       <ul className="list-reset clearfix filmStrip">
         <FilmStripNavItem {...previous.item} onClick={clickPrev} />
-        <FilmStripItem item={active.item} />
+        <FilmStripItem {...active.item} />
         <FilmStripNavItem {...next.item} onClick={clickNext} />
       </ul>
       {!active && <p>No Items</p>}

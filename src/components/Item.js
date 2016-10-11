@@ -18,9 +18,9 @@ function Item({ item, onError }) {
           title={item.id}
           onError={handleImgError}
         />
-        <div className="description">
+        <div className="description absolute block bg-white">
+          <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
           <h2>{item.name}: {item.color}</h2>
-          <p>{item.id}</p>
         </div>
       </Link>
     </li>

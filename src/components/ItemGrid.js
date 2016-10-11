@@ -11,7 +11,7 @@ function ItemGrid({ items, missingImage }) {
           <Item key={index} item={item} onError={missingImage} />
         ))}
       </ul>
-      {(!items || !items.length) && <p className="homeHidden">No Items</p>}
+      {(!items || !items.length) && <p className="homeHidden text-center p4">No Items</p>}
     </div>
   )
 }

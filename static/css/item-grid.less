@@ -19,23 +19,51 @@
 /** inside the items... **/
 .item-grid {
   .description {
-    position: absolute;
-    display: block;
-    font-size: 66%;
-    background-color: @off-white;
-    padding: .5em .5em .5em 1.5rem;
+    font-size: 75%;
+    padding: .5em .5em .5em 2.6rem;
     left: .5rem;
     bottom: .5rem;
     right: .5rem;
-    transition: all 400ms;
+    .transition(all 400ms);
     opacity: 0;
+    height:2.5rem;
+  }
+  .categoryCode,
+  .categoryCode::before {
+    display: block;
+    position:absolute;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    text-align:center;
+  }
+  .categoryCode {
+    font-size: .45em;
+    margin-top: .11em !important;
+    margin-left: -1.5em!important;
+  }
+  .categoryCode::before {
+    background: transparent;
+    border: 1px solid currentColor;
+    content: '';
+    border-radius: 100%;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
   }
   button.favorite {
     bottom: .5rem;
     left:.5rem;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 2.5rem;
     opacity: 0;
+    border: none;
+    border-right: 1px solid @gold;
+    z-index: 3;
   }
 }
 

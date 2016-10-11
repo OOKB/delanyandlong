@@ -99,22 +99,109 @@
     font-size: 2rem;
     width: 3rem;
   }
-  ul.bb1 {
-    border-bottom: none;
-  }
-  >ul.list-reset {
+
+  ul.list-reset {
     display: block;
+    border-bottom: none;
+
     li {
       display: block;
       flex: none;
+      padding: 0 0 .3em 2rem;
+
+      &.categoryCode {
+        position: absolute;
+        left:3.75rem;
+        top:1.1rem;
+        border:none;
+        padding:0;
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        text-align:center;
+        .mono;
+
+        &::before {
+          display: block;
+          position:absolute;
+          width: 1em;
+          height: 1em;
+          line-height: 1em;
+          background: transparent;
+          border: 1px solid currentColor;
+          content: '';
+          border-radius: 100%;
+          top:50%;
+          left:50%;
+          .transform(translate(-50%,-50%));
+        }
+      }
+
+      &.id,
+      &.name,
+      &.color {
+        h3 {
+          display: none;
+          visibility: hidden;
+        }
+      }
+
+      &.name,
+      &.color {
+        font-size: 1.5rem;
+        font-weight: bold;
+        float: left;
+      }
+
+      &.name {
+        margin-right: .25em;
+        p {
+          &::after {
+            content: ': '
+          }
+        }
+      }
+
+      &.color {
+        border: none ;
+        padding: 0;
+        margin: 0;
+      }
+
+      &.contents {
+        clear: both;
+      }
+
+      &.contents,
+      &.approxWidth,
+      &.price {
+        line-height: 1rem;
+        &::after {
+          .cf;
+        }
+        h3 {
+          display: inline-block;
+          line-height: 1rem;
+          margin-right: .2em;
+          &::after {
+            content: ': '
+          }
+        }
+        p {
+          display: inline-block;
+          line-height: 1rem;
+        }
+      }
+
+      &.id {
+        .mono;
+        padding-top: 1rem;
+      }
+      &:last-child {
+        padding-bottom: 1rem;
+      }
     }
   }
-}
-
-.meta-data strong {
-  font-size: .66em;
-  .uppercase;
-  color: @light-gray;
 }
 
 .filmStrip > li:hover {

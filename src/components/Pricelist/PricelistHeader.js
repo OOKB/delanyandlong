@@ -7,12 +7,12 @@ function PricelistRowPattern({ columns }) {
   return (
     <thead style={cellStyles.theadBase}>
       <tr>
+        <td className="favButton"></td>
         {map(columns, ({ label, value }) => (
           <td className={value} style={cellStyles[value]} key={value}>
             {label}
           </td>
         ))}
-        <td className="favButton"></td>
       </tr>
     </thead>
   )

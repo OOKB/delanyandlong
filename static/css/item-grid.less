@@ -17,22 +17,36 @@
 }
 
 /** inside the items... **/
-.item-grid .description {
-  position: absolute;
-  display: block;
-  font-size: 50%;
-  background-color: @off-white;
-  padding: .5em;
-  left: .5em;
-  bottom: .5em;
-  width: calc(100% - 2em);
-  transition: all 400ms;
-  opacity: 0;
+.item-grid {
+  .description {
+    position: absolute;
+    display: block;
+    font-size: 66%;
+    background-color: @off-white;
+    padding: .5em .5em .5em 1.5rem;
+    left: .5rem;
+    bottom: .5rem;
+    right: .5rem;
+    transition: all 400ms;
+    opacity: 0;
+  }
+  button.favorite {
+    bottom: .5rem;
+    left:.5rem;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0;
+  }
 }
 
-.item-grid > li:hover .description {
-  .box-shadow;
-  opacity: 1;
+.item-grid > li:hover {
+  .description {
+    .box-shadow;
+    opacity: 1;
+  }
+  button.favorite {
+    opacity: 1;
+  }
 }
 
 .item-grid .description h2 {

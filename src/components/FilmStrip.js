@@ -7,12 +7,14 @@ import ItemImg from './ItemImg'
 import Info from './Info'
 
 function NavItem({ onClick, ...props }) {
+  const imgixExt='?w=500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2&fp-debug=true'
+  const trimImgixExt = '?w=1500&h=600&fp-debug=true&fit=fill&bg=FFF&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=true'
   return (
     <li onClick={onClick} role="button" className="button left">
       <div className="wrap">
         <ItemImg
           {...props}
-          imgixExt='?w=500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2&fp-debug=true'
+          imgixExt={imgixExt}
           />
       </div>
     </li>

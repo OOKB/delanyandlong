@@ -51,7 +51,7 @@ export const itemsSorted = createSelector(
 export const categorySelector = createSelector(
   itemsFilled,
   activeCategorySelector,
-  (items, category) => category && filterSort({ category }, items) || orderItems(items)
+  (items, category) => (category && filterSort({ category }, items)) || orderItems(items)
 )
 export function colorSearch(searchValue) {
   return item => item.colors && includes(item.colors, searchValue)
@@ -59,7 +59,7 @@ export function colorSearch(searchValue) {
 export const colorFilterSelector = createSelector(
   categorySelector,
   activeColor,
-  (items, color) => color && filter(items, colorSearch(color)) || items
+  (items, color) => (color && filter(items, colorSearch(color))) || items
 )
 export function textSearch(searchValue) {
   return item =>
@@ -70,7 +70,7 @@ export function textSearch(searchValue) {
 export const textSearchSelector = createSelector(
   colorFilterSelector,
   getFilterText,
-  (items, searchValue) => searchValue && filter(items, textSearch(searchValue)) || items
+  (items, searchValue) => (searchValue && filter(items, textSearch(searchValue))) || items
 )
 export const patternColorSelector = createSelector(
   textSearchSelector,

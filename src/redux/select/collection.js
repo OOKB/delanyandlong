@@ -9,6 +9,7 @@ export function collectionListAgent(state, props) {
   return getWebApp(state)
 }
 export const listAgentMain = structuredSelector({
+  additionalType: 'ProjectDelanyLong',
   agent: collectionListAgent,
   mainEntity: getDataFeed,
 })

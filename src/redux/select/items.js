@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect'
 import { entityTypeSelector } from 'redux-graph'
 import {
-  compact, curry, every, flatten, filter, includes, map, mapValues, orderBy, uniq,
+  compact, curry, every, flatten, filter, includes, map, method, mapValues, orderBy, uniq,
 } from 'lodash'
 import { pickBy } from 'lodash/fp'
 
-import { getFilter, getFilterText } from './'
+import { getFilter } from './'
 import { activeCategorySelector, categoryCodeIndex } from './category'
 import { discFilter } from './disc'
 
@@ -74,11 +74,11 @@ export function textSearch(searchValue) {
       item.searchable.includes(searchTxt)
     )
 }
-export const textSearchSelector = createSelector(
-  colorFilterSelector,
-  getFilterText,
-  (items, searchValue) => (searchValue && filter(items, textSearch(searchValue))) || items
-)
+export const getFilterText = createSelector(getFilter('text'), method('toLowerCase'))
+export function searchItems(items, searchValue) {
+  return (searchValue && filter(items, textSearch(searchValue))) || items
+}
+export const textSearchSelector = createSelector(colorFilterSelector, getFilterText, searchItems)
 export const patternColorSelector = createSelector(
   textSearchSelector,
   (items) => {

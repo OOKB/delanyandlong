@@ -4,10 +4,10 @@ import { select } from 'cape-select'
 import { defaultPageSize, getPagerInfo } from '../../helpers/pager'
 import trio from '../../helpers/trio'
 import {
-  pricelistInfo, formPrefix, getFilter, getDb, getFilterText, getPageIndex,
+  pricelistInfo, formPrefix, getFilter, getDb, getPageIndex,
   getSchema, optionFill, pageSizeOptions,
 } from './'
-import { colorSelector, patternColorSelector } from './items'
+import { colorSelector, getFilterText, patternColorSelector } from './items'
 import { activeCategorySelector, category, getCategoryKey } from './category'
 import { filterPerms } from './perms'
 

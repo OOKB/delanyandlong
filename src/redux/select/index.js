@@ -28,7 +28,6 @@ export const getFilter = curry((filterType, state) =>
   get(selectForm(state), formPrefix(filterType, state), {}).value
 )
 export const getFilterState = partial(getSelect, selectForm)
-export const getFilterText = getFilter('text')
 
 // Page number.
 export const getPageIndex = getFilter('pgIndex')

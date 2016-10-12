@@ -21,9 +21,6 @@ function Contact({ contactText, menu, offices, route, serviceText }) {
             </div>
             <div className="blurb pt1">
               <p>{contactText}</p>
-              <p className="text-center light-gray">
-                <Icon className="fa-3x" symbol="angle-down" />
-              </p>
             </div>
           </div>
           <div className="us canada americas bt1 pt4 pb2">

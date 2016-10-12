@@ -146,6 +146,10 @@ td.favButton .favorite-container .popup {
 /***********************************************************/
 /***********************************************************/
 
+button.summerSale {
+  margin-right: .25em;
+}
+
 .select-type {
   max-width: @main-break;
 }
@@ -185,7 +189,7 @@ td.favButton .favorite-container .popup {
   margin-top: -1px;
 }
 
-@media (max-width: 50em) {
+@media (max-width: @main-break) {
   .button-group button:first-of-type {
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
@@ -201,7 +205,7 @@ td.favButton .favorite-container .popup {
   }
 }
 
-@media (min-width: 50em) {
+@media (min-width: @main-break) {
   .select-type .flex-center {
     flex-direction: row;
   }
@@ -275,6 +279,7 @@ td.favButton .favorite-container .popup {
     width: 100%;
     height: 1.5rem;
     top:3rem;
+    left:0;
   }
 }
 

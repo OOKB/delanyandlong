@@ -11,6 +11,9 @@ const styles = {
     overflow: 'hidden',
     boxShadow: 'inset 0 0 12px rgba(66,67,47,.5)',
     border: '3px solid rgba(66,67,47,1)',
+    backgroundPosition: 'top center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
 }
 function getLinkStyles(bgImage) {

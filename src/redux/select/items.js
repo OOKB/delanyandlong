@@ -1,11 +1,13 @@
 import { createSelector } from 'reselect'
 import { entityTypeSelector } from 'redux-graph'
 import {
-  compact, curry, every, flatten, filter, includes, map, mapValues, orderBy, pickBy, uniq,
+  compact, curry, every, flatten, filter, includes, map, mapValues, orderBy, uniq,
 } from 'lodash'
+import { pickBy } from 'lodash/fp'
 
 import { getFilter, getFilterText } from './'
 import { activeCategorySelector, categoryCodeIndex } from './category'
+import { discFilter } from './disc'
 
 export const activeColor = getFilter('color')
 // const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
@@ -26,14 +28,19 @@ export function itemFill(item, catCodeIndex) {
     searchable: (color + contents + name + id).toLowerCase(),
   }
 }
+// All items with type of.
+export const orderTrackItems = entityTypeSelector('OrderTrackItem')
+// Define what a "valid" base item is.
 export function isValidItem(entity) {
   return entity.id.startsWith('DL')
 }
-export const orderTrackItems = entityTypeSelector('OrderTrackItem')
-export const itemsRaw = createSelector(
-  orderTrackItems,
-  entity => pickBy(entity, isValidItem)
-)
+// Accepts object and returns new object of only valid items.
+export const filterValid = pickBy(isValidItem)
+// Filter out the invalids like "WIRE".
+export const itemsValid = createSelector(orderTrackItems, filterValid)
+
+// Items after discontinued filter (`remove`, `only`, `keep`) applied.
+export const itemsRaw = discFilter(itemsValid)
 export const itemsFilled = createSelector(
   itemsRaw,
   categoryCodeIndex,

@@ -20,11 +20,11 @@ export function discFilter(itemsValid) {
   // These selectors are created on init so they should work correctly.
   const discRm = createSelector(itemsValid, removeDiscItems)
   const discOnly = createSelector(itemsValid, onlyDiscItems)
-  return cond(
+  return cond([
     [ discHide, discRm ],
     [ discActive, discOnly ],
     [ stubTrue, itemsValid ],
-  )
+  ])
 }
 
 export const props = createStructuredSelector({

@@ -1,4 +1,16 @@
 import immutable from 'seamless-immutable'
+import { applyMiddleware, createStore } from 'redux'
+import { entityPutAll } from 'redux-graph'
+import reducer from 'cape-redux-reducer'
+import thunk from 'redux-thunk'
+
+import items from './items'
+
+import defaultState from '../src/redux/defaultState'
+
+export const store = createStore(reducer, defaultState, applyMiddleware(thunk))
+store.dispatch(entityPutAll(items))
+
 export const user = {
   type: 'Person',
   id: 'anon',

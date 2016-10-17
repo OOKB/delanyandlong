@@ -120,14 +120,13 @@ export default [
     "title": "Florida Showroom",
     "name": "Cowtan & Tout",
     "address": [
-      "DCOTA Design Center",
       "1855 Griffin Road",
       "Suite B 254",
       "Dania FL 33004"
     ],
     "email": "noelle_collins@cowtan.com",
     type: 'Showroom',
-    "telephone": "954.681.4550"
+    "telephone": "954.920.1453"
   },
   {
     "id": "houston",

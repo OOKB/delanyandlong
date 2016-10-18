@@ -124,7 +124,6 @@ td.favButton .favorite-container .popup {
 @media (max-width: 69rem) {
   .table-scroll {
     display: block;
-    overflow: auto;
     overflow-y: hidden;
     overflow-x: auto;
     width: 100%;
@@ -147,14 +146,35 @@ td.favButton .favorite-container .popup {
 /***********************************************************/
 
 button.summerSale {
-  margin-right: .25em;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: inherit;
+  white-space: nowrap;
+  color: @medium-gray;
+  border: 1px solid @medium-gray;
+
+  .fa-tag {
+    margin-right: .45em;
+  }
 }
+
+button.summerSale.active {
+  font-weight: bold;
+  color: @dark-gold;
+  background-color: @light-gray;
+  border-color:@light-gray
+}
+
 
 .select-type {
   max-width: @main-break;
 }
 
-.select-type button {
+.select-type button,
+button.summerSale {
   line-height: 2rem;
   height: auto;
   margin: 0;
@@ -166,15 +186,16 @@ button.summerSale {
 }
 
 .select-type button:focus,
-.select-type button:hover {
-  color: rgb(066,067,047);
-  color: rgba(066,067,047,1);
+.select-type button:hover,
+button.summerSale:focus,
+button.summerSale:hover {
+  color: @dark-gold;
   outline: none;
-  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
-  box-shadow: 0 0 0 2px #fff,0 0 1px 4px rgba(114,136,119,1);
+  -webkit-box-shadow: 0 0 0 2px #fff,0 0 1px 4px @green;
+  -moz-box-shadow: 0 0 0 2px #fff,0 0 1px 4px @green;
+  -ms-box-shadow: 0 0 0 2px #fff,0 0 1px 4px @green;
+  -o-box-shadow: 0 0 0 2px #fff,0 0 1px 4px @green;
+  box-shadow: 0 0 0 2px #fff,0 0 1px 4px @green;
 }
 
 .select-type button:focus {
@@ -236,7 +257,7 @@ button.summerSale {
 @media (max-width: @main-break) {
   #pager {
     margin-top: calc(1.5rem + 2px);
-    margin-bottom: calc(1.5rem + 2px);
+    margin-bottom: calc(2rem + 2px);
   }
   #pager > div.inputSelect {
     flex: 2;

@@ -4,7 +4,7 @@ import Icon from './Icon'
 
 function DiscToggle({ discActive, hide, onClick, text }) {
   if (hide) return null
-  const className = classnames('summerSale btn-block gold', { active: discActive })
+  const className = classnames('summerSale', { active: discActive })
   return (
     <button className={className} onClick={onClick}>
       <Icon symbol="tag" hidden />

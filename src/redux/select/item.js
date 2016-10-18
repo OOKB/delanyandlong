@@ -1,4 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect'
+import { getSelect } from 'cape-select'
 import get from 'lodash/get'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
@@ -12,11 +13,8 @@ export function getItemId(state, props) {
   return props.route.params._
 }
 // Grab item at index.
-export const getItemDetail = createSelector(
-  getItemId,
-  itemsFilled,
-  (id, items) => items[id]
-)
+export const getItemDetail = getSelect(itemsFilled, getItemId)
+
 export function colorReducer(res, value) {
   if (!value || !value.patternNumber) return res
   return set(res, [ value.patternNumber, value.id ], value)

@@ -18,10 +18,7 @@ export const duplicateItems = flow(
   randomPatternItems,
   items => flatten(fill(Array(6), items))
 )
-export const homeItems = createSelector(
-  patternIndex,
-  duplicateItems
-)
+export const homeItems = createSelector(patternIndex, duplicateItems)
 
 export const homeSelector = createStructuredSelector({
   items: homeItems,

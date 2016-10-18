@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 import { entityTypeSelector } from 'redux-graph'
 import {
-  compact, curry, every, flatten, filter, includes, map, method, mapValues, orderBy, uniq,
+  compact, curry, every, flatten, flow, filter, includes, map, method, mapValues, uniq,
 } from 'lodash'
-import { pickBy } from 'lodash/fp'
+import { orderBy, pickBy, pluck } from 'lodash/fp'
 
 import { getFilter } from './'
 import { activeCategorySelector, categoryCodeIndex } from './category'
@@ -46,15 +46,11 @@ export const itemsFilled = createSelector(
   categoryCodeIndex,
   (items, catCodeIndex) => mapValues(items, item => itemFill(item, catCodeIndex))
 )
-export function orderItems(items) {
-  return orderBy(items, 'id')
-}
+export const orderItems = orderBy('id', 'asc')
+
 export const filterSort = curry((filterBy, items) => orderItems(filter(items, filterBy)))
 
-export const itemsSorted = createSelector(
-  itemsFilled,
-  orderItems
-)
+export const itemsSorted = createSelector(itemsFilled, orderItems)
 export const categorySelector = createSelector(
   itemsFilled,
   activeCategorySelector,
@@ -94,7 +90,5 @@ export const patternColorSelector = createSelector(
   }
 )
 export const noColor = [ { label: '- Select Color -', value: '' } ]
-export const colorSelector = createSelector(
-  itemsFilled,
-  items => noColor.concat(uniq(flatten(map(items, 'colors'))).sort())
-)
+export const buildColors = flow(pluck('colors'), flatten, uniq, method('sort'), noColor.concat)
+export const colorSelector = createSelector(itemsFilled, buildColors)

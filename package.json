@@ -57,7 +57,7 @@
     "cape-lodash": "^1.4.1",
     "cape-redux": "^1.4.2",
     "cape-redux-auth": "^1.1.1",
-    "cape-redux-collection": "^1.0.2",
+    "cape-redux-collection": "^1.0.3",
     "cape-redux-reducer": "^1.0.1",
     "cape-redux-socket": "^2.2.2",
     "cape-select": "^2.1.1",

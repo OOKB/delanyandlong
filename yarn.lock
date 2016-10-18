@@ -1197,7 +1197,18 @@ cape-lodash@^1.0.0, cape-lodash@^1.1.0, cape-lodash@^1.3.0, cape-lodash@^1.4.0, 
   dependencies:
     lodash "^4.15.0"
 
-cape-redux-auth@^1.0.0, cape-redux-auth@^1.1.1, cape-redux-auth@1.2.1:
+cape-redux-auth:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/cape-redux-auth/-/cape-redux-auth-1.2.2.tgz#9cceec01044b0397b4c19fa53df2f0c5cf6a89d7"
+  dependencies:
+    cape-redux "^1.5.0"
+    cape-select "^2.2.1"
+    lodash "^4.16.4"
+    redux-graph "^1.6.1"
+    redux-history-sync "^3.0.1"
+    seamless-immutable "^6.3.0"
+
+cape-redux-auth@^1.0.0, cape-redux-auth@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/cape-redux-auth/-/cape-redux-auth-1.2.1.tgz#8e74a94fdea99081c6c3a170e7907e8699d45499"
   dependencies:
@@ -4045,7 +4056,7 @@ redux-field@^3.2.0, redux-field@^3.4.0:
     reselect "^2.5.4"
     seamless-immutable "^6.1.3"
 
-redux-graph:
+redux-graph, redux-graph@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/redux-graph/-/redux-graph-1.6.1.tgz#b93e6ee8c3822ec7473e2514791d5248650223a5"
   dependencies:
@@ -4075,7 +4086,7 @@ redux-history-sync@^2.1.1:
     lodash "^4.5.1"
     redux "^3.2.1"
 
-redux-history-sync@^3.0.0, redux-history-sync@3.0.1:
+redux-history-sync@^3.0.0, redux-history-sync@^3.0.1, redux-history-sync@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/redux-history-sync/-/redux-history-sync-3.0.1.tgz#297a16eae5779fb4a32c908059193c098bf34619"
   dependencies:

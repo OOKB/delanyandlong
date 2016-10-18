@@ -6,9 +6,8 @@ import Editor from '../containers/Editor'
 import Header from './Header'
 import Footer from './Footer'
 import Offices from './Offices'
-import Icon from './Icon'
 
-function Contact({ contactText, menu, offices, route, serviceText }) {
+function Contact({ contactText, menu, offices, route }) {
   return (
     <div id="container-contact">
       <Header activeId={route.id} links={menu} />
@@ -40,7 +39,6 @@ Contact.propTypes = {
   route: PropTypes.object.isRequired,
   contactText: PropTypes.string.isRequired,
   offices: PropTypes.object.isRequired,
-  serviceText: PropTypes.string.isRequired,
   menu: PropTypes.array.isRequired,
 }
 

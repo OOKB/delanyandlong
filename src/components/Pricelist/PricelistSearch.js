@@ -40,6 +40,7 @@ PricelistSearch.propTypes = {
   showSummer: PropTypes.bool.isRequired,
 }
 PricelistSearch.defaultProps = {
+  showSummer: false,
 }
 
 export default PricelistSearch

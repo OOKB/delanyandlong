@@ -14,7 +14,7 @@ function Menu({ activeId, links }) {
         <li key={id} className={classnames(id, { active: isActive(id) })}>
           <Link href={href} alt={label} title={label}>
             {icon &&
-              <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true"></i>
+              <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true" />
             }
             <span className="visible-lg">{label}</span>
           </Link>

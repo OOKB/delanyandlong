@@ -8,8 +8,8 @@ import Related from '../../containers/Related'
 import Close from '../CloseButton'
 import Images from '../Editable/ImageUpload/Images'
 
-function Detail({ detailClose, item, route }) {
-  const editing = route.id === 'itemEdit'
+function Detail({ detailClose, item, route: { id } }) {
+  const editing = id === 'itemEdit'
   if (!item) return <p>No image data</p>
   return (
     <div id="detailWrapper" className={classnames('absolute', { editing })}>
@@ -24,7 +24,7 @@ function Detail({ detailClose, item, route }) {
       <Related parent={item} />
       <Close onClick={detailClose} />
       <div className="loading center fixed z0">
-        <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray"></i>
+        <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
         <span className="sr-only">Loading...</span>
       </div>
     </div>
@@ -32,13 +32,9 @@ function Detail({ detailClose, item, route }) {
 }
 
 Detail.propTypes = {
-  confirmFavorite: PropTypes.func.isRequired,
-  endFavorite: PropTypes.func.isRequired,
-  favorite: PropTypes.object,
-  favoriteItem: PropTypes.func.isRequired,
   item: PropTypes.object,
   detailClose: PropTypes.func.isRequired,
-  route: PropTypes.object.isRequired,
+  route: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Detail.defaultProps = {
   detailClose: noop,

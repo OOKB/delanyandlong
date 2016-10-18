@@ -22,3 +22,24 @@
   left: 95%;
   top: 95%;
 }
+
+/***** favorites customization for pricelist *****/
+td.favButton {
+  position: relative;
+  .favorite-container .popup {
+    left: 2rem;
+    top: 0;
+    width: 250px; // this needs to be dynamic based on the location?
+    &::before {
+      content: '\f085';
+      font-family: 'DL';
+      display: block;
+      position: absolute;
+      left: -1.6rem;
+      top: -6px;
+      font-size: 2rem;
+      color:@gold;
+      text-shadow: 0 0 .5rem @dark-gold;
+    }
+  }
+}

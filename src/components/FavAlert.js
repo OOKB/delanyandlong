@@ -30,8 +30,8 @@ function FavAlert({ onClick, item, listItem }) {
     <div className="favorite popup absolute p1" style={{ zIndex: 10 }}>
       <Close onClick={onClick} />
       <div className="outer"><div className="inner">
-        <p>{message}</p>
-        <ul>
+        <p className="m0 mb1">{message}</p>
+        <ul className="list-reset mb1">
           <li><Field {...schema.position} /></li>
           <li><Field {...schema.description} /></li>
         </ul>

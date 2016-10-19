@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 import { confirmFavorite } from 'cape-redux-collection'
 
 import Close from './CloseButton'

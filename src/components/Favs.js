@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import partial from 'lodash/partial'
+import Link from 'redux-history-component'
 
 import Header from './Header'
 import Footer from './Footer'
 import FavButton from './FavButton'
-
-import { Link } from 'redux-history-sync'
 
 function FavItem({ item, onClick }) {
   return (

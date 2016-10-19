@@ -41,6 +41,7 @@ export const itemsValid = createSelector(orderTrackItems, filterValid)
 
 // Items after discontinued filter (`remove`, `only`, `keep`) applied.
 export const itemsRaw = discFilter(itemsValid)
+// All order-track items filled with computed values.
 export const itemsFilled = createSelector(
   itemsRaw,
   categoryCodeIndex,

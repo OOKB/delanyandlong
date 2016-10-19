@@ -1191,16 +1191,16 @@ cape-redux-auth@^1.0.0:
     redux-history-sync "^3.0.0"
     seamless-immutable "^6.3.0"
 
-cape-redux-collection@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-1.1.0.tgz#c9e0b6dceefd8a71b51fd0ec139edc9f61b70892"
+cape-redux-collection@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-1.1.1.tgz#681ac213105ca60ac07155e40f400299c06922cb"
   dependencies:
     cape-lodash "^1.4.1"
     cape-redux "^1.5.0"
     cape-redux-auth "^1.2.2"
     cape-select "^2.2.1"
     lodash "^4.16.4"
-    redux-graph "^1.6.1"
+    redux-graph "^1.6.2"
     redux-history-sync "3.0.1"
     reselect "^2.5.4"
 
@@ -3740,7 +3740,7 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^15.1.0, react@^15.2.1:
+react@^15.1.0, react@^15.2.1, react@^15.3.2:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
   dependencies:
@@ -3915,6 +3915,30 @@ redux-graph@^1.1.0, redux-graph@^1.6.0:
     redux "^3.5.2"
     reselect "^2.5.3"
     seamless-immutable "^6.1.1"
+
+redux-graph@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/redux-graph/-/redux-graph-1.6.2.tgz#7cd3f8836ccdb970a901155ce6c5525fee0793f2"
+  dependencies:
+    cape-lodash "^1.4.1"
+    cape-redux "^1.5.0"
+    lodash "^4.16.4"
+    redux "^3.6.0"
+    reselect "^2.5.4"
+    seamless-immutable "^6.3.0"
+
+redux-history-component:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-1.0.0.tgz#5238e2ce86bbf68e71ccce2648da228b557a71c4"
+  dependencies:
+    babel-core "^6.17.0"
+    cape-redux "^1.4.2"
+    classnames "^2.2.5"
+    lodash "^4.5.1"
+    react "^15.3.2"
+    react-redux "^4.4.5"
+    redux "^3.2.1"
+    redux-history-sync "^3.0.1"
 
 redux-history-sync@^2.1.1:
   version "2.1.1"

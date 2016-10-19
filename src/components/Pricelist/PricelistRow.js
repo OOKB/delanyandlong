@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 import map from 'lodash/map'
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 
 import ItemFav from '../../containers/ItemFav'
 

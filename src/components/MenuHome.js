@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import classnames from 'classnames'
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 
 function MenuHome({ links }) {
   return (
@@ -10,7 +10,7 @@ function MenuHome({ links }) {
         <li key={id} className={id}>
           <Link href={href}>
             {icon &&
-              <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true"></i>
+              <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true" />
             }
             <span className="textLink">{label}</span>
           </Link>

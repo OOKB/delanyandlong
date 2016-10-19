@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 import { merge } from 'cape-redux'
 
 const styles = {

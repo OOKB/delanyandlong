@@ -13,8 +13,8 @@ function FavItem({ item, onClick }) {
     <li className="relative">
       <FavButton favorited item={item} onClick={onClick} />
       <Link href={item.link}>
-        <img  src={item.img.concat(imgSize)} alt={item.id} title={item.id} />
-        <div className="description">
+        <img src={item.img.concat(imgSize)} alt={item.id} title={item.id} />
+        <div className="description bg-white">
           <h2>{item.color}</h2>
           <p>{item.id}</p>
         </div>
@@ -51,7 +51,7 @@ function Favs({ endFavorite, favorites }) {
       <main className="clear m1 mt4 clearfix">
         <h1 className="text-center m0 bb2 mb1 fw400 uppercase fs1 ls0p15">Your Favorites</h1>
         {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
-        {!hasFavorites && <p>No favorites...</p>}
+        {!hasFavorites && <p className="text-center">You currently have no favorites selected...</p>}
       </main>
       <Footer />
     </div>

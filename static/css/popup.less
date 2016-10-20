@@ -34,8 +34,16 @@
   z-index: 99;
   height: auto;
   position: absolute;
-  left: 95%;
-  top: 95%;
+  left: 90%;
+  top: 90%;
+}
+
+@media (max-width: 50rem) {
+  #detailWrapper .favorite.popup {
+    left: 50%;
+    top: 50%;
+    .transform(translate(-50%,-50%));
+  }
 }
 
 /***** favorites customization for pricelist *****/

@@ -30,7 +30,7 @@ function FavsList({ endFavorite, favorites }) {
   return (
     <div>
       <ul className="item-grid list-reset clearfix">
-        {map(favorites, (fav) => (
+        {map(favorites, fav => (
           <FavItem key={fav.id} onClick={partial(endFavorite, fav.id)} item={fav.item} />
         ))}
       </ul>

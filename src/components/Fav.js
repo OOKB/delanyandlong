@@ -20,7 +20,7 @@ Fav.propTypes = {
   editItemCollections: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   inCollections: PropTypes.bool.isRequired,
-  confirmFavorite: PropTypes.func.isRequired,
+  // confirmFavorite: PropTypes.func.isRequired,
   // endFavorite: PropTypes.func.isRequired,
 }
 

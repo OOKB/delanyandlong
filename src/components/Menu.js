@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 import classnames from 'classnames'
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 import { connect } from 'react-redux'
 
 import { menuSelector } from '../redux/select/menu'

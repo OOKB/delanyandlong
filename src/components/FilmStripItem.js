@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connectField } from 'redux-field'
 
-import { Link } from 'redux-history-sync'
+import Link from 'redux-history-component'
 import ItemImg from './ItemImg'
 import Info from './Info'
 

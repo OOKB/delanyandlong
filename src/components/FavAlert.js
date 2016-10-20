@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'redux-history-sync'
+import { connect } from 'react-redux'
+import Link from 'redux-history-component'
+import { confirmFavorite } from 'cape-redux-collection'
 
 import Close from './CloseButton'
 import Field from './Editable/FieldWrapper'
@@ -23,9 +25,10 @@ function getSchema(listItem) {
     },
   }
 }
-function FavAlert({ onClick, item, listItem }) {
+function FavAlert({ dispatch, item, listItem }) {
   const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
   const schema = getSchema(listItem)
+  function onClick() { dispatch(confirmFavorite(listItem)) }
   return (
     <div className="favorite popup absolute p1" style={{ zIndex: 10 }}>
       <Close onClick={onClick} />
@@ -43,9 +46,9 @@ function FavAlert({ onClick, item, listItem }) {
 }
 
 FavAlert.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   listItem: PropTypes.object.isRequired,
 }
 
-export default FavAlert
+export default connect()(FavAlert)

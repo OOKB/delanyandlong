@@ -8,11 +8,12 @@ import Footer from './Footer'
 import FavButton from './FavButton'
 
 function FavItem({ item, onClick }) {
+  const imgSize = '?w=240&h=168&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1.5'
   return (
     <li className="relative">
       <FavButton favorited item={item} onClick={onClick} />
       <Link href={item.link}>
-        <img src={item.img} alt={item.id} title={item.id} />
+        <img  src={item.img.concat(imgSize)} alt={item.id} title={item.id} />
         <div className="description">
           <h2>{item.color}</h2>
           <p>{item.id}</p>
@@ -47,8 +48,8 @@ function Favs({ endFavorite, favorites }) {
   return (
     <div id="favorites">
       <Header />
-      <main className="clear m1 mt4 pt4 clearfix">
-        <h1>Favorites</h1>
+      <main className="clear m1 mt4 clearfix">
+        <h1 className="text-center m0 bb2 mb1 fw400 uppercase fs1 ls0p15">Your Favorites</h1>
         {hasFavorites && <FavsList endFavorite={endFavorite} favorites={favorites} />}
         {!hasFavorites && <p>No favorites...</p>}
       </main>

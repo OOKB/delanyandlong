@@ -146,16 +146,13 @@ code.uppercase {
 .fixed      { position: fixed;    }
 .relative   { position: relative; }
 .static     { position: static;   }
+
 .block      { position: block;    }
 
 .fixed.center {
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  .transform(translate(-50%,-50%));
 }
 
 /* some grid related stuff */
@@ -354,9 +351,21 @@ code.uppercase {
 .fs2 { font-size: 2rem; }
 .fs3 { font-size: 3rem; }
 
+.fw100 { font-weight: 100; }
+.fw200 { font-weight: 200; }
+.fw300 { font-weight: 300; }
+.fw400 { font-weight: 400; }
+.fw500 { font-weight: 500; }
+.fw600 { font-weight: 600; }
+.fw700 { font-weight: 700; }
+.fw800 { font-weight: 800; }
+.fw900 { font-weight: 900; }
+
 .lh1 { line-height: 1rem; }
 .lh2 { line-height: 2rem; }
 .lh3 { line-height: 3rem; }
+
+.ls0p15 { letter-spacing: 0.15em; }
 
 /* some preset margins, padding, etc ... */
 /* margin modules */

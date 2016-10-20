@@ -20,13 +20,13 @@ function FormGroup(props) {
     <div className={classnames('editable-form', wrapClass)} onSubmit={preventDefault}>
       <div className={classnames(cssClasses, className)} id={`${id}-group`}>
         {label &&
-          <label className="control-label four left" htmlFor={id}>
+          <label className="control-label" htmlFor={id}>
             {label}
             {required ? '*' : false}
           </label>
         }
         {children}
-        {saving && <span>{savingTxt}</span>}
+        {saving && <span className="saving small mono">{savingTxt}</span>}
       </div>
     </div>
   )

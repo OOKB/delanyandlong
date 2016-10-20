@@ -49,14 +49,14 @@
     border:none;
     background-color: transparent;
     border-radius: .15em;
-    .editable-submit {
+    &.editable-submit {
       background-color: @green;
       color:@off-white;
       &:hover {
         background-color: @dark-green;
       }
     }
-    .editable-close {
+    &.editable-close {
       background-color: @yellow;
       color:@off-white;
       &:hover {
@@ -64,4 +64,31 @@
       }
     }
   }
+}
+
+.form-horizontal {
+  label {
+    float: left;
+    width: 30%;
+  }
+
+  .form-value,
+  .editable-form {
+    float:left;
+    width: 70%;
+  }
+}
+
+span.saving.small {
+  margin-left: 30%;
+}
+
+.has-success .form-value {
+  color: @green;
+}
+.has-error .form-value {
+  color: @orange;
+}
+.has-warning .form-value {
+  color: @yellow;
 }

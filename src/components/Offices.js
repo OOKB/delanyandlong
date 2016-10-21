@@ -13,9 +13,11 @@ function Office({ address, email, id, name, telephone, fax, title }) {
       <EditButton item={{ id }} />
       <h3>{title}</h3>
       {name && <h4>{name}</h4>}
-      <address>
-        {map(address, (line, index) => <span key={index}>{line}<br /></span>)}
-      </address>
+      {address &&
+        <address>
+          {map(address, (line, index) => <span key={index}>{line}<br /></span>)}
+        </address>
+      }
       <ul className="list-reset connect">
         <li>{email && <button onClick={onClick}>{email}</button>}</li>
         <li>{telephone && <phone>{telephone}</phone>}</li>
@@ -25,7 +27,7 @@ function Office({ address, email, id, name, telephone, fax, title }) {
   )
 }
 Office.propTypes = {
-  address: PropTypes.array.isRequired,
+  address: PropTypes.array,
   email: PropTypes.string,
   id: PropTypes.string.isRequired,
   name: PropTypes.string,

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import noop from 'lodash/noop'
 import classnames from 'classnames'
 
+import DetailFooter from './DetailFooter'
 import DetailHeader from './DetailHeader'
 import Info from '../Info'
 import Related from '../../containers/Related'
@@ -27,6 +28,7 @@ function Detail({ detailClose, item, route: { id } }) {
         <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
         <span className="sr-only">Loading...</span>
       </div>
+      <DetailFooter />
     </div>
   )
 }

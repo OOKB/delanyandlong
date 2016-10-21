@@ -35,6 +35,11 @@
   width: auto;
 }
 
+.detailFooter {
+  position: relative;
+  top:100%;
+}
+
 @media (max-width: 400px) {
   .detailHeader .logo,
   .detailHeader .logo svg {
@@ -117,6 +122,14 @@
   }
   #detailWrapper button.favorite .fa {
     font-size: 2rem;
+  }
+  .detailFooter {
+    position: fixed;
+    top: initial;
+    bottom:.25rem;
+    left:50%;
+    .transform(translateX(-50%));
+    .box-shadow;
   }
 }
 

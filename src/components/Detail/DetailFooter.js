@@ -7,6 +7,7 @@ function DetailFooter({ link: { href, title }, message }) {
       <p className="p05 m0">
         {message}
         <Link href={href} title={title}>{title}</Link>
+        .
       </p>
     </footer>
   )

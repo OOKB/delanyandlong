@@ -28,7 +28,7 @@ function Detail({ detailClose, disclaimer, item, route: { id } }) {
         <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
         <span className="sr-only">Loading...</span>
       </div>
-      <DetailFooter disclaimer={disclaimer} />
+      <DetailFooter {...disclaimer} />
     </div>
   )
 }
@@ -36,7 +36,7 @@ function Detail({ detailClose, disclaimer, item, route: { id } }) {
 Detail.propTypes = {
   item: PropTypes.object,
   detailClose: PropTypes.func.isRequired,
-  disclaimer: PropTypes.string,
+  disclaimer: PropTypes.object,
   route: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Detail.defaultProps = {

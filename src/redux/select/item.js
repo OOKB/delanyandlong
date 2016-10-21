@@ -26,7 +26,9 @@ export const patternColorIndex = createSelector(
 export function colorsSelector(state, props) {
   return patternColorIndex(state)[props.parent.patternNumber]
 }
+export const disclaimer = getDb('disclaimer')
 export const itemDetailSelector = createStructuredSelector({
+  disclaimer,
   item: getItemDetail,
 })
 export const colorsOpen = state => get(state, 'form.detail.related.focus', false)

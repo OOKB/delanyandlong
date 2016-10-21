@@ -9,7 +9,7 @@ import Related from '../../containers/Related'
 import Close from '../CloseButton'
 import Images from '../Editable/ImageUpload/Images'
 
-function Detail({ detailClose, item, route: { id } }) {
+function Detail({ detailClose, disclaimer, item, route: { id } }) {
   const editing = id === 'itemEdit'
   if (!item) return <p>No image data</p>
   return (
@@ -28,7 +28,7 @@ function Detail({ detailClose, item, route: { id } }) {
         <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
         <span className="sr-only">Loading...</span>
       </div>
-      <DetailFooter />
+      <DetailFooter disclaimer={disclaimer} />
     </div>
   )
 }
@@ -36,6 +36,7 @@ function Detail({ detailClose, item, route: { id } }) {
 Detail.propTypes = {
   item: PropTypes.object,
   detailClose: PropTypes.func.isRequired,
+  disclaimer: PropTypes.string,
   route: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Detail.defaultProps = {

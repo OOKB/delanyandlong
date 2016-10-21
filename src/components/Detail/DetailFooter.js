@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 function DetailFooter({ disclaimer }) {
   return (
     <footer className="detailFooter bg-white small mono z3 text-center">
-      <p className="p05 m0">{disclaimer}</p>
+      <p className="p05 m0" dangerouslySetInnerHTML={{ __html: disclaimer }} />
     </footer>
   )
 }

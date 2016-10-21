@@ -35,7 +35,7 @@ const state = {
     ],
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
     detailFields: [ 'categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
-    disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your [DeLany & Long distributor](/contact).',
+    disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
     pricelist: {
       columns: {
         textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth' ],

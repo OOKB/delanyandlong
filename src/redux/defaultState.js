@@ -37,9 +37,9 @@ const state = {
     detailFields: [ 'categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
     pricelist: {
       columns: {
-        textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
-        trim: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth', 'originCountry' ],
-        drapery: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth', 'originCountry' ],
+        textile: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth' ],
+        trim: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth' ],
+        drapery: [ 'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth' ],
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },

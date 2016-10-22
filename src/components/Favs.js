@@ -1,45 +1,20 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
-import partial from 'lodash/partial'
-import Link from 'redux-history-component'
 
-import Header from './Header'
 import Footer from './Footer'
-import FavButton from './FavButton'
+import Header from './Header'
+import Item from './Item'
 
-function FavItem({ item, onClick }) {
-  const imgSize = '?w=240&h=168&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1.5'
-  return (
-    <li className="relative">
-      <FavButton favorited item={item} onClick={onClick} />
-      <Link href={item.link}>
-        <img src={item.img.concat(imgSize)} alt={item.id} title={item.id} />
-        <div className="description bg-white">
-          <h2>{item.color}</h2>
-          <p>{item.id}</p>
-        </div>
-      </Link>
-    </li>
-  )
-}
-FavItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired,
-}
-
-function FavsList({ endFavorite, favorites }) {
+function FavsList({ favorites }) {
   return (
     <div>
       <ul className="item-grid list-reset clearfix">
-        {map(favorites, fav => (
-          <FavItem key={fav.id} onClick={partial(endFavorite, fav.id)} item={fav.item} />
-        ))}
+        {map(favorites, fav => <Item className="relative" key={fav.id} item={fav.item} />)}
       </ul>
     </div>
   )
 }
 FavsList.propTypes = {
-  endFavorite: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired,
 }
 

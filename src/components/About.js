@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 import { aboutSelector } from '../redux/select/about'
 import Page from './Page'
 
-function About({ aboutText, distributedText, serviceText }) {
+function About({ aboutText, distributedText }) {
   return (
     <Page id="container-about">
       <main className="clear mlrauto">
         <div className="about">
           {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
           <div className="small mt3 bt1 pt2">
-            <p>{serviceText}</p>
             <p><a href="/contact">{distributedText}</a></p>
           </div>
         </div>
@@ -22,7 +21,6 @@ function About({ aboutText, distributedText, serviceText }) {
 
 About.propTypes = {
   aboutText: PropTypes.arrayOf(PropTypes.string).isRequired,
-  serviceText: PropTypes.string.isRequired,
   distributedText: PropTypes.string.isRequired,
 }
 

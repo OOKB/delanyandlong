@@ -13,10 +13,10 @@ function Detail({ detailClose, disclaimer, item, route: { id } }) {
   const editing = id === 'itemEdit'
   if (!item) return <p>No image data</p>
   return (
-    <div id="detailWrapper" className={classnames('absolute', { editing })}>
+    <div id="detailWrapper" className={classnames('absolute', item.category, { editing })}>
       <DetailHeader />
       <Info item={item} />
-      <div className={classnames('imageWrapper absolute z1', item.category)}>
+      <div className="imageWrapper absolute z1">
         <img src={`${item.img}?w=1500&fm=pjpg`} alt={item.id} />
         {editing &&
           <Images subject={item} style={{ marginTop: 100 }} />

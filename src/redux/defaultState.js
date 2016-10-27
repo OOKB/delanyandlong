@@ -31,6 +31,10 @@ const state = {
     ],
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
     detailFields: [ 'categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],
+    sisterSite: {
+      title: 'For the Rogers & Goffigon collection click here.',
+      href: 'http://www.rogersandgoffigon.com/',
+    },
     disclaimer: {
       content: 'Colors and scale shown are not exact. Please request actual samples from your',
       link: {

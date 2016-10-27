@@ -3,11 +3,14 @@ import React, { PropTypes } from 'react'
 import FavAlert from './FavAlert'
 import FavButton from './FavButton'
 
-function Fav({ activeListItem, inCollections, item, editItemCollections }) {
+function Fav(props) {
+  const {
+    activeListItem, inCollections, item, itemIsActive, editItemCollections, userCollections,
+  } = props
   return (
     <div className="favorite-container">
-      {activeListItem &&
-        <FavAlert item={item} listItem={activeListItem} />
+      {(activeListItem || itemIsActive) &&
+        <FavAlert item={item} listItem={activeListItem} userCollections={userCollections} />
       }
       <FavButton inCollections={inCollections} onClick={editItemCollections} />
     </div>
@@ -20,8 +23,9 @@ Fav.propTypes = {
   editItemCollections: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   inCollections: PropTypes.bool.isRequired,
+  itemIsActive: PropTypes.bool,
   // confirmFavorite: PropTypes.func.isRequired,
-  // endFavorite: PropTypes.func.isRequired,
+  userCollections: PropTypes.object,
 }
 
 export default Fav

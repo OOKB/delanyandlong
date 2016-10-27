@@ -35,7 +35,7 @@ Footer.defaultProps = {
   currentYear: new Date().getFullYear(),
   ookbLink: 'http://www.ookb.co',
   sisterSite: {
-    title: 'Looking for the Rogers & Goffigon collection?',
+    title: 'For the Rogers & Goffigon collection click here.',
     href: 'http://www.rogersandgoffigon.com/',
   },
 }

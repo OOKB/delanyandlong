@@ -25,7 +25,15 @@ function getSchema(listItem) {
     },
   }
 }
+function AuthAlert({ message }) {
+  return (
+    <div className="favorite popup absolute p1" style={{ zIndex: 10 }}>
+      <p className="m0 mb1">{message}</p>
+    </div>
+  )
+}
 function FavAlert({ dispatch, item, listItem }) {
+  if (!listItem) return <AuthAlert message="Auth alert stub" />
   const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
   const schema = getSchema(listItem)
   function onClick() { dispatch(confirmFavorite(listItem)) }
@@ -49,6 +57,7 @@ FavAlert.propTypes = {
   dispatch: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   listItem: PropTypes.object.isRequired,
+  userCollections: PropTypes.object,
 }
 
 export default connect()(FavAlert)

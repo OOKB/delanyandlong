@@ -5,9 +5,7 @@ function DetailFooter({ content, link: { href, title } }) {
   return (
     <footer className="detailFooter bg-white small mono z3 text-center">
       <p className="p05 m0">
-        {content}
-        <Link href={href} title={title}>{title}</Link>
-        .
+        {content} <Link href={href} title={title}>{title}</Link>.
       </p>
     </footer>
   )

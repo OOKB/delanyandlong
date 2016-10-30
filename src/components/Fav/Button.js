@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import ButtonEl from './Button'
+import ButtonEl from '../Button'
 
 function FavButton({ inCollections, onClick }) {
   if (inCollections) {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import Link from 'redux-history-component'
-import ItemFav from '../containers/ItemFav'
+import ItemFav from './Fav/ItemFav'
 
 function Item({ className, imgSize, item, onError }) {
   function handleImgError() { if (onError) onError(item) }

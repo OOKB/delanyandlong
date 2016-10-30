@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
 import { detailFields } from '../redux/select/item'
-import ItemFav from '../containers/ItemFav'
+import ItemFav from './Fav/ItemFav'
 
 function Info({ item, fields }) {
   return (

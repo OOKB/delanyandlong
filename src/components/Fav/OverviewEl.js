@@ -8,6 +8,7 @@ function CollectionEl({ title }) {
 CollectionEl.propTypes = {
   title: PropTypes.string.isRequired,
 }
+
 function Overview({ onClose, message, userCollections }) {
   return (
     <Box message={message} onClose={onClose}>

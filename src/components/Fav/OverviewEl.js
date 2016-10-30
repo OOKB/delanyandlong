@@ -1,25 +1,21 @@
 import React, { PropTypes } from 'react'
 import { map } from 'lodash'
 import Box from './Box'
+import CollectionEl from './CollectionEl'
 
-function CollectionEl({ title }) {
-  return <li>{title}</li>
-}
-CollectionEl.propTypes = {
-  title: PropTypes.string.isRequired,
-}
-
-function Overview({ onClose, message, userCollections }) {
+function Overview({ message, onClose, userCollections }) {
   return (
     <Box message={message} onClose={onClose}>
       <h3>User Collections</h3>
-      <ul>{map(userCollections, CollectionEl)}</ul>
+      <ul>
+        {map(userCollections, CollectionEl)}
+      </ul>
     </Box>
   )
 }
 Overview.propTypes = {
-  onClose: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
   userCollections: PropTypes.object.isRequired,
 }
 

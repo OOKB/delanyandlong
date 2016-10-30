@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
+import { flow, map } from 'lodash'
 import { createStructuredSelector } from 'reselect'
-import { close } from 'cape-redux-collection'
+import { addItemToCollection, close } from 'cape-redux-collection'
 
 import Component from './OverviewEl'
 
@@ -11,6 +12,16 @@ const getState = createStructuredSelector({
   message: getMessage,
 })
 
-const actions = { onClose: close }
-
-export default connect(getState, actions)(Component)
+function mapDispatchToProps(dispatch, { item, userCollections }) {
+  function collectionAction(collection) {
+    return {
+      title: collection.title,
+      onClick: flow(addItemToCollection(collection, item), dispatch),
+    }
+  }
+  return {
+    onClose: flow(close, dispatch),
+    userCollections: map(userCollections, collectionAction),
+  }
+}
+export default connect(getState, mapDispatchToProps)(Component)

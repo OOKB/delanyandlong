@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import map from 'lodash/map'
 import Link from 'redux-history-component'
 
-import ItemFav from '../../containers/ItemFav'
+import ItemFav from '../Fav/ItemFav'
 
 import { cellStyles } from './styles'
 

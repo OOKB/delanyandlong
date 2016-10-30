@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { endFavorite } from 'cape-redux-collection'
 
 import { listItemsSorted } from '../redux/collection'
-import Component from '../components/Favs'
+import Component from '../components/Fav/Favs'
 
 export const mapStateToProps = createStructuredSelector({
   favorites: listItemsSorted,

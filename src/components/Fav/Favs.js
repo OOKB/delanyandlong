@@ -15,6 +15,9 @@ function FavsList({ favorites, imgSize }) {
 }
 FavsList.propTypes = {
   favorites: PropTypes.array.isRequired,
+  imgSize: PropTypes.string.isRequired,
+}
+FavsList.defaultProps = {
   imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }
 

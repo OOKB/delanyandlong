@@ -9,7 +9,7 @@ import Page from '../Page'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
-  const { categoryKey, info, lead, disclaimer, pager } = props
+  const { categoryKey, info, lead, disclaimer, pager, imgSize } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, prefix, printWhenColor } = info
   const display = id => displayStyle.active === id
@@ -19,7 +19,7 @@ function Pricelist(props) {
       <main className="clear m1 mt2">
         <Search {...info} pagerInfo={pagerInfo} />
         {list && <Table columns={columns} items={items} printWhenColor={printWhenColor} />}
-        {display('grid') && <Grid items={items} />}
+        {display('grid') && <Grid items={items} imgSize={imgSize} />}
         {display('film') && <Film {...pagerInfo} prefix={prefix.pgIndex} />}
         <div className="text-center small">
           <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
@@ -34,6 +34,7 @@ function Pricelist(props) {
 }
 Pricelist.propTypes = {
   categoryKey: PropTypes.array.isRequired,
+  imgSize: PropTypes.string.isRequired,
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
   disclaimer: PropTypes.string.isRequired,
@@ -42,5 +43,6 @@ Pricelist.propTypes = {
 Pricelist.defaultProps = {
   disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
+  imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }
 export default connect(pricelistSelector)(Pricelist)

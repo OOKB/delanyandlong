@@ -25,7 +25,4 @@ Item.propTypes = {
   item: PropTypes.object.isRequired,
   onError: PropTypes.func,
 }
-Item.defaultProps = {
-  imgSize: '?w=240&h=168&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=1.5',
-}
 export default Item

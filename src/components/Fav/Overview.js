@@ -1,11 +1,14 @@
-import { constant } from 'lodash'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { close } from 'cape-redux-collection'
 
 import Component from './OverviewEl'
 
-const getState = constant({
-  message: 'Auth alert stub',
+function getMessage(state, { item }) {
+  return `Add ${item.id} to one of your collections.`
+}
+const getState = createStructuredSelector({
+  message: getMessage,
 })
 
 const actions = { onClose: close }

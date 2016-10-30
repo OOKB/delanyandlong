@@ -25,7 +25,11 @@ function getSchema(state, { listItem }) {
     },
   }
 }
+function getMessage(state, { item, listItem }) {
+  return `${item.id} has been added to your ${listItem.collection.title} collection!`
+}
 const getState = createStructuredSelector({
+  message: getMessage,
   schema: getSchema,
 })
 const getActions = mapDispatchToProps(({ listItem }) =>

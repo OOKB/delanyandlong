@@ -4,17 +4,18 @@ import map from 'lodash/map'
 import Page from '../Page'
 import Item from '../Item'
 
-function FavsList({ favorites }) {
+function FavsList({ favorites, imgSize }) {
   return (
     <div>
       <ul className="item-grid list-reset clearfix">
-        {map(favorites, fav => <Item className="relative" key={fav.id} item={fav.item} />)}
+        {map(favorites, fav => <Item className="relative" key={fav.id} item={fav.item} imgSize={imgSize} />)}
       </ul>
     </div>
   )
 }
 FavsList.propTypes = {
   favorites: PropTypes.array.isRequired,
+  imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }
 
 function Favs({ endFavorite, favorites }) {

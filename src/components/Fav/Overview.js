@@ -12,9 +12,10 @@ const getState = createStructuredSelector({
   message: getMessage,
 })
 
-function mapDispatchToProps(dispatch, { item, userCollections }) {
+function mapDispatchToProps(dispatch, { collections, item, userCollections }) {
   function collectionPick(collection) {
     return {
+      inList: !!collections[collection.id],
       title: collection.title,
       onClick: flow(addItemToCollection(collection, item), dispatch),
     }

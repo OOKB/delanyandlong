@@ -6,11 +6,12 @@ import Overview from './Overview'
 
 function ItemFavEl(props) {
   const {
-    activeListItem, inCollections, item, itemIsActive, editItemCollections, userCollections,
+    activeListItem, collections, editItemCollections,
+    inCollections, item, itemIsActive, userCollections,
   } = props
   function getAlert() {
     if (activeListItem) return <Alert item={item} listItem={activeListItem} />
-    if (itemIsActive) return <Overview item={item} userCollections={userCollections} />
+    if (itemIsActive) return <Overview {...{ collections, item, userCollections }} />
     return null
   }
   return (

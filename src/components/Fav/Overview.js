@@ -13,7 +13,7 @@ const getState = createStructuredSelector({
 })
 
 function mapDispatchToProps(dispatch, { item, userCollections }) {
-  function collectionAction(collection) {
+  function collectionPick(collection) {
     return {
       title: collection.title,
       onClick: flow(addItemToCollection(collection, item), dispatch),
@@ -21,7 +21,7 @@ function mapDispatchToProps(dispatch, { item, userCollections }) {
   }
   return {
     onClose: flow(close, dispatch),
-    userCollections: map(userCollections, collectionAction),
+    userCollections: map(userCollections, collectionPick),
   }
 }
 export default connect(getState, mapDispatchToProps)(Component)

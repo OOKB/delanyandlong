@@ -6,8 +6,8 @@ import CollectionEl from './CollectionEl'
 function Overview({ message, onClose, userCollections }) {
   return (
     <Box message={message} onClose={onClose}>
-      <h3>User Collections</h3>
-      <ul>
+      <h3 className="m0 fs1 uppercase mono bb1 fw400 mb05">User Collections</h3>
+      <ul className="list-reset collections fa-ul">
         {map(userCollections, CollectionEl)}
       </ul>
     </Box>

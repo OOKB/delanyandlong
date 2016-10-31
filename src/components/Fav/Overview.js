@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import { flow, map } from 'lodash'
+import { constant, flow, get, map } from 'lodash'
 import { createStructuredSelector } from 'reselect'
-import { addItemToCollection, close } from 'cape-redux-collection'
+import { addItemToCollection, close, endAction, PREDICATE } from 'cape-redux-collection'
 
 import Component from './OverviewEl'
 
@@ -14,10 +14,12 @@ const getState = createStructuredSelector({
 
 function mapDispatchToProps(dispatch, { collections, item, userCollections }) {
   function collectionPick(collection) {
+    const listItem = get(collections, [ collection.id, PREDICATE ], false)
+    const action = listItem ? endAction(constant(listItem)) : addItemToCollection(collection, item)
     return {
-      inList: !!collections[collection.id],
+      inList: !!listItem,
       title: collection.title,
-      onClick: flow(addItemToCollection(collection, item), dispatch),
+      onClick: flow(action, dispatch),
     }
   }
   return {

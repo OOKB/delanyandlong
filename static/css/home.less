@@ -9,6 +9,32 @@
 
 .logoPlaceholder .dl-logo {
   fill: @dark-gold;
+  -webkit-animation: fillErUp 1s ease alternate infinite;
+  -moz-animation: fillErUp 1s ease alternate infinite;
+  -o-animation: fillErUp 1s ease alternate infinite;
+  animation: fillErUp 1s ease alternate infinite;
+}
+
+// crazy animation attempt
+@-webkit-keyframes fillErUp {
+  0%    { fill: @off-white; }
+  50%   { fill: @gold;      }
+  100%  { fill: @dark-gold; }
+}
+@-moz-keyframes fillErUp {
+  0%    { fill: @off-white; }
+  50%   { fill: @gold;      }
+  100%  { fill: @dark-gold; }
+}
+@-0-keyframes fillErUp {
+  0%    { fill: @off-white; }
+  50%   { fill: @gold;      }
+  100%  { fill: @dark-gold; }
+}
+@keyframes fillErUp {
+  0%    { fill: @off-white; }
+  50%   { fill: @gold;      }
+  100%  { fill: @dark-gold; }
 }
 
 #home .item-grid {

@@ -4,9 +4,10 @@ import Icon from '../Icon'
 
 function CollectionEl({ inList, onClick, title }) {
   return (
-    <li>
-      {inList && <Icon symbol="check" />}
-      <button onClick={onClick}>{title}</button>
+    <li className="relative">
+      {!inList && <Icon symbol="circle-o" xtras="fa-li light-gray pointer" />}
+      {inList && <Icon symbol="dot-circle-o" xtras="fa-li purple pointer" />}
+      <button className="plain pointer relative gold" onClick={onClick}>{title}</button>
     </li>
   )
 }

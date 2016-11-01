@@ -3,6 +3,7 @@ import { map } from 'lodash'
 import Box from './Box'
 import CollectionEl from './CollectionEl'
 import Field from '../Editable/FieldWrapper'
+import Icon from '../Icon'
 
 const collectionField = {
   // className: 'collection-title',
@@ -20,7 +21,10 @@ function Overview({ createCollection, message, onClose, userCollections }) {
       <h3 className="m0 fs1 uppercase mono bb1 fw400 mb05">User Collections</h3>
       <ul className="list-reset collections fa-ul">
         {map(userCollections, CollectionEl)}
-        <li><Field {...collectionField} onSubmit={createCollection} /></li>
+        <li>
+          <Icon symbol="plus" xtras="fa-li light-gray pointer fs1" />
+          <Field {...collectionField} onSubmit={createCollection} />
+        </li>
       </ul>
     </Box>
   )

@@ -25,8 +25,8 @@ PreviewText.defaultProps = {
 }
 PreviewText.propTypes = {
   className: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
   editable: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
   value: PropTypes.string,
 }
 

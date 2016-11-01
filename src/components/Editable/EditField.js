@@ -12,7 +12,7 @@ import Help from './Help'
 
 function EditField(props) {
   const {
-    buttons, fieldEvent, formEvent, className, id, form, preventClose, type, ...other,
+    buttons, fieldEvent, formEvent, className, id, form, onSubmit, preventClose, type, ...other,
   } = props
   const { hasError, errorMessage, help, suggestion, value } = form
   const helpTxt = hasError ? errorMessage : help
@@ -43,6 +43,7 @@ function EditField(props) {
           <EditableButtons
             {...fieldEvent}
             {...formEvent}
+            handleSubmit={onSubmit}
             disabled={hasError}
             preventClose={preventClose}
           />
@@ -69,6 +70,7 @@ EditField.propTypes = {
   form: PropTypes.object.isRequired,
   help: PropTypes.string,
   id: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func,
   preventClose: PropTypes.bool,
   type: PropTypes.string.isRequired,
   value: PropTypes.string,

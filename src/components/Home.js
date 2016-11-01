@@ -8,14 +8,11 @@ import ItemGrid from './ItemGrid'
 import Logo from './Logo'
 
 function Home({ imgSize, items, missingImage }) {
-  const style = {
-    backgroundImage: 'url(https://b2.cape.io/file/delanyandlong/placeholder.png)',
-  }
   return (
     <div id="home">
       <Header />
       {(!items || !items.length) &&
-        <div className="temporary filler" style={style}>
+        <div className="temporary filler">
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">
             <Logo />
             <div className="loading">

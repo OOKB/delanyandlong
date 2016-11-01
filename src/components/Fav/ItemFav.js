@@ -3,7 +3,7 @@ import { constant } from 'lodash'
 import { mapDispatchToProps } from 'cape-redux'
 import { editItemCollections, mapStateToProps } from 'cape-redux-collection'
 
-import { listAgentMain } from '../../redux/select/collection'
+import { listAgentMain } from '../../redux/collection'
 import Component from './ItemFavEl'
 
 function getActions({ item }) {

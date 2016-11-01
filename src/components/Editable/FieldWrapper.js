@@ -8,7 +8,7 @@ import EditField from './EditField'
 // Using this for a typical horizontal editable field.
 // Think of this as the field form container.
 function FieldWrapper(props) {
-  const { editable, id, type, fieldEvent, formEvent, form, value } = props
+  const { editable, emptyText, id, type, fieldEvent, formEvent, form, value } = props
   const { saving } = form
   function handleOpen() {
     fieldEvent.open(form.value || value)
@@ -20,6 +20,7 @@ function FieldWrapper(props) {
       {!open &&
         <PreviewText
           editable={!saving && editable}
+          emptyText={emptyText}
           onClick={handleOpen}
           value={form.value || value}
         />
@@ -42,6 +43,7 @@ function FieldWrapper(props) {
 
 FieldWrapper.propTypes = {
   editable: PropTypes.bool.isRequired,
+  emptyText: PropTypes.string,
   fieldEvent: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,

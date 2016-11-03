@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect'
-import { fieldValue } from 'redux-field'
+import { clear, fieldValue } from 'redux-field'
+import { constant, partial } from 'lodash'
 import {
   createCollectionList, favListElements, fixListItems, favTitle,
   listItemIndex, orderListItems,
@@ -11,8 +12,8 @@ import { itemsFilled } from './select/items'
 export const listItems = createSelector(favListElements, itemsFilled, fixListItems)
 export const listItemsSorted = createSelector(listItems, orderListItems)
 export const favsItemIndex = createSelector(listItems, listItemIndex)
-
-const getTitle = fieldValue([ 'collection', 'title' ])
+export const fieldPrefix = [ 'collection', 'title' ]
+const getTitle = fieldValue(fieldPrefix)
 
 // Return user if there was a title set. Otherwise return webApp.
 export function collectionListAgent(state, props) {
@@ -24,4 +25,7 @@ export const listAgentMain = {
   agent: collectionListAgent,
   mainEntity: getDataFeed,
 }
-export const createCollection = createCollectionList({ ...listAgentMain, title: getTitle })
+export const createCollection = constant(
+  createCollectionList({ ...listAgentMain, title: getTitle })
+)
+export const resetField = partial(clear, fieldPrefix)

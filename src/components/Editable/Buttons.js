@@ -7,8 +7,8 @@ function EditableButtons(props) {
   } = props
   function onClick(event) {
     event.preventDefault()
-    if (handleSubmit) handleSubmit(value)
     onSubmit(value)
+    if (handleSubmit) handleSubmit(value)
   }
   return (
     <div className="editable-buttons">

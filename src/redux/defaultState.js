@@ -93,10 +93,10 @@ const state = {
         validators: [ 'isAnonymous' ],
       },
       {
-        id: 'showroom',
-        href: '/showroom',
+        id: 'logout',
+        action: 'logout',
         icon: 'trade-login',
-        label: 'Showroom',
+        label: 'Logout',
         validators: [ 'isAuthenticated' ],
       },
       {

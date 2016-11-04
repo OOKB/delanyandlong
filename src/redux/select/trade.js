@@ -22,7 +22,7 @@ const custNum = {
 }
 // Zip code validation.
 export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
-const validZipCountries = [ 'canada', 'paris', 'mexico' ]
+const validZipCountries = [ 'canada', 'france', 'mexico' ]
 export function zipCountryError(isValid) {
   if (isValid) return undefined
   return 'Invalid Country.'
@@ -33,7 +33,6 @@ export function isLetterString(val) {
 }
 export function validateZip(value) {
   const err1 = validNumZip(value)
-  console.log('err1', err1)
   if (isUndefined(err1)) return undefined
   const err2 = validZipCountry(value)
   if (isUndefined(err2)) return undefined

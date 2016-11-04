@@ -81,7 +81,7 @@ const state = {
       },
       {
         id: 'pricelist',
-        href: 'collection',
+        href: '/collection',
         icon: 'object-ungroup',
         label: 'The Collection',
       },

@@ -1,4 +1,7 @@
-import { cond, constant, eq, flow, over, overEvery, partialRight, property, spread } from 'lodash'
+import {
+  cond, constant, eq, flow, lowerCase, over, overEvery, overSome, partialRight, property, spread,
+} from 'lodash'
+import { oneOf } from 'cape-lodash'
 import { isEqual } from 'lodash/fp'
 import { getState } from 'redux-field'
 import { createSelector, createStructuredSelector } from 'reselect'
@@ -8,6 +11,7 @@ import { entitySelector } from 'redux-graph'
 
 import { getDb } from './'
 
+// Login fields.
 const custNum = {
   className: 'accountNumber',
   icon: { className: 'light-gray', symbol: 'hashtag' },
@@ -15,12 +19,16 @@ const custNum = {
   prefix: [ 'login', 'customerNumber' ],
   validate: fieldValidation([ 'numString', [ 'firstChar', '0' ], [ 'length', 6 ] ]),
 }
+const validZipCountries = [ 'canada', 'paris', 'mexico' ]
 const zip = {
   className: 'zipCode',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'Postal Code',
   prefix: [ 'login', 'postalCode' ],
-  validate: fieldValidation([ 'numString', [ 'length', 5 ] ]),
+  validate: overSome(
+    fieldValidation([ 'numString', [ 'length', 5 ] ]),
+    flow(lowerCase, oneOf(validZipCountries)),
+  ),
 }
 
 export function mergeTwo(obj1, obj2) {

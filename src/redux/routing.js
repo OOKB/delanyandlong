@@ -1,9 +1,13 @@
 import { selectActiveKeyDefault } from 'redux-history-sync'
+import { flow, partial, property } from 'lodash'
 import { createSelector } from 'reselect'
-import { select } from 'cape-select'
+import { getProps, select } from 'cape-select'
 
 import locationInfo from '../routes'
 
+export const routeParamsPath = [ 'props', 'route', 'params' ]
+export const routeParams = flow(getProps, property(routeParamsPath))
+export const routeParam = partial(select, routeParams)
 // We are using the redux-history-sync to put location into state.
 function routeInfoSelector(history) {
   if (!history) return history

@@ -1,6 +1,6 @@
 import {
-  cond, constant, defaultTo, eq, flow, lowerCase, isUndefined,
-  over, overEvery, partialRight, property, spread,
+  cond, constant, eq, flow, isUndefined,
+  over, overEvery, partialRight, property, spread, toUpper,
 } from 'lodash'
 import { oneOf } from 'cape-lodash'
 import { isEqual } from 'lodash/fp'
@@ -22,12 +22,12 @@ const custNum = {
 }
 // Zip code validation.
 export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
-const validZipCountries = [ 'canada', 'france', 'mexico' ]
+const validZipCountries = [ 'CANADA', 'FRANCE', 'MEXICO' ]
 export function zipCountryError(isValid) {
   if (isValid) return undefined
   return 'Invalid Country.'
 }
-export const validZipCountry = flow(lowerCase, oneOf(validZipCountries), zipCountryError)
+export const validZipCountry = flow(toUpper, oneOf(validZipCountries), zipCountryError)
 export function isLetterString(val) {
   return /^[a-zA-Z]+$/.test(val)
 }
@@ -66,7 +66,7 @@ export const acctNumChecking = flow(over(acctNumValid, acctNumId), isEqual([ tru
 export const showZip = overEvery(acctNumValid, acctNumId)
 
 export const zipState = formState(zip)
-export const zipValue = select(zipState, 'value')
+export const zipValue = flow(select(zipState, 'value'), toUpper)
 export const getCustomerZip = flow(
   getSelect(entitySelector, acctNumId),
   property('postalCode')

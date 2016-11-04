@@ -5,6 +5,7 @@ import Link from 'redux-history-component'
 import { connect } from 'react-redux'
 
 import { menuSelector } from '../redux/select/menu'
+import Icon from './Icon'
 
 function Menu({ activeId, links }) {
   function isActive(id) { return activeId === id }
@@ -13,9 +14,7 @@ function Menu({ activeId, links }) {
       {map(links, ({ id, href, label, icon }) => (
         <li key={id} className={classnames(id, { active: isActive(id) })}>
           <Link href={href} alt={label} title={label}>
-            {icon &&
-              <i className={classnames('visible-sm fa', `fa-${icon}`)} aria-hidden="true" />
-            }
+            {icon && <Icon className="visible-sm" symbol={icon} hidden />}
             <span className="visible-lg">{label}</span>
           </Link>
         </li>

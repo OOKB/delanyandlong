@@ -18,6 +18,7 @@ function mapDispatchToProps(dispatch, { collections, item, userCollections }) {
     const listItem = get(collections, [ collection.id, PREDICATE ], false)
     const action = listItem ? endAction(constant(listItem)) : addItemToCollection(collection, item)
     return {
+      id: collection.id,
       inList: !!listItem,
       title: collection.title,
       onClick: flow(action, dispatch),

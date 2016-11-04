@@ -5,7 +5,7 @@ import { getProps, select } from 'cape-select'
 
 import locationInfo from '../routes'
 
-export const routeParamsPath = [ 'props', 'route', 'params' ]
+export const routeParamsPath = [ 'route', 'params' ]
 export const routeParams = flow(getProps, property(routeParamsPath))
 export const routeParam = partial(select, routeParams)
 // We are using the redux-history-sync to put location into state.

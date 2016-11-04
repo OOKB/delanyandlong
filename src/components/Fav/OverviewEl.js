@@ -22,7 +22,7 @@ function Overview({ createCollection, message, onClose, userCollections }) {
       <ul className="list-reset collections fa-ul">
         {map(userCollections, CollectionEl)}
         <li>
-          <Icon symbol="plus" xtras="fa-li light-gray pointer fs1" />
+          <Icon symbol="plus" className="fa-li light-gray pointer fs1" />
           <Field {...collectionField} onSubmit={createCollection} />
         </li>
       </ul>

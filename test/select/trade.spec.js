@@ -1,27 +1,29 @@
 import test from 'tape'
-import { size } from 'lodash'
-import { login } from 'cape-redux-auth'
-// import { discFilter } from '../../src/redux/select/disc'
-import { itemsRaw } from '../../src/redux/select/items'
-import { onClick } from '../../src/containers/DiscToggle'
-import { store } from '../mock'
+import {
+  isLetterString, validNumZip, validateZip, validZipCountry } from '../../src/redux/select/trade'
 
-test('itemsRaw()', (t) => {
-  // OPTION 1 - HIDE/ANON
-  const res = itemsRaw(store.getState())
-  t.equal(size(res), 1, 'size')
-  t.equal(res['DL1001-09'], store.getState().graph.entity['DL1001-09'])
-  // OPTION 3 - LOGIN
-  store.dispatch(login({ id: 'user1' }))
-  const res2 = itemsRaw(store.getState())
-  t.equal(size(res2), 2, 'size')
-  t.equal(res2['DL1001-09'], store.getState().graph.entity['DL1001-09'])
-  t.equal(res2['DL1001-11'], store.getState().graph.entity['DL1001-11'])
-  // OPTION 2 - DISC ONLY
-  store.dispatch(onClick())
-  const res3 = itemsRaw(store.getState())
-  t.equal(size(res3), 1, 'size')
-  t.equal(res3['DL1001-11'], store.getState().graph.entity['DL1001-11'])
+test('isLetterString', (t) => {
+  t.true(isLetterString('abcde'))
+  t.false(isLetterString('abc1'))
+  t.end()
+})
+test('validNumZip', (t) => {
+  t.equal(validNumZip('55409'), undefined)
+  t.equal(validNumZip('55409a'), 'Must contain only numbers.')
+  t.end()
+})
+test('validZipCountry', (t) => {
+  t.equal(validZipCountry('canada'), undefined)
+  t.equal(validZipCountry('abcde'), 'Invalid Country.')
+  t.end()
+})
+test('validateZip()', (t) => {
+  t.equal(validateZip('55409'), undefined, '55409')
+  t.equal(validateZip('5540-'), 'Must contain only numbers.', '5540-')
+  t.equal(validateZip('abcd'), 'Invalid Country.', 'abc')
+  t.equal(validateZip('canada'), undefined)
+  t.equal(validateZip('paris'), undefined)
+  // t.ok(validateZip(12345))
   // console.log(res3)
   t.end()
 })

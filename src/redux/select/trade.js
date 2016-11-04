@@ -1,5 +1,6 @@
 import {
-  cond, constant, eq, flow, lowerCase, over, overEvery, overSome, partialRight, property, spread,
+  cond, constant, defaultTo, eq, flow, lowerCase, isUndefined,
+  over, overEvery, partialRight, property, spread,
 } from 'lodash'
 import { oneOf } from 'cape-lodash'
 import { isEqual } from 'lodash/fp'
@@ -19,16 +20,33 @@ const custNum = {
   prefix: [ 'login', 'customerNumber' ],
   validate: fieldValidation([ 'numString', [ 'firstChar', '0' ], [ 'length', 6 ] ]),
 }
+// Zip code validation.
+export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
 const validZipCountries = [ 'canada', 'paris', 'mexico' ]
-const zip = {
+export function zipCountryError(isValid) {
+  if (isValid) return undefined
+  return 'Invalid Country.'
+}
+export const validZipCountry = flow(lowerCase, oneOf(validZipCountries), zipCountryError)
+export function isLetterString(val) {
+  return /^[a-zA-Z]+$/.test(val)
+}
+export function validateZip(value) {
+  const err1 = validNumZip(value)
+  console.log('err1', err1)
+  if (isUndefined(err1)) return undefined
+  const err2 = validZipCountry(value)
+  if (isUndefined(err2)) return undefined
+  if (isLetterString(value)) return err2
+  return err1
+}
+// Zip code information.
+export const zip = {
   className: 'zipCode',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'Postal Code',
   prefix: [ 'login', 'postalCode' ],
-  validate: overSome(
-    fieldValidation([ 'numString', [ 'length', 5 ] ]),
-    flow(lowerCase, oneOf(validZipCountries)),
-  ),
+  validate: validateZip,
 }
 
 export function mergeTwo(obj1, obj2) {

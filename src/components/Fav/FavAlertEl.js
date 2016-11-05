@@ -6,14 +6,14 @@ import Field from '../Editable/FieldWrapper'
 
 function FavAlert({ item, listItem, onClose, schema }) {
   const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
-  const collectionUrl = `/project/${listItem.id}`
+  const collectionUrl = `/project/${listItem.collection.id}`
   return (
     <Box onClose={onClose} message={message}>
       <ul className="list-reset mb1">
         <li><Field {...schema.position} /></li>
         <li><Field {...schema.description} /></li>
       </ul>
-      <Link className="small uppercase" href="/favs" onClick={onClose}>View and share</Link>
+      <Link className="small uppercase" href={collectionUrl} onClick={onClose}>View and share</Link>
       <div className="small" style={{ color: 'burlywood' }}>ListItem ID: {listItem.id}</div>
     </Box>
   )

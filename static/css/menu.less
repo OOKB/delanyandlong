@@ -20,11 +20,11 @@ nav ul.list-inline li {
 header .menu button {
   background: inherit;
   color: inherit;
-  font-size: .85rem;
+  font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
-  line-height: 2em;
+  line-height: inherit;
   margin: inherit;
   text-align: center;
   text-transform: inherit;
@@ -96,7 +96,8 @@ nav .active::before {
     border-left: 1px solid;
   }
   nav ul.MenuHome li a i.fa,
-  nav ul.list-inline li a i.fa {
+  nav ul.list-inline li a i.fa,
+  nav .menu button i.fa {
     height: 2em;
     line-height: 2em;
   }
@@ -117,7 +118,8 @@ nav .active::before {
   header nav a,
   header nav a:link,
   header nav a:hover,
-  header .menu button {
+  header .menu button,
+  header .menu button:hover {
     background-color: transparent;
     color: @gold;
     padding: 0;

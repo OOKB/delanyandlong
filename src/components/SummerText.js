@@ -6,7 +6,10 @@ import { discMsgTxt } from '../redux/select/disc'
 
 function SummerText({ active, texts }) {
   return active && (
-    <div>{map(texts, txt => <div>{txt}</div>)}</div>
+    <div className="fs1 p1 pb0 orange">
+      <h2 className="m0 fs1 mono uppercase">SummerSale:</h2>
+      {map(texts, txt => <p className="m0">{txt}</p>)}
+    </div>
   )
 }
 SummerText.propTypes = {

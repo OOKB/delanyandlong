@@ -80,31 +80,44 @@ td.favButton {
 }
 
 // hacks for the project windows.
-.collections button.plain {
-  font-size: .8rem;
-  padding: 0;
-  left: -2.14285714em;
-  padding-left: 2.14285714em;
-  width: 100%;
 
-  &:hover {
-    color: @green;
+.niceHover {
+  color: @green;
+  .text-shadow-green;
+}
+
+.collections {
+  * {
+    .transition(all 400ms);
   }
-}
 
-.collections .editable-form {
-  font-size: .8rem;
-  line-height: 1;
-}
+  button.plain {
+    font-size: .8rem;
+    padding: 0;
+    left: -2.14285714em;
+    padding-left: 2.14285714em;
+    width: 100%;
 
-.collections .fa-plus.fa-li {
-  top: .3em;
-}
-
-.collections a.view {
-  &:hover {
-    color: @green;
+    &:hover {
+      .niceHover;
+    }
   }
+
+  .editable-form {
+    font-size: .8rem;
+    line-height: 1;
+  }
+
+  .fa-plus.fa-li {
+    top: .3em;
+  }
+
+  a.view {
+    &:hover {
+      .niceHover
+    }
+  }
+
 }
 
 // make the first and last children of rows stick into the page, not off the page

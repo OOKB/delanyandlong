@@ -17,20 +17,37 @@ nav ul.list-inline li {
   flex: 1;
 }
 
+header .menu button {
+  background: inherit;
+  color: inherit;
+  font-size: .8rem;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: 2em;
+  margin: inherit;
+  text-align: center;
+  text-transform: inherit;
+  width: 100%;
+}
+
 header a,
-header a:link {
+header a:link,
+header .menu button {
   border: none;
 }
 
 header nav a,
-header nav a:link {
+header nav a:link,
+header .menu button {
   display: block;
   padding: 5px;
   text-decoration: none;
   transition: all 400ms;
 }
 
-header nav a:hover {
+header nav a:hover,
+header .menu button:hover {
   text-decoration: none;
   background-color: @gold;
   color: @off-white;
@@ -40,7 +57,8 @@ nav .active {
   position: relative;
 }
 
-nav .active a {
+nav .active a,
+nav .active button {
   background-color: @light-gray;
 }
 
@@ -98,21 +116,24 @@ nav .active::before {
   }
   header nav a,
   header nav a:link,
-  header nav a:hover {
+  header nav a:hover,
+  header .menu button {
     background-color: transparent;
     color: @gold;
     padding: 0;
     font-size: .85em;
   }
-  header nav a:hover {
+  header nav a:hover,
+  header .menu button:hover {
     color: @dark-gold;
   }
-  nav .active a {
+  nav .active a,
+  nav .active button {
     color: @light-gray;
   }
   nav .active::before {
     border-top: 1px solid;
-    bottom: -.5em;
+    bottom: 0
     width: 75%;
     .mlrauto;
   }

@@ -1,9 +1,9 @@
-import { cond, flow, overEvery, partial, stubTrue } from 'lodash'
+import { cond, overEvery, stubTrue } from 'lodash'
 import { omitBy, pickBy } from 'lodash/fp'
 import { createSelector, createStructuredSelector } from 'reselect'
 import { select } from 'cape-select'
 import { isAnonymous, isAuthenticated } from 'cape-redux-auth'
-import { getFilterState, formPrefix } from './'
+import { getDb, getFilterState, formPrefix } from './'
 
 export const prefix = formPrefix('discontinued')
 export const discHasFocus = select(getFilterState(prefix), 'focus')
@@ -26,8 +26,14 @@ export function discFilter(itemsValid) {
     [ stubTrue, itemsValid ],
   ])
 }
-
+// Used with DiscToggle component.
 export const props = createStructuredSelector({
   discActive, // Is the summer button active?
   hide: discHide, // Should the summer button be displayed in the interface?
+})
+
+// Used for SummerText.js component.
+export const discMsgTxt = createStructuredSelector({
+  active: discActive,
+  texts: getDb('summerSaleTxt'),
 })

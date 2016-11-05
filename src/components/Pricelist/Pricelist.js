@@ -6,6 +6,7 @@ import Table from './PricelistTable'
 import Grid from '../ItemGrid'
 import Film from '../FilmStrip'
 import Page from '../Page'
+import SummerText from '../SummerText'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
 function Pricelist(props) {
@@ -25,6 +26,7 @@ function Pricelist(props) {
           <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
             {categoryKey.map((pText, index) => <li className={pText} key={index}><p className="m0">{pText}</p></li>)}
           </ul>
+          <SummerText />
           <p className="uppercase">{lead}</p>
           <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
         </div>

@@ -6,6 +6,7 @@ import Field from '../Editable/FieldWrapper'
 
 function FavAlert({ item, listItem, onClose, schema }) {
   const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
+  const collectionUrl = `/project/${listItem.id}`
   return (
     <Box onClose={onClose} message={message}>
       <ul className="list-reset mb1">

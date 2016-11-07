@@ -1,5 +1,5 @@
 import {
-  cond, constant, eq, flow, isUndefined,
+  cond, constant, eq, flow, isUndefined, method,
   over, overEvery, partialRight, property, spread, toUpper,
 } from 'lodash'
 import { oneOf } from 'cape-lodash'
@@ -25,11 +25,13 @@ export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
 const validZipCountries = [
   'AUSTRALIA', 'BRAIL', 'CANADA', 'CHINA', 'FRANCE', 'MEXICO', 'NETHERLAND',
 ]
+export const isValidCountry = flow(toUpper, method('slice', 0, 10), oneOf(validZipCountries))
+
 export function zipCountryError(isValid) {
   if (isValid) return undefined
   return 'Invalid Country.'
 }
-export const validZipCountry = flow(toUpper, oneOf(validZipCountries), zipCountryError)
+export const validZipCountry = flow(isValidCountry, zipCountryError)
 export function isLetterString(val) {
   return /^[a-zA-Z]+$/.test(val)
 }

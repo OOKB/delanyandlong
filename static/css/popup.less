@@ -80,19 +80,228 @@ td.favButton {
 }
 
 // hacks for the project windows.
-.collections button.plain {
-  font-size: .8rem;
-  padding: 0;
-  left: -2.14285714em;
-  padding-left: 2.14285714em;
-  width: 100%;
+
+.niceHover {
+  color: @green;
+  .text-shadow-green;
 }
 
-.collections .editable-form {
-  font-size: .8rem;
-  line-height: 1;
+.collections {
+  * {
+    .transition(all 400ms);
+  }
+
+  button.plain {
+    font-size: .8rem;
+    padding: 0;
+    left: -2.14285714em;
+    padding-left: 2.14285714em;
+    width: 100%;
+
+    &:hover {
+      .niceHover;
+    }
+  }
+
+  .editable-form {
+    font-size: .8rem;
+    line-height: 1;
+  }
+
+  .fa-plus.fa-li {
+    top: .3em;
+  }
+
+  a.view {
+    &:hover {
+      .niceHover
+    }
+  }
+
 }
 
-.collections .fa-plus.fa-li {
-  top: .3em;
+// make the first and last children of rows stick into the page, not off the page
+.item-grid > li:nth-child(1) .favorite-container .popup {
+  left: 0;
+  transform: translate(0,-50%);
+}
+
+@media (max-width: 29.999rem) {
+  .item-grid > li:nth-child(odd) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(even) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 30rem) and (max-width: 39.999rem) {
+  .item-grid > li:nth-child(3n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(3n+4) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 49.999rem) {
+  .item-grid > li:nth-child(4n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(4n+5) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 50rem) and (max-width: 59.999rem) {
+  .item-grid > li:nth-child(5n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(5n+6) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 60rem) and (max-width: 69.999rem) {
+  .item-grid > li:nth-child(6n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(6n+7) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 70rem) and (max-width: 79.999rem) {
+  .item-grid > li:nth-child(7n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(7n+8) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 80rem) and (max-width: 89.999rem) {
+  .item-grid > li:nth-child(8n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(8n+9) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 90rem) and (max-width: 99.999rem) {
+  .item-grid > li:nth-child(9n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(9n+10) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 100rem) and (max-width: 109.999rem) {
+  .item-grid > li:nth-child(10n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(10n+11) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 110rem) and (max-width: 119.999rem) {
+  .item-grid > li:nth-child(11n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(11n+12) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 120rem) and (max-width: 129.999rem) {
+  .item-grid > li:nth-child(12n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(12n+13) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 130rem) and (max-width: 139.999rem) {
+  .item-grid > li:nth-child(13n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(13n+14) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 140rem) and (max-width: 149.999rem) {
+  .item-grid > li:nth-child(14n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(14n+15) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 150rem) and (max-width: 159.999rem) {
+  .item-grid > li:nth-child(15n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(15n+16) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
+}
+
+@media (min-width: 160rem) {
+  .item-grid > li:nth-child(16n) .favorite-container .popup {
+    left: initial;
+    right:0;
+    transform: translate(0,-50%);
+  }
+  .item-grid > li:nth-child(16n+17) .favorite-container .popup {
+    left: 0;
+    transform: translate(0,-50%);
+  }
 }

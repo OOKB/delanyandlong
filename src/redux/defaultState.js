@@ -95,7 +95,7 @@ const state = {
       {
         id: 'logout',
         action: 'logout',
-        icon: 'trade-login',
+        icon: 'sign-out',
         label: 'Logout',
         validators: [ 'isAuthenticated' ],
       },

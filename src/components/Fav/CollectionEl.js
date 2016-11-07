@@ -5,11 +5,11 @@ import Icon from '../Icon'
 
 function CollectionEl({ id, inList, onClick, title }) {
   return (
-    <li className="relative">
+    <li>
       {!inList && <Icon symbol="circle-o" className="fa-li light-gray pointer" />}
       {inList && <Icon symbol="dot-circle-o" className="fa-li green pointer" />}
       <button className="plain pointer relative gold text-left" onClick={onClick}>{title}</button>
-      <Link href={`/project/${id}`}>view</Link>
+      <Link href={`/project/${id}`} className="absolute right-0 view"><Icon symbol="documents" /><span className="hidden">view</span></Link>
     </li>
   )
 }

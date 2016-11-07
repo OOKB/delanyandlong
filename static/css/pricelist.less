@@ -114,10 +114,11 @@ td.favButton .favorite-container button.favorite {
 /** Some ipad/mobile styles for making pricelist viewing easier without removing columns/content **/
 /** It also provides a cool scrolling table feature **/
 @media (max-width: 69rem) {
+  //http://www.brunildo.org/test/Overflowxy2.html
   .table-scroll {
     display: block;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: scroll;
+    overflow-y: visible; // I don't seem to be able to fix this the way I need...
     width: 100%;
     height: auto;
     border-spacing: 0;
@@ -128,6 +129,35 @@ td.favButton .favorite-container button.favorite {
     -ms-box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
     -o-box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
     box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
+  }
+
+  //http://alistapart.com/article/using-css-mod-queries-with-range-selectors
+  //https://css-tricks.com/examples/nth-child-tester/
+  //http://nth-test.com/
+  //http://lea.verou.me/demos/nth.html
+  //https://codepen.io/bjornmeansbear/pen/eBYwNV?editors=0100
+  tr:nth-last-child(5) td.favButton .favorite-container .popup,
+  tr:nth-last-child(5) ~ tr td.favButton .favorite-container .popup {
+    top:initial;
+    bottom: 0;
+  }
+
+  tr:nth-last-child(5) td.favButton .favorite-container .popup::before,
+  tr:nth-last-child(5) ~ tr td.favButton .favorite-container .popup::before {
+    top:initial;
+    bottom: -8px;
+  }
+
+  tr:nth-last-child(-n+10):first-child td.favButton .favorite-container .popup,
+  tr:nth-last-child(-n+10):first-child ~ tr td.favButton .favorite-container .popup {
+    top:0;
+    bottom: initial;
+  }
+
+  tr:nth-last-child(-n+10):first-child td.favButton .favorite-container .popup::before,
+  tr:nth-last-child(-n+10):first-child ~ tr td.favButton .favorite-container .popup::before {
+    top: -6px ;
+    bottom: initial;
   }
 }
 

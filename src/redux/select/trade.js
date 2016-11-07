@@ -1,5 +1,5 @@
 import {
-  cond, constant, eq, flow, isUndefined, method,
+  cond, constant, eq, flow, isUndefined, map, method,
   over, overEvery, partialRight, property, spread, toUpper,
 } from 'lodash'
 import { oneOf } from 'cape-lodash'
@@ -22,9 +22,10 @@ const custNum = {
 }
 // Zip code validation.
 export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
-const validZipCountries = [
-  'AUSTRALIA', 'BRAIL', 'CANADA', 'CHINA', 'FRANCE', 'MEXICO', 'NETHERLAND',
-]
+
+const validZipCountries = map([
+  'AUSTRALIA', 'BRAIL', 'Canada', 'CHINA', 'FRANCE', 'MEXICO', 'NETHERLAND',
+], toUpper)
 export const isValidCountry = flow(toUpper, method('slice', 0, 10), oneOf(validZipCountries))
 
 export function zipCountryError(isValid) {

@@ -22,7 +22,9 @@ const custNum = {
 }
 // Zip code validation.
 export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
-const validZipCountries = [ 'CANADA', 'FRANCE', 'MEXICO' ]
+const validZipCountries = [
+  'AUSTRALIA', 'BRAIL', 'CANADA', 'CHINA', 'FRANCE', 'MEXICO', 'NETHERLAND',
+]
 export function zipCountryError(isValid) {
   if (isValid) return undefined
   return 'Invalid Country.'

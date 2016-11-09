@@ -1,4 +1,4 @@
-git pimport React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import Link from 'redux-history-component'
 
 const styles = {

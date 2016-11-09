@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Link from 'redux-history-component'
 
 import Search from './PricelistSearch'
 import Table from './PricelistTable'
@@ -10,16 +9,8 @@ import Page from '../Page'
 import SummerText from '../SummerText'
 import { pricelistSelector } from '../../redux/select/pricelist'
 
-function DisclaimerLink({ content, link: { href, title } }) {
-  return (
-    <p>
-      {content} <Link href={href} title={title}>{title}</Link>.
-    </p>
-  )
-}
-
 function Pricelist(props) {
-  const { categoryKey, info, lead, pager, imgSize, ...disclaimer } = props
+  const { categoryKey, info, lead, disclaimer, pager, imgSize } = props
   const { items, ...pagerInfo } = pager
   const { category, columns, displayStyle, prefix, printWhenColor } = info
   const display = id => displayStyle.active === id
@@ -32,12 +23,12 @@ function Pricelist(props) {
         {display('grid') && <Grid items={items} imgSize={imgSize} />}
         {display('film') && <Film {...pagerInfo} prefix={prefix.pgIndex} />}
         <div className="text-center small">
-          <ul className="bt1 bb1 py1 list-reset list-inline tableKey mb05">
+          <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
             {categoryKey.map((pText, index) => <li className={pText} key={index}><p className="m0">{pText}</p></li>)}
           </ul>
           <SummerText />
           <p className="uppercase">{lead}</p>
-          <DisclaimerLink {...disclaimer} />
+          <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
         </div>
       </main>
     </Page>
@@ -45,15 +36,14 @@ function Pricelist(props) {
 }
 Pricelist.propTypes = {
   categoryKey: PropTypes.array.isRequired,
-  content: PropTypes.string.isRequired,
   imgSize: PropTypes.string.isRequired,
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
-  link: PropTypes.object.isRequired,
-  disclaimer: PropTypes.object,
+  disclaimer: PropTypes.string.isRequired,
   pager: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
+  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long sales representative</a>.',
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
   imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }

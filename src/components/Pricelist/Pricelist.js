@@ -23,12 +23,12 @@ function Pricelist(props) {
         {display('grid') && <Grid items={items} imgSize={imgSize} />}
         {display('film') && <Film {...pagerInfo} prefix={prefix.pgIndex} />}
         <div className="text-center small">
-          <ul className="bt1 bb1 py1 list-reset list-inline tableKey">
+          <ul className="bt1 bb1 py1 list-reset list-inline tableKey mb05">
             {categoryKey.map((pText, index) => <li className={pText} key={index}><p className="m0">{pText}</p></li>)}
           </ul>
           <SummerText />
           <p className="uppercase">{lead}</p>
-          <p dangerouslySetInnerHTML={{ __html: disclaimer }} />
+          <p>{disclaimer }</p>
         </div>
       </main>
     </Page>
@@ -39,11 +39,10 @@ Pricelist.propTypes = {
   imgSize: PropTypes.string.isRequired,
   info: PropTypes.object.isRequired,
   lead: PropTypes.string.isRequired,
-  disclaimer: PropTypes.string.isRequired,
+  disclaimer: PropTypes.object,
   pager: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
-  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
   imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }

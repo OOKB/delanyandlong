@@ -1285,7 +1285,7 @@ camelcase@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
-cape-lodash:
+cape-lodash, cape-lodash@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/cape-lodash/-/cape-lodash-1.5.0.tgz#c93479e708229be444917c3c9245b5b3d7ea05d7"
   dependencies:
@@ -1334,7 +1334,7 @@ cape-redux-collection@1.1.7:
     redux-history-sync "3.0.1"
     reselect "^2.5.4"
 
-cape-redux-reducer:
+cape-redux-reducer@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/cape-redux-reducer/-/cape-redux-reducer-1.1.0.tgz#4efbf08a1218607b468212ff1ef5898fbd820cc7"
   dependencies:
@@ -1349,7 +1349,7 @@ cape-redux-reducer:
     redux-history-sync "^2.1.1"
     redux-thunk "^2.1.0"
 
-cape-redux-socket@^2.0.1, cape-redux-socket@^2.2.2:
+cape-redux-socket@^2.0.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/cape-redux-socket/-/cape-redux-socket-2.2.2.tgz#4f1df8e340995518ec4992b08bde6e4f7d2712d3"
   dependencies:
@@ -1361,6 +1361,17 @@ cape-redux-socket@^2.0.1, cape-redux-socket@^2.2.2:
     reselect "^2.5.3"
     seamless-immutable "^6.1.1"
 
+cape-redux-socket@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/cape-redux-socket/-/cape-redux-socket-3.0.1.tgz#2c4b39160aa503431252af976a72cb1308ce599a"
+  dependencies:
+    cape-lodash "^1.5.0"
+    cape-redux "^1.6.0"
+    cape-select "^2.2.1"
+    js-cookie "^2.1.3"
+    lodash "^4.16.6"
+    reselect "^2.5.4"
+
 cape-redux@^1.1.1, cape-redux@^1.1.2, cape-redux@^1.4.2, cape-redux@^1.5.0, cape-redux@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-1.5.1.tgz#ae5e62d1a3ae2045082339cfd258cddb7f30ee92"
@@ -1369,6 +1380,15 @@ cape-redux@^1.1.1, cape-redux@^1.1.2, cape-redux@^1.4.2, cape-redux@^1.5.0, cape
     lodash "^4.16.4"
     redux "^3.6.0"
     seamless-immutable "^6.1.3"
+
+cape-redux@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-1.6.0.tgz#6b9f12be78f4a1b45962b3cc01379225a5999a03"
+  dependencies:
+    cape-lodash "^1.5.0"
+    lodash "^4.16.6"
+    redux "^3.6.0"
+    seamless-immutable "^6.3.0"
 
 cape-select@^1.0.2:
   version "1.0.2"
@@ -3173,6 +3193,10 @@ lodash.pickby@^4.6.0:
 lodash@^4.0.0, lodash@^4.11.2, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.3, lodash@^4.16.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.4.tgz#01ce306b9bad1319f2a5528674f88297aeb70127"
+
+lodash@^4.16.6:
+  version "4.16.6"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.6.tgz#d22c9ac660288f3843e16ba7d2b5d06cca27d777"
 
 log-symbols@^1.0.2:
   version "1.0.2"

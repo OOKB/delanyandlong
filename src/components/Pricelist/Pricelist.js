@@ -43,7 +43,7 @@ Pricelist.propTypes = {
   pager: PropTypes.object.isRequired,
 }
 Pricelist.defaultProps = {
-  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long distributor</a>.',
+  disclaimer: 'Colors and scale shown are not exact. Please request actual samples from your <a href="/contact">DeLany & Long sales representative</a>.',
   lead: 'All fabrics are Water, Mildew and Stain Resistant',
   imgSize: '?w=250&h=187&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',
 }

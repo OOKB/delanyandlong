@@ -38,7 +38,7 @@ const state = {
     disclaimer: {
       content: 'Colors and scale shown are not exact. Please request actual samples from your',
       link: {
-        title: 'DeLany & Long distributor',
+        title: 'Delany & Long sales representative',
         href: '/contact',
       },
     },
@@ -50,7 +50,6 @@ const state = {
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
-          'originCountry',
         ],
       },
       colorColumnValues: [ 'id', 'color' ],

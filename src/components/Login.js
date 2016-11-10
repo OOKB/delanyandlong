@@ -50,9 +50,6 @@ function Login(props) {
                 <strong className="sans uppercase gray">{noActQ}</strong> <br />Please contact us at <a href="customerservice@delanyandlong.com">customerservice @ delanyandlong.com</a>.
               </p>
             </li>
-            <li>
-              <p className="small">{small}</p>
-            </li>
           </ul>
         </div>
       </main>

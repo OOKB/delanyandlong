@@ -14,7 +14,7 @@ function Footer({ capeLink, currentYear, ookbLink, sisterSite }) {
       <p className="pt2 uppercase">
         &copy; {currentYear} Delany &amp; Long LTD.
       </p>
-      <p className="homeHidden p0 simple">
+      <p className="homeHidden p0 simple gold">
         <Link href={sisterSite.href} title={sisterSite.title}>{sisterSite.title}</Link>
       </p>
       <p className="m0 p0 small">

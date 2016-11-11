@@ -18,6 +18,7 @@ import { middleware as createSocketMiddleware, cookieMiddleware } from 'cape-red
 import reducer from 'cape-redux-reducer'
 import createStore from './createStore'
 import defaultState from './defaultState'
+import storeListener from './storeListener'
 
 const location = process.env.SOCKET_LOC || ''
 const socket = createSocketMiddleware(io(location))
@@ -45,5 +46,6 @@ export default function configureStore(initialState) {
     applyMiddleware(...middleware)
   )
   syncHistoryWithStore(store, window)
+  storeListener(store)
   return store
 }

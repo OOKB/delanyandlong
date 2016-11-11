@@ -88,5 +88,6 @@ export const validInfo = createStructuredSelector({
   showZip,
   uid,
   zipInvalid,
+  zipValue,
 })
 export const mapStateToProps = createSelector(constState, validInfo, mergeTwo)

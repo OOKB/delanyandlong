@@ -56,7 +56,7 @@
   "dependencies": {
     "cape-lodash": "^1.5.0",
     "cape-redux": "^1.4.2",
-    "cape-redux-auth": "^1.2.2",
+    "cape-redux-auth": "2.0.1",
     "cape-redux-collection": "1.1.7",
     "cape-redux-reducer": "1.2.0",
     "cape-redux-socket": "3.0.1",

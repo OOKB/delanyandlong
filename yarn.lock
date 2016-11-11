@@ -1308,6 +1308,17 @@ cape-redux-auth@^1.2.2:
     redux-history-sync "^3.0.1"
     seamless-immutable "^6.3.0"
 
+cape-redux-auth@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/cape-redux-auth/-/cape-redux-auth-2.0.1.tgz#2e287cd84e7b848b99d1a143a629fb2a6e7d0077"
+  dependencies:
+    cape-redux "1.6.1"
+    cape-select "^2.2.1"
+    lodash "^4.16.4"
+    redux-graph "^1.6.1"
+    redux-history-sync "^3.0.1"
+    seamless-immutable "^6.3.0"
+
 cape-redux-collection@^1.1.6, cape-redux-collection@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-1.1.7.tgz#b96dcf007f1f558b587fe860735225c52bf501b2"
@@ -1359,6 +1370,15 @@ cape-redux@^1.4.2, cape-redux@^1.5.0, cape-redux@1.5.1:
 cape-redux@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-1.6.0.tgz#6b9f12be78f4a1b45962b3cc01379225a5999a03"
+  dependencies:
+    cape-lodash "^1.5.0"
+    lodash "^4.16.6"
+    redux "^3.6.0"
+    seamless-immutable "^6.3.0"
+
+cape-redux@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-1.6.1.tgz#f0847b386c3fb9201110e19c35015af2e34cb9cd"
   dependencies:
     cape-lodash "^1.5.0"
     lodash "^4.16.6"

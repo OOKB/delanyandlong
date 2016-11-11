@@ -1,6 +1,6 @@
 {
   "name": "delanyandlong",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Delany & Long Website",
   "homepage": "https://github.com/OOKB/delanyandlong",
   "author": "Office of Kristian Bjornard <info@cape.io> (http://github.com/ookb)",
@@ -58,7 +58,7 @@
     "cape-redux": "^1.4.2",
     "cape-redux-auth": "2.0.1",
     "cape-redux-collection": "1.1.7",
-    "cape-redux-reducer": "1.2.0",
+    "cape-redux-reducer": "1.4.0",
     "cape-redux-socket": "3.0.1",
     "cape-select": "^2.1.1",
     "cape-validate": "^1.0.2",

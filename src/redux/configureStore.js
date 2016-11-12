@@ -18,13 +18,16 @@ import { middleware as createSocketMiddleware, cookieMiddleware } from 'cape-red
 import reducer from 'cape-redux-reducer'
 import createStore from './createStore'
 import defaultState from './defaultState'
-import storeListener from './storeListener'
+import * as firebase from './fire/firebase'
+import fireMiddleware from './fire/middleware'
+import storeListener from './fire/storeListener'
 
 const location = process.env.SOCKET_LOC || ''
 const socket = createSocketMiddleware(io(location))
 // Define the middeware we want to apply to the store.
 const middleware = [
   historyMiddleware(window.history),
+  fireMiddleware(firebase),
   socket,
   cookieMiddleware,
   thunk,
@@ -46,6 +49,6 @@ export default function configureStore(initialState) {
     applyMiddleware(...middleware)
   )
   syncHistoryWithStore(store, window)
-  storeListener(store)
+  storeListener(store, firebase)
   return store
 }

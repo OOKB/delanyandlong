@@ -1,16 +1,15 @@
-import { flow, partial, property } from 'lodash'
+import { flow, partial, partialRight, property } from 'lodash'
 import { createObj } from 'cape-lodash'
 import { addListener } from 'cape-redux'
 import { entityPut, selectEntityById } from 'redux-graph'
-import { isAnonymous, login, loginRedirect, logout, selectToken } from 'cape-redux-auth'
-import { auth, user } from '../firebase'
+import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
 
 export function resAct(dispatch, action) {
   return res => dispatch(action(res.val()))
 }
 export const uid = flow(property('uid'), createObj('id'))
 
-function handleLoginToken({ dispatch }, token) {
+function handleLoginToken({ dispatch }, token, { auth }) {
   if (!token) return
   auth.signInWithCustomToken(token)
   .then(usr => dispatch(loginRedirect(uid(usr), '/collection')))
@@ -23,23 +22,25 @@ function handleLoginToken({ dispatch }, token) {
     }
   })
 }
-function handleAuth({ dispatch, getState }, usr) {
+function handleAuth({ dispatch, getState }, { auth, user }, usr) {
   const state = getState()
   if (usr) {
+    if (usr.isAnonymous) return dispatch(setUserId(usr.uid))
     const loginUsr = flow(uid, login, dispatch)
     if (selectEntityById(state, usr.uid)) return loginUsr(usr)
     return user.child(usr.uid).once('value')
     .then(resAct(dispatch, entityPut))
     .then(() => loginUsr(usr))
   }
-  return dispatch(logout())
+  dispatch(logout())
+  return auth.signInAnonymously()
 }
-function handleLogout(store, isAnon) {
+function handleLogout(store, isAnon, { auth }) {
   if (isAnon) auth.signOut()
 }
-export default function storeListener(store) {
-  addListener(selectToken, store, handleLoginToken)
-  auth.onAuthStateChanged(partial(handleAuth, store))
-  addListener(isAnonymous, store, handleLogout)
+export default function storeListener(store, firebase) {
+  addListener(selectToken, store, partialRight(handleLoginToken, firebase))
+  firebase.auth.onAuthStateChanged(partial(handleAuth, store, firebase))
+  addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   return store
 }

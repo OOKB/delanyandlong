@@ -134,38 +134,6 @@ td.favButton .favorite-container button.favorite {
     box-shadow: inset -6px 0 6px 0 rgba(132,133,94,0.5);
   }
 
-  //http://alistapart.com/article/using-css-mod-queries-with-range-selectors
-  //https://css-tricks.com/examples/nth-child-tester/
-  //http://nth-test.com/
-  //http://lea.verou.me/demos/nth.html
-  //https://codepen.io/bjornmeansbear/pen/eBYwNV?editors=0100
-
-  // tr:nth-last-child(6) td.favButton .favorite-container .popup,
-  // tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup {
-  //   top:initial;
-  //   bottom: 0;
-  // }
-  //
-  // tr:nth-last-child(6) td.favButton .favorite-container .popup::before,
-  // tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup::before {
-  //   top:initial;
-  //   bottom: -8px;
-  // }
-  //
-  // tr:nth-child(-n+6) td.favButton .favorite-container .popup,
-  // tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup,
-  // tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup {
-  //   top:0 !important;
-  //   bottom: initial !important;
-  // }
-  //
-  // tr:nth-child(-n+6) td.favButton .favorite-container .popup::before,
-  // tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup::before,
-  // tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup::before {
-  //   top: -6px !important;
-  //   bottom: initial !important;
-  // }
-
   // does this do the same w/ way less code???
   tr:nth-child(n+6) td.favButton .favorite-container .popup {
     top:initial;

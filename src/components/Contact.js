@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { contactSelector } from '../redux/select/contact'
-import Editor from '../containers/Editor'
+// import Editor from '../containers/Editor'
+// <Editor classId="Organization" />
 import Header from './Header'
 import Footer from './Footer'
 import Offices from './Offices'
@@ -11,7 +12,6 @@ function Contact({ contactText, menu, offices, route }) {
   return (
     <div id="container-contact">
       <Header activeId={route.id} links={menu} />
-      <Editor classId="Organization" />
       <main className="pt2 container clearfix">
         <section className="showroomsAndReps">
           <div className="top pt3 pb3 clearfix mlrauto">

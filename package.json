@@ -54,6 +54,7 @@
     "node": ">=5.0.0"
   },
   "dependencies": {
+    "@kaicurry/redux-graph": "^2.0.0",
     "cape-lodash": "^1.5.0",
     "cape-redux": "^1.4.2",
     "cape-redux-auth": "2.0.3",
@@ -80,7 +81,7 @@
     "react-textarea-autosize": "^4.0.5",
     "redux": "^3.6.0",
     "redux-field": "^3.4.1",
-    "redux-graph": "1.7.1",
+    "redux-graph": "^1.7.1",
     "redux-history-component": "^1.0.1",
     "redux-history-sync": "^2.1.1",
     "redux-localstorage": "^1.0.0-rc4",

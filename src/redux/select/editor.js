@@ -12,7 +12,7 @@ export function editingId(state) {
 }
 export function editingEntity(state) {
   const id = editingId(state)
-  return id && selectEntityById(state, id) || null
+  return (id && selectEntityById(state, id)) || null
 }
 export const editorSelector = createStructuredSelector({
   entity: editingEntity,

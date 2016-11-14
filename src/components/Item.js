@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
 
 import Link from 'redux-history-component'
-import ItemFav from './Fav/ItemFav'
+// import ItemFav from './Fav/ItemFav'
+// <ItemFav item={item} />
 
 function Item({ className, imgSize, item, onError }) {
   function handleImgError() { if (onError) onError(item) }
   const imgSrc = item.img.concat(imgSize)
   return (
     <li className={className}>
-      <ItemFav item={item} />
       <Link href={item.link}>
         <img src={imgSrc} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description absolute block bg-white">

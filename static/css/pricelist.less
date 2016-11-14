@@ -140,30 +140,41 @@ td.favButton .favorite-container button.favorite {
   //http://lea.verou.me/demos/nth.html
   //https://codepen.io/bjornmeansbear/pen/eBYwNV?editors=0100
 
-  tr:nth-last-child(6) td.favButton .favorite-container .popup,
-  tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup {
+  // tr:nth-last-child(6) td.favButton .favorite-container .popup,
+  // tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup {
+  //   top:initial;
+  //   bottom: 0;
+  // }
+  //
+  // tr:nth-last-child(6) td.favButton .favorite-container .popup::before,
+  // tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup::before {
+  //   top:initial;
+  //   bottom: -8px;
+  // }
+  //
+  // tr:nth-child(-n+6) td.favButton .favorite-container .popup,
+  // tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup,
+  // tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup {
+  //   top:0 !important;
+  //   bottom: initial !important;
+  // }
+  //
+  // tr:nth-child(-n+6) td.favButton .favorite-container .popup::before,
+  // tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup::before,
+  // tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup::before {
+  //   top: -6px !important;
+  //   bottom: initial !important;
+  // }
+
+  // does this do the same w/ way less code???
+  tr:nth-child(n+6) td.favButton .favorite-container .popup {
     top:initial;
     bottom: 0;
-  }
 
-  tr:nth-last-child(6) td.favButton .favorite-container .popup::before,
-  tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup::before {
-    top:initial;
-    bottom: -8px;
-  }
-
-  tr:nth-child(-n+6) td.favButton .favorite-container .popup,
-  tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup,
-  tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup {
-    top:0 !important;
-    bottom: initial !important;
-  }
-
-  tr:nth-child(-n+6) td.favButton .favorite-container .popup::before,
-  tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup::before,
-  tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup::before {
-    top: -6px !important;
-    bottom: initial !important;
+    &::before {
+      top:initial;
+      bottom: -8px;
+    }
   }
 }
 

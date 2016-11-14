@@ -119,10 +119,11 @@ td.favButton .favorite-container button.favorite {
   //http://www.brunildo.org/test/Overflowxy2.html
   .table-scroll {
     display: block;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: visible; // I don't seem to be able to fix this the way I need...
     width: 100%;
     height: auto;
+    min-height: 370px;
     border-spacing: 0;
     margin: 0;
     padding-top: 20px;
@@ -138,28 +139,31 @@ td.favButton .favorite-container button.favorite {
   //http://nth-test.com/
   //http://lea.verou.me/demos/nth.html
   //https://codepen.io/bjornmeansbear/pen/eBYwNV?editors=0100
-  tr:nth-last-child(5) td.favButton .favorite-container .popup,
-  tr:nth-last-child(5) ~ tr td.favButton .favorite-container .popup {
+
+  tr:nth-last-child(6) td.favButton .favorite-container .popup,
+  tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup {
     top:initial;
     bottom: 0;
   }
 
-  tr:nth-last-child(5) td.favButton .favorite-container .popup::before,
-  tr:nth-last-child(5) ~ tr td.favButton .favorite-container .popup::before {
+  tr:nth-last-child(6) td.favButton .favorite-container .popup::before,
+  tr:nth-last-child(6) ~ tr td.favButton .favorite-container .popup::before {
     top:initial;
     bottom: -8px;
   }
 
-  tr:nth-last-child(-n+10):first-child td.favButton .favorite-container .popup,
-  tr:nth-last-child(-n+10):first-child ~ tr td.favButton .favorite-container .popup {
-    top:0;
-    bottom: initial;
+  tr:nth-child(-n+6) td.favButton .favorite-container .popup,
+  tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup,
+  tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup {
+    top:0 !important;
+    bottom: initial !important;
   }
 
-  tr:nth-last-child(-n+10):first-child td.favButton .favorite-container .popup::before,
-  tr:nth-last-child(-n+10):first-child ~ tr td.favButton .favorite-container .popup::before {
-    top: -6px ;
-    bottom: initial;
+  tr:nth-child(-n+6) td.favButton .favorite-container .popup::before,
+  tr:nth-last-child(-n+6):first-child td.favButton .favorite-container .popup::before,
+  tr:nth-last-child(-n+6):first-child ~ tr td.favButton .favorite-container .popup::before {
+    top: -6px !important;
+    bottom: initial !important;
   }
 }
 

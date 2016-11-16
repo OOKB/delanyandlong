@@ -1,14 +1,14 @@
+import { partial } from 'lodash'
 import { connect } from 'react-redux'
-import { constant } from 'lodash'
 import { mapDispatchToProps } from 'cape-redux'
-import { editItemCollections, mapStateToProps } from 'cape-redux-collection'
+import { mapStateToProps } from 'cape-redux-collection'
 
-import { listAgentMain } from '../../redux/collection'
+import { editItemCollections } from '../../redux/collection'
 import Component from './ItemFavEl'
 
 function getActions({ item }) {
   return {
-    editItemCollections: constant(editItemCollections(listAgentMain, item)),
+    editItemCollections: partial(editItemCollections, item),
   }
 }
 const actions = mapDispatchToProps(getActions)

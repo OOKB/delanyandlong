@@ -17,7 +17,7 @@ function ItemFavEl(props) {
   return (
     <div className="favorite-container">
       {getAlert()}
-      <FavButton inCollections={inCollections} onClick={editItemCollections} />
+      {false && <FavButton inCollections={inCollections} onClick={editItemCollections} />}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import map from 'lodash/map'
 import Link from 'redux-history-component'
 
-// import ItemFav from '../Fav/ItemFav'
+import ItemFav from '../Fav/ItemFav'
 
 import { cellStyles } from './styles'
 
@@ -32,7 +32,7 @@ function PricelistRowPattern({ columns, item, printWhenColor }) {
   return (
     <tr className={className}>
       <td className="favButton">
-        {/* <ItemFav item={item} /> */}
+        <ItemFav item={item} />
       </td>
       {map(columns, ({ value }) => (
         <td key={value} style={cellStyles[value]} className={value}>

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { constant, flow, get, map, over } from 'lodash'
+import { constant, flow, get, map } from 'lodash'
 import { createStructuredSelector } from 'reselect'
-import { addItemToCollection, close, endAction, PREDICATE } from 'cape-redux-collection'
-import { createCollection, resetField } from '../../redux/collection'
+import { addItemToCollection, createList, close, endAction, PREDICATE } from 'cape-redux-collection'
+// import { resetField } from '../../redux/collection'
 
 import Component from './OverviewEl'
 
@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch, { collections, item, userCollections }) {
     }
   }
   return {
-    createCollection: over(flow(createCollection, dispatch), flow(resetField, dispatch)),
+    createCollection: createList,
     onClose: flow(close, dispatch),
     userCollections: map(userCollections, collectionPick),
   }

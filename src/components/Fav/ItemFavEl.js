@@ -7,7 +7,7 @@ import Overview from './Overview'
 function ItemFavEl(props) {
   const {
     activeListItem, collections, editItemCollections,
-    inCollections, item, itemIsActive, userCollections,
+    itemInFavs, item, itemIsActive, userCollections,
   } = props
   function getAlert() {
     if (activeListItem) return <Alert item={item} listItem={activeListItem} />
@@ -17,7 +17,7 @@ function ItemFavEl(props) {
   return (
     <div className="favorite-container">
       {getAlert()}
-      {false && <FavButton inCollections={inCollections} onClick={editItemCollections} />}
+      <FavButton inCollections={itemInFavs} onClick={editItemCollections} />
     </div>
   )
 }
@@ -27,7 +27,7 @@ ItemFavEl.propTypes = {
   collections: PropTypes.object,
   editItemCollections: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
-  inCollections: PropTypes.bool.isRequired,
+  itemInFavs: PropTypes.bool.isRequired,
   itemIsActive: PropTypes.bool,
   userCollections: PropTypes.object,
 }

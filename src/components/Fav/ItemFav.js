@@ -1,9 +1,16 @@
 import { partial } from 'lodash'
 import { connect } from 'react-redux'
 import { mapDispatchToProps } from 'cape-redux'
-import { mapStateToProps, toggle } from 'cape-redux-collection'
+import { boolSelector } from 'cape-select'
+import { createStructuredSelector } from 'reselect'
+import { findItemInFavs, itemIsActive, toggle } from 'cape-redux-collection'
 
 import Component from './ItemFavEl'
+
+const mapStateToProps = createStructuredSelector({
+  itemInFavs: boolSelector(findItemInFavs),
+  itemIsActive,
+})
 
 function getActions({ item }) {
   return {

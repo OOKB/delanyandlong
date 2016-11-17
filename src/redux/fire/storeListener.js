@@ -7,7 +7,7 @@ import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } fro
 export function resAct(dispatch, action) {
   return res => dispatch(action(res.val()))
 }
-export const uid = flow(property('uid'), createObj('id'))
+export const uid = fireUser => ({ type: 'OrderTrackUser', id: fireUser.uid })
 
 function handleLoginToken({ dispatch }, token, { auth }) {
   if (!token) return

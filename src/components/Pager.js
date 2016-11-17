@@ -10,7 +10,7 @@ function pgBtnClass(name, disabled) {
   return classnames('control', name, { disabled })
 }
 function Pager(props) {
-  const { colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
+  const { activeCategory, colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
     pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
   } = props
   const { onChange } = formEvent
@@ -56,6 +56,7 @@ function Pager(props) {
 }
 
 Pager.propTypes = {
+  activeCategory: PropTypes.string,
   colors: PropTypes.array.isRequired,
   displayStyle: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,

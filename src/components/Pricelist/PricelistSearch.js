@@ -25,6 +25,7 @@ function PricelistSearch(props) {
         pgSizePrefix={prefix.pgSize}
         pgSize={pgSize}
         showSummer={showSummer}
+        activeCategory={category.active}
       />
     </div>
   )

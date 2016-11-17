@@ -10,5 +10,5 @@ function getActions({ item }) {
     editItemCollections: partial(toggle, item),
   }
 }
-const actions = {} // mapDispatchToProps(getActions)
+const actions = mapDispatchToProps(getActions)
 export default connect(mapStateToProps, actions)(Component)

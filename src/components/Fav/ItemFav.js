@@ -1,11 +1,9 @@
 import { partial } from 'lodash'
 import { connect } from 'react-redux'
 import { mapDispatchToProps } from 'cape-redux'
-import { toggle } from 'cape-redux-collection'
+import { mapStateToProps, toggle } from 'cape-redux-collection'
 
 import Component from './ItemFavEl'
-
-console.log('collection', collection)
 
 function getActions({ item }) {
   return {

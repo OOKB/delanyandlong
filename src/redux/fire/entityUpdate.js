@@ -25,6 +25,7 @@ export function entityPut(store, action, { entity }) {
 export function createList(store, action, { entity, TIMESTAMP }) {
   const item = insertFields(action.payload)
   item.dateCreated = TIMESTAMP
+  item.dateModified = TIMESTAMP
   return entityDb(entity, item).set(item)
 }
 function setTriple(store, action, { entity }) {

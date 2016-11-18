@@ -1,12 +1,12 @@
 import { isFunction } from 'lodash'
-import { ENTITY_PUT, ENTITY_UPDATE, TRIPLE_PUT } from '@kaicurry/redux-graph'
+import { TRIPLE_PUT } from '@kaicurry/redux-graph'
 import { CREATE_LIST, CREATE_ITEM, PREDICATE, UPDATE_ITEM } from 'cape-redux-collection'
 import { createList, entityPut, entityUpdate, triplePut } from './entityUpdate'
 
 export const dispatcher = {
   [CREATE_LIST]: createList,
-  [ENTITY_PUT]: entityPut,
-  [ENTITY_UPDATE]: entityUpdate,
+  // [ENTITY_PUT]: entityPut,
+  // [ENTITY_UPDATE]: entityUpdate,
   [TRIPLE_PUT]: triplePut,
   [UPDATE_ITEM]: entityUpdate,
 }

@@ -3,11 +3,11 @@ import Link from 'redux-history-component'
 
 import Icon from '../Icon'
 
-function CollectionEl({ id, inList, onClick, title }) {
+function CollectionEl({ id, itemListId, onClick, title }) {
   return (
     <li>
-      {!inList && <Icon symbol="circle-o" className="fa-li light-gray pointer" />}
-      {inList && <Icon symbol="dot-circle-o" className="fa-li green pointer" />}
+      {!itemListId && <Icon symbol="circle-o" className="fa-li light-gray pointer" />}
+      {itemListId && <Icon symbol="dot-circle-o" className="fa-li green pointer" />}
       <button className="plain pointer relative gold text-left" onClick={onClick}>{title}</button>
       <Link href={`/project/${id}`} className="absolute right-0 view"><Icon symbol="documents" /><span className="mono fs0p6 uppercase ml0p25 lightgray">view</span></Link>
     </li>
@@ -15,7 +15,7 @@ function CollectionEl({ id, inList, onClick, title }) {
 }
 CollectionEl.propTypes = {
   id: PropTypes.string.isRequired,
-  inList: PropTypes.bool.isRequired,
+  itemListId: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 }

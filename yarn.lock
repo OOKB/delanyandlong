@@ -1191,9 +1191,9 @@ cape-redux-auth, cape-redux-auth@2.1.0, cape-redux-auth@^2.1.0:
     redux-history-sync "^3.0.1"
     seamless-immutable "^6.3.0"
 
-cape-redux-collection@3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.0.7.tgz#aa62e95f6f0a0552d3e581702ae63fbcdd8f44af"
+cape-redux-collection@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.1.2.tgz#cab3763f53b5a8dfd1fd541b7fc58f087c4a53ab"
   dependencies:
     "@kaicurry/redux-graph" "^2.5.0"
     cape-lodash "^ 1.7.0"

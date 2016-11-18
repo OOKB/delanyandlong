@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
-import { constant, flow, get, map } from 'lodash'
+import { constant, flow, map, partial } from 'lodash'
 import { createStructuredSelector } from 'reselect'
-import { addItemToCollection, createList, close, endAction, PREDICATE } from 'cape-redux-collection'
+import {
+  addItemToCollection, createItemThunk, createListThunk, close, endItem,
+} from 'cape-redux-collection'
 // import { resetField } from '../../redux/collection'
 
 import Component from './OverviewEl'
@@ -12,23 +14,23 @@ function getMessage(state, { item }) {
 const getState = createStructuredSelector({
   message: getMessage,
 })
+function getAction(list, item) {
+  if (list.itemListId) return partial(endItem, { id: list.itemListId })
+  return createItemThunk({ mainEntity: list, item })
+}
+function mapDispatchToProps(dispatch, { collections, item }) {
+  function collectionPick(collection) {
+    return {
+      id: collection.id,
+      title: collection.title,
+      onClick: flow(getAction(collection, item), dispatch),
+    }
+  }
+  return {
+    createCollection: createListThunk,
+    onClose: flow(close, dispatch),
+    userCollections: map(collections, collectionPick),
+  }
+}
 
-// function mapDispatchToProps(dispatch, { collections, item }) {
-//   function collectionPick(collection) {
-//     const listItem = get(collections, [ collection.id, PREDICATE ], false)
-//     const action = listItem ? endAction(constant(listItem)) : addItemToCollection(collection, item)
-//     return {
-//       id: collection.id,
-//       inList: !!listItem,
-//       title: collection.title,
-//       onClick: flow(action, dispatch),
-//     }
-//   }
-//   return {
-//     createCollection: createList,
-//     onClose: flow(close, dispatch),
-//     userCollections: map(userCollections, collectionPick),
-//   }
-// }
-
-export default connect(getState)(Component)
+export default connect(getState, mapDispatchToProps)(Component)

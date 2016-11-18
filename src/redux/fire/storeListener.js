@@ -3,7 +3,7 @@ import { addListener } from 'cape-redux'
 import { entityPut, selectEntityById } from 'redux-graph'
 import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
 import { ENTITY_PUT, ENTITY_PUTALL } from '@kaicurry/redux-graph'
-import { COLLECTION_TYPE } from 'cape-redux-collection'
+import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
 export function resAct(dispatch, action) {
   return res => dispatch(action(res.val()))
@@ -45,6 +45,9 @@ export default function storeListener(store, firebase) {
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   // Add db lists to redux.
   firebase.entity.child(COLLECTION_TYPE).once('value', (lists) => {
+    store.dispatch({ type: ENTITY_PUTALL, payload: values(lists.val()) })
+  })
+  firebase.entity.child(LIST_ITEM).once('value', (lists) => {
     store.dispatch({ type: ENTITY_PUTALL, payload: values(lists.val()) })
   })
   // Listen for changes to Lists.

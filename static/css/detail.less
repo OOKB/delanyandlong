@@ -19,6 +19,25 @@
       visibility: hidden;
     }
   }
+
+  button.favorite,
+  > .close {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    .box-shadow;
+    border-color: transparent;
+  }
+
+  > .close {
+    top: 1.25em;
+    right: 1.25em;
+  }
+
+  button.favorite {
+    top: -2em;
+    left: 1.25em;
+  }
 }
 
 .detailHeader {
@@ -63,25 +82,6 @@
       letter-spacing: 2px;
     }
   }
-}
-
-#detailWrapper button.favorite,
-#detailWrapper > .close {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 1.25rem;
-  .box-shadow;
-  border-color: transparent;
-}
-
-#detailWrapper > .close {
-  top: 1.25em;
-  right: 1.25em;
-}
-
-#detailWrapper button.favorite {
-  top: -2em;
-  left: 1.25em;
 }
 
 @media (min-width: @main-break) {
@@ -236,6 +236,8 @@
   }
 
   .trim .imageWrapper {
+    top:0;
+
     img {
       position: absolute;
       top:50%;

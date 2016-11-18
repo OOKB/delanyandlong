@@ -15,12 +15,12 @@ const collectionField = {
   // validate
 }
 
-function Overview({ createCollection, message, onClose, userCollections }) {
+function Overview({ createCollection, message, onClose, collections }) {
   return (
     <Box message={message} onClose={onClose}>
       <h3 className="m0 fs1 uppercase mono bb1 fw400 mb05">User Collections</h3>
       <ul className="list-reset collections fa-ul">
-        {map(userCollections, CollectionEl)}
+        {map(collections, CollectionEl)}
         <li>
           <Icon symbol="plus" className="fa-li light-gray pointer fs1" />
           <Field {...collectionField} onSubmit={createCollection} />
@@ -33,7 +33,7 @@ Overview.propTypes = {
   createCollection: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
-  userCollections: PropTypes.object.isRequired,
+  // userCollections: PropTypes.object.isRequired,
 }
 
 export default Overview

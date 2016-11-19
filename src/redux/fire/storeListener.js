@@ -43,8 +43,12 @@ export default function storeListener(store, firebase) {
   addListener(selectToken, store, partialRight(handleLoginToken, firebase))
   firebase.auth.onAuthStateChanged(partial(handleAuth, store, firebase))
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
+  firebase.entity.child('OrderTrackItem').once('value')
+  .then(items =>
+    store.dispatch({ type: ENTITY_PUTALL, payload: values(items.val()) })
+  )
   // Add db lists to redux.
-  firebase.entity.child(COLLECTION_TYPE).once('value')
+  .then(() => firebase.entity.child(COLLECTION_TYPE).once('value'))
   .then((lists) => {
     const payload = values(lists.val())
     if (isEmpty(payload)) return null

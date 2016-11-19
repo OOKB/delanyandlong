@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { entityTypeSelector } from 'redux-graph'
+import { entityTypeSelector } from '@kaicurry/redux-graph'
 import {
   compact, curry, every, flatten, flow, filter, includes, map, method, mapValues, uniq,
 } from 'lodash'

@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { mapDispatchToProps } from 'cape-redux'
 import { createStructuredSelector } from 'reselect'
 import {
-  activeListItem, itemInFavs, itemIsActive, toggle, userCollectionsItem,
+  activeListItemFull, itemActiveListItem, itemInFavs, itemIsActive, toggle, userCollectionsItem,
 } from 'cape-redux-collection'
 
 import Component from './ItemFavEl'
 
 const mapStateToProps = createStructuredSelector({
-  // activeListItem,
+  activeListItem: itemActiveListItem,
   collections: userCollectionsItem,
+  createdListItem: activeListItemFull,
   itemInFavs,
   itemIsActive,
 })

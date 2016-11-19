@@ -43,7 +43,11 @@ export function createItem(store, { payload }, firebase) {
     return triplePut(store, triple, firebase)
   })
 }
-
+export function updateItem(store, { payload }, { entity, TIMESTAMP }) {
+  const item = { ...payload, dateModified: TIMESTAMP }
+  return entityDb(entity, item).update(item)
+  .then(() => item)
+}
 export const cleanItem = omit('id', 'type')
 
 function updateEntity(store, action, { entity }) {

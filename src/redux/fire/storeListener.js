@@ -1,9 +1,9 @@
-import { flow, partial, partialRight, values } from 'lodash'
+import { flow, isEmpty, partial, partialRight, values } from 'lodash'
 import { addListener } from 'cape-redux'
 import { entityPut, selectEntityById } from 'redux-graph'
 import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
 import { ENTITY_PUT, ENTITY_PUTALL } from '@kaicurry/redux-graph'
-import { COLLECTION_TYPE } from 'cape-redux-collection'
+import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
 export function resAct(dispatch, action) {
   return res => dispatch(action(res.val()))
@@ -44,11 +44,23 @@ export default function storeListener(store, firebase) {
   firebase.auth.onAuthStateChanged(partial(handleAuth, store, firebase))
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   // Add db lists to redux.
-  firebase.entity.child(COLLECTION_TYPE).once('value', (lists) => {
-    store.dispatch({ type: ENTITY_PUTALL, payload: values(lists.val()) })
+  firebase.entity.child(COLLECTION_TYPE).once('value')
+  .then((lists) => {
+    const payload = values(lists.val())
+    if (isEmpty(payload)) return null
+    // console.log(payload)
+    return store.dispatch({ type: ENTITY_PUTALL, payload })
   })
+  .then(() => firebase.entity.child(LIST_ITEM).once('value'))
+  .then(listItems =>
+    store.dispatch({ type: ENTITY_PUTALL, payload: values(listItems.val()) })
+  )
   // Listen for changes to Lists.
   firebase.entity.child(COLLECTION_TYPE).orderByChild('dateModified').limitToLast(1)
+  .on('child_changed', (node) => {
+    store.dispatch({ type: ENTITY_PUT, payload: node.val() })
+  })
+  firebase.entity.child(LIST_ITEM).orderByChild('dateModified').limitToLast(1)
   .on('child_changed', (node) => {
     store.dispatch({ type: ENTITY_PUT, payload: node.val() })
   })

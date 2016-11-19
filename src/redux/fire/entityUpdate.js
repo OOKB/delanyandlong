@@ -27,7 +27,11 @@ export function triplePut(store, tripleRaw, { entity }) {
   .then(() => triple)
 }
 export function createList(store, { payload }, firebase, next) {
-  if (isFavList(payload)) next(entityPut(payload))
+  if (isFavList(payload)) {
+    const item = next(entityPut(payload)).payload
+    return entityDb(firebase.entity, item).set(item)
+    .then(() => item)
+  }
   return entitySet(store, payload, firebase)
 }
 export function createItem(store, { payload }, firebase) {

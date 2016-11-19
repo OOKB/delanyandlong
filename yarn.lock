@@ -14,7 +14,7 @@
     reselect "^2.5.4"
     seamless-immutable "^6.3.0"
 
-"@kaicurry/redux-graph@2.6.0", "@kaicurry/redux-graph@^2.5.0", "@kaicurry/redux-graph@^2.6.0":
+"@kaicurry/redux-graph@^2.5.0", "@kaicurry/redux-graph@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@kaicurry/redux-graph/-/redux-graph-2.6.0.tgz#3baa7f2d49afbc32c8ab844ed9c6b761e573d100"
   dependencies:
@@ -1203,9 +1203,9 @@ cape-redux-auth, cape-redux-auth@2.1.0, cape-redux-auth@^2.1.0:
     redux-history-sync "^3.0.1"
     seamless-immutable "^6.3.0"
 
-cape-redux-collection@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.2.0.tgz#846c6a29dede434f68ad7a4dfceedc4b53adc2c8"
+cape-redux-collection@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.2.1.tgz#e8339a08d7080d3dd339fe911085345798d80c70"
   dependencies:
     "@kaicurry/redux-graph" "^2.6.0"
     cape-lodash "^1.7.0"
@@ -1229,7 +1229,7 @@ cape-redux-collection@^3.0.2:
     redux-history-sync "3.0.1"
     reselect "^2.5.4"
 
-cape-redux-reducer@2.0.0:
+cape-redux-reducer@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/cape-redux-reducer/-/cape-redux-reducer-2.0.0.tgz#06a6ffe74ab770c8421bea9b96bc2a5c4ceead15"
   dependencies:
@@ -1245,7 +1245,7 @@ cape-redux-reducer@2.0.0:
     redux-history-sync "^2.1.1"
     redux-thunk "^2.1.0"
 
-cape-redux-socket@3.0.1, cape-redux-socket@^3.0.1:
+cape-redux-socket@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/cape-redux-socket/-/cape-redux-socket-3.0.1.tgz#2c4b39160aa503431252af976a72cb1308ce599a"
   dependencies:

@@ -2,7 +2,7 @@ import { partial } from 'lodash'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { mapDispatchToProps } from 'cape-redux'
-import { confirmFavorite } from 'cape-redux-collection'
+import { confirmItem } from 'cape-redux-collection'
 
 import Component from './FavAlertEl'
 
@@ -26,13 +26,13 @@ function getSchema(state, { listItem }) {
   }
 }
 function getMessage(state, { item, listItem }) {
-  return `${item.id} has been added to your ${listItem.collection.title} collection!`
+  return `${item.id} has been added to your ${listItem.mainEntity.title} collection!`
 }
 const getState = createStructuredSelector({
   message: getMessage,
   schema: getSchema,
 })
 const getActions = mapDispatchToProps(({ listItem }) =>
-  ({ onClose: partial(confirmFavorite, listItem) })
+  ({ onClose: partial(confirmItem, listItem) })
 )
 export default connect(getState, getActions)(Component)

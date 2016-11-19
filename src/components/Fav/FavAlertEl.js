@@ -4,9 +4,8 @@ import Link from 'redux-history-component'
 import Box from './Box'
 import Field from '../Editable/FieldWrapper'
 
-function FavAlert({ item, listItem, onClose, schema }) {
-  const message = `${item.id} has been added to your ${listItem.collection.title} collection!`
-  const collectionUrl = `/project/${listItem.collection.id}`
+function FavAlert({ item, listItem, message, onClose, schema }) {
+  const collectionUrl = `/project/${listItem.mainEntity.id}`
   return (
     <Box onClose={onClose} message={message}>
       <ul className="list-reset mb1">
@@ -22,6 +21,7 @@ function FavAlert({ item, listItem, onClose, schema }) {
 FavAlert.propTypes = {
   item: PropTypes.object.isRequired,
   listItem: PropTypes.object.isRequired,
+  message: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   schema: PropTypes.object,
 }

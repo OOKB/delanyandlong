@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { map, size } from 'lodash'
+import { find, map, size } from 'lodash'
 import { PREDICATE } from 'cape-redux-collection'
 
 import Page from '../Page'
@@ -25,19 +25,18 @@ FavsList.defaultProps = {
 }
 
 function listHasItems(list) {
-  return false && (size(list[PREDICATE]) > 0) && find(list[PREDICATE]).item
+  return (size(list[PREDICATE]) > 0) && !!find(list[PREDICATE]).item
 }
 
-function Favs({ endFavorite, list }) {
+function Favs({ list }) {
   const hasFavorites = listHasItems(list)
-  console.log(list)
   return (
     <Page id="favorites">
       <main className="clear m1 mt4 clearfix">
         {hasFavorites &&
           <h1 className="text-center m0 bb2 mb1 fw400 uppercase fs1 ls0p15">Your Favorites</h1>
         }
-        {hasFavorites && <FavsList endFavorite={endFavorite} listItems={list[PREDICATE]} />}
+        {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&
           <p className="text-center">You currently have no favorites selected...</p>
         }
@@ -47,7 +46,6 @@ function Favs({ endFavorite, list }) {
 }
 
 Favs.propTypes = {
-  endFavorite: PropTypes.func.isRequired,
   list: PropTypes.object.isRequired,
 }
 

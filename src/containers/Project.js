@@ -20,8 +20,9 @@ const listFilled = createSelector(listChildren, itemsFilled,
     ),
   })
 )
+
 export const mapStateToProps = createStructuredSelector({
-  list: listChildren,
+  list: listFilled,
 })
 
 export default connect(mapStateToProps)(Component)

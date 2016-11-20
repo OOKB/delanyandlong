@@ -54,7 +54,7 @@
     "node": ">=5.0.0"
   },
   "dependencies": {
-    "@kaicurry/redux-graph": "^2.6.0",
+    "@kaicurry/redux-graph": "^2.6.2",
     "cape-lodash": "^1.7.0",
     "cape-redux": "^2.2.0",
     "cape-redux-auth": "^2.1.0",

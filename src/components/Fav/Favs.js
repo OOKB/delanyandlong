@@ -28,7 +28,7 @@ function listHasItems(list) {
   return (size(list[PREDICATE]) > 0) && !!find(list[PREDICATE]).item
 }
 
-function Favs({ list }) {
+function Favs({ emptyText, list }) {
   const hasFavorites = listHasItems(list)
   return (
     <Page id="favorites">
@@ -38,15 +38,17 @@ function Favs({ list }) {
         }
         {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&
-          <p className="text-center">You currently have no favorites selected...</p>
+          <p className="text-center">{emptyText}</p>
         }
       </main>
     </Page>
   )
 }
-
 Favs.propTypes = {
+  emptyText: PropTypes.string.isRequired,
   list: PropTypes.object.isRequired,
 }
-
+Favs.defaultProps = {
+  emptyText: 'Loading or there are no items in this project.',
+}
 export default Favs

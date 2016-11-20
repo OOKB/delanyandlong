@@ -2,7 +2,7 @@ import { flow, partial } from 'lodash'
 // import { createSelector } from 'reselect'
 import { clear, fieldValue } from 'redux-field'
 import {
-  FAV_TITLE, toggle,
+  createListThunk, FAV_TITLE, toggle,
 } from 'cape-redux-collection'
 // import { getSelect, select } from 'cape-select'
 import { selectUser } from 'cape-redux-auth'
@@ -40,7 +40,10 @@ export const editItemCollections = flow(listAgentMain, toggle)
 // export const projectItemsFilled = createSelector(projectItems, itemsFilled, fixListItems)
 // export const projectItemsSorted = createSelector(projectItemsFilled, orderListItems)
 //
-// export const createCollection = constant(
-//   createCollectionList({ ...listAgentMain, title: getTitle })
-// )
 export const resetField = partial(clear, fieldPrefix)
+export function createCollection(dispatch) {
+  return () => {
+    dispatch(createListThunk({ additionalType: 'ProjectDelanyLong', title: getTitle }))
+    .then(() => dispatch(resetField()))
+  }
+}

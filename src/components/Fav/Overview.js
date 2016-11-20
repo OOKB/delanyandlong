@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import { flow, map, partial } from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import {
-  createItemThunk, createListThunk, close, endItem, itemCollections, itemCollectionsHash,
+  createItemThunk, close, endItem, itemCollections, itemCollectionsHash,
 } from 'cape-redux-collection'
-// import { resetField } from '../../redux/collection'
+import { createCollection } from '../../redux/collection'
 
 import Component from './OverviewEl'
 
@@ -30,7 +30,7 @@ function mapDispatchToProps(dispatch, { collections, item }) {
     }
   }
   return {
-    createCollection: createListThunk,
+    createCollection: createCollection(dispatch),
     onClose: flow(close, dispatch),
     userCollections: map(collections, collectionPick),
   }

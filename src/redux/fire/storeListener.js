@@ -47,6 +47,10 @@ export default function storeListener(store, firebase) {
   .then(items =>
     store.dispatch({ type: ENTITY_PUTALL, payload: values(items.val()) })
   )
+  .then(() => firebase.entity.child(LIST_ITEM).once('value'))
+  .then(listItems =>
+    store.dispatch({ type: ENTITY_PUTALL, payload: values(listItems.val()) })
+  )
   // Add db lists to redux.
   .then(() => firebase.entity.child(COLLECTION_TYPE).once('value'))
   .then((lists) => {
@@ -55,16 +59,12 @@ export default function storeListener(store, firebase) {
     // console.log(payload)
     return store.dispatch({ type: ENTITY_PUTALL, payload })
   })
-  .then(() => firebase.entity.child(LIST_ITEM).once('value'))
-  .then(listItems =>
-    store.dispatch({ type: ENTITY_PUTALL, payload: values(listItems.val()) })
-  )
-  // Listen for changes to Lists.
-  firebase.entity.child(COLLECTION_TYPE).orderByChild('dateModified').limitToLast(1)
+  firebase.entity.child(LIST_ITEM).orderByChild('dateModified').limitToLast(1)
   .on('child_changed', (node) => {
     store.dispatch({ type: ENTITY_PUT, payload: node.val() })
   })
-  firebase.entity.child(LIST_ITEM).orderByChild('dateModified').limitToLast(1)
+  // Listen for changes to Lists.
+  firebase.entity.child(COLLECTION_TYPE).orderByChild('dateModified').limitToLast(1)
   .on('child_changed', (node) => {
     store.dispatch({ type: ENTITY_PUT, payload: node.val() })
   })

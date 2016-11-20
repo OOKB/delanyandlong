@@ -26,7 +26,7 @@ function getSchema(state, { listItem }) {
   }
 }
 function getMessage(state, { item, listItem }) {
-  return `${item.id} has been added to your ${listItem.mainEntity.title} collection!`
+  return `${item.id} has been added to your ${listItem.id} collection!`
 }
 const getState = createStructuredSelector({
   message: getMessage,

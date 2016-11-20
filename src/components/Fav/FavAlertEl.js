@@ -5,7 +5,7 @@ import Box from './Box'
 import Field from '../Editable/FieldWrapper'
 
 function FavAlert({ item, listItem, message, onClose, schema }) {
-  const collectionUrl = `/project/${listItem.mainEntity.id}`
+  const collectionUrl = `/project/${listItem.id}`
   return (
     <Box onClose={onClose} message={message}>
       <ul className="list-reset mb1">

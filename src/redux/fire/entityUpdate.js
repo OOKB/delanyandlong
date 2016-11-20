@@ -1,8 +1,10 @@
+import { cond, flow, nthArg, partial, property, set } from 'lodash'
 import { COLLECTION_TYPE, isFavList, LIST_ITEM, PREDICATE } from 'cape-redux-collection'
-import { cond, flow, nthArg, partial, property } from 'lodash'
 import { omit } from 'lodash/fp'
 import { oneOf } from 'cape-lodash'
-import { buildTriple, entityPut, getKey, insertFields, REFS } from '@kaicurry/redux-graph'
+import {
+  buildTriple, entityPut, getKey, getRefPath, insertFields, pickTypeId, REFS,
+} from '@kaicurry/redux-graph'
 
 const wAct = partial(flow, nthArg(1))
 const isCollectionType = oneOf([ COLLECTION_TYPE, LIST_ITEM ])
@@ -29,18 +31,28 @@ export function triplePut(store, tripleRaw, { entity }) {
 export function createList(store, { payload }, firebase, next) {
   if (isFavList(payload)) {
     const item = next(entityPut(payload)).payload
+    item.dateModified = firebase.TIMESTAMP
     return entityDb(firebase.entity, item).set(item)
     .then(() => item)
   }
   return entitySet(store, payload, firebase)
 }
-export function createItem(store, { payload }, firebase) {
-  // console.log(payload)
-  entitySet(store, payload, firebase)
-  .then((object) => {
-    const triple = { subject: payload.mainEntity, predicate: PREDICATE, object }
-    // console.log(triple)
-    return triplePut(store, triple, firebase)
+export function createItem(store, { payload }, { entity, TIMESTAMP }) {
+  const { mainEntity, ...item } = payload
+  const subject = pickTypeId(mainEntity)
+  set(item, [ 'rangeIncludes', PREDICATE, getKey(subject) ], subject)
+  item.dateCreated = TIMESTAMP
+  item.dateModified = TIMESTAMP
+  const node = insertFields(item)
+  return entityDb(entity, node).set(node)
+  .then(() => entityDb(entity, node).child('dateModified').once('value'))
+  .then((dateModified) => {
+    node.dateModified = dateModified.val()
+    const object = pickTypeId(node)
+    entityDb(entity, subject).update({
+      dateModified: TIMESTAMP,
+      [getRefPath(PREDICATE, object).join('/')]: object,
+    })
   })
 }
 export function updateItem(store, { payload }, { entity, TIMESTAMP }) {

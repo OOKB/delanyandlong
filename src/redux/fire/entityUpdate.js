@@ -1,14 +1,9 @@
-import { cond, flow, nthArg, partial, property, set } from 'lodash'
-import { COLLECTION_TYPE, isFavList, LIST_ITEM, PREDICATE } from 'cape-redux-collection'
-import { omit } from 'lodash/fp'
-import { oneOf } from 'cape-lodash'
+import { set } from 'lodash'
+import { isFavList, PREDICATE } from 'cape-redux-collection'
 import {
   buildTriple, entityPut, getKey, getRefPath, insertFields, pickTypeId, REFS,
 } from '@kaicurry/redux-graph'
 
-const wAct = partial(flow, nthArg(1))
-const isCollectionType = oneOf([ COLLECTION_TYPE, LIST_ITEM ])
-const isCollectionAction = wAct(property('payload.type'), isCollectionType)
 // const isListTriple = wAct(property('payload.subject.type'), isCollectionType)
 
 function entityDb(db, item) {
@@ -44,11 +39,15 @@ export function createItem(store, { payload }, { entity, TIMESTAMP }) {
   item.dateCreated = TIMESTAMP
   item.dateModified = TIMESTAMP
   const node = insertFields(item)
+  // Save ListItem to the database.
   return entityDb(entity, node).set(node)
+  // Get dateModified value of ListItem
   .then(() => entityDb(entity, node).child('dateModified').once('value'))
   .then((dateModified) => {
     node.dateModified = dateModified.val()
     const object = pickTypeId(node)
+    // console.log('CollectionList _refs', object)
+    // Attach the ListItem to the CollectionList.
     entityDb(entity, subject).update({
       dateModified: TIMESTAMP,
       [getRefPath(PREDICATE, object).join('/')]: object,
@@ -57,16 +56,7 @@ export function createItem(store, { payload }, { entity, TIMESTAMP }) {
 }
 export function updateItem(store, { payload }, { entity, TIMESTAMP }) {
   const item = { ...payload, dateModified: TIMESTAMP }
+  // console.log('updateItem', item)
   return entityDb(entity, item).update(item)
   .then(() => item)
 }
-export const cleanItem = omit('id', 'type')
-
-function updateEntity(store, action, { entity }) {
-  const item = action.payload
-  return entityDb(entity, item).update(cleanItem(item))
-}
-// (store, action, firebase)
-export const entityUpdate = cond([
-  [ isCollectionAction, updateEntity ],
-])

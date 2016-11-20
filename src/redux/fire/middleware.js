@@ -6,8 +6,6 @@ import { createList, createItem, updateItem } from './entityUpdate'
 export const dispatcher = {
   [CREATE_LIST]: createList,
   [CREATE_ITEM]: createItem,
-  // [ENTITY_UPDATE]: entityUpdate,
-  // [TRIPLE_PUT]: triplePut,
   [UPDATE_ITEM]: updateItem,
 }
 export default function listMiddleware(firebase) {
@@ -16,7 +14,7 @@ export default function listMiddleware(firebase) {
     return next => (action) => {
       if (!action.type) return next(action)
       if (isFunction(dispatcher[action.type])) {
-        dispatcher[action.type](store, action, firebase, next)
+        return dispatcher[action.type](store, action, firebase, next)
       }
       return next(action)
     }

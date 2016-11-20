@@ -42,7 +42,8 @@ function handleLogout(store, isAnon, { auth }) {
 export const handleChanged = curry(({ dispatch, getState }, change) => {
   const newVal = change.val()
   const oldVal = getEntity(getState(), newVal)
-  if (oldVal || newVal.dateModified === oldVal.dateModified) return null
+  if (oldVal && newVal.dateModified === oldVal.dateModified) return null
+  // console.log('handleChanged', newVal.type, newVal.id, newVal.dateModified)
   return dispatch({ type: ENTITY_PUT, payload: newVal })
 })
 export const typeListener = curry((store, { entity }, typeId) =>

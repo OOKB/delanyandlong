@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import { constant, flow, map, partial } from 'lodash'
+import { flow, map, partial } from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import {
-  addItemToCollection, createItemThunk, createListThunk, close, endItem,
+  createItemThunk, createListThunk, close, endItem, itemCollections, itemCollectionsHash,
 } from 'cape-redux-collection'
 // import { resetField } from '../../redux/collection'
 
@@ -12,16 +12,19 @@ function getMessage(state, { item }) {
   return `Add ${item.id} to one of your collections.`
 }
 const getState = createStructuredSelector({
+  itemCollections,
+  itemCollectionsHash,
   message: getMessage,
 })
 function getAction(list, item) {
   if (list.itemListId) return partial(endItem, { id: list.itemListId })
-  return createItemThunk({ mainEntity: list, item })
+  return partial(createItemThunk, { mainEntity: list, item })
 }
 function mapDispatchToProps(dispatch, { collections, item }) {
   function collectionPick(collection) {
     return {
       id: collection.id,
+      itemListId: collection.itemListId,
       title: collection.title,
       onClick: flow(getAction(collection, item), dispatch),
     }

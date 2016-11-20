@@ -25,7 +25,7 @@ FavsList.defaultProps = {
 }
 
 function listHasItems(list) {
-  return size(list[PREDICATE]) > 0
+  return false && (size(list[PREDICATE]) > 0) && find(list[PREDICATE]).item
 }
 
 function Favs({ endFavorite, list }) {

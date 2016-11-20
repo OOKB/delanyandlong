@@ -3,12 +3,12 @@ import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
 import { detailFields } from '../redux/select/item'
-// import ItemFav from './Fav/ItemFav'
-// <ItemFav item={item} />
+import ItemFav from './Fav/ItemFav'
 
 function Info({ item, fields }) {
   return (
     <div className="item-information z3 relative">
+      <ItemFav item={item} />
       <ul className="list-reset bb1">
         {map(fields, ({ value, label }) => (
           <li key={value} className={value}>

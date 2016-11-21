@@ -49,6 +49,6 @@ Favs.propTypes = {
   list: PropTypes.object.isRequired,
 }
 Favs.defaultProps = {
-  emptyText: 'Loading or there are no items in this project.',
+  emptyText: 'There are no items in this project.',
 }
 export default Favs

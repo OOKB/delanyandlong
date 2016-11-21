@@ -6,12 +6,9 @@ import { favsListSelector } from 'cape-redux-collection'
 import { getDb } from './'
 import { filterPerms } from './perms'
 import { getRouteId } from '../routing'
+import { projectLink } from '../collection'
 
 export const getMenu = getDb('menu')
-
-export function projectLink({ id }) {
-  return `/project/${id}`
-}
 
 export const menuItems = createSelector(
   filterPerms(getMenu),

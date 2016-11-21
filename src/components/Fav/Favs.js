@@ -3,6 +3,7 @@ import { find, map, size } from 'lodash'
 import { PREDICATE } from 'cape-redux-collection'
 
 import Page from '../Page'
+import Icon from '../Icon'
 import Item from '../Item'
 
 function FavsList({ listItems, imgSize }) {
@@ -40,7 +41,7 @@ function Favs({ emptyText, list }) {
         {!hasFavorites &&
           <div className="loading text-center">
             <p>{emptyText}</p>
-            <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
+            <Icon symbol="multiplication" className="fa-spin fa-3x fa-fw light-gray" />
             <span className="sr-only">Loading...</span>
           </div>
         }

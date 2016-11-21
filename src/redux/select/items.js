@@ -1,9 +1,10 @@
+import {
+  compact, cond, constant, curry, every, flatten, flow, filter, includes, isEmpty,
+  map, method, mapValues, stubTrue, uniq,
+} from 'lodash'
+import { concat, orderBy, pickBy, pluck } from 'lodash/fp'
 import { createSelector } from 'reselect'
 import { entityTypeSelector } from '@kaicurry/redux-graph'
-import {
-  compact, curry, every, flatten, flow, filter, includes, map, method, mapValues, uniq,
-} from 'lodash'
-import { orderBy, pickBy, pluck } from 'lodash/fp'
 
 import { getFilter } from './'
 import { activeCategorySelector, categoryCodeIndex } from './category'
@@ -91,5 +92,8 @@ export const patternColorSelector = createSelector(
   }
 )
 export const noColor = [ { label: '- Select Color -', value: '' } ]
-export const buildColors = flow(pluck('colors'), flatten, uniq, method('sort'), noColor.concat)
+export const buildColors = cond([
+  [ isEmpty, constant(null) ],
+  [ stubTrue, flow(pluck('colors'), flatten, uniq, method('sort'), concat(noColor)) ],
+])
 export const colorSelector = createSelector(itemsFilled, buildColors)

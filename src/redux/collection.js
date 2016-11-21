@@ -1,14 +1,12 @@
 import { flow, partial } from 'lodash'
-// import { createSelector } from 'reselect'
 import { clear, fieldValue } from 'redux-field'
 import {
-  createListThunk, FAV_TITLE, toggle,
+  createListThunk, FAV_TITLE, toggle, UPDATE_ITEM,
 } from 'cape-redux-collection'
-// import { getSelect, select } from 'cape-select'
 import { selectUser } from 'cape-redux-auth'
+import { pickTypeId } from '@kaicurry/redux-graph'
 import { getDataFeed, getWebApp } from './select'
-// import { itemsFilled } from './select/items'
-// import { routeParam } from './routing'
+
 export function projectLink(list) {
   if (!list) return null
   return `/project/${list.id}`
@@ -34,11 +32,19 @@ export const editItemCollections = flow(listAgentMain, toggle)
 
 export const resetField = partial(clear, fieldPrefix)
 export function createCollection(dispatch) {
-  return () => {
+  return () =>
     dispatch(createListThunk({ additionalType: 'ProjectDelanyLong', title: getTitle }))
     .then(() => dispatch(resetField()))
-  }
 }
-// export function listItemField() {
-//   const selector = fieldValue(fieldPrefix)
-// }
+export function saveListItemField({ fieldId, prefix }, listItem) {
+  const getVal = fieldValue(prefix)
+  function getPayload(state) {
+    return {
+      ...pickTypeId(listItem),
+      [fieldId]: getVal(state),
+    }
+  }
+  return () => (dispatch, getState) =>
+    dispatch({ type: UPDATE_ITEM, payload: getPayload(getState()) })
+    .then(() => dispatch(clear(prefix)))
+}

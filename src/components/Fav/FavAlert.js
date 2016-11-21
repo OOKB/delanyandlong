@@ -1,30 +1,31 @@
-import { get, partial } from 'lodash'
+import { flow, get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { mapDispatchToProps } from 'cape-redux'
 import { confirmItem } from 'cape-redux-collection'
-
+import { saveListItemField } from '../../redux/collection'
 import Component from './FavAlertEl'
 
-function fieldInfo(listItem, fieldId) {
+function fieldInfo(dispatch, listItem, fieldId) {
   const prefix = [ listItem.type, listItem.id ]
-  return {
+  const info = {
     id: `${listItem.id}-${fieldId}`,
+    fieldId,
     prefix: prefix.concat(fieldId),
     value: listItem[fieldId],
   }
+  info.onSubmit = flow(saveListItemField(info, listItem), dispatch)
+  return info
 }
-function getSchema(state, { listItem }) {
-  const descriptionInfo = fieldInfo(listItem, 'description')
-  const positionInfo = fieldInfo(listItem, 'position')
+function getSchema(dispatch, listItem) {
+  const info = partial(fieldInfo, dispatch, listItem)
   return {
     description: {
-      ...descriptionInfo,
+      ...info('description'),
       description: 'Notes about item within collection.',
       label: 'Notes',
     },
     position: {
-      ...positionInfo,
+      ...info('position'),
       description: 'Position within list.',
       label: 'Position',
     },
@@ -35,9 +36,13 @@ function getMessage(state, { item, listItem }) {
 }
 const getState = createStructuredSelector({
   message: getMessage,
-  schema: getSchema,
 })
-const getActions = mapDispatchToProps(({ listItem }) => ({
-  onClose: partial(confirmItem, listItem),
-}))
-export default connect(getState, getActions)(Component)
+
+function mapDispatchToProps(dispatch, { listItem }) {
+  return {
+    onClose: flow(partial(confirmItem, listItem), dispatch),
+    schema: getSchema(dispatch, listItem),
+  }
+}
+
+export default connect(getState, mapDispatchToProps)(Component)

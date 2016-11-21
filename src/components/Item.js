@@ -17,9 +17,11 @@ function Item({ className, description, imgSize, item, onError }) {
           <h2>{item.name}: {item.color}</h2>
         </div>
         {description &&
-          <div className="absolute notes top-0 right-0 w-100">
-            <Icon symbol="bookmark" className="white right-0p5 absolute" />
-            <p className="small z9 bg-white box-shadow p1 absolute top-1 right-5percent w-90">{description}</p>
+          <div className="absolute notes top-0 right-0 w-100 small z9">
+            <Icon symbol="bookmark" className="white right-0p5 absolute fa-2x" />
+            <p className="absolute bg-white box-shadow p1 top-5percent right-5percent w-90">
+              {description}
+            </p>
           </div>
         }
       </Link>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { homeSelector } from '../redux/select/home'
 import Header from './Header'
 import Footer from './Footer'
+import Icon from './Icon'
 import ItemGrid from './ItemGrid'
 import Logo from './Logo'
 
@@ -16,7 +17,7 @@ function Home({ imgSize, items, missingImage }) {
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">
             <Logo />
             <div className="loading">
-              <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
+              <Icon symbol="multiplication" className="fa-spin fa-3x fa-fw light-gray" />
               <span className="sr-only">Loading...</span>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 import Link from 'redux-history-component'
 import ItemFav from './Fav/ItemFav'
+import Icon from './Icon'
 
 function Item({ className, description, imgSize, item, onError }) {
   function handleImgError() { if (onError) onError(item) }
@@ -15,7 +16,12 @@ function Item({ className, description, imgSize, item, onError }) {
           <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
           <h2>{item.name}: {item.color}</h2>
         </div>
-        {description && <p>{description}</p>}
+        {description &&
+          <div className="absolute notes top-0 right-0 w-100">
+            <Icon symbol="bookmark" className="white right-0p5 absolute" />
+            <p className="small z9 bg-white box-shadow p1 absolute top-1 right-5percent w-90">{description}</p>
+          </div>
+        }
       </Link>
     </li>
   )

@@ -9,7 +9,7 @@ import {
 import Component from './ItemFavEl'
 
 const mapStateToProps = createStructuredSelector({
-  activeListItem: itemActiveListItem,
+  activeListItem: itemActiveListItem, // Uses on anon.
   collections: userCollectionsItem,
   createdListItem: activeListItemFull,
   itemInFavs,

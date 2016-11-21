@@ -1,16 +1,24 @@
 import React, { PropTypes } from 'react'
+import { getListCollectionId } from 'cape-redux-collection'
 
 import Alert from './FavAlert'
 import FavButton from './Button'
 import Overview from './Overview'
 
+function getListItem(collections, listItem) {
+  if (!listItem) return null
+  const collectionId = getListCollectionId(listItem)
+  const list = collections[collectionId]
+  return { ...listItem, list }
+}
 function ItemFavEl(props) {
   const {
     activeListItem, collections, editItemCollections,
     itemInFavs, item, itemIsActive, userCollections,
   } = props
+  const listItem = getListItem(collections, activeListItem)
   function getAlert() {
-    if (activeListItem) return <Alert item={item} listItem={activeListItem} />
+    if (listItem) return <Alert item={item} listItem={listItem} />
     if (itemIsActive) return <Overview {...{ collections, item, userCollections }} />
     return null
   }

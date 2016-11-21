@@ -9,8 +9,9 @@ import { selectUser } from 'cape-redux-auth'
 import { getDataFeed, getWebApp } from './select'
 // import { itemsFilled } from './select/items'
 // import { routeParam } from './routing'
-export function projectLink({ id }) {
-  return `/project/${id}`
+export function projectLink(list) {
+  if (!list) return null
+  return `/project/${list.id}`
 }
 
 // Creating a new project popup.

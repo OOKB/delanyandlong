@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import { get, partial } from 'lodash'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { mapDispatchToProps } from 'cape-redux'
@@ -31,7 +31,7 @@ function getSchema(state, { listItem }) {
   }
 }
 function getMessage(state, { item, listItem }) {
-  return `${item.id} has been added to your ${listItem.id} collection!`
+  return `${item.id} has been added to your ${get(listItem, 'list.title', '')} collection!`
 }
 const getState = createStructuredSelector({
   message: getMessage,

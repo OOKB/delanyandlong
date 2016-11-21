@@ -18,7 +18,6 @@ function FavAlert({ listItem, message, onClose, schema, viewText }) {
           {viewText}
         </Link>
       }
-      <div className="small" style={{ color: 'burlywood' }}>ListItem ID: {listItem.id}</div>
     </Box>
   )
 }

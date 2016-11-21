@@ -7,7 +7,6 @@ import NavItem from './NavItem'
 function Menu({ activeId, links, logout }) {
   function isActive({ id }) { return activeId === id }
   function getAction({ action }) { return (action === 'logout' && logout) || undefined }
-  console.log('menu')
   return (
     <ul className="menu list-reset list-inline">
       {map(links, link => (

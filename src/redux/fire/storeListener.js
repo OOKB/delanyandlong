@@ -8,7 +8,10 @@ import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 export function resAct(dispatch, action) {
   return res => dispatch(action(res.val()))
 }
-export const uid = fireUser => ({ type: 'OrderTrackUser', id: fireUser.uid })
+export const OT_ITEM = 'OrderTrackItem'
+export const OT_USER = 'OrderTrackUser'
+
+export const uid = fireUser => ({ type: OT_USER, id: fireUser.uid })
 
 function handleLoginToken({ dispatch }, token, { auth }) {
   if (!token) return
@@ -72,5 +75,6 @@ export default function storeListener(store, firebase) {
   const addTypeListener = typeListener(store, firebase)
   addTypeListener(LIST_ITEM)
   addTypeListener(COLLECTION_TYPE)
+  addTypeListener(OT_ITEM)
   return store
 }

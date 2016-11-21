@@ -7,6 +7,7 @@ export const dispatcher = {
   [CREATE_LIST]: createList,
   [CREATE_ITEM]: createItem,
   [UPDATE_ITEM]: updateItem,
+  // UPDATE_ENTITY: updateItem,
 }
 export default function listMiddleware(firebase) {
   return (store) => {

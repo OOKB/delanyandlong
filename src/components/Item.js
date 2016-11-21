@@ -13,7 +13,9 @@ function Item({ className, description, imgSize, item, onError }) {
       <Link href={item.link}>
         <img src={imgSrc} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description absolute block bg-white">
-          <p className="id mono"><span className="categoryCode">{item.categoryCode}</span> {item.id}</p>
+          <p className="id mono">
+            <span className="categoryCode">{item.categoryCode}</span> {item.id}
+          </p>
           <h2>{item.name}: {item.color}</h2>
         </div>
         {description &&

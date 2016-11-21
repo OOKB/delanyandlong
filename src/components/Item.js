@@ -30,7 +30,7 @@ function Item({ className, description, imgSize, item, onError }) {
 }
 Item.propTypes = {
   className: PropTypes.string,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   imgSize: PropTypes.string.isRequired,
   item: PropTypes.object.isRequired,
   onError: PropTypes.func,

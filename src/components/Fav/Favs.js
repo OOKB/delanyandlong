@@ -34,7 +34,7 @@ function Favs({ emptyText, list }) {
     <Page id="favorites">
       <main className="clear m1 mt4 clearfix">
         {hasFavorites &&
-          <h1 className="text-center m0 bb2 mb1 fw400 uppercase fs1 ls0p15">{list.title}</h1>
+          <h1 className="text-center m0 bb1 mb1 fw400 uppercase fs1 ls0p15">{list.title}</h1>
         }
         {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&

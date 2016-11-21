@@ -38,7 +38,11 @@ function Favs({ emptyText, list }) {
         }
         {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&
-          <p className="text-center">{emptyText}</p>
+          <div className="loading text-center">
+            <p>{emptyText}</p>
+            <i className="fa fa-multiplication fa-spin fa-3x fa-fw light-gray" />
+            <span className="sr-only">Loading...</span>
+          </div>
         }
       </main>
     </Page>
@@ -49,6 +53,6 @@ Favs.propTypes = {
   list: PropTypes.object.isRequired,
 }
 Favs.defaultProps = {
-  emptyText: 'There are no items in this project.',
+  emptyText: 'There are no items in this project. (or we might just be encountering a loading delay)',
 }
 export default Favs

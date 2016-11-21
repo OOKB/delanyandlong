@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'redux-history-component'
 
-function Logo() {
+function render() {
   return (
     <Link href="/">
       <div className="logo">
@@ -26,11 +26,13 @@ function Logo() {
         </svg>
       </div>
     </Link>
-
   )
 }
 
-Logo.propTypes = {}
-Logo.defaultProps = {}
+// render.propTypes = {}
+// render.defaultProps = {}
 
-export default Logo
+export default class Logo extends React.Component {
+  shouldComponentUpdate() { return false }
+  render = render
+}

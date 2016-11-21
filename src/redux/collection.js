@@ -38,3 +38,6 @@ export function createCollection(dispatch) {
     .then(() => dispatch(resetField()))
   }
 }
+// export function listItemField() {
+//   const selector = fieldValue(fieldPrefix)
+// }

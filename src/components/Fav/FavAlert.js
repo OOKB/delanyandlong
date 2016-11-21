@@ -6,22 +6,27 @@ import { confirmItem } from 'cape-redux-collection'
 
 import Component from './FavAlertEl'
 
-function getSchema(state, { listItem }) {
+function fieldInfo(listItem, fieldId) {
   const prefix = [ listItem.type, listItem.id ]
   return {
+    id: `${listItem.id}-${fieldId}`,
+    prefix: prefix.concat(fieldId),
+    value: listItem[fieldId],
+  }
+}
+function getSchema(state, { listItem }) {
+  const descriptionInfo = fieldInfo(listItem, 'description')
+  const positionInfo = fieldInfo(listItem, 'position')
+  return {
     description: {
+      ...descriptionInfo,
       description: 'Notes about item within collection.',
       label: 'Notes',
-      id: `${listItem.id}-description`,
-      prefix: prefix.concat('description'),
-      value: listItem.description,
     },
     position: {
+      ...positionInfo,
       description: 'Position within list.',
       label: 'Position',
-      id: `${listItem.id}-position`,
-      prefix: prefix.concat('position'),
-      value: listItem.position,
     },
   }
 }
@@ -32,7 +37,7 @@ const getState = createStructuredSelector({
   message: getMessage,
   schema: getSchema,
 })
-const getActions = mapDispatchToProps(({ listItem }) =>
-  ({ onClose: partial(confirmItem, listItem) })
-)
+const getActions = mapDispatchToProps(({ listItem }) => ({
+  onClose: partial(confirmItem, listItem),
+}))
 export default connect(getState, getActions)(Component)

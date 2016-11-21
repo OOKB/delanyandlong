@@ -165,11 +165,6 @@ code.uppercase {
   .transform(translate(-50%,-50%));
 }
 
-button.plain {
-  border: none;
-  background: transparent;
-}
-
 /* some grid related stuff */
 /* columnar stuff */
 .wrapper,
@@ -491,6 +486,8 @@ button.plain {
 .pl4     { padding-left: 4rem;  }
 
 /* border modules */
+.b0      { border: none; }
+
 .bt0     { border-top: none;     }
 .bt1     { border-top: 1px solid currentColor;  }
 .bt2     { border-top: 2px solid currentColor;  }
@@ -550,6 +547,7 @@ button.plain {
 .bg-dark-green     { background-color: @dark-green; }
 .bg-dark-blue      { background-color: @dark-blue; }
 .bg-dark-purple    { background-color: @dark-purple; }
+.bg-trans          { background: transparent; }
 
 .border-white          { border-color: @off-white; }
 .border-gold           { border-color: @gold; }
@@ -597,4 +595,10 @@ a:hover,
 .flex-center > *,
 .flex-center .flex-item {
   flex: 1;
+}
+
+/**/
+button.plain {
+  .b0;
+  .bg-trans;
 }

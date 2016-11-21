@@ -28,6 +28,7 @@ export function emptyRes(items, perPage, resultKey) {
     hasLess: false,
     hasMore: false,
     [resultKey]: items,
+    maxPage: 0,
     pageIndex: 1,
     perPage,
     totalItems: 0,

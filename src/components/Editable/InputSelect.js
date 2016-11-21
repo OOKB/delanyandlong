@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import Select from './Select'
 import { connectField } from 'redux-field'
+import Select from './Select'
 
 const style = {
   label: {

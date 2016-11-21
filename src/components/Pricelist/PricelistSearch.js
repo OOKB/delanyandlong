@@ -32,7 +32,7 @@ function PricelistSearch(props) {
 }
 PricelistSearch.propTypes = {
   category: PropTypes.object.isRequired,
-  colors: PropTypes.array.isRequired,
+  colors: PropTypes.array,
   displayStyle: PropTypes.object.isRequired,
   pageSizeOptions: PropTypes.array.isRequired,
   pagerInfo: PropTypes.object.isRequired,

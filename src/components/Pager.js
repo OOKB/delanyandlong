@@ -10,7 +10,7 @@ function pgBtnClass(name, disabled) {
   return classnames('control', name, { disabled })
 }
 function Pager(props) {
-  const { activeCategory, colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
+  const { colors, displayStyle, formEvent, hasLess, hasMore, maxPage,
     pageIndex, pageSizeOptions, pgSize, pgSizePrefix,
   } = props
   const { onChange } = formEvent
@@ -33,12 +33,14 @@ function Pager(props) {
         value={displayStyle.active}
         className={[ 'displayStyle', 'small-stack' ]}
       />
-      <SelectEl
-        label="Color"
-        options={colors}
-        prefix={[ 'pricelist', 'color' ]}
-        className={[ 'color', 'small-stack' ]}
-      />
+      {colors &&
+        <SelectEl
+          label="Color"
+          options={colors}
+          prefix={[ 'pricelist', 'color' ]}
+          className={[ 'color', 'small-stack' ]}
+        />
+      }
       <SelectEl
         label="View Qty"
         options={pageSizeOptions}
@@ -56,8 +58,7 @@ function Pager(props) {
 }
 
 Pager.propTypes = {
-  activeCategory: PropTypes.string,
-  colors: PropTypes.array.isRequired,
+  colors: PropTypes.array,
   displayStyle: PropTypes.object.isRequired,
   formEvent: PropTypes.object.isRequired,
   hasLess: PropTypes.bool.isRequired,

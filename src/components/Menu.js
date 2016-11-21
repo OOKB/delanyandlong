@@ -34,7 +34,7 @@ function Menu({ activeId, links, logout }) {
 }
 Menu.propTypes = {
   activeId: PropTypes.string.isRequired,
-  links: PropTypes.array.isRequired,
+  links: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
 }
 Menu.defaultProps = {

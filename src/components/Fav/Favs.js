@@ -9,9 +9,12 @@ function FavsList({ listItems, imgSize }) {
   return (
     <div>
       <ul className="item-grid list-reset clearfix">
-        {map(listItems, listItem =>
-          <Item className="relative" key={listItem.id} item={listItem.item} imgSize={imgSize} />
-        )}
+        {map(listItems, listItem => (
+          <div>
+            <Item className="relative" key={listItem.id} item={listItem.item} imgSize={imgSize} />
+            {listItem.description && <p>{listItem.description}</p>}
+          </div>
+        ))}
       </ul>
     </div>
   )

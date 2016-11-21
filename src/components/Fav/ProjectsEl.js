@@ -7,11 +7,14 @@ import Page from '../Page'
 function ProjectsEl({ lists }) {
   return (
     <Page id="projects">
-      <ul className="list-reset clearfix">
-        {map(lists, list =>
-          <li key={list.id}><Link href={projectLink(list)}>{list.title}</Link></li>
-        )}
-      </ul>
+      <main className="clear m1 mt4 clearfix">
+        <h1 className="text-center m0 mb1 uppercase fs1 ls0p15">Projects</h1>
+        <ul className="list-reset clearfix text-center mt1 bb1 five mlrauto">
+          {map(lists, list =>
+            <li className="p1 bt1" key={list.id}><Link className="block uppercase" href={projectLink(list)}>{list.title}</Link></li>
+          )}
+        </ul>
+      </main>
     </Page>
   )
 }

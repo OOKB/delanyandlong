@@ -2,17 +2,16 @@
 # yarn lockfile v1
 
 
-"@kaicurry/redux-graph@^2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@kaicurry/redux-graph/-/redux-graph-2.6.5.tgz#508918cc372fc5ac62ff6ca771fb9d4ac24c0f50"
+"@kaicurry/redux-graph@^2.6.7":
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/@kaicurry/redux-graph/-/redux-graph-2.6.7.tgz#2a4093dc85e6449cd446e9d892c281a7a18ef68c"
   dependencies:
-    cape-lodash "1.7.0"
-    cape-redux "2.1.1"
-    cape-select "^2.2.1"
-    lodash "^4.16.6"
+    cape-lodash "^1.7.0"
+    cape-redux "^2.2.1"
+    cape-select "^2.3.1"
+    lodash "^4.17.2"
     redux "^3.6.0"
     reselect "^2.5.4"
-    seamless-immutable "^6.3.0"
 
 Base64@~0.2.0:
   version "0.2.1"
@@ -1165,13 +1164,13 @@ cape-lodash:
   dependencies:
     lodash "^4.15.0"
 
-cape-lodash@1.7.0, cape-lodash@^1.0.0, cape-lodash@^1.5.0, cape-lodash@^1.6.0, cape-lodash@^1.7.0:
+cape-lodash@^1.0.0, cape-lodash@^1.5.0, cape-lodash@^1.6.0, cape-lodash@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/cape-lodash/-/cape-lodash-1.7.0.tgz#e4988077ed4cf8d3f21f62a0a1ff09828e6bd01f"
   dependencies:
     lodash "^4.16.6"
 
-cape-redux, cape-redux@^2.2.0:
+cape-redux:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-2.2.0.tgz#87c374543397a34aaa013259eef9982ef4f88893"
   dependencies:
@@ -1180,7 +1179,7 @@ cape-redux, cape-redux@^2.2.0:
     redux "^3.6.0"
     seamless-immutable "^6.3.0"
 
-cape-redux-auth, cape-redux-auth@^2.1.0:
+cape-redux-auth:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cape-redux-auth/-/cape-redux-auth-2.1.0.tgz#6330dec1cff4ef285d18da5e34e0e497aecf5fd9"
   dependencies:
@@ -1191,32 +1190,42 @@ cape-redux-auth, cape-redux-auth@^2.1.0:
     redux-history-sync "^3.0.1"
     seamless-immutable "^6.3.0"
 
-cape-redux-collection@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.2.2.tgz#40944c35407d123d8cb54a3906fb695c787787b2"
+cape-redux-auth@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/cape-redux-auth/-/cape-redux-auth-3.0.1.tgz#ffdd1fb551791f36f63b359cfbb687e7c94beb9a"
   dependencies:
-    "@kaicurry/redux-graph" "^2.6.5"
-    cape-lodash "^1.7.0"
-    cape-redux "^2.2.0"
-    cape-redux-auth "^2.1.0"
-    cape-select "^2.3.0"
+    "@kaicurry/redux-graph" "^2.6.7"
+    cape-redux "^2.2.1"
+    cape-select "^2.3.1"
     lodash "^4.17.2"
-    redux-history-sync "^3.0.1"
+    redux-history-sync "^3.1.0"
+
+cape-redux-collection@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/cape-redux-collection/-/cape-redux-collection-3.3.0.tgz#ea67c7b0d0596398ae3796f01946bd862784eaa5"
+  dependencies:
+    "@kaicurry/redux-graph" "^2.6.7"
+    cape-lodash "^1.7.0"
+    cape-redux "^2.2.1"
+    cape-redux-auth "^3.0.1"
+    cape-select "^2.3.1"
+    lodash "^4.17.2"
+    redux-history-sync "^3.1.0"
     reselect "^2.5.4"
 
-cape-redux-reducer@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/cape-redux-reducer/-/cape-redux-reducer-2.1.2.tgz#e6327dadeab85f455958e2162389da96d6e3bdeb"
+cape-redux-reducer@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/cape-redux-reducer/-/cape-redux-reducer-2.2.0.tgz#ed6335230c4207d824ae9c4d99e61973a46fa92f"
   dependencies:
-    "@kaicurry/redux-graph" "^2.6.5"
-    cape-redux "^2.2.0"
-    cape-redux-auth "^2.1.0"
-    cape-redux-collection "^3.2.2"
+    "@kaicurry/redux-graph" "^2.6.7"
+    cape-redux "^2.2.1"
+    cape-redux-auth "^3.0.1"
+    cape-redux-collection "^3.3.0"
     cape-redux-socket "^3.0.1"
     lodash "^4.17.2"
     redux-field "^3.4.1"
     redux-graph "^1.7.1"
-    redux-history-sync "^3.0.1"
+    redux-history-sync "^3.1.0"
     redux-thunk "^2.1.0"
 
 cape-redux-socket@^3.0.1:
@@ -1239,16 +1248,23 @@ cape-redux@1.6.1, cape-redux@^1.4.2, cape-redux@^1.5.0, cape-redux@^1.6.0, cape-
     redux "^3.6.0"
     seamless-immutable "^6.3.0"
 
-cape-redux@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-2.1.1.tgz#ff9a80815fc215f33d90c3e04d9e0759b4097fd0"
+cape-redux@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/cape-redux/-/cape-redux-2.2.1.tgz#12c841bb268dc28f4ace3c1e19f3c7daf356cd25"
   dependencies:
-    cape-lodash "^1.5.0"
-    lodash "^4.16.6"
+    cape-lodash "^1.7.0"
+    lodash "^4.17.2"
     redux "^3.6.0"
     seamless-immutable "^6.3.0"
 
-cape-select, cape-select@^2.2.1, cape-select@^2.3.0:
+cape-select@^2.2.1, cape-select@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/cape-select/-/cape-select-2.3.1.tgz#d86e2ead0be1ea03b3525712b91eb3373e61c6bd"
+  dependencies:
+    cape-lodash "^1.7.0"
+    lodash "^4.17.2"
+
+cape-select@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/cape-select/-/cape-select-2.3.0.tgz#5ab320c3bea615893739de7e6826cc921164da07"
   dependencies:
@@ -2094,7 +2110,7 @@ faye-websocket@0.9.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fbjs@^0.8.4:
+fbjs@^0.8.1, fbjs@^0.8.4:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.5.tgz#f69ba8a876096cb1b9bffe4d7c1e71c19d39d008"
   dependencies:
@@ -2159,7 +2175,7 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-firebase:
+firebase@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.0.tgz#d87c260e178c2b5d6c0bcdd133f85167646f9623"
   dependencies:
@@ -3130,13 +3146,9 @@ moment@2.x.x, moment@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
 
-ms@0.7.1:
+ms@0.7.1, ms@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
-
-ms@^0.7.1:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
 mumath@^3.0.0:
   version "3.0.0"
@@ -3647,9 +3659,13 @@ react-dock@^0.2.1:
     lodash.debounce "^3.1.1"
     object-assign "^4.0.1"
 
-react-dom@^15.1.0:
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
+react-dom@^15.4.0:
+  version "15.4.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.0.tgz#6a97a69000966570db48c746bc4b7b0ca50d1534"
+  dependencies:
+    fbjs "^0.8.1"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
 
 react-json-inspector@^7.0.0:
   version "7.0.0"
@@ -3703,9 +3719,9 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^15.1.0, react@^15.3.2:
-  version "15.3.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
+react@^15.3.2, react@^15.4.0:
+  version "15.4.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.0.tgz#736c1c7c542e8088127106e1f450b010f86d172b"
   dependencies:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
@@ -3873,6 +3889,15 @@ redux-history-sync@^3.0.1:
     cape-redux "^1.5.0"
     classnames "^2.2.5"
     lodash "^4.16.4"
+    redux "^3.6.0"
+
+redux-history-sync@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/redux-history-sync/-/redux-history-sync-3.1.0.tgz#892998c5413d7c13dc26fe03230de054e8a13751"
+  dependencies:
+    cape-redux "^2.2.1"
+    classnames "^2.2.5"
+    lodash "^4.17.2"
     redux "^3.6.0"
 
 redux-localstorage@^1.0.0-rc4:

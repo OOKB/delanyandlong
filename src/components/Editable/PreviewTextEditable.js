@@ -11,10 +11,11 @@ const styles = {
     borderBottom: '1px dashed currentColor',
     borderRadius: 0,
     color: 'rgba(061,060,057,1)',
-    fontSize: '1em',
-    lineHeight: '1.5rem',
+    fontSize: '.9em',
+    lineHeight: '1.2rem',
     padding: '0',
     textDecoration: 'none',
+    textAlign: 'left',
     ':hover': {
       color: 'rgba(130,151,177,1)',
     },

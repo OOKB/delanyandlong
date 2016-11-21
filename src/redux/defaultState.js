@@ -99,15 +99,15 @@ const state = {
         validators: [ 'isAuthenticated' ],
       },
       {
-        id: 'favs',
-        href: '/favs',
+        id: 'project',
+        href: '/project/',
         icon: 'heart-o',
         label: 'Favorites',
         validators: [ 'isAnonymous', 'hasFavorites' ],
       },
       {
         id: 'projects',
-        href: '/favs',
+        href: '/project',
         icon: 'heart-o',
         label: 'Projects',
         validators: [ 'isAuthenticated', 'hasFavorites' ],

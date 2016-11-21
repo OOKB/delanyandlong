@@ -8,7 +8,8 @@ addRoutes({
   detail: '/detail/*',
   itemEdit: '/edit/*',
   pricelist: '/collection(/*)',
-  project: '/project(/:projectId)',
+  projects: '/project',
+  project: '/project/:projectId',
 })
 addRoutes([ 'about', 'contact', 'favs', 'login', 'showroom' ])
 

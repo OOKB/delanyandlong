@@ -4,14 +4,12 @@ import { connect } from 'react-redux'
 import { contactSelector } from '../redux/select/contact'
 // import Editor from '../containers/Editor'
 // <Editor classId="Organization" />
-import Header from './Header'
-import Footer from './Footer'
+import Page from './Page'
 import Offices from './Offices'
 
-function Contact({ contactText, menu, offices, route }) {
+function Contact({ contactText, offices }) {
   return (
-    <div id="container-contact">
-      <Header activeId={route.id} links={menu} />
+    <Page id="container-contact">
       <main className="pt2 container clearfix">
         <section className="showroomsAndReps">
           <div className="top pt3 pb3 clearfix mlrauto">
@@ -30,16 +28,13 @@ function Contact({ contactText, menu, offices, route }) {
           </div>
         </section>
       </main>
-      <Footer />
-    </div>
+    </Page>
   )
 }
 
 Contact.propTypes = {
-  route: PropTypes.object.isRequired,
   contactText: PropTypes.string.isRequired,
   offices: PropTypes.object.isRequired,
-  menu: PropTypes.array.isRequired,
 }
 
 export default connect(contactSelector)(Contact)

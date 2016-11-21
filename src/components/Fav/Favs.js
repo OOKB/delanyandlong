@@ -11,7 +11,13 @@ function FavsList({ listItems, imgSize }) {
     <div>
       <ul className="item-grid list-reset clearfix">
         {map(listItems, listItem => (
-          <Item className="relative" key={listItem.id} item={listItem.item} imgSize={imgSize} description={listItem.description} />
+          <Item
+            key={listItem.id}
+            className="relative"
+            item={listItem.item}
+            imgSize={imgSize}
+            description={listItem.description}
+          />
         ))}
       </ul>
     </div>

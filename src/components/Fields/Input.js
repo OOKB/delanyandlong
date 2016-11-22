@@ -11,7 +11,7 @@ function getKey(id, prefix) {
 }
 function InputField(props) {
   const {
-    className, errorMessage, hardError, icon, id, message, prefix, suggestion, validating, ...rest,
+    className, errorMessage, hardError, icon, id, message, prefix, suggestion, validating, ...rest
   } = props
   const key = getKey(id, prefix)
 
@@ -19,7 +19,7 @@ function InputField(props) {
     <div className={classnames('input-group', className)}>
       <label htmlFor={key}><Icon {...icon} hidden /></label>
       <Input {...rest} id={key} />
-      {validating && <p><i className="fa fa-refresh-fa fa-spin"></i> validating</p>}
+      {validating && <p><i className="fa fa-refresh-fa fa-spin" /> validating</p>}
       {(errorMessage || message || suggestion) &&
         <Help
           help={message || errorMessage}

@@ -5,7 +5,7 @@ import { itemsFilled } from './items'
 
 export const filterOutMissingImages = createSelector(
   itemsFilled,
-  items => filter(items, item => (item.category !== 'trim' && !item.missingImg))
+  items => filter(items, item => (item.category !== 'trim' && item.hasImage))
 )
 
 export const patternIndex = createSelector(

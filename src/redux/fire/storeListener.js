@@ -1,4 +1,4 @@
-import { cond, curry, flow, isEmpty, partial, partialRight, stubTrue, values } from 'lodash'
+import { cond, curry, flow, isEmpty, map, partial, partialRight, stubTrue } from 'lodash'
 import { addListener } from 'cape-redux'
 import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
 import {
@@ -66,13 +66,15 @@ export const typeListener = curry((store, { entity }, typeId) =>
 export const typeDelete = curry((store, { entity }, typeId) =>
   entity.child(typeId).on('child_removed', handleRemoved(store))
 )
-export const handleInit = curry(({ dispatch }, result) => {
-  const payload = values(result)
+export const handleInit = curry(({ dispatch }, type, result) => {
+  const payload = map(result, (item, id) =>
+    (item.id && item.type && item) || { ...item, id, type }
+  )
   if (isEmpty(payload)) return null
   return dispatch({ type: ENTITY_PUTALL, payload })
 })
 export const typeLoader = curry((store, { entity }, typeId) =>
-  getChild(entity, typeId).then(handleInit(store))
+  getChild(entity, typeId).then(handleInit(store, typeId))
 )
 export default function storeListener(store, firebase) {
   addListener(selectToken, store, partialRight(handleLoginToken, firebase))

@@ -1,8 +1,9 @@
 import { curry, flow, isEmpty, partial, partialRight, values } from 'lodash'
 import { addListener } from 'cape-redux'
-import { entityPut, selectEntityById } from 'redux-graph'
 import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
-import { ENTITY_PUT, ENTITY_PUTALL, getEntity } from '@kaicurry/redux-graph'
+import {
+  entityDel, entityPut, ENTITY_PUT, ENTITY_PUTALL, getEntity,
+} from '@kaicurry/redux-graph'
 import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
 export function resAct(dispatch, action) {
@@ -29,12 +30,16 @@ function handleLoginToken({ dispatch }, token, { auth }) {
 function handleAuth({ dispatch, getState }, { auth, user }, usr) {
   const state = getState()
   if (usr) {
-    if (usr.isAnonymous) return dispatch(setUserId(usr.uid))
-    const loginUsr = flow(uid, login, dispatch)
-    if (selectEntityById(state, usr.uid)) return loginUsr(usr)
+    if (usr.isAnonymous) {
+      dispatch(entityPut({ type: 'Person', id: usr.uid }))
+      return dispatch(setUserId(usr.uid))
+    }
+    const fireUser = uid(usr)
+    const loginUsr = flow(login, dispatch)
+    if (getEntity(state, fireUser)) return loginUsr(fireUser)
     return user.child(usr.uid).once('value')
     .then(resAct(dispatch, entityPut))
-    .then(() => loginUsr(usr))
+    .then(() => loginUsr(fireUser))
   }
   dispatch(logout())
   return auth.signInAnonymously()
@@ -49,9 +54,15 @@ export const handleChanged = curry(({ dispatch, getState }, change) => {
   // console.log('handleChanged', newVal.type, newVal.id, newVal.dateModified)
   return dispatch({ type: ENTITY_PUT, payload: newVal })
 })
+export const handleRemoved = curry(({ dispatch }, change) =>
+  dispatch(entityDel(change.val()))
+)
 export const typeListener = curry((store, { entity }, typeId) =>
   entity.child(typeId).orderByChild('dateModified').limitToLast(1)
   .on('child_changed', handleChanged(store))
+)
+export const typeDelete = curry((store, { entity }, typeId) =>
+  entity.child(typeId).on('child_removed', handleRemoved(store))
 )
 export const handleInit = curry(({ dispatch }, result) => {
   const payload = values(result.val())
@@ -76,5 +87,6 @@ export default function storeListener(store, firebase) {
   addTypeListener(LIST_ITEM)
   addTypeListener(COLLECTION_TYPE)
   addTypeListener(OT_ITEM)
+  typeDelete(store, firebase, LIST_ITEM)
   return store
 }

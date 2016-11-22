@@ -15,7 +15,7 @@ export const menuItems = createSelector(
   favsListSelector,
   (items, favsList) => {
     const menu = keyBy('id')(items)
-    if (menu.favs && favsList) return setIn([ 'favs', 'href' ], menu, projectLink(favsList))
+    if (menu.project && favsList) return setIn([ 'project', 'href' ], menu, projectLink(favsList))
     return menu
   }
 )

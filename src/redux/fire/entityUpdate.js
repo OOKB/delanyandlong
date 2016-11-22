@@ -1,7 +1,8 @@
-import { set } from 'lodash'
-import { isFavList, PREDICATE } from 'cape-redux-collection'
+import { get, set } from 'lodash'
+import { COLLECTION_TYPE, getListCollectionId, isFavList, PREDICATE } from 'cape-redux-collection'
 import {
-  buildTriple, entityPut, getKey, getRefPath, insertFields, pickTypeId, REFS,
+  buildTriple, entityPut, fullRefPath, getEntity, getKey, getPath, getRefPath,
+  insertFields, pickTypeId, REFS,
 } from '@kaicurry/redux-graph'
 
 // const isListTriple = wAct(property('payload.subject.type'), isCollectionType)
@@ -54,7 +55,24 @@ export function createItem(store, { payload }, { entity, TIMESTAMP }) {
     })
   })
 }
-export function updateItem(store, { payload }, { entity, TIMESTAMP }) {
+export function removeItem({ getState }, payload, { entity, TIMESTAMP }) {
+  // Get the full item info.
+  const item = getEntity(getState(), payload)
+  const list = { id: getListCollectionId(item), type: COLLECTION_TYPE }
+  const listRefPath = fullRefPath(list, PREDICATE, item).join('/')
+  const listDatePath = getPath(list).concat('dateModified').join('/')
+  const itemPath = getPath(item).join('/')
+  // remove from list refs and remove listItem node at same time.
+  // console.log(item, listId, listPath)
+  return entity.update({
+    [listRefPath]: null,
+    [listDatePath]: TIMESTAMP,
+    [itemPath]: null,
+  })
+}
+export function updateItem(store, { meta, payload }, firebase) {
+  if (get(meta, 'action') === 'END_ITEM') return removeItem(store, payload, firebase)
+  const { entity, TIMESTAMP } = firebase
   const item = { ...payload, dateModified: TIMESTAMP }
   // console.log('updateItem', item)
   return entityDb(entity, item).update(item)

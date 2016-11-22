@@ -9,7 +9,7 @@ import Item from '../Item'
 function FavsList({ listItems, imgSize }) {
   return (
     <div>
-      <ul className="item-grid list-reset clearfix">
+      <ul className="item-grid list-reset clearfix bb1 pb1">
         {map(listItems, listItem => (
           <Item
             key={listItem.id}
@@ -41,15 +41,11 @@ function Favs({ emptyText, list }) {
     <Page id="favorites">
       <main className="clear m1 mt4 clearfix">
         {hasFavorites &&
-          <h1 className="text-center m0 bb1 mb1 fw400 uppercase fs1 ls0p15">{list.title}</h1>
+          <h1 className="m0 bb1 mb1 fw400 uppercase fs1 ls0p15 text-center">{list.title}</h1>
         }
         {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&
-          <div className="loading text-center">
-            <p>{emptyText}</p>
-            <Icon symbol="multiplication" className="fa-spin fa-3x fa-fw light-gray" />
-            <span className="sr-only">Loading...</span>
-          </div>
+          <p className="text-center small bt1 pt2 pb2 bb1">{emptyText}</p>
         }
       </main>
     </Page>
@@ -60,6 +56,6 @@ Favs.propTypes = {
   list: PropTypes.object.isRequired,
 }
 Favs.defaultProps = {
-  emptyText: 'There are no items in this project. (or we might just be encountering a loading delay)',
+  emptyText: 'There are no items in this project.',
 }
 export default Favs

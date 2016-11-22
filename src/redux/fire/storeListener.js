@@ -1,8 +1,8 @@
-import { curry, flow, isEmpty, partial, partialRight, values } from 'lodash'
+import { cond, curry, flow, isEmpty, partial, partialRight, stubTrue, values } from 'lodash'
 import { addListener } from 'cape-redux'
 import { isAnonymous, login, loginRedirect, logout, selectToken, setUserId } from 'cape-redux-auth'
 import {
-  entityDel, entityPut, ENTITY_PUT, ENTITY_PUTALL, getEntity,
+  entityDel, entityPut, ENTITY_PUT, ENTITY_PUTALL, getEntity, isEntityCreated,
 } from '@kaicurry/redux-graph'
 import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
@@ -38,7 +38,10 @@ function handleAuth({ dispatch, getState }, { auth, user }, usr) {
     const loginUsr = flow(login, dispatch)
     if (getEntity(state, fireUser)) return loginUsr(fireUser)
     return getChild(user, usr.uid)
-    .then(flow(entityPut, dispatch))
+    .then(cond([
+      [ isEntityCreated, flow(entityPut, dispatch) ],
+      [ stubTrue, () => auth.signOut() ],
+    ]))
     .then(() => loginUsr(fireUser))
   }
   dispatch(logout())
@@ -69,8 +72,7 @@ export const handleInit = curry(({ dispatch }, result) => {
   return dispatch({ type: ENTITY_PUTALL, payload })
 })
 export const typeLoader = curry((store, { entity }, typeId) =>
-  getChild(entity, typeId)
-  .then(handleInit(store))
+  getChild(entity, typeId).then(handleInit(store))
 )
 export default function storeListener(store, firebase) {
   addListener(selectToken, store, partialRight(handleLoginToken, firebase))
@@ -78,7 +80,7 @@ export default function storeListener(store, firebase) {
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   // FIREBASE LOAD to REDUX
   const addTypeLoader = typeLoader(store, firebase)
-  addTypeLoader('OrderTrackItem')
+  addTypeLoader(OT_ITEM)
   .then(() => addTypeLoader(LIST_ITEM))
   .then(() => addTypeLoader(COLLECTION_TYPE))
   // FIREBASE LISTENERS to REDUX

@@ -39,13 +39,13 @@ function Favs({ emptyText, list }) {
   const hasFavorites = listHasItems(list)
   return (
     <Page id="favorites">
-      <main className="clear m1 mt4 clearfix text-center">
+      <main className="clear m1 mt4 clearfix">
         {hasFavorites &&
-          <h1 className="m0 bb1 mb1 fw400 uppercase fs1 ls0p15">{list.title}</h1>
+          <h1 className="m0 bb1 mb1 fw400 uppercase fs1 ls0p15 text-center">{list.title}</h1>
         }
         {hasFavorites && <FavsList listItems={list[PREDICATE]} />}
         {!hasFavorites &&
-          <p className="small bt1 pt2 pb2 bb1">{emptyText}</p>
+          <p className="text-center small bt1 pt2 pb2 bb1">{emptyText}</p>
         }
       </main>
     </Page>

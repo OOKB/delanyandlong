@@ -6,9 +6,6 @@ import {
 } from '@kaicurry/redux-graph'
 import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
-export function resAct(dispatch, action) {
-  return res => dispatch(action(res.val()))
-}
 export const OT_ITEM = 'OrderTrackItem'
 export const OT_USER = 'OrderTrackUser'
 
@@ -27,6 +24,9 @@ function handleLoginToken({ dispatch }, token, { auth }) {
     }
   })
 }
+export function getChild(db, id) {
+  return db.child(id).once('value').then(res => res.val())
+}
 function handleAuth({ dispatch, getState }, { auth, user }, usr) {
   const state = getState()
   if (usr) {
@@ -37,8 +37,8 @@ function handleAuth({ dispatch, getState }, { auth, user }, usr) {
     const fireUser = uid(usr)
     const loginUsr = flow(login, dispatch)
     if (getEntity(state, fireUser)) return loginUsr(fireUser)
-    return user.child(usr.uid).once('value')
-    .then(resAct(dispatch, entityPut))
+    return getChild(user, usr.uid)
+    .then(flow(entityPut, dispatch))
     .then(() => loginUsr(fireUser))
   }
   dispatch(logout())
@@ -64,12 +64,12 @@ export const typeDelete = curry((store, { entity }, typeId) =>
   entity.child(typeId).on('child_removed', handleRemoved(store))
 )
 export const handleInit = curry(({ dispatch }, result) => {
-  const payload = values(result.val())
+  const payload = values(result)
   if (isEmpty(payload)) return null
   return dispatch({ type: ENTITY_PUTALL, payload })
 })
 export const typeLoader = curry((store, { entity }, typeId) =>
-  entity.child(typeId).once('value')
+  getChild(entity, typeId)
   .then(handleInit(store))
 )
 export default function storeListener(store, firebase) {

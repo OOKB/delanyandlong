@@ -1,6 +1,5 @@
-import { entitySelector } from 'redux-graph'
+import { entityTypeSelector } from '@kaicurry/redux-graph'
 
-import { select } from 'cape-select'
+export const OT_USER = 'OrderTrackUser'
 
-export const getUser = select(entitySelector, 'user0')
-export const getUserId = select(getUser, 'id')
+export const users = entityTypeSelector(OT_USER)

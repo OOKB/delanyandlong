@@ -8,9 +8,9 @@ import { getState } from 'redux-field'
 import { createSelector, createStructuredSelector } from 'reselect'
 import { fieldValidation } from 'cape-validate'
 import { getSelect, select } from 'cape-select'
-import { entitySelector } from 'redux-graph'
 
 import { getDb } from './'
+import { users } from './user'
 
 // Login fields.
 const custNum = {
@@ -73,7 +73,7 @@ export const showZip = overEvery(acctNumValid, acctNumId)
 export const zipState = formState(zip)
 export const zipValue = flow(select(zipState, 'value'), toUpper)
 export const getCustomerZip = flow(
-  getSelect(entitySelector, acctNumId),
+  getSelect(users, acctNumId),
   property('postalCode')
 )
 export const zipMatch = flow(

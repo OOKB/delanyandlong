@@ -6,9 +6,9 @@ import Button from '../Button'
 function ProjectLink(list) {
   const { edit, title } = list
   return (
-    <li className="p1 bt1 fs0p8 ls0p15">
+    <li className="p1 bt1 fs0p8 ls0p15 relative">
       <Link className="block uppercase" href={projectLink(list)}>{title}</Link>
-      {title !== 'Favorites' && <Button icon="pencil" onClick={edit} />}
+      {title !== 'Favorites' && <Button icon="pencil" className="top-1 right-0" onClick={edit} />}
     </li>
   )
 }

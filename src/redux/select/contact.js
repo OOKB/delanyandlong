@@ -15,10 +15,8 @@ const offices = {
   main: [ 'dlheadquarters' ],
   us: [
     'NYCshowroom',
-    'ariz',
     'bostonNE',
     'chicago',
-    'mountainStates',
     'connecticutEtc',
     'dallas',
     'washingtonDC',
@@ -28,6 +26,7 @@ const offices = {
     'laWestCoast',
     'newjersey',
     'midatlantic',
+    'rockies',
     'sanfranWestCoast',
     'southeast',
     'northwest',

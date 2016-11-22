@@ -27,16 +27,6 @@
   telephone: "203.532.0010"
   faxNumber: "203.532.0032"
 -
-  id: "ariz"
-  contactType: "Arizona Showroom"
-  name: "TOWN"
-  address:
-    - "2716 North 68th Street, Suite 7"
-    - "Scottsdale, AZ 85257"
-  email: "infoAZ@townstudio.com"
-  telephone: "480.214.4792"
-  faxNumber: "602.297.6821"
--
   id: "bostonNE"
   contactType: "Boston and Northeast US"
   name: "Karen Walls"
@@ -51,16 +41,6 @@
     - "Chicago, IL 60654"
   email: "nancy_cordin@cowtan.com"
   telephone: "312.644.0717"
--
-  id: "mountainStates"
-  contactType: "Colorado and Mountain States Showroom"
-  name: "TOWN"
-  address:
-    - "601 South Broadway"
-    - "Suite A"
-    - "Denver CO 80209"
-  email: "jeremy@townstudio.com"
-  telephone: "303.282.8696"
 -
   id: "connecticutEtc"
   contactType: "Connecticut, Rhode Island, Long Island & Westchester Representative"
@@ -139,6 +119,12 @@
     - "Philadelphia PA 19103"
   email: "sharrington@shaenharringtoninc.com"
   telephone: "215.567.2181"
+-
+  id: "rockies"
+  contactType: "Rocky Mountain Representative"
+  name: "Richard Moreau Lovelace"
+  email: "richard@rogersandgoffigon.com"
+  telephone: "Cell: 303.999.6703, Office: 720.458.0278"
 -
   id: "sanfranWestCoast"
   contactType: "San Francisco Showroom"

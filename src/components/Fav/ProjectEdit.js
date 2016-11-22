@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { defaultTo, partial, unary } from 'lodash'
+import { defaultTo, partial } from 'lodash'
 import { clear, onChange, fieldValue } from 'redux-field'
 import { editCollection } from 'cape-redux-collection'
 import Button from '../Button'
@@ -44,7 +44,7 @@ ProjectEdit.defaultProps = {
 const prefix = [ 'collection', 'title' ]
 function getState(state) { return { value: fieldValue(prefix)(state) } }
 const actions = {
-  close: unary(partial(editCollection, null)),
+  close: partial(editCollection, null),
   clearField: partial(clear, prefix),
   handleChange: partial(onChange, prefix),
 }

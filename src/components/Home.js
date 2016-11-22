@@ -13,7 +13,7 @@ function Home({ imgSize, items, missingImage }) {
   return (
     <div id="home">
       <Header />
-      <Drawer />
+      {/* <Drawer /> */}
       {(!items || !items.length) &&
         <div className="temporary filler">
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">

@@ -71,7 +71,7 @@ export const handleInit = curry(({ dispatch }, type, result) => {
     (item.id && item.type && item) || { ...item, id, type }
   )
   if (isEmpty(payload)) return null
-  return dispatch({ type: ENTITY_PUTALL, payload })
+  return dispatch({ type: ENTITY_PUTALL, payload, meta: { sendSocket: false } })
 })
 export const typeLoader = curry((store, { entity }, typeId) =>
   getChild(entity, typeId).then(handleInit(store, typeId))

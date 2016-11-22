@@ -7,11 +7,13 @@ import Footer from './Footer'
 import Icon from './Icon'
 import ItemGrid from './ItemGrid'
 import Logo from './Logo'
+import Drawer from './Drawer'
 
 function Home({ imgSize, items, missingImage }) {
   return (
     <div id="home">
       <Header />
+      <Drawer />
       {(!items || !items.length) &&
         <div className="temporary filler">
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">

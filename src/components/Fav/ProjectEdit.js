@@ -18,15 +18,15 @@ function ProjectEdit({ clearField, close, handleChange, onSubmit, id, title, val
     clearField()
   }
   return (
-    <li className="p1 bt1 fs0p8 ls0p15">
+    <li className="p1 bt1 fs0p8 ls0p15 relative">
       <form onSubmit={handleSubmit}>
         <label htmlFor={id}>
           {label}
           <input id={id} type="text" onChange={handleChange} value={defaultTo(value, title)} />
         </label>
-        {value && <input type="submit" value="Submit" />}
+        {value && <input type="submit" value="Submit" className="bg-gold b0 ml0p25 white" />}
       </form>
-      <Button onClick={cancel} icon="close" />
+      <Button onClick={cancel} icon="times-btl" className="top-1 right-0" />
     </li>
   )
 }

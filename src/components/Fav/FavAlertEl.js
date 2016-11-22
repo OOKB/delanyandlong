@@ -10,7 +10,7 @@ function FavAlert({ listItem, message, onClose, schema, viewText }) {
   return (
     <Box onClose={onClose} message={message}>
       <ul className="list-reset mb1">
-        <li><Field {...schema.position} /></li>
+        {/* <li><Field {...schema.position} /></li> */}
         <li><Field {...schema.description} /></li>
       </ul>
       {collectionUrl &&

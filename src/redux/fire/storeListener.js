@@ -58,8 +58,7 @@ export const handleRemoved = curry(({ dispatch }, change) =>
   dispatch(entityDel(change.val()))
 )
 export const typeListener = curry((store, { entity }, typeId) =>
-  entity.child(typeId).orderByChild('dateModified').limitToLast(1)
-  .on('child_changed', handleChanged(store))
+  entity.child(typeId).on('child_changed', handleChanged(store))
 )
 export const typeDelete = curry((store, { entity }, typeId) =>
   entity.child(typeId).on('child_removed', handleRemoved(store))

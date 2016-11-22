@@ -1,6 +1,6 @@
 import immutable from 'seamless-immutable'
 import { applyMiddleware, createStore } from 'redux'
-import { entityPutAll } from 'redux-graph'
+import { entityPutAll } from '@kaicurry/redux-graph'
 import reducer from 'cape-redux-reducer'
 import thunk from 'redux-thunk'
 

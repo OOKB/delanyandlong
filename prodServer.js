@@ -1,6 +1,5 @@
 import { extname, resolve } from 'path'
 import Hapi from 'hapi'
-import Basic from 'hapi-auth-basic'
 import Inert from 'inert'
 
 const server = new Hapi.Server()
@@ -8,7 +7,7 @@ server.connection({
   host: 'localhost',
   port: 3005,
 })
-server.register([ Basic, Inert ])
+server.register([ Inert ])
 
 export function basicAuth(request, username, password, callback) {
   // console.log(username, password)
@@ -31,9 +30,9 @@ export function website({ info: { hostname, remotePort }, url }, reply) {
   return staticFile({ basePath, pathname }, reply)
 }
 
-server.auth.strategy('simple', 'basic', {
-  validateFunc: basicAuth,
-})
+// server.auth.strategy('simple', 'basic', {
+//   validateFunc: basicAuth,
+// })
 
 server.route({
   method: 'GET',

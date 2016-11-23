@@ -4,14 +4,10 @@ import Close from '../CloseButton'
 
 function FavAlertBox({ children, message, onClose }) {
   return (
-    <div className="favorite popup absolute p1" style={{ zIndex: 10 }}>
+    <div className="favorite popup absolute p1 z10">
       <Close onClick={onClose} />
-      <div className="outer">
-        <div className="inner">
-          {message && <p className="m0 mb1">{message}</p>}
-          {children}
-        </div>
-      </div>
+      {message && <p className="m0 mb1">{message}</p>}
+      {children}
     </div>
   )
 }

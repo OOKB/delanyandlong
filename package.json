@@ -59,8 +59,8 @@
     "cape-redux": "^2.2.1",
     "cape-redux-auth": "^3.0.1",
     "cape-redux-collection": "^3.3.0",
-    "cape-redux-reducer": "^2.2.0",
-    "cape-redux-socket": "^3.0.1",
+    "cape-redux-reducer": "^2.2.1",
+    "cape-redux-socket": "^3.0.2",
     "cape-select": "^2.3.1",
     "cape-validate": "^1.0.2",
     "classnames": "^2.2.5",
@@ -82,7 +82,7 @@
     "redux": "^3.6.0",
     "redux-field": "^3.4.1",
     "redux-graph": "^1.7.1",
-    "redux-history-component": "^1.0.1",
+    "redux-history-component": "^1.0.2",
     "redux-history-sync": "^3.0.1",
     "redux-localstorage": "^1.0.0-rc4",
     "redux-thunk": "^2.1.0",
@@ -126,6 +126,7 @@
     "tape": "^4.6.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-visualizer-plugin": "^0.1.5"
   }
 }

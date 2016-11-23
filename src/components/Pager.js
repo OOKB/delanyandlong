@@ -41,13 +41,15 @@ function Pager(props) {
           className={[ 'color', 'small-stack' ]}
         />
       }
-      <SelectEl
-        label="View Qty"
-        options={pageSizeOptions}
-        prefix={pgSizePrefix}
-        value={pgSize.toString()}
-        className={[ 'Qty', 'small-stack' ]}
-      />
+      {displayStyle.active !== 'film' &&
+        <SelectEl
+          label="View Qty"
+          options={pageSizeOptions}
+          prefix={pgSizePrefix}
+          value={pgSize.toString()}
+          className={[ 'Qty', 'small-stack' ]}
+        />
+      }
       <DiscToggle />
       <div className="pagecount">{pageCount}</div>
       <button onClick={next} className={pgBtnClass('next', !hasMore)} disabled={!hasMore}>

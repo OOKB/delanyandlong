@@ -6,7 +6,7 @@ function Drawer({ blurb, collectionLink, onClose, sisterSite, title }) {
   return (
     <section className="drawer bg-light-gold p2 relative inset-shadow">
 
-      <Close onClick={onClose} className="right-1 top-1" />
+      <Close onClick={onClose} className="close right-1 top-1" />
 
       <div className="mb0 pb0 maxw50rem mlrauto clearfix">
 

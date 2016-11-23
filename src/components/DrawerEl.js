@@ -26,9 +26,9 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
             </Link>
           </p>
           <p className="mt1 p0 mono">
-            <Link href={sisterSite.href} title={sisterSite.title}>
+            <a href={sisterSite.href} title={sisterSite.title}>
               {sisterSite.title}
-            </Link>
+            </a>
           </p>
         </div>
 
@@ -60,7 +60,7 @@ Drawer.defaultProps = {
   img: 'https://delanyandlong.imgix.net/drawer/20161123-dlAnouncement.jpg?w=400',
   sisterSite: {
     title: 'Explore the Rogers & Goffigon collection.',
-    href: 'http://www.rogersandgoffigon.com/',
+    href: 'http://www.rogersandgoffigon.com/#collection',
   },
   title: 'DeLany & Long is excited to announce a brand new website!',
 }

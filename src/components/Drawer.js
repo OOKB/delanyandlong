@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Link from 'redux-history-component'
 import Close from './CloseButton'
 
-function Drawer({ blurb, collectionLink, disclaimer, onClose, sisterSite, title }) {
+function Drawer({ blurb, collectionLink, onClose, sisterSite, title }) {
   return (
     <section className="drawer bg-light-gold p2 relative inset-shadow">
 
@@ -10,16 +10,24 @@ function Drawer({ blurb, collectionLink, disclaimer, onClose, sisterSite, title 
 
       <div className="mb0 pb0 maxw50rem mlrauto clearfix">
 
-        <img alt="a thing" className="six columns mb0 b1 p05 white" src="https://b2.cape.io/file/delanyandlong/test7.jpg" />
+        <img
+          alt="A Meta Website Self-Portrait"
+          className="six columns mb0 b1 p05 white"
+          src="https://delanyandlong.imgix.net/drawer/20161123-dlAnouncement.jpg?w=400"
+        />
 
         <div className="six columns mb0">
           <h1 className="dark-gold m0 mb05">{title}</h1>
           <p className="m0">{blurb}</p>
           <p className="mt1 p0 mono">
-            <Link href={collectionLink.href} title={collectionLink.title}>{collectionLink.title}</Link>
+            <Link href={collectionLink.href} title={collectionLink.title}>
+              {collectionLink.title}
+            </Link>
           </p>
           <p className="mt1 p0 mono">
-            <Link href={sisterSite.href} title={sisterSite.title}>{sisterSite.title}</Link>
+            <Link href={sisterSite.href} title={sisterSite.title}>
+              {sisterSite.title}
+            </Link>
           </p>
         </div>
 
@@ -42,11 +50,11 @@ Drawer.defaultProps = {
   disclaimer: 'All fabrics sold as is. All sales Final. No returns or exchanges. Payment by check or credit card.',
   title: 'DeLany & Long is excited to announce a brand new website!',
   collectionLink: {
-    title: 'Explore the Delany & Long collection here.',
+    title: 'Explore the Delany & Long collection.',
     href: 'collection',
   },
   sisterSite: {
-    title: 'Explore the Rogers & Goffigon collection here.',
+    title: 'Explore the Rogers & Goffigon collection.',
     href: 'http://www.rogersandgoffigon.com/',
   },
 }

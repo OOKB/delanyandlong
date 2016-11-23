@@ -6,6 +6,7 @@ import {
 } from '@kaicurry/redux-graph'
 import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
+export const DRAWER = 'HomeDrawer'
 export const OT_ITEM = 'OrderTrackItem'
 export const OT_USER = 'OrderTrackUser'
 
@@ -50,8 +51,11 @@ function handleAuth({ dispatch, getState }, { auth, user }, usr) {
 function handleLogout(store, isAnon, { auth }) {
   if (isAnon) auth.signOut()
 }
-export const handleChanged = curry(({ dispatch, getState }, change) => {
-  const newVal = change.val()
+export const ensureIdType = curry((type, item, id) =>
+  (item.id && item.type && item) || { ...item, id, type }
+)
+export const handleChanged = curry(({ dispatch, getState }, typeId, change) => {
+  const newVal = ensureIdType(typeId, change.val(), change.key)
   const oldVal = getEntity(getState(), newVal)
   if (oldVal && newVal.dateModified === oldVal.dateModified) return null
   // console.log('handleChanged', newVal.type, newVal.id, newVal.dateModified)
@@ -61,15 +65,13 @@ export const handleRemoved = curry(({ dispatch }, change) =>
   dispatch(entityDel(change.val()))
 )
 export const typeListener = curry((store, { entity }, typeId) =>
-  entity.child(typeId).on('child_changed', handleChanged(store))
+  entity.child(typeId).on('child_changed', handleChanged(store, typeId))
 )
 export const typeDelete = curry((store, { entity }, typeId) =>
   entity.child(typeId).on('child_removed', handleRemoved(store))
 )
 export const handleInit = curry(({ dispatch }, type, result) => {
-  const payload = map(result, (item, id) =>
-    (item.id && item.type && item) || { ...item, id, type }
-  )
+  const payload = map(result, ensureIdType(type))
   if (isEmpty(payload)) return null
   return dispatch({ type: ENTITY_PUTALL, payload, meta: { sendSocket: false } })
 })
@@ -82,6 +84,7 @@ export default function storeListener(store, firebase) {
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   // FIREBASE LOAD to REDUX
   const addTypeLoader = typeLoader(store, firebase)
+  addTypeLoader(DRAWER)
   addTypeLoader(OT_ITEM)
   .then(() => addTypeLoader(LIST_ITEM))
   .then(() => addTypeLoader(COLLECTION_TYPE))
@@ -91,5 +94,6 @@ export default function storeListener(store, firebase) {
   addTypeListener(COLLECTION_TYPE)
   addTypeListener(OT_ITEM)
   typeDelete(store, firebase, LIST_ITEM)
+  addTypeListener(DRAWER)
   return store
 }

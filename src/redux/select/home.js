@@ -1,5 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-import { filter, fill, flatten, flow, groupBy, map, sample, sampleSize } from 'lodash'
+import { filter, fill, flatten, flow, groupBy, map, negate, sample, sampleSize } from 'lodash'
+import { selectUser } from 'cape-redux-auth'
+import { select } from 'cape-select'
 
 import { itemsFilled } from './items'
 
@@ -22,4 +24,5 @@ export const homeItems = createSelector(patternIndex, duplicateItems)
 
 export const homeSelector = createStructuredSelector({
   items: homeItems,
+  showDrawer: negate(select(selectUser, 'drawer.newSite')),
 })

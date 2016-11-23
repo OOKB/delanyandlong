@@ -9,11 +9,11 @@ import ItemGrid from './ItemGrid'
 import Logo from './Logo'
 import Drawer from './Drawer'
 
-function Home({ imgSize, items, missingImage }) {
+function Home({ imgSize, items, missingImage, showDrawer }) {
   return (
     <div id="home">
       <Header />
-      <Drawer />
+      {showDrawer && <Drawer />}
       {(!items || !items.length) &&
         <div className="temporary filler">
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">
@@ -36,6 +36,7 @@ Home.propTypes = {
   imgSize: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   missingImage: PropTypes.func.isRequired,
+  showDrawer: PropTypes.bool.isRequired,
 }
 Home.defaultProps = {
   imgSize: '?w=240&h=168&crop=focalpoint&fit=crop&fp-x=.5&fp-y=.5&fp-z=2',

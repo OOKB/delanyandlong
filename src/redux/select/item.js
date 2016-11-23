@@ -10,7 +10,7 @@ import { filterPerms } from './perms'
 
 // Get the id from the URL.
 export function getItemId(state, props) {
-  return props.route.params._
+  return decodeURIComponent(props.route.params._)
 }
 // Grab item at index.
 export const getItemDetail = getSelect(itemsFilled, getItemId)

@@ -33,7 +33,7 @@ export function itemFill(item, catCodeIndex) {
 export const orderTrackItems = entityTypeSelector('OrderTrackItem')
 // Define what a "valid" base item is.
 export function isValidItem(entity) {
-  return entity.id.startsWith('DL')
+  return entity.id.startsWith('DL') && entity.category
 }
 // Accepts object and returns new object of only valid items.
 export const filterValid = pickBy(isValidItem)

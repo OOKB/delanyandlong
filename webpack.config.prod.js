@@ -21,6 +21,7 @@ module.exports = {
         SOCKET_LOC: JSON.stringify('http://socket.cape.io/'),
       },
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,

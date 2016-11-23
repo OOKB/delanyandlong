@@ -1,13 +1,13 @@
 import { extname, resolve } from 'path'
 import Hapi from 'hapi'
-import Inert from 'inert'
+// import Inert from 'inert'
 
 const server = new Hapi.Server()
 server.connection({
   host: 'localhost',
   port: 3005,
 })
-server.register([ Inert ])
+// server.register([ Inert ])
 
 export function basicAuth(request, username, password, callback) {
   // console.log(username, password)
@@ -38,12 +38,12 @@ server.route({
   method: 'GET',
   path: '/{path*}',
   config: {
-    auth: 'simple',
+    // auth: 'simple',
     handler: website,
   },
 })
 // Start the server
-server.start(err => {
+server.start((err) => {
   if (err) throw err
   console.log('Server running at:', server.info.uri)
 })

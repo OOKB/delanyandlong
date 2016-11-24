@@ -9,15 +9,21 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
 
       <Close onClick={partial(onClose, user, id)} className="close right-1 top-1" />
 
-      <div className="mb0 pb0 maxw50rem mlrauto clearfix">
+      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
 
         <img
           alt="A Meta Website Self-Portrait"
-          className="six columns mb0 b1 p05 white"
+          className="eight pb1 m0"
           src={img}
         />
 
-        <div className="six columns mb0">
+        {/* <img
+          alt="A Meta Website Self-Portrait"
+          className="six columns mb0 b1 p05 white mlrauto"
+          src={img}
+        /> */}
+
+        {/* <div className="six columns mb0">
           <h1 className="dark-gold m0 mb05">{title}</h1>
           <p className="m0">{blurb}</p>
           <p className="mt1 p0 mono">
@@ -30,7 +36,7 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
               {sisterSite.title}
             </a>
           </p>
-        </div>
+        </div> */}
 
       </div>
 
@@ -57,7 +63,7 @@ Drawer.defaultProps = {
   },
   disclaimer: 'All fabrics sold as is. All sales Final. No returns or exchanges. Payment by check or credit card.',
   id: 'newSite',
-  img: 'https://delanyandlong.imgix.net/drawer/20161123-dlAnouncement.jpg?w=400',
+  img: 'https://delanyandlong.imgix.net/drawer/20161123-dlAnouncementOrig.png?w=700',
   sisterSite: {
     title: 'Explore the Rogers & Goffigon collection.',
     href: 'http://www.rogersandgoffigon.com/#collection',

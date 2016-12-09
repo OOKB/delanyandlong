@@ -31,7 +31,7 @@ const offices = {
     'southeast',
     'northwest',
   ],
-  world: [ 'pacificrim', 'europe', 'canada' ],
+  world: [ 'southAmerica', 'europe', 'canada' ],
 }
 export const officeListSelector = constant(offices)
 export const officeSelector = createSelector(entitySelector, officeListSelector, getObjIds)

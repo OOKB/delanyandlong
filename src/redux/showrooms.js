@@ -8,7 +8,7 @@ export default [
     ],
     telephone: '203-532-8068',
     type: 'Showroom',
-    'fax': '203-532-9514',
+    fax: '203-532-9514',
   },
   {
     id: 'NYCshowroom',
@@ -33,7 +33,7 @@ export default [
     email: 'customerservice@delanyandlong.com',
     telephone: '203.532.0010',
     type: 'Showroom',
-    'fax': '203.532.0032',
+    fax: '203.532.0032',
   },
   {
     id: 'bostonNE',
@@ -195,12 +195,12 @@ export default [
     telephone: '206.618.4145',
   },
   {
-    id: 'pacificrim',
-    title: 'Australia, New Zealand, Singapore Representative',
-    name: 'Caterina Ferrari',
-    email: 'caterina@rogersandgoffigon.com',
+    id: 'southAmerica',
+    title: 'South America Representative',
+    name: 'M. Fernanda Eyzaguirre',
+    email: 'fernanda@rogersandgoffigon.com',
     type: 'Showroom',
-    telephone: '+61 (0)4 2213 0584',
+    telephone: 'Cell: +56 (9) 9974 4255, Office: +56 (2) 2208 3561',
   },
   {
     id: 'europe',

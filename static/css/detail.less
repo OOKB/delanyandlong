@@ -97,12 +97,12 @@
   .item-information > ul {
     text-align: left;
     padding: 0 0 0 3rem;
-    display: flex;
+    .flex;
   }
   .item-information > ul li {
     border-left: 1px solid;
     padding: 1em;
-    flex: 1;
+    .flexItem;
   }
   .item-information > ul li + li {
     margin-top: 0;
@@ -189,21 +189,21 @@
 }
 
 #related-colors ul {
-  display: flex;
+  .flex;
   height: calc(64px - 1.5rem);
   overflow: hidden;
 }
 
 @media (min-width: @main-break) {
   #related-colors ul {
-    display: flex;
+    .flex;
     overflow: hidden;
     justify-content: center;
   }
 }
 
 #related-colors ul li {
-  flex: 1;
+  .flexItem;
   height: 100%;
 }
 

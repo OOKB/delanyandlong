@@ -4,6 +4,13 @@
 /******************************************/
 /******************************************/
 
+.flex {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+}
+
 /** design the pager <> a bit better **/
 #pager {
   margin-top: -1px;
@@ -11,6 +18,9 @@
 }
 
 #pager > button.control {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   height: 3rem;
 
@@ -29,6 +39,9 @@
   background-color: @gold;
 }
 #pager > div {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
   flex: 2;
 }
 #pager > button.control,
@@ -222,7 +235,11 @@ button.summerSale:hover {
     border-top-right-radius: 1em;
   }
   .select-type .flex-center {
-    flex-direction: column;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -webkit-flex-direction:column;
+    -ms-flex-direction:column;
+    flex-direction:column;
   }
   .select-type button {
     line-height: 1.5rem;
@@ -234,7 +251,11 @@ button.summerSale:hover {
 
 @media (min-width: @main-break) {
   .select-type .flex-center {
-    flex-direction: row;
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -webkit-flex-direction:row;
+    -ms-flex-direction:row;
+    flex-direction:row;
   }
 
   .button-group button + button {
@@ -256,6 +277,9 @@ button.summerSale:hover {
 /**** TRYING TO FIGURE OUT FILTERS ON MOBILE? ****/
 @media (max-width: 1000px) {
   #pager > div:first-of-type {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
     flex: 3;
   }
 }
@@ -266,9 +290,15 @@ button.summerSale:hover {
     margin-bottom: calc(2rem + 2px);
   }
   #pager > div.inputSelect {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
     flex: 2;
   }
   #pager > div.inputSelect:nth-child(4) {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
   }
   #pager > div.inputSelect select {
@@ -324,11 +354,22 @@ button.summerSale:hover {
 
 @media (max-width: 600px) {
   .tableKey {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
   }
   .tableKey li {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 50%;
+    -ms-flex: 1 50%;
     flex: 1 50%;
   }
 }

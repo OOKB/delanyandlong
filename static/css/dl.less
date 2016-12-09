@@ -90,12 +90,12 @@ code.uppercase {
 }
 
 .list-inline {
-  display:flex;
+  .flex;
   justify-content: center;
 }
 
 .list-inline li {
-  flex: 1;
+  .flexItem;
   text-align: center;
 }
 
@@ -616,19 +616,25 @@ a:hover,
 
 /**/
 .flex-center {
-  display: flex;
-  align-items: center;
+  .flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
 }
 
 .flex-center.text-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .flex-center > *,
 .flex-center .flex-item {
-  flex: 1;
+  .flexItem;
 }
 
 /**/

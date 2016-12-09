@@ -63,7 +63,7 @@ Drawer.defaultProps = {
   },
   disclaimer: 'All fabrics sold as is. All sales Final. No returns or exchanges. Payment by check or credit card.',
   id: 'newSite',
-  img: 'https://delanyandlong.imgix.net/drawer/20161129-dlAnouncement.png?w=700',
+  img: 'https://delanyandlong.imgix.net/drawer/20161208-dlAnouncement.png?w=700',
   sisterSite: {
     title: 'Explore the Rogers & Goffigon collection.',
     href: 'http://www.rogersandgoffigon.com/#collection',

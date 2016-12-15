@@ -1,8 +1,7 @@
 import {
   createHistory, parseUrl, restoreHistory, selectHistoryState, selectActiveKey,
 } from 'redux-history-sync'
-import find from 'lodash/find'
-import orderBy from 'lodash/orderBy'
+import { find, orderBy, startsWith } from 'lodash'
 
 export function selectPrevious(state) {
   const historyState = selectHistoryState(state)
@@ -12,7 +11,7 @@ export function selectPrevious(state) {
 }
 
 export function isNonDetail({ location: { pathname } }) {
-  return !pathname.startsWith('/detail/')
+  return !startsWith(pathname, '/detail/')
 }
 
 export function findNonDetail(state) {

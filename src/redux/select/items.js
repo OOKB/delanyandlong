@@ -1,6 +1,6 @@
 import {
   compact, cond, constant, curry, every, flatten, flow, filter, includes, isEmpty,
-  map, method, mapValues, stubTrue, uniq,
+  map, method, mapValues, startsWith, stubTrue, uniq,
 } from 'lodash'
 import { concat, orderBy, pickBy, pluck } from 'lodash/fp'
 import { createSelector } from 'reselect'
@@ -33,7 +33,7 @@ export function itemFill(item, catCodeIndex) {
 export const orderTrackItems = entityTypeSelector('OrderTrackItem')
 // Define what a "valid" base item is.
 export function isValidItem(entity) {
-  return entity.id.startsWith('DL') && entity.category
+  return startsWith(entity.id, 'DL') && entity.category
 }
 // Accepts object and returns new object of only valid items.
 export const filterValid = pickBy(isValidItem)

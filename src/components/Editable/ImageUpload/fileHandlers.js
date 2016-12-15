@@ -1,5 +1,4 @@
-import curry from 'lodash/curry'
-import includes from 'lodash/includes'
+import { curry, includes, startsWith } from 'lodash'
 
 import { loadImageUrl } from './process'
 
@@ -45,7 +44,7 @@ export const handleFileSelect = curry((props, event) => {
   // # Fetch file list object.
   const files = event.target.files || event.dataTransfer.files
   const file = files[0]
-  if (!file.type.startsWith('image')) {
+  if (!startsWith(file.type, 'image')) {
     return fieldEvent.error('Only image uploads are allowed.')
   }
   if (!includes(accept, file.type)) {

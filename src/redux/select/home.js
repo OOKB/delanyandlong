@@ -7,7 +7,7 @@ import { itemsFilled } from './items'
 
 export const filterOutMissingImages = createSelector(
   itemsFilled,
-  items => filter(items, item => (item.category !== 'trim' && item.hasImage))
+  items => filter(items, item => (item.hasImage && item.category !== 'trim'))
 )
 
 export const patternIndex = createSelector(
@@ -18,7 +18,7 @@ export function randomPatternItems(patterns) { return map(sampleSize(patterns, 1
 // Get random selection of pattern items and then duplicate it.
 export const duplicateItems = flow(
   randomPatternItems,
-  items => flatten(fill(Array(6), items))
+  items => flatten(fill(Array(20), items))
 )
 export const homeItems = createSelector(patternIndex, duplicateItems)
 

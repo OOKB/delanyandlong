@@ -13,6 +13,9 @@ import { discFilter } from './disc'
 export const activeColor = getFilter('color')
 // const CDN = 'https://3f363c8bf5767a720417-fdf7aa33c10c7fb6e1c8c4e342fa358c.ssl.cf5.rackcdn.com'
 const CDN = 'https://delanyandlong.imgix.net'
+export function getImgUrl(id) {
+  return `${CDN}/${id.replace('|', '-')}.jpg`
+}
 export function itemFill(item, catCodeIndex) {
   if (!item || !item.id) return item
   const { id, category, colors, contents, name, patternNumber, price } = item
@@ -24,7 +27,7 @@ export function itemFill(item, catCodeIndex) {
     color,
     colorNumber,
     link: `/detail/${id}`,
-    img: `${CDN}/${id.replace('|', '-')}.jpg`,
+    img: getImgUrl(id),
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents + name + id).toLowerCase(),
   }

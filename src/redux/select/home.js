@@ -18,7 +18,7 @@ export function randomPatternItems(patterns) { return map(sampleSize(patterns, 1
 // Get random selection of pattern items and then duplicate it.
 export const duplicateItems = flow(
   randomPatternItems,
-  items => flatten(fill(Array(20), items))
+  items => flatten(fill(Array(9), items))
 )
 export const homeItems = createSelector(patternIndex, duplicateItems)
 

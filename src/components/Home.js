@@ -7,7 +7,7 @@ import Footer from './Footer'
 import Icon from './Icon'
 import ItemGrid from './ItemGrid'
 import Logo from './Logo'
-import Drawer from './Drawer'
+// import Drawer from './Drawer'
 
 function Home({ imgSize, items, missingImage, showDrawer }) {
   return (

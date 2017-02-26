@@ -24,6 +24,7 @@ function Contact({ contactText, offices }) {
             <Offices items={offices.us} />
           </div>
           <div className="europe pacific bt1 pt4 pb2">
+            <h2 className="all-caps m0 mb2 fs0p8">International Representatives</h2>
             <Offices items={offices.world} />
           </div>
         </section>

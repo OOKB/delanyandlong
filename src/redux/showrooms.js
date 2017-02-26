@@ -222,4 +222,11 @@ export default [
     type: 'Showroom',
     telephone: '416.921.3334',
   },
+  {
+    id: 'southPacific',
+    title: 'Australia and New Zealand',
+    name: 'Peg Winship',
+    email: 'peg@rogersandgoffigon.com',
+    telephone: '1.206.618.4145',
+  },
 ]

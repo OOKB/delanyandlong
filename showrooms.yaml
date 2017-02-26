@@ -170,3 +170,9 @@
   addressCountry: Canada
   email: "diego@primavera.ca"
   telephone: "416.921.3334"
+-
+  id: "southPacific"
+  contactType: "Australia and New Zealand"
+  name: "Peg Winship"
+  email: "peg@rogersandgoffigon.com"
+  telephone: "1.206.618.4145"

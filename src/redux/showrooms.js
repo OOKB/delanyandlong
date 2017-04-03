@@ -224,9 +224,9 @@ export default [
   },
   {
     id: 'southPacific',
-    title: 'Australia and New Zealand',
+    title: 'Australia and New Zealand Representative',
     name: 'Peg Winship',
     email: 'peg@rogersandgoffigon.com',
-    telephone: '1.206.618.4145',
+    telephone: '001.206.618.4145',
   },
 ]

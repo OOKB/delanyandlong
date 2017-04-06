@@ -24,7 +24,18 @@ const custNum = {
 export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
 
 const validZipCountries = map([
-  'AUSTRALIA', 'BRAIL', 'Canada', 'CHINA', 'FRANCE', 'MEXICO', 'NETHERLAND',
+  'AUSTRALIA',
+  'BRAZIL',
+  'Brazil',
+  'BRAIL',
+  'CANADA',
+  'Canada',
+  'CHILE',
+  'Chile',
+  'CHINA',
+  'FRANCE',
+  'MEXICO',
+  'NETHERLAND',
 ], toUpper)
 export const isValidCountry = flow(toUpper, method('slice', 0, 10), oneOf(validZipCountries))
 

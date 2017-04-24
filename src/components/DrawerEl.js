@@ -11,19 +11,19 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
 
       <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
 
-        <img
+        {/* <img
           alt="A Meta Website Self-Portrait"
           className="eight pb1 m0"
           src={img}
         />
-
-        {/* <img
+ */}
+        <img
           alt="A Meta Website Self-Portrait"
           className="six columns mb0 b1 p05 white mlrauto"
           src={img}
-        /> */}
+        />
 
-        {/* <div className="six columns mb0">
+        <div className="six columns mb0">
           <h1 className="dark-gold m0 mb05">{title}</h1>
           <p className="m0">{blurb}</p>
           <p className="mt1 p0 mono">
@@ -36,7 +36,7 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
               {sisterSite.title}
             </a>
           </p>
-        </div> */}
+        </div>
 
       </div>
 

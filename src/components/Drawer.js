@@ -11,6 +11,7 @@ export const mapStateToProps = createStructuredSelector({
 })
 
 function update(user, drawerId) {
+  console.log(user, drawerId)
   return entityUpdate({ type: user.type, id: user.id, drawer: { [drawerId]: true } })
 }
 const mapDispatchToProps = {

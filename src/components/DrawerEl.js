@@ -50,7 +50,7 @@ Drawer.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  imgSize: PropTypes.number.isRequired,
+  imgSize: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   sisterSite: urlProp,
   title: PropTypes.string.isRequired,

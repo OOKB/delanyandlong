@@ -1,10 +1,10 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 import { filter, fill, flatten, flow, groupBy, map, negate, sample, sampleSize } from 'lodash'
 import { selectUser } from 'cape-redux-auth'
-import { select } from 'cape-select'
+import { getSelect, select } from 'cape-select'
 
 import { itemsFilled } from './items'
-import { selectActiveDrawer } from './homeDrawerShare'
+import { activeId, selectActiveDrawer } from './homeDrawerShare'
 
 export const filterOutMissingImages = createSelector(
   itemsFilled,
@@ -22,9 +22,10 @@ export const duplicateItems = flow(
   items => flatten(fill(Array(9), items))
 )
 export const homeItems = createSelector(patternIndex, duplicateItems)
-
+export const userDrawer = select(selectUser, 'drawer')
+export const userDrawerClosed = getSelect(userDrawer, activeId)
 export const homeSelector = createStructuredSelector({
   drawer: selectActiveDrawer,
   items: homeItems,
-  showDrawer: negate(select(selectUser, 'drawer.newSite')),
+  showDrawer: negate(userDrawerClosed),
 })

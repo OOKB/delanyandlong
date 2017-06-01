@@ -10,7 +10,6 @@ import Logo from './Logo'
 import Drawer from './Drawer'
 
 function Home({ drawer, imgSize, items, missingImage, showDrawer }) {
-  console.log(drawer)
   return (
     <div id="home">
       <Header />

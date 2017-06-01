@@ -3,7 +3,10 @@ import { partial } from 'lodash'
 import Link from 'redux-history-component'
 import Close from './CloseButton'
 
-function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, user }) {
+function Drawer(props) {
+  const {
+    collectionLink, description, id, image, imgSize, onClose, sisterSite, title, user,
+  } = props
   return (
     <section className="drawer bg-light-gold p2 relative inset-shadow">
 
@@ -11,31 +14,25 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
 
       <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
 
-        {/* <img
-          alt="A Meta Website Self-Portrait"
-          className="eight pb1 m0"
-          src={img}
-        />
- */}
         <img
-          alt="A Meta Website Self-Portrait"
+          alt={title}
           className="six columns mb0 b1 p05 white mlrauto"
-          src={img}
+          src={image + imgSize}
         />
 
         <div className="six columns mb0">
           <h1 className="dark-gold m0 mb05">{title}</h1>
-          <p className="m0">{blurb}</p>
-          <p className="mt1 p0 mono">
+          <p className="m0">{description}</p>
+          {collectionLink && <p className="mt1 p0 mono">
             <Link href={collectionLink.href} title={collectionLink.title}>
               {collectionLink.title}
             </Link>
-          </p>
-          <p className="mt1 p0 mono">
+          </p>}
+          {sisterSite && <p className="mt1 p0 mono">
             <a href={sisterSite.href} title={sisterSite.title}>
               {sisterSite.title}
             </a>
-          </p>
+          </p>}
         </div>
 
       </div>
@@ -44,31 +41,31 @@ function Drawer({ blurb, collectionLink, id, img, onClose, sisterSite, title, us
   )
 }
 
-Drawer.propTypes = {
-  blurb: PropTypes.string.isRequired,
-  collectionLink: PropTypes.object.isRequired,
-  disclaimer: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
-  sisterSite: PropTypes.object.isRequired,
+const urlProp = PropTypes.shape({
+  href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired,
+})
+Drawer.propTypes = {
+  collectionLink: urlProp,
+  description: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  imgSize: PropTypes.number.isRequired,
+  onClose: PropTypes.func.isRequired,
+  sisterSite: urlProp,
+  title: PropTypes.string.isRequired,
+  user: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Drawer.defaultProps = {
-  blurb: 'Among many features, the DeLany & Long website links to the Rogers & Goffigon website, so you can easily view both collections.',
   collectionLink: {
     title: 'Explore the Delany & Long collection.',
     href: 'collection',
   },
-  disclaimer: 'All fabrics sold as is. All sales Final. No returns or exchanges. Payment by check or credit card.',
-  id: 'newSite',
-  img: 'https://delanyandlong.imgix.net/drawer/20161208-dlAnouncement.png?w=700',
+  imgSize: '?w=700',
   sisterSite: {
     title: 'Explore the Rogers & Goffigon collection.',
     href: 'http://www.rogersandgoffigon.com/#collection',
   },
-  title: 'DeLany & Long is excited to announce a brand new website!',
 }
 
 export default Drawer

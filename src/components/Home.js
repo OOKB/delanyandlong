@@ -7,13 +7,14 @@ import Footer from './Footer'
 import Icon from './Icon'
 import ItemGrid from './ItemGrid'
 import Logo from './Logo'
-// import Drawer from './Drawer'
+import Drawer from './Drawer'
 
-function Home({ imgSize, items, missingImage }) {
+function Home({ drawer, imgSize, items, missingImage, showDrawer }) {
+  console.log(drawer)
   return (
     <div id="home">
       <Header />
-      {/* {showDrawer && <Drawer />} */}
+      {drawer && showDrawer && <Drawer {...drawer} />}
       {(!items || !items.length) &&
         <div className="temporary filler">
           <div className="logoPlaceholder mlrauto halfwidth mt15p text-center">
@@ -33,6 +34,7 @@ function Home({ imgSize, items, missingImage }) {
 }
 
 Home.propTypes = {
+  drawer: PropTypes.object,
   imgSize: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   missingImage: PropTypes.func.isRequired,

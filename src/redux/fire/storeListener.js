@@ -6,9 +6,11 @@ import {
 } from '@kaicurry/redux-graph'
 import { COLLECTION_TYPE, LIST_ITEM } from 'cape-redux-collection'
 
+export const IMAGES = 'ImageObject'
 export const DRAWER = 'HomeDrawer'
 export const OT_ITEM = 'OrderTrackItem'
 export const OT_USER = 'OrderTrackUser'
+export const SETTING = 'WebAppSetting'
 
 export const uid = fireUser => ({ type: OT_USER, id: fireUser.uid })
 
@@ -84,7 +86,9 @@ export default function storeListener(store, firebase) {
   addListener(isAnonymous, store, partialRight(handleLogout, firebase))
   // FIREBASE LOAD to REDUX
   const addTypeLoader = typeLoader(store, firebase)
+  addTypeLoader(IMAGES)
   addTypeLoader(DRAWER)
+  addTypeLoader(SETTING)
   addTypeLoader(OT_ITEM)
   .then(() => addTypeLoader(LIST_ITEM))
   .then(() => addTypeLoader(COLLECTION_TYPE))
@@ -95,5 +99,7 @@ export default function storeListener(store, firebase) {
   addTypeListener(OT_ITEM)
   typeDelete(store, firebase, LIST_ITEM)
   addTypeListener(DRAWER)
+  addTypeListener(SETTING)
+  addTypeListener(IMAGES)
   return store
 }

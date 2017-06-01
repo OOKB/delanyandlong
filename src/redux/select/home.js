@@ -4,6 +4,7 @@ import { selectUser } from 'cape-redux-auth'
 import { select } from 'cape-select'
 
 import { itemsFilled } from './items'
+import { selectActiveDrawer } from './homeDrawerShare'
 
 export const filterOutMissingImages = createSelector(
   itemsFilled,
@@ -23,6 +24,7 @@ export const duplicateItems = flow(
 export const homeItems = createSelector(patternIndex, duplicateItems)
 
 export const homeSelector = createStructuredSelector({
+  drawer: selectActiveDrawer,
   items: homeItems,
   showDrawer: negate(select(selectUser, 'drawer.newSite')),
 })

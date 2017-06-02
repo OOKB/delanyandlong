@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { partial } from 'lodash'
 import Link from 'redux-history-component'
+import marked from 'marked'
 import Close from './CloseButton'
 
 function Drawer(props) {
@@ -22,7 +23,12 @@ function Drawer(props) {
 
         <div className="six columns mb0">
           <h1 className="dark-gold m0 mb05">{title}</h1>
-          <p className="m0">{description}</p>
+          { description &&
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{ __html: marked(description) }}
+            />
+          }
           {collectionLink && <p className="mt1 p0 mono">
             <Link href={collectionLink.href} title={collectionLink.title}>
               {collectionLink.title}

@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 import { partial } from 'lodash'
-import Link from 'redux-history-component'
 import marked from 'marked'
 import Close from './CloseButton'
 
 function Drawer(props) {
   const {
-    collectionLink, description, id, image, imgSize, onClose, sisterSite, title, user,
+    description, id, image, imgSize, onClose, title, user,
   } = props
   return (
     <section className="drawer bg-light-gold p2 relative inset-shadow">
@@ -29,16 +28,6 @@ function Drawer(props) {
               dangerouslySetInnerHTML={{ __html: marked(description) }}
             />
           }
-          {collectionLink && <p className="mt1 p0 mono">
-            <Link href={collectionLink.href} title={collectionLink.title}>
-              {collectionLink.title}
-            </Link>
-          </p>}
-          {sisterSite && <p className="mt1 p0 mono">
-            <a href={sisterSite.href} title={sisterSite.title}>
-              {sisterSite.title}
-            </a>
-          </p>}
         </div>
 
       </div>
@@ -47,31 +36,21 @@ function Drawer(props) {
   )
 }
 
-const urlProp = PropTypes.shape({
+export const urlProp = PropTypes.shape({
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 })
 Drawer.propTypes = {
-  collectionLink: urlProp,
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   imgSize: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
-  sisterSite: urlProp,
   title: PropTypes.string.isRequired,
   user: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Drawer.defaultProps = {
-  collectionLink: {
-    title: 'Explore the Delany & Long collection.',
-    href: 'collection',
-  },
   imgSize: '?w=700',
-  sisterSite: {
-    title: 'Explore the Rogers & Goffigon collection.',
-    href: 'http://www.rogersandgoffigon.com/#collection',
-  },
 }
 
 export default Drawer

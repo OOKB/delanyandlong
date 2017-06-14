@@ -12,15 +12,15 @@ function Drawer(props) {
 
       <Close onClick={partial(onClose, user, id)} className="close right-1 top-1" />
 
-      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
+      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center flex-center">
 
         <img
           alt={title}
-          className="six columns mb0 b1 p05 white mlrauto"
+          className="six mb0 mr1 b1 p05 white mlrauto"
           src={image + imgSize}
         />
 
-        <div className="six columns mb0">
+        <div className="six mb0 ml1">
           <h1 className="dark-gold m0 mb05">{title}</h1>
           { description &&
             <div

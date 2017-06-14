@@ -28,6 +28,7 @@ const state = {
       'All sales are final.',
       'All fabrics are sold as it.',
       'No returns or exchanges.',
+      'Your CFA is your sample.',
     ],
     categoryOptions: [ 'textile', 'trim', 'drapery', 'leather' ],
     detailFields: [ 'categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price' ],

@@ -160,10 +160,9 @@ export default [
   {
     id: 'rockies',
     title: 'Rocky Mountain Representative',
-    name: 'Richard Moreau Lovelace',
-    email: 'richard@rogersandgoffigon.com',
+    name: 'Please call our main customer service number',
     type: 'Showroom',
-    telephone: 'Cell: 303.999.6703, Office: 720.458.0278',
+    telephone: '203.532.0010',
   },
   {
     id: 'sanfranWestCoast',

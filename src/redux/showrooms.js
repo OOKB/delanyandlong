@@ -188,10 +188,9 @@ export default [
   {
     id: 'northwest',
     title: 'Northwest (US & Canada) Representative',
-    name: 'Peg Winship',
-    email: 'peg@rogersandgoffigon.com',
+    name: 'Please call our main customer service number',
     type: 'Showroom',
-    telephone: '206.618.4145',
+    telephone: '203.532.0010',
   },
   {
     id: 'southAmerica',
@@ -224,8 +223,8 @@ export default [
   {
     id: 'southPacific',
     title: 'Australia and New Zealand Representative',
-    name: 'Peg Winship',
-    email: 'peg@rogersandgoffigon.com',
-    telephone: '001.206.618.4145',
+    name: 'Please call our main customer service number',
+    type: 'Showroom',
+    telephone: '001.203.532.0010',
   },
 ]

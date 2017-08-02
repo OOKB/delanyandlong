@@ -12,7 +12,7 @@ export function getServiceText(state) {
 }
 
 const offices = {
-  main: [ 'dlheadquarters' ],
+  main: ['dlheadquarters'],
   us: [
     'NYCshowroom',
     'bostonNE',
@@ -31,7 +31,7 @@ const offices = {
     'southeast',
     'northwest',
   ],
-  world: [ 'southAmerica', 'europe', 'canada', 'southPacific' ],
+  world: ['southAmerica', 'europe', 'canada', 'southPacific'],
 }
 export const officeListSelector = constant(offices)
 export const officeSelector = createSelector(entitySelector, officeListSelector, getObjIds)

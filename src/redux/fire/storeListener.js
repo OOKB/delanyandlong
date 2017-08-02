@@ -11,6 +11,7 @@ export const DRAWER = 'HomeDrawer'
 export const OT_ITEM = 'OrderTrackItem'
 export const OT_USER = 'OrderTrackUser'
 export const SETTING = 'WebAppSetting'
+export const OFFICE = 'Showroom'
 
 export const uid = fireUser => ({ type: OT_USER, id: fireUser.uid })
 
@@ -42,8 +43,8 @@ function handleAuth({ dispatch, getState }, { auth, user }, usr) {
     if (getEntity(state, fireUser)) return loginUsr(fireUser)
     return getChild(user, usr.uid)
     .then(cond([
-      [ isEntityCreated, flow(entityPut, dispatch) ],
-      [ stubTrue, () => auth.signOut() ],
+      [isEntityCreated, flow(entityPut, dispatch)],
+      [stubTrue, () => auth.signOut()],
     ]))
     .then(() => loginUsr(fireUser))
   }
@@ -90,6 +91,7 @@ export default function storeListener(store, firebase) {
   addTypeLoader(DRAWER)
   addTypeLoader(SETTING)
   addTypeLoader(OT_ITEM)
+  addTypeLoader(OFFICE)
   .then(() => addTypeLoader(LIST_ITEM))
   .then(() => addTypeLoader(COLLECTION_TYPE))
   // FIREBASE LISTENERS to REDUX
@@ -101,5 +103,6 @@ export default function storeListener(store, firebase) {
   addTypeListener(DRAWER)
   addTypeListener(SETTING)
   addTypeListener(IMAGES)
+  addTypeListener(OFFICE)
   return store
 }

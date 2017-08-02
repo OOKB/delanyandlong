@@ -94,9 +94,9 @@ export const patternColorSelector = createSelector(
     })
   }
 )
-export const noColor = [ { label: '- All Colors -', value: '' } ]
+export const noColor = [{ label: '- All Colors -', value: '' }]
 export const buildColors = cond([
-  [ isEmpty, constant(null) ],
-  [ stubTrue, flow(pluck('colors'), flatten, uniq, method('sort'), concat(noColor)) ],
+  [isEmpty, constant(null)],
+  [stubTrue, flow(pluck('colors'), flatten, uniq, method('sort'), concat(noColor))],
 ])
 export const colorSelector = createSelector(itemsFilled, buildColors)

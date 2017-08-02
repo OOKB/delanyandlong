@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
+import { isEmpty } from 'lodash'
 import { contactSelector } from '../redux/select/contact'
 // import Editor from '../containers/Editor'
 // <Editor classId="Organization" />
@@ -8,6 +9,7 @@ import Page from './Page'
 import Offices from './Offices'
 
 function Contact({ contactText, offices }) {
+  if (isEmpty(offices)) return <Page><h2>Loading</h2></Page>
   return (
     <Page id="container-contact">
       <main className="pt2 container clearfix">

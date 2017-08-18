@@ -42,9 +42,9 @@ const state = {
     },
     pricelist: {
       columns: {
-        textile: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
-        trim: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth'],
-        drapery: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
+        textile: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'repeat', 'approxWidth'],
+        trim: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'approxWidth'],
+        drapery: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'repeat', 'approxWidth'],
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
@@ -61,7 +61,7 @@ const state = {
         display: ['pricelist', 'display'],
         discontinued: ['pricelist', 'discontinued'],
       },
-      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
+      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img', discontinued: 'discontinued' },
     },
     menu: [
       {
@@ -111,6 +111,21 @@ const state = {
         validators: ['isAuthenticated', 'hasFavorites'],
       },
     ],
+    firebase: {
+      config: {
+        apiKey: 'AIzaSyDmoWCc7mwN02lTBrp0mKmh8oeu_k86C5U',
+        authDomain: 'delanylong.firebaseapp.com',
+        databaseURL: 'https://delanylong.firebaseio.com',
+        storageBucket: 'delanylong.appspot.com',
+      },
+      entityType: {
+        HomeDrawer: true,
+        ImageObject: true,
+        MediaObject: true,
+        OrderTrackItem: true,
+        WebAppSetting: true,
+      },
+    },
     schema: {
       id: {
         label: 'Item#',
@@ -129,6 +144,9 @@ const state = {
       },
       contents: {
         label: 'Content',
+      },
+      discontinued: {
+        label: 'Summer',
       },
       drapery: {
         code: 'W',

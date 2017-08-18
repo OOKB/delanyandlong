@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { resetErrorMessage } from './index'
-
 class ErrorMessage extends Component {
   constructor(props) {
     super(props)
@@ -41,6 +39,12 @@ function mapStateToProps(state) {
   }
 }
 
+// Resets the currently visible error message.
+export function resetErrorMessage() {
+  return {
+    type: 'RESET_ERROR_MESSAGE',
+  }
+}
 export default connect(mapStateToProps, {
   resetErrorMessage,
 })(ErrorMessage)

@@ -1,4 +1,4 @@
-export ErrorMessage from './ErrorMessage'
+export { default as ErrorMessage } from './ErrorMessage'
 
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
 
@@ -16,11 +16,4 @@ export default function errorMessage(state = null, action) {
   }
 
   return state
-}
-
-// Resets the currently visible error message.
-export function resetErrorMessage() {
-  return {
-    type: RESET_ERROR_MESSAGE,
-  }
 }

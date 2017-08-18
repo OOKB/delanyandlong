@@ -13,7 +13,6 @@ function makeValue(key, alt, value) {
 }
 
 function itemLink(item, key, value) {
-  if (key === 'discontinued') return value ? 'y' : 'n'
   if (key !== 'id' && key !== 'color' && key !== 'img') return value
   return <Link href={item.link}>{makeValue(key, item.id, value)}</Link>
 }
@@ -29,6 +28,7 @@ function PricelistRowPattern({ columns, item, printWhenColor }) {
     color: !item.isPattern,
     pattern: item.isPattern,
     category: item.category,
+    discontinued: item.discontinued,
   })
   return (
     <tr className={className}>

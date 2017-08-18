@@ -42,9 +42,9 @@ const state = {
     },
     pricelist: {
       columns: {
-        textile: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'repeat', 'approxWidth'],
-        trim: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'approxWidth'],
-        drapery: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'discontinued', 'contents', 'repeat', 'approxWidth'],
+        textile: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
+        trim: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth'],
+        drapery: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
@@ -61,7 +61,7 @@ const state = {
         display: ['pricelist', 'display'],
         discontinued: ['pricelist', 'discontinued'],
       },
-      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img', discontinued: 'discontinued' },
+      printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
     menu: [
       {

@@ -84,12 +84,15 @@ export const patternColorSelector = createSelector(
   textSearchSelector,
   (items) => {
     let currentPattern = null
+    let showAllPrices = false
     return map(items, (item) => {
       const isPattern = currentPattern !== item.patternNumber
+      if (isPattern) showAllPrices = item.discontinued
       currentPattern = item.patternNumber
       return {
         ...item,
         isPattern,
+        showPrice: showAllPrices || item.discontinued,
       }
     })
   }

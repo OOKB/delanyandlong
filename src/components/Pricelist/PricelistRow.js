@@ -19,7 +19,7 @@ function itemLink(item, key, value) {
 }
 
 function cellValue(item, key, printWhenColor) {
-  if (item.isPattern) return itemLink(item, key, item[key])
+  if (item.isPattern || (key === 'price' && item.showPrice)) return itemLink(item, key, item[key])
   const colorKey = printWhenColor[key]
   return colorKey ? itemLink(item, key, item[colorKey]) : null
 }
@@ -40,7 +40,6 @@ function PricelistRowPattern({ columns, item, printWhenColor }) {
           {cellValue(item, value, printWhenColor)}
         </td>
       ))}
-
     </tr>
   )
 }

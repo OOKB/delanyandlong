@@ -373,3 +373,23 @@ button.summerSale:hover {
     flex: 1 50%;
   }
 }
+
+/** special summer sale stuff? **/
+.discontinued .price {
+  position: relative;
+  color: @orange;
+
+  &::after {
+    position: absolute;
+    content: '\f054';
+    display: block;
+    font: normal normal normal 14px/1 'DL';
+    font-size: 11px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    top: 1em;
+    left: 2.3rem;
+    color: @orange;
+  }
+}

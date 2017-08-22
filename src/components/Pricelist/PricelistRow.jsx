@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import map from 'lodash/map'
 import Link from 'redux-history-component'
@@ -14,7 +15,7 @@ function makeValue(key, alt, value) {
 
 function itemLink(item, key, value) {
   if (key !== 'id' && key !== 'color' && key !== 'img') return value
-  return <Link href={item.link}>{makeValue(key, item.id, value)}</Link>
+  return <Link routeId="detail" id={item.id}>{makeValue(key, item.id, value)}</Link>
 }
 
 function cellValue(item, key, printWhenColor) {

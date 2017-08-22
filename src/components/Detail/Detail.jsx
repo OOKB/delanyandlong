@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react'
-import noop from 'lodash/noop'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { noop } from 'lodash'
 import classnames from 'classnames'
 
 import DetailFooter from './DetailFooter'

@@ -26,7 +26,6 @@ export function itemFill(item, catCodeIndex) {
     categoryCode: catCodeIndex[category],
     color,
     colorNumber,
-    link: `/detail/${id}`,
     img: getImgUrl(id),
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents + name + id).toLowerCase(),

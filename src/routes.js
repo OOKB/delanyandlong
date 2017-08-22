@@ -1,16 +1,12 @@
-import createRouter from 'location-info'
-// import { parse } from 'query-string'
-// const { addRoute, locationInfo } = createRouter({ parseSearch: parse, trailingSlash: false })
+import reducer, { addRoutes } from 'location-info'
 
-const { addRoutes, locationInfo } = createRouter({ trailingSlash: false })
-addRoutes({
-  home: '/',
+// Define our inital state object. This could be a fetch() to an API endpoint.
+export const routes = {
   detail: '/detail/*',
   itemEdit: '/edit/*',
   pricelist: '/collection(/*)',
   projects: '/project',
   project: '/project/:projectId',
-})
-addRoutes([ 'about', 'contact', 'favs', 'login', 'showroom' ])
+}
 
-export default locationInfo
+export default reducer(undefined, addRoutes(routes))

@@ -1,4 +1,5 @@
 import { insertFields } from 'redux-graph'
+import locInfo from '../routes'
 
 export const defaultUser = { id: 'user0', type: 'Person', name: 'Anonymous' }
 export const dataFeed = { id: 'pBlf', type: 'DataFeed', title: 'DL Order Track Data' }
@@ -196,6 +197,7 @@ const state = {
   graph: {
     entity,
   },
+  locInfo,
 }
 
 export default state

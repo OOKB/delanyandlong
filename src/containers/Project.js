@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { allChildrenSelector } from '@kaicurry/redux-graph'
 import { getSelect } from 'cape-select'
 import { collectionListSelector, PREDICATE } from 'cape-redux-collection'
+import { routeParam } from 'cape-routes'
 
 import Component from '../components/Fav/Favs'
-import { routeParam } from '../redux/routing'
 import { itemsFilled } from '../redux/select/items'
 
 const getProjectId = routeParam('projectId')

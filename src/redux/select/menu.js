@@ -3,9 +3,9 @@ import { logout } from 'cape-redux-auth'
 import { keyBy } from 'lodash/fp'
 import { setIn } from 'cape-redux'
 import { favsListSelector } from 'cape-redux-collection'
+import { getRouteId } from 'cape-routes'
 import { getDb } from './'
 import { filterPerms } from './perms'
-import { getRouteId } from '../routing'
 import { projectLink } from '../collection'
 
 export const getMenu = getDb('menu')
@@ -15,7 +15,7 @@ export const menuItems = createSelector(
   favsListSelector,
   (items, favsList) => {
     const menu = keyBy('id')(items)
-    if (menu.project && favsList) return setIn([ 'project', 'href' ], menu, projectLink(favsList))
+    if (menu.project && favsList) return setIn(['project', 'href'], menu, projectLink(favsList))
     return menu
   }
 )

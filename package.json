@@ -61,6 +61,7 @@
     "cape-redux-reducer": "^2.2.1",
     "cape-redux-socket": "^3.0.2",
     "cape-router-component": "^0.0.1",
+    "cape-routes": "^1.1.1",
     "cape-select": "^2.3.1",
     "cape-validate": "^1.0.2",
     "classnames": "^2.2.5",

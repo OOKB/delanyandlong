@@ -17,7 +17,7 @@ export const getItemDetail = getSelect(itemsFilled, getItemId)
 
 export function colorReducer(res, value) {
   if (!value || !value.patternNumber) return res
-  return set(res, [ value.patternNumber, value.id ], value)
+  return set(res, [value.patternNumber, value.id], value)
 }
 export const patternColorIndex = createSelector(
   itemsFilled,

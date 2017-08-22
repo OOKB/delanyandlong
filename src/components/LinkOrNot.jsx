@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'redux-history-component'
 import { merge } from 'cape-redux'
 
@@ -23,7 +24,9 @@ function getLinkStyles(bgImage) {
 
 function LinkOrNot({ children, color, parent, bgImage }) {
   const bgStyle = getLinkStyles(bgImage)
-  if (parent.id === color.id) return <span className="thisItem" style={merge(styles.active, bgStyle)}>{children}</span>
+  if (parent.id === color.id) {
+    return <span className="thisItem" style={merge(styles.active, bgStyle)}>{children}</span>
+  }
   return (
     <Link href={color.link} title={color.id} style={bgStyle} className="bg-cover">
       {children}

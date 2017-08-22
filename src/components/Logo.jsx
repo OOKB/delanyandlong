@@ -1,9 +1,11 @@
 import React from 'react'
+import { stubFalse } from 'lodash'
 import Link from 'redux-history-component'
+import { shouldUpdate } from 'recompose'
 
-function render() {
+function Logo() {
   return (
-    <Link href="/">
+    <Link routeId="home">
       <div className="logo">
         <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 372.7 41.3" style={{ enableBackground: 'new 0 0 372.7 41.3' }}>
           <g className="dl-logo">
@@ -32,7 +34,4 @@ function render() {
 // render.propTypes = {}
 // render.defaultProps = {}
 
-export default class Logo extends React.Component {
-  shouldComponentUpdate() { return false }
-  render = render
-}
+export default shouldUpdate(stubFalse)(Logo)

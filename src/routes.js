@@ -52,7 +52,9 @@ export const menu = keyBy([
 // Define our inital state object. This could be a fetch() to an API endpoint.
 export const routes = {
   detail: '/detail/:id',
+  home: '/',
   itemEdit: '/edit/*',
   showroom: '/showroom',
 }
-export const locInfo = getInitState(actionsFromObj().concat(addRoutes(routes)))
+export const locInfo = getInitState(actionsFromObj(menu).concat(addRoutes(routes)))
+console.log(locInfo)

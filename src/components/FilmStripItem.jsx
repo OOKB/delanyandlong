@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { connectField } from 'redux-field'
 
 import Link from 'redux-history-component'
@@ -10,10 +11,10 @@ function getImgExt(categoryCode) {
   return '?w=1500&h=600&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1'
 }
 function FilmStripItem(item) {
-  const { categoryCode, link } = item
+  const { categoryCode, id } = item
   return (
     <li className="left">
-      <Link href={link} className="wrap">
+      <Link routeId="detail" id={id} className="wrap">
         <ItemImg {...item} imgixExt={getImgExt(categoryCode)} />
       </Link>
       <Info item={item} />

@@ -1,8 +1,8 @@
-// Redux.
-import { applyMiddleware } from 'redux'
-import merge from 'lodash/merge'
+import { merge } from 'lodash'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
 // Allow function action creators.
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import {
   getInitState,
@@ -15,12 +15,13 @@ import io from 'socket.io-client'
 import { middleware as createSocketMiddleware, cookieMiddleware } from 'cape-redux-socket'
 // Redux Reducers.
 // Our reducer index.
-import reducer from 'cape-redux-reducer'
-import createStore from './createStore'
+import * as reducers from './reducer'
 import defaultState from './defaultState'
 import * as firebase from './fire/firebase'
 import fireMiddleware from './fire/middleware'
 import storeListener from './fire/storeListener'
+
+/* global window */
 
 const location = process.env.SOCKET_LOC || ''
 const socket = createSocketMiddleware(io(location))
@@ -44,9 +45,9 @@ export default function configureStore(initialState) {
   }
   const initState = merge(initialState, calculatedState, defaultState)
   const store = createStore(
-    reducer,
+    combineReducers(reducers),
     initState,
-    applyMiddleware(...middleware)
+    composeWithDevTools(applyMiddleware(...middleware))
   )
   syncHistoryWithStore(store, window)
   storeListener(store, firebase)

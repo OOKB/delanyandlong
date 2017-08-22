@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import Link from 'redux-history-component'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const styles = {
   base: {

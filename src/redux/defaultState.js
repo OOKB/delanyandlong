@@ -1,5 +1,5 @@
 import { insertFields } from 'redux-graph'
-import locInfo from '../routes'
+import { locInfo, menu } from '../routes'
 
 export const defaultUser = { id: 'user0', type: 'Person', name: 'Anonymous' }
 export const dataFeed = { id: 'pBlf', type: 'DataFeed', title: 'DL Order Track Data' }
@@ -38,7 +38,7 @@ const state = {
       content: 'Colors and scale shown are not exact. Please request actual samples from your',
       link: {
         title: 'Delany & Long sales representative',
-        href: '/contact',
+        routeId: 'contact',
       },
     },
     pricelist: {
@@ -64,54 +64,7 @@ const state = {
       },
       printWhenColor: { id: 'colorNumber', color: 'color', img: 'img' },
     },
-    menu: [
-      {
-        id: 'about',
-        href: '/about',
-        label: 'About Us',
-        icon: 'info-circle-btm',
-      },
-      {
-        id: 'contact',
-        href: '/contact',
-        label: 'Contact Us',
-        icon: 'envelope-o',
-      },
-      {
-        id: 'pricelist',
-        href: '/collection',
-        icon: 'object-ungroup',
-        label: 'The Collection',
-      },
-      {
-        id: 'tradeLogin',
-        href: '/login',
-        icon: 'trade-login',
-        label: 'Trade Login',
-        validators: ['isAnonymous'],
-      },
-      {
-        id: 'logout',
-        action: 'logout',
-        icon: 'sign-out',
-        label: 'Logout',
-        validators: ['isAuthenticated'],
-      },
-      {
-        id: 'project',
-        href: '/project/',
-        icon: 'heart-o',
-        label: 'Favorites',
-        validators: ['isAnonymous', 'hasFavorites'],
-      },
-      {
-        id: 'projects',
-        href: '/project',
-        icon: 'heart-o',
-        label: 'Projects',
-        validators: ['isAuthenticated', 'hasFavorites'],
-      },
-    ],
+    menu,
     firebase: {
       config: {
         apiKey: 'AIzaSyDmoWCc7mwN02lTBrp0mKmh8oeu_k86C5U',

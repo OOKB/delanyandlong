@@ -4955,9 +4955,20 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-location-info@^4.2.0, location-info@^4.4.0:
+location-info@^4.2.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/location-info/-/location-info-4.4.0.tgz#59e04f1d59d5f227f0c99dd099d257a875c7e328"
+  dependencies:
+    cape-lodash "^1.12.0"
+    cape-redux "^3.1.0"
+    cape-select "^2.4.0"
+    lodash "^4.17.4"
+    reselect "^3.0.0"
+    url-pattern "^1.0.2"
+
+location-info@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/location-info/-/location-info-4.5.0.tgz#07309ddade2046771060aa2722a51a95b8d66b79"
   dependencies:
     cape-lodash "^1.12.0"
     cape-redux "^3.1.0"

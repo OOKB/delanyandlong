@@ -6,7 +6,7 @@ import { saveListItemField } from '../../redux/collection'
 import Component from './FavAlertEl'
 
 function fieldInfo(dispatch, listItem, fieldId) {
-  const prefix = [ listItem.type, listItem.id ]
+  const prefix = [listItem.type, listItem.id]
   const info = {
     id: `${listItem.id}-${fieldId}`,
     fieldId,

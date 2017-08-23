@@ -28,7 +28,7 @@ function LinkOrNot({ children, color, parent, bgImage }) {
     return <span className="thisItem" style={merge(styles.active, bgStyle)}>{children}</span>
   }
   return (
-    <Link href={color.link} title={color.id} style={bgStyle} className="bg-cover">
+    <Link routeId="detail" id={color.id} title={color.id} style={bgStyle} className="bg-cover">
       {children}
     </Link>
   )

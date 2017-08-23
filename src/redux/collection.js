@@ -7,13 +7,8 @@ import { selectUser } from 'cape-redux-auth'
 import { pickTypeId } from '@kaicurry/redux-graph'
 import { getDataFeed, getWebApp } from './select'
 
-export function projectLink(list) {
-  if (!list) return null
-  return `/project/${list.id}`
-}
-
 // Creating a new project popup.
-export const fieldPrefix = [ 'collection', 'title' ]
+export const fieldPrefix = ['collection', 'title']
 const getTitle = fieldValue(fieldPrefix)
 // Return user if there was a title set. Otherwise return webApp.
 export function collectionListAgent(state, props) {
@@ -34,7 +29,7 @@ export const resetField = partial(clear, fieldPrefix)
 export function createCollection(dispatch) {
   return () =>
     dispatch(createListThunk({ additionalType: 'ProjectDelanyLong', title: getTitle }))
-    .then(() => dispatch(resetField()))
+      .then(() => dispatch(resetField()))
 }
 export function saveListItemField({ fieldId, prefix }, listItem) {
   const getVal = fieldValue(prefix)
@@ -46,5 +41,5 @@ export function saveListItemField({ fieldId, prefix }, listItem) {
   }
   return () => (dispatch, getState) =>
     dispatch({ type: UPDATE_ITEM, payload: getPayload(getState()) })
-    .then(() => dispatch(clear(prefix)))
+      .then(() => dispatch(clear(prefix)))
 }

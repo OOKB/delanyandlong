@@ -10,7 +10,7 @@ export const defaultState = immutable({
 })
 export const UPDATE_PROP = 'session/UPDATE_PROP'
 export function updateProp(state, { property, value }) {
-  return property && value && state.set(property, value) || state
+  return property && value && (state.set(property, value) || state)
 }
 const reducers = {
   [UPDATE_PROP]: updateProp,

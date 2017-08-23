@@ -6,7 +6,6 @@ import { favsListSelector } from 'cape-redux-collection'
 import { getRouteId } from 'cape-router'
 import { getDb } from './'
 import { filterPerms } from './perms'
-import { projectLink } from '../collection'
 
 export const getMenu = getDb('menu')
 
@@ -15,7 +14,7 @@ export const menuItems = createSelector(
   favsListSelector,
   (items, favsList) => {
     const menu = keyBy('id')(items)
-    if (menu.project && favsList) return setIn(['project', 'href'], menu, projectLink(favsList))
+    if (menu.project && favsList) return setIn(['project', 'projectId'], menu, favsList.id)
     return menu
   }
 )

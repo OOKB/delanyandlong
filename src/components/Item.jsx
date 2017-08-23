@@ -10,7 +10,7 @@ function Item({ className, description, imgSize, item, onError }) {
   return (
     <li className={className}>
       <ItemFav item={item} />
-      <Link href={item.link}>
+      <Link routeId="detail" id={item.id}>
         <img src={imgSrc} alt={item.id} title={item.id} onError={handleImgError} />
         <div className="description absolute block bg-white">
           <p className="id mono">

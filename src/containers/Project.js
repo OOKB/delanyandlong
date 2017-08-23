@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { allChildrenSelector } from '@kaicurry/redux-graph'
 import { getSelect } from 'cape-select'
 import { collectionListSelector, PREDICATE } from 'cape-redux-collection'
-import { routeParam } from 'cape-routes'
+import { routeParam } from 'cape-router'
 
 import Component from '../components/Fav/Favs'
 import { itemsFilled } from '../redux/select/items'

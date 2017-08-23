@@ -4,6 +4,7 @@
   "description": "Delany & Long Website",
   "homepage": "https://github.com/OOKB/delanyandlong",
   "author": "Office of Kristian Bjornard <info@cape.io> (http://github.com/ookb)",
+  "private": true,
   "contributors": [
     {
       "name": "Kai Curry",
@@ -60,8 +61,8 @@
     "cape-redux-collection": "^3.3.0",
     "cape-redux-reducer": "^2.2.1",
     "cape-redux-socket": "^3.0.2",
-    "cape-router-component": "^0.0.1",
-    "cape-routes": "^1.1.1",
+    "cape-router": "^1.1.5",
+    "cape-router-component": "^0.0.6",
     "cape-select": "^2.3.1",
     "cape-validate": "^1.0.2",
     "classnames": "^2.2.5",
@@ -87,7 +88,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-field": "^3.4.1",
     "redux-graph": "^1.7.1",
-    "redux-history-component": "^2.1.4",
+    "redux-history-component": "^2.1.5",
     "redux-history-sync": "^3.2.2",
     "redux-localstorage": "^1.0.0-rc4",
     "redux-thunk": "^2.1.0",

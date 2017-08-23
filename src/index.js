@@ -1,4 +1,3 @@
-import { createElement } from 'react'
 import { renderRoot } from 'cape-router-component'
 
 import configureStore from './redux/configureStore'

@@ -1,11 +1,11 @@
 import {
-  createHistory, parseUrl, restoreHistory, selectHistoryState, selectActiveKey,
+  createHistory, parseUrl, restoreHistory, selectHistoryState, selectActive,
 } from 'redux-history-sync'
 import { find, orderBy, startsWith } from 'lodash'
 
 export function selectPrevious(state) {
   const historyState = selectHistoryState(state)
-  const active = selectActiveKey(historyState)
+  const active = selectActive(historyState)
   if (historyState.length < 2) return null
   return find(historyState.key, { index: active.index - 1 })
 }

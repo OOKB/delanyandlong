@@ -1790,25 +1790,35 @@ cape-redux@^3.1.0:
     lodash "^4.17.2"
     redux "^3.6.0"
 
-cape-router-component@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/cape-router-component/-/cape-router-component-0.0.1.tgz#30ac10c1fedddd2c3ae3c32038ce0d28dd842d0c"
+cape-router-component@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/cape-router-component/-/cape-router-component-0.0.6.tgz#02d4affa85fb0ef1ffe6ea4c2c043cc933f6c700"
   dependencies:
-    cape-routes "^1.1.1"
+    cape-router "^1.1.4"
     lodash "^4.17.4"
     prop-types "^15.5.10"
     react "^15.6.1"
     react-dom "^15.6.1"
     react-redux "^5.0.6"
 
-cape-routes@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/cape-routes/-/cape-routes-1.1.1.tgz#4eebd2f8fb379671ca401e711eb51f8e3c5b73ef"
+cape-router@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/cape-router/-/cape-router-1.1.4.tgz#5323ea45c116043fe678b85e2fbde5d1454a28a3"
   dependencies:
     cape-select "^2.4.0"
-    location-info "^4.2.0"
+    location-info "^4.5.0"
     lodash "^4.17.4"
-    redux-history-sync "^3.2.1"
+    redux-history-sync "^3.2.2"
+    reselect "^3.0.1"
+
+cape-router@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/cape-router/-/cape-router-1.1.5.tgz#3db35b757490dc1e6a62a70c600e233a36f787bb"
+  dependencies:
+    cape-select "^2.4.0"
+    location-info "^4.5.0"
+    lodash "^4.17.4"
+    redux-history-sync "^3.2.2"
     reselect "^3.0.1"
 
 cape-select@^2.2.1, cape-select@^2.3.1, cape-select@^2.4.0:
@@ -6769,11 +6779,11 @@ redux-graph@^2.11.0, redux-graph@^2.7.0:
     redux "^3.6.0"
     reselect "^3.0.0"
 
-redux-history-component@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.1.4.tgz#9ad9c425b35dc42ae4d4e419a4d8d7a66c0b186e"
+redux-history-component@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.1.5.tgz#0626c0ad236528e2a045736d692c021068731dbb"
   dependencies:
-    cape-routes "^1.1.1"
+    cape-router "^1.1.4"
     classnames "^2.2.5"
     location-info "^4.2.0"
     lodash "^4.17.4"
@@ -6793,7 +6803,7 @@ redux-history-sync@^3.1.0:
     lodash "^4.17.2"
     redux "^3.6.0"
 
-redux-history-sync@^3.2.1, redux-history-sync@^3.2.2:
+redux-history-sync@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/redux-history-sync/-/redux-history-sync-3.2.2.tgz#8244ed8123367122f6d0002193c94a3545a9551b"
   dependencies:

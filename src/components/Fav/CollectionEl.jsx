@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'redux-history-component'
 
 import Icon from '../Icon'
@@ -9,7 +10,7 @@ function CollectionEl({ id, itemListId, onClick, title }) {
       {!itemListId && <Icon symbol="circle-o" className="fa-li light-gray pointer" />}
       {itemListId && <Icon symbol="dot-circle-o" className="fa-li green pointer" />}
       <button className="plain pointer relative gold text-left" onClick={onClick}>{title}</button>
-      <Link href={`/project/${id}`} className="absolute right-0 view">
+      <Link routeId="project" projectId={id} className="absolute right-0 view">
         <Icon symbol="documents" />
         <span className="mono fs0p6 uppercase ml0p25 lightgray">view</span>
       </Link>

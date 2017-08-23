@@ -1,8 +1,9 @@
 import { actionsFromObj, addRoutes, getInitState } from 'location-info'
-import { keyBy } from 'lodash'
+import { at, find, flow, isUndefined, keyBy, map, negate } from 'lodash/fp'
+import { setField } from 'cape-lodash'
 
 // Since route creation and menu creation is basically the same thing, put in the same file.
-export const menu = keyBy([
+const menuItems = [
   {
     id: 'about',
     name: 'About Us',
@@ -30,6 +31,8 @@ export const menu = keyBy([
   {
     id: 'logout',
     action: 'logout',
+    route: false,
+    routeId: null,
     icon: 'sign-out',
     name: 'Logout',
     validators: ['isAuthenticated'],
@@ -48,7 +51,12 @@ export const menu = keyBy([
     routePath: '/project',
     validators: ['isAuthenticated', 'hasFavorites'],
   },
-], 'id')
+]
+export const menu = flow(
+  map(setField('routeId', flow(at(['routeId', 'id']), find(negate(isUndefined))))),
+  keyBy('id')
+)(menuItems)
+
 // Define our inital state object. This could be a fetch() to an API endpoint.
 export const routes = {
   detail: '/detail/:id',
@@ -57,4 +65,3 @@ export const routes = {
   showroom: '/showroom',
 }
 export const locInfo = getInitState(actionsFromObj(menu).concat(addRoutes(routes)))
-console.log(locInfo)

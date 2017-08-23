@@ -1,17 +1,14 @@
 import { createSelector, createStructuredSelector } from 'reselect'
 import { getSelect } from 'cape-select'
-import get from 'lodash/get'
-import reduce from 'lodash/reduce'
-import set from 'lodash/set'
+import { get, reduce, set } from 'lodash'
+import { routeParam } from 'cape-router'
 
 import { getDb, getSchema, optionFill } from './'
 import { itemsFilled } from './items'
 import { filterPerms } from './perms'
 
 // Get the id from the URL.
-export function getItemId(state, props) {
-  return decodeURIComponent(props.route.params._)
-}
+export const getItemId = routeParam('id')
 // Grab item at index.
 export const getItemDetail = getSelect(itemsFilled, getItemId)
 

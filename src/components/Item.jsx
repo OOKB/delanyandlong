@@ -6,7 +6,7 @@ import Icon from './Icon'
 
 function Item({ className, description, imgSize, item, onError }) {
   function handleImgError() { if (onError) onError(item) }
-  const imgSrc = item.img.concat(imgSize)
+  const imgSrc = item.img && item.img.concat(imgSize)
   return (
     <li className={className}>
       <ItemFav item={item} />

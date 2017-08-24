@@ -5,7 +5,7 @@ import Link from 'redux-history-component'
 
 import Icon from './Icon'
 
-function NavItem({ active, action, icon, id, name, routeId }) {
+function NavItem({ active, action, icon, id, name, routeId, ...props }) {
   const Label = (
     <span>
       {icon && <Icon className="visible-sm" symbol={icon} hidden />}
@@ -15,7 +15,7 @@ function NavItem({ active, action, icon, id, name, routeId }) {
 
   return (
     <li className={classnames(id, { active })}>
-      {routeId && <Link routeId={routeId} alt={name} title={name}>{Label}</Link>}
+      {routeId && <Link routeId={routeId} alt={name} title={name} {...props}>{Label}</Link>}
       {action && <button onClick={action}>{Label}</button>}
     </li>
   )

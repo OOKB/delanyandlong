@@ -25,7 +25,7 @@ export function staticFile({ basePath, pathname = '/index.html' }, reply) {
 export function website({ info: { hostname, remotePort }, url }, reply) {
   const location = { ...url, host: hostname }
   const { pathname } = location
-  const basePath = resolve('public')
+  const basePath = resolve('static')
   if (!extname(pathname)) return staticFile({ basePath }, reply)
   return staticFile({ basePath, pathname }, reply)
 }

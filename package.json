@@ -16,8 +16,9 @@
     }
   ],
   "scripts": {
-    "build": "npm run build:lib && react-scripts build",
-    "build:lib": "babel ./prodServer.js -d lib",
+    "build": "npm run build:server && npm run build:website",
+    "build:website": "react-scripts build",
+    "build:server": "babel ./prodServer.js -d lib",
     "clean": "rimraf dist",
     "dev": "SOCKET_LOC=http://dl.l.cape.io:8083/ node server.js",
     "lint": "eslint src test",

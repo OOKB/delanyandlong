@@ -4981,17 +4981,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-location-info@^4.2.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/location-info/-/location-info-4.4.0.tgz#59e04f1d59d5f227f0c99dd099d257a875c7e328"
-  dependencies:
-    cape-lodash "^1.12.0"
-    cape-redux "^3.1.0"
-    cape-select "^2.4.0"
-    lodash "^4.17.4"
-    reselect "^3.0.0"
-    url-pattern "^1.0.2"
-
 location-info@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/location-info/-/location-info-4.5.0.tgz#07309ddade2046771060aa2722a51a95b8d66b79"
@@ -6481,7 +6470,7 @@ react-redux@^4.4.5:
     loose-envify "^1.1.0"
     prop-types "^15.5.4"
 
-react-redux@^5.0.4, react-redux@^5.0.6:
+react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
   dependencies:
@@ -6550,7 +6539,7 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^15.5.4, react@^15.6.1:
+react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -6779,19 +6768,19 @@ redux-graph@^2.11.0, redux-graph@^2.7.0:
     redux "^3.6.0"
     reselect "^3.0.0"
 
-redux-history-component@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.1.5.tgz#0626c0ad236528e2a045736d692c021068731dbb"
+redux-history-component@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.1.6.tgz#b18a92a13e894454a3c8dc151d33717593578dec"
   dependencies:
-    cape-router "^1.1.4"
+    cape-router "^1.1.5"
     classnames "^2.2.5"
-    location-info "^4.2.0"
+    location-info "^4.5.0"
     lodash "^4.17.4"
-    prop-types "^15.5.8"
-    react "^15.5.4"
-    react-redux "^5.0.4"
-    redux "^3.6.0"
-    redux-history-sync "^3.1.0"
+    prop-types "^15.5.10"
+    react "^15.6.1"
+    react-redux "^5.0.6"
+    redux "^3.7.2"
+    redux-history-sync "^3.2.2"
     reselect "^3.0.1"
 
 redux-history-sync@^3.1.0:

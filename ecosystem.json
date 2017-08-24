@@ -13,6 +13,7 @@
 
   "deploy" : {
     "production" : {
+      "identityFile" : "~/.ssh/id_rsa_air",
       "user" : "nodeus",
       "host" : "dong.cape.io",
       "port" : "60022",

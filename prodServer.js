@@ -7,7 +7,7 @@ server.connection({
   host: 'localhost',
   port: 3005,
 })
-server.register([ Inert ])
+server.register([Inert])
 
 export function basicAuth(request, username, password, callback) {
   // console.log(username, password)
@@ -25,7 +25,7 @@ export function staticFile({ basePath, pathname = '/index.html' }, reply) {
 export function website({ info: { hostname, remotePort }, url }, reply) {
   const location = { ...url, host: hostname }
   const { pathname } = location
-  const basePath = resolve('static')
+  const basePath = resolve('public')
   if (!extname(pathname)) return staticFile({ basePath }, reply)
   return staticFile({ basePath, pathname }, reply)
 }

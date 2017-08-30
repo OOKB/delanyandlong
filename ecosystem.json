@@ -20,7 +20,7 @@
       "ref"  : "origin/master",
       "repo" : "https://github.com/OOKB/delanyandlong.git",
       "path" : "/srv/node/delanyandlong",
-      "post-deploy" : "npm update && npm i && npm run build && pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy" : "npm run build && pm2 startOrRestart ecosystem.json --env production"
     }
   }
 }

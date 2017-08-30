@@ -1,5 +1,5 @@
 import { renderRoot } from 'cape-router-component'
-
+import registerServiceWorker from './registerServiceWorker'
 import configureStore from './redux/configureStore'
 import * as RouteIndex from './RouteIndex'
 
@@ -15,3 +15,4 @@ const rootDestEl = window.document.getElementById('root')
 
 // The root component needs the Redux `store`.
 renderRoot({ rootDestEl, RouteIndex, store })
+registerServiceWorker()

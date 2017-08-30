@@ -10,14 +10,13 @@ export const dispatcher = {
   UPDATE_ENTITY: updateItem,
 }
 export default function listMiddleware(firebase) {
-  return (store) => {
+  return store =>
     // Listen to db changes...
-    return next => (action) => {
+    next => (action) => {
       if (!action.type) return next(action)
       if (isFunction(dispatcher[action.type])) {
         return dispatcher[action.type](store, action, firebase, next)
       }
       return next(action)
     }
-  }
 }

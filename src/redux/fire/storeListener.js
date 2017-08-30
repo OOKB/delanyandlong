@@ -18,15 +18,15 @@ export const uid = fireUser => ({ type: OT_USER, id: fireUser.uid })
 function handleLoginToken({ dispatch }, token, { auth }) {
   if (!token) return
   auth.signInWithCustomToken(token)
-  .then(usr => dispatch(loginRedirect(uid(usr), '/collection')))
-  .catch((err) => {
-    console.error(err.message)
-    if (err.code === 'auth/invalid-custom-token') {
-      alert('The token you provided is not valid.')
-    } else {
-      console.error(err)
-    }
-  })
+    .then(usr => dispatch(loginRedirect(uid(usr), '/collection')))
+    .catch((err) => {
+      console.error(err.message)
+      if (err.code === 'auth/invalid-custom-token') {
+        alert('The token you provided is not valid.')
+      } else {
+        console.error(err)
+      }
+    })
 }
 export function getChild(db, id) {
   return db.child(id).once('value').then(res => res.val())
@@ -42,11 +42,11 @@ function handleAuth({ dispatch, getState }, { auth, user }, usr) {
     const loginUsr = flow(login, dispatch)
     if (getEntity(state, fireUser)) return loginUsr(fireUser)
     return getChild(user, usr.uid)
-    .then(cond([
-      [isEntityCreated, flow(entityPut, dispatch)],
-      [stubTrue, () => auth.signOut()],
-    ]))
-    .then(() => loginUsr(fireUser))
+      .then(cond([
+        [isEntityCreated, flow(entityPut, dispatch)],
+        [stubTrue, () => auth.signOut()],
+      ]))
+      .then(() => loginUsr(fireUser))
   }
   dispatch(logout())
   return auth.signInAnonymously()
@@ -92,8 +92,8 @@ export default function storeListener(store, firebase) {
   addTypeLoader(SETTING)
   addTypeLoader(OT_ITEM)
   addTypeLoader(OFFICE)
-  .then(() => addTypeLoader(LIST_ITEM))
-  .then(() => addTypeLoader(COLLECTION_TYPE))
+    .then(() => addTypeLoader(LIST_ITEM))
+    .then(() => addTypeLoader(COLLECTION_TYPE))
   // FIREBASE LISTENERS to REDUX
   const addTypeListener = typeListener(store, firebase)
   addTypeListener(LIST_ITEM)

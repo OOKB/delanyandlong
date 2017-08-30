@@ -17,11 +17,11 @@ const custNum = {
   className: 'accountNumber',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'D&L Account Number',
-  prefix: [ 'login', 'customerNumber' ],
-  validate: fieldValidation([ 'numString', [ 'firstChar', '0' ], [ 'length', 6 ] ]),
+  prefix: ['login', 'customerNumber'],
+  validate: fieldValidation(['numString', ['firstChar', '0'], ['length', 6]]),
 }
 // Zip code validation.
-export const validNumZip = fieldValidation([ 'numString', [ 'length', 5 ] ])
+export const validNumZip = fieldValidation(['numString', ['length', 5]])
 
 const validZipCountries = map([
   'AUSTRALIA',
@@ -64,7 +64,7 @@ export const zip = {
   className: 'zipCode',
   icon: { className: 'light-gray', symbol: 'hashtag' },
   placeholder: 'Postal Code',
-  prefix: [ 'login', 'postalCode' ],
+  prefix: ['login', 'postalCode'],
   validate: validateZip,
 }
 
@@ -82,7 +82,7 @@ export const acctNumState = formState(custNum)
 export const fieldValid = partialRight(flow, overEvery(property('isValid'), property('value')))
 export const acctNumValid = fieldValid(acctNumState)
 export const acctNumId = flow(acctNumState, property('validValue'))
-export const acctNumChecking = flow(over(acctNumValid, acctNumId), isEqual([ true, null ]))
+export const acctNumChecking = flow(over(acctNumValid, acctNumId), isEqual([true, null]))
 export const showZip = overEvery(acctNumValid, acctNumId)
 
 export const zipState = formState(zip)
@@ -95,9 +95,9 @@ export const zipMatch = flow(
   over(getCustomerZip, zipValue),
   spread(eq)
 )
-export const zipInvalid = flow(over(fieldValid(zipState), zipMatch), isEqual([ true, false ]))
+export const zipInvalid = flow(over(fieldValid(zipState), zipMatch), isEqual([true, false]))
 export const showLoginButton = overEvery(showZip, fieldValid(zipState), zipMatch)
-export const uid = cond([ [ showLoginButton, acctNumId ] ])
+export const uid = cond([[showLoginButton, acctNumId]])
 export const validInfo = createStructuredSelector({
   acctNumChecking,
   showZip,

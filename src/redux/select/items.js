@@ -16,6 +16,10 @@ const CDN = 'https://delanyandlong.imgix.net'
 export function getImgUrl(id) {
   return `${CDN}/${id.replace('|', '-')}.jpg`
 }
+export function getSpecSheet({ category, patternNumber }) {
+  if (category !== 'leather') return null
+  return `${CDN}/${patternNumber.toLowerCase()}.pdf`
+}
 export function itemFill(item, catCodeIndex) {
   if (!item || !item.id) return item
   const { id, category, colors, contents, name, patternNumber, price } = item
@@ -29,6 +33,7 @@ export function itemFill(item, catCodeIndex) {
     img: getImgUrl(id),
     price: `$${price}${category === 'leather' ? ' sq ft' : ''}`,
     searchable: (color + contents + name + id).toLowerCase(),
+    specSheet: getSpecSheet(item),
   }
 }
 // All items with type of.

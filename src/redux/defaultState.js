@@ -49,6 +49,7 @@ const state = {
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
+          { value: 'specSheet', label: 'Spec. Sheet' },
         ],
       },
       colorColumnValues: ['id', 'color'],

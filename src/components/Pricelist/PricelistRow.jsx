@@ -16,7 +16,9 @@ function makeValue(key, alt, value) {
 function itemLink(item, key, value) {
   if (key === 'specSheet' && item.specSheet) return <a href={item.specSheet} target="_blank">PDF</a>
   if (key !== 'id' && key !== 'color' && key !== 'img') return value
-  return <Link routeId="detail" id={item.id}>{makeValue(key, item.id, value)}</Link>
+  return (
+    <Link routeId="detail" id={encodeURIComponent(item.id)}>{makeValue(key, item.id, value)}</Link>
+  )
 }
 
 function cellValue(item, key, printWhenColor) {

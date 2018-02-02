@@ -12,7 +12,8 @@ function Drawer(props) {
 
       <Close onClick={partial(onClose, user, id)} className="close right-1 top-1" />
 
-      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center flex-center">
+      {/* <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center flex-center"> */}
+      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
 
         <img
           alt={title}
@@ -20,7 +21,7 @@ function Drawer(props) {
           src={image + imgSize}
         />
 
-        <div className="six mb0 ml1">
+        {/* <div className="six mb0 ml1">
           <h1 className="dark-gold m0 mb05">{title}</h1>
           { description &&
             <div
@@ -28,7 +29,7 @@ function Drawer(props) {
               dangerouslySetInnerHTML={{ __html: marked(description) }}
             />
           }
-        </div>
+        </div> */}
 
       </div>
 

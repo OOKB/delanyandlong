@@ -21,6 +21,7 @@
     "build:server": "babel ./prodServer.js -d lib",
     "clean": "rimraf dist",
     "dev": "SOCKET_LOC=http://dl.l.cape.io:8083/ node server.js",
+    "deploy": "git pull && pm2 deploy production",
     "lint": "eslint src test",
     "prod": "NODE_ENV=production node lib/prodServer.js",
     "start": "react-scripts start",

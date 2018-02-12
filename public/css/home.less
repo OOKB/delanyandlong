@@ -499,4 +499,21 @@
   right: 0;
   z-index: 9999;
   background-color: rgba(190, 191, 164, .7);
+  img {
+    width: auto;
+    height: 80vh;
+    max-height: 1000px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 39.999rem) {
+  #home .drawer {
+    img {
+      width: 80vw;
+      height: auto;
+      max-height: none;
+      max-width: none;
+    }
+  }
 }

@@ -13,13 +13,15 @@ function Drawer(props) {
       <Close onClick={partial(onClose, user, id)} className="close right-1 top-1" />
 
       {/* <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center flex-center"> */}
-      <div className="mb0 pb0 maxw50rem mlrauto clearfix text-center">
+      <div className="m0 p0 text-center flex flex-center">
 
-        <img
-          alt={title}
-          className="six mb0 mr1 b1 p05 white mlrauto"
-          src={image + imgSize}
-        />
+        <a href="/collection" className="no-styles">
+          <img
+            alt={title}
+            className="b1 p05 white"
+            src={image + imgSize}
+          />
+        </a>
 
         {/* <div className="six mb0 ml1">
           <h1 className="dark-gold m0 mb05">{title}</h1>
@@ -51,7 +53,7 @@ Drawer.propTypes = {
   user: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
 }
 Drawer.defaultProps = {
-  imgSize: '?w=700',
+  imgSize: '?w=800',
 }
 
 export default Drawer

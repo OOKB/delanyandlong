@@ -23,7 +23,7 @@ import storeListener from './fire/storeListener'
 
 /* global window */
 
-const location = process.env.SOCKET_LOC || 'http://socket.cape.io/'
+const location = process.env.SOCKET_LOC || 'https://socket.cape.io/'
 const socket = createSocketMiddleware(io(location))
 // Define the middeware we want to apply to the store.
 const middleware = [

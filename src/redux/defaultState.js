@@ -28,7 +28,7 @@ const state = {
       'No returns or exchanges.',
       'Your CFA is your sample.',
     ],
-    categoryOptions: ['textile', 'trim', 'drapery', 'leather'],
+    categoryOptions: ['textile', 'trim', 'linen', 'drapery', 'leather'],
     detailFields: ['categoryCode', 'id', 'name', 'color', 'contents', 'approxWidth', 'price'],
     sisterSite: {
       title: 'For the Rogers & Goffigon collection click here.',
@@ -46,6 +46,7 @@ const state = {
         textile: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
         trim: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'approxWidth'],
         drapery: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
+        linen: ['categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents', 'repeat', 'approxWidth'],
         leather: [
           'categoryCode', 'id', 'name', 'img', 'color', 'price', 'contents',
           { value: 'approxWidth', label: 'Approx. Hide Size' },
@@ -113,6 +114,10 @@ const state = {
       leather: {
         code: 'L',
         label: 'Leather',
+      },
+      linen: {
+        code: 'R',
+        label: 'Treated Linen',
       },
       name: {
         label: 'Pattern Name',

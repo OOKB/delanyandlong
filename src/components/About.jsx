@@ -10,9 +10,15 @@ function About({ aboutText, distributedText }) {
     <Page id="container-about">
       <main className="clear mlrauto">
         <div className="about">
+          <div className="video-wrapper">
+            A video will go here.
+          </div>
           {aboutText.map((pText, index) => <p key={index}>{pText}</p>)}
           <div className="small mt3 bt1 pt2">
             <p><a href="/contact">{distributedText}</a></p>
+          </div>
+          <div className="faq container mt4">
+            FAQ section?
           </div>
         </div>
       </main>

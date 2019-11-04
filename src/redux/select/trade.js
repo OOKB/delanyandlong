@@ -24,6 +24,7 @@ const custNum = {
 export const validNumZip = fieldValidation(['numString', ['length', 5]])
 
 const validZipCountries = map([
+  'Antigua',
   'AUSTRALIA',
   'Belgium',
   'Bermuda',

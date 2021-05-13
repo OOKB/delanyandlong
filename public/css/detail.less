@@ -173,7 +173,6 @@
     text-align: center;
     width: 100%;
     font-size: 2em;
-    line-height: calc(64px - 1.5rem);
   }
 }
 
@@ -190,16 +189,10 @@
 
 #related-colors ul {
   .flex;
-  height: calc(64px - 1.5rem);
+  height: 3rem;
   overflow: hidden;
-}
-
-@media (min-width: @main-break) {
-  #related-colors ul {
-    .flex;
-    overflow: hidden;
-    justify-content: center;
-  }
+  justify-content: center;
+  align-items: center;
 }
 
 #related-colors ul li {
@@ -211,6 +204,9 @@
 #related-colors ul li a {
   display: block;
   height: 100%;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 /** Passementerie based tweaks? **/
 .imageWrapper {

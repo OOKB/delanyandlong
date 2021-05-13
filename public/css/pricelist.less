@@ -286,8 +286,7 @@ button.summerSale:hover {
 
 @media (max-width: @main-break) {
   #pager {
-    margin-top: calc(1.5rem + 2px);
-    margin-bottom: calc(2rem + 2px);
+    margin-top: 2.5rem;
   }
   #pager > div.inputSelect {
     -webkit-box-flex: 2;
@@ -306,11 +305,11 @@ button.summerSale:hover {
   }
   #pager button.control,
   #pager .pagecount {
-    height: calc(1.5rem + 2px);
-    line-height: 1.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
     font-size: 1rem;
     position: absolute;
-    top: calc(-1.5rem - 4px);
+    top: -2.5rem;
     width: calc(100% / 3);
   }
   #pager button.control.next {
@@ -323,6 +322,11 @@ button.summerSale:hover {
     left: calc(100% / 3);
     font-size: .8rem;
     line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: calc(100% / 3);
   }
   #pager .inputSelect {
     height: 3rem;

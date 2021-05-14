@@ -16,7 +16,7 @@ export const cellStyles = {
   id: {
     textAlign: 'right',
     paddingRight: '1em',
-    width: '100px',
+    width: '11em',
     fontFamily: 'monospace',
   },
   name: {

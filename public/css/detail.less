@@ -141,13 +141,15 @@
 @media (min-aspect-ratio: 1/1) {
   #detailWrapper .imageWrapper > img {
     width: 100%;
-    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
   }
 }
 @media (max-aspect-ratio: 1/1) {
   #detailWrapper .imageWrapper > img {
     height: 100%;
-    width: auto;
+    max-width: 100vw;
+    object-fit: cover;
   }
 }
 

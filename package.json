@@ -75,7 +75,7 @@
     "location-info": "^4.5.0",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
-    "moment": "^2.16.0",
+    "moment": "^2.29.2",
     "normalizr": "^2.1.0",
     "prop-types": "^15.5.10",
     "query-string": "^5.0.0",
